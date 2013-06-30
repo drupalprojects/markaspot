@@ -8,5 +8,4 @@ projects[drupal][version] = "7.22"
 projects[markaspot][type] = profile
 projects[markaspot][download][type] = "git"
 projects[markaspot][download][url] = "https://github.com/markaspot/mark-a-spot.git"
-projects[markaspot][download][branch] = "profile"
-
+projects[markaspot][download][branch] = "7.x-2.x-dev"
