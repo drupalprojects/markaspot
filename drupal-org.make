@@ -1,3 +1,6 @@
+api = 2
+core = 7.x
+
 ; Modules
 projects[] = "ctools"
 projects[] = "features"
