@@ -201,7 +201,7 @@ function _createNode(){
     $node->promote = 0;
     $filename = 'image_'.$node_data[9].'.jpg';
     // var_dump(base_path().'profiles/markaspot/themes/mas/images/'.$node_data[9]);
-    $image = file_get_contents('sites/all/themes/mas/images/'.$node_data[9].'.jpg');
+    $image = file_get_contents('profiles/markaspot/themes/mas/images/'.$node_data[9].'.jpg');
     $file = file_save_data($image, 'public://' . $filename, FILE_EXISTS_RENAME);
     $node->field_image = array(LANGUAGE_NONE => array('0' => (array)$file));
 
@@ -217,22 +217,6 @@ function _createNode(){
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
