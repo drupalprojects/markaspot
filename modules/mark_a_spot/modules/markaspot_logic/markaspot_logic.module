@@ -13,7 +13,7 @@ function markaspot_logic_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'report_node_form') {
     $form['field_address']['und'][0]['value']['#type'] = "hidden";
     // Registered users' mail will be prefilled
-    if (isset($user->mail) && arg(0) == 'node' && arg(1) == 'add'){
+    if (isset($user->mail) && arg(0) == 'node' && arg(1) == 'add') {
       $form['field_e_mail']['und'][0]['value']['#default_value'] = $user->mail;
     }
     $form['#validate'][] = 'markaspot_logic_validate';
@@ -28,8 +28,9 @@ function markaspot_logic_validate($node, &$form) {
       form_set_error('field_e_mail', t('Please enter a valid e-mail address.'));
     }
     if (!strstr($form['values']['field_geo']['und'][0]['address']['field'], variable_get('markaspot_city'))) {
-      form_set_error('field_geo',t('The string given for "City" is not valid'));
-    } else {
+      form_set_error('field_geo', t('The string given for "City" is not valid'));
+    } 
+    else {
       // Fill the address field only, if it's not equal to the initial value
       if ($form['values']['field_geo']['und'][0]['lat'] != variable_get('markaspot_ini_lat')) {
         $form['values']['field_address']['und'][0]['value'] = $form['values']['field_geo']['und'][0]['address']['field'];
@@ -52,7 +53,7 @@ function markaspot_logic_node_presave($node) {
 }
 
 
-function markaspot_logic_css_alter(&$css){
+function markaspot_logic_css_alter(&$css) {
   unset($css['misc/ui/jquery.ui.core.css']);
 }
 
@@ -67,7 +68,7 @@ function markaspot_logic_css_alter(&$css){
  
 function markaspot_logic_init() {
   $node = menu_get_object();
-  $type = (isset($node)) ? $node->type : null ;
+  $type = (isset($node)) ? $node->type : NULL ;
   drupal_add_js(array(
     'mas' => array(
       'markaspot_address' => variable_get('markaspot_address'),
@@ -82,20 +83,21 @@ function markaspot_logic_init() {
     'setting'
   );
 
-  drupal_add_js(drupal_get_path('module','markaspot_logic'). '/markaspot_logic.js');
+  drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/markaspot_logic.js');
 
 
 
   // Add some css to show which line is output by which script
-  if (arg(1)!= 'add' && arg(1) != 'edit'){
+  if (arg(1)!= 'add' && arg(1) != 'edit') {
 
     if (variable_get('markaspot_map_type') != 1) {
 
       drupal_add_js('http://maps.google.com/maps/api/js?sensor=false&amp;region=DE', 'external');
-      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markerclusterer.js', null);
-      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/mapiconmaker_packed.js', null);
-      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markers_googlemaps.js', null);
-    } else {
+      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markerclusterer.js', NULL);
+      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/mapiconmaker_packed.js', NULL);
+      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markers_googlemaps.js', NULL);
+    } 
+    else {
       drupal_add_css('http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css', 'external');
       drupal_add_css('http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css', array(
         'group' => CSS_THEME,
@@ -114,8 +116,8 @@ function markaspot_logic_init() {
           )
       ));
       drupal_add_js('http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js', 'external');
-      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markers_leaflet.js', null);
-      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/leaflet.markercluster.js', null);
+      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markers_leaflet.js', NULL);
+      drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/leaflet.markercluster.js', NULL);
     }
   }
   drupal_add_css(drupal_get_path('module', 'custom') . '/css/custom.css', array(
@@ -123,8 +125,8 @@ function markaspot_logic_init() {
   drupal_add_css(drupal_get_path('module', 'markaspot_logic') . '/css/mas-style.css');
 }
  
-function markaspot_logic_getCountVotes(){
-  $list_items = db_query("(SELECT COUNT(*)as Votes FROM {votingapi_vote})");
+function markaspot_logic_getCountVotes() {
+  $list_items = db_query("(SELECT COUNT(*) as Votes FROM {votingapi_vote})");
   foreach ($list_items as $record) {
      return $record->votes;
   }
@@ -138,6 +140,7 @@ function markaspot_logic_getCountVotes(){
  * - Menu item for system settings page accessible for admins
  * 
  */
+
 function markaspot_logic_menu() {
   $items = array();
 
@@ -164,10 +167,6 @@ function markaspot_logic_menu() {
 
   return $items;
 }
-
-
-
-
 
 /**
  * System settings form on admin settings page,
@@ -224,17 +223,17 @@ function markaspot_logic_admin_settings() {
   '#default_value' => variable_get('markaspot_map_type', 0), 
   '#options' => array(t('Google Maps'), t('OSM')),
   );
-  $form['types']['cloudmade_api_key'] = array (
+  $form['types']['cloudmade_api_key'] = array(
     '#type' => 'textfield',
     '#title' => t('Cloudmade API Key'),
     '#default_value' => variable_get('cloudmade_api_key'),
     '#description' => t('Insert your API Key here')
   );
-  if (module_exists('markaspot_tweet311')){
-    $form['twitter'] = array (
+  if (module_exists('markaspot_tweet311')) {
+    $form['twitter'] = array(
       '#type' => 'fieldset',
       '#title' => t('Tweet311 Settings'),
-      '#description' => t('Let Twitter-Users sending issues by sending mentions to ').variable_get('markaspot_twittername').'. '.t('Tweet-location should be enabled. ').t('Tweets are applied to category-id by hashtag (#id)')
+      '#description' => t('Let Twitter-Users sending issues by sending mentions to ') . variable_get('markaspot_twittername') . '. '. t('Tweet-location should be enabled. ') . t('Tweets are applied to category-id by hashtag (#id)')
     );
 
     $form['twitter']['markaspot_twittername'] = array(
@@ -265,7 +264,7 @@ function markaspot_logic_page_alter(&$page) {
   $page['footer']['system_powered-by'] = array(
     '#weight' => -10, 
     // please be nice, give attribution
-    '#markup' => '<span>'.t('Built with <a id="mas-link" href="http://mark-a-spot.org">Mark-a-Spot</a>').'</span>',
+    '#markup' => '<span>' . t('Built with <a id="mas-link" href="http://mark-a-spot.org">Mark-a-Spot</a>') . '</span>',
   );
 }
 
@@ -298,8 +297,6 @@ function _markaspot_logic_defaults($id) {
 
   } 
 }
-
-
 
 /**
  * Implements hook_block_info().
@@ -360,20 +357,20 @@ function markaspot_logic_block_view($delta = '') {
 function markaspot_logic_contents($which_block) {
   switch ($which_block) {
     case 'taxonomy_category': 
-      $list_category  = null;
-      $list_category .= '<div class="btn-group dropup"><button class="btn btn-large btn-primary">'.t('Services').'</button>';
+      $list_category  = NULL;
+      $list_category .= '<div class="btn-group dropup"><button class="btn btn-large btn-primary">' . t('Services') . '</button>';
       $list_category .= '<button class="btn btn-large btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>';
 
       $alter['html'] = TRUE;
       $alter['max_length'] = 25;
-      $alter['word_boundary'] = true;
-      $alter['ellipsis'] = true;
+      $alter['word_boundary'] = TRUE;
+      $alter['ellipsis'] = TRUE;
       $list_category .= '<ul class="dropdown-menu">';
 
 
       $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
-        $list_category .= "\n<li class='marker-category-wrapper'>". l(views_trim_text($alter, $term->name),'taxonomy/term/'.$term->tid, array('attributes' => array('class' => 'map-menue marker-category col-'.$term->field_status_hex['und'][0]['value'], 'id' => 'tax-'.$term->tid))).'</li>';
+        $list_category .= "\n<li class='marker-category-wrapper'>" . l(views_trim_text($alter, $term->name), 'taxonomy/term/' . $term->tid, array('attributes' => array('class' => 'map-menue marker-category col-' . $term->field_status_hex['und'][0]['value'], 'id' => 'tax-' . $term->tid))) . '</li>';
       }
       $list_category .= '</ul>';
       $list_category .= '</div>';
@@ -381,21 +378,21 @@ function markaspot_logic_contents($which_block) {
       return $list_category;
     break;
     case 'taxonomy_status':
-      $list_status  = null;
-      $list_status .= '<div class="btn-group dropup"><button class="btn btn-large btn-primary">'.t('Status').'</button>';
+      $list_status  = NULL;
+      $list_status .= '<div class="btn-group dropup"><button class="btn btn-large btn-primary">' . t('Status') . '</button>';
       $list_status .= '<button class="btn btn-large btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>';
 
 
       $alter['html'] = TRUE;
       $alter['max_length'] = 25;
-      $alter['word_boundary'] = true;
-      $alter['ellipsis'] = true;
+      $alter['word_boundary'] = TRUE;
+      $alter['ellipsis'] = TRUE;
       //views_trim_text($alter, $output); 
       $list_status .= '<ul class="dropdown-menu">';
      
       $taxonomies = taxonomy_get_tree(3, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
-        $list_status .= "\n<li class='marker-status-wrapper'>". l(views_trim_text($alter, $term->name),'taxonomy/term/'.$term->tid, array('attributes' => array('class' => 'map-menue marker-status col-'.$term->field_status_hex['und'][0]['value'], 'id' => 'tax-'.$term->tid))).'</li>';
+        $list_status .= "\n<li class='marker-status-wrapper'>" . l(views_trim_text($alter, $term->name), 'taxonomy/term/' . $term->tid, array('attributes' => array('class' => 'map-menue marker-status col-' . $term->field_status_hex['und'][0]['value'], 'id' => 'tax-' . $term->tid))) . '</li>';
       }
       $list_status .= '</ul>';
       $list_status .= '</div>';
@@ -403,14 +400,9 @@ function markaspot_logic_contents($which_block) {
       return $list_status;
     break;    
     case 'markaspot_map':
-      $list_map = null;
+      $list_map = NULL;
       $list_map = '<ul id="markersidebar"></ul>';
       return $list_map;
 
   }
 }
-
-
-
-
-
