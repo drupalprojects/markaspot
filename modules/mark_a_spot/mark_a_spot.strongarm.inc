@@ -109,6 +109,13 @@ function mark_a_spot_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_report';
+  $strongarm->value = '0';
+  $export['language_content_type_report'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_report';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -129,6 +136,7 @@ function mark_a_spot_strongarm() {
   $strongarm->value = array(
     0 => 'status',
     1 => 'promote',
+    2 => 'revision',
   );
   $export['node_options_report'] = $strongarm;
 
@@ -169,11 +177,12 @@ function mark_a_spot_strongarm() {
     'toggle_secondary_menu' => 1,
     'default_logo' => 0,
     'logo_path' => 'public://logo.png',
+    'logo_upload' => '',
     'default_favicon' => 1,
     'favicon_path' => '',
     'favicon_upload' => '',
     'bootstrap_rebuild_registry' => 0,
-    'cdn_bootstrap' => 1,
+    'cdn_bootstrap' => 0,
     'cdn_bootstrap_version' => '2.3.1',
   );
   $export['theme_mas_settings'] = $strongarm;
