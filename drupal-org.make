@@ -14,6 +14,8 @@ projects[] = "services"
 projects[] = "strongarm"
 projects[] = "views"
 projects[] = "views_datasource"
+projects[] = "better_exposed_filters"
+
 
 ; Themes
 projects[] = "bootstrap"
