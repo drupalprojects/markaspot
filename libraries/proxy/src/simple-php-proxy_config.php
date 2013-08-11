@@ -24,7 +24,7 @@ The first slash is needed the trailing slash is optional
 Use '/my_project/simple-php-proxy/src' if you place the whole folder within your project
 or for usage at webroot level use '/'
 */
-$proxy_base_url = '/proxy/src';
+$proxy_base_url = '/profiles/markaspot/libraries/proxy/src';
 
 /*
 What headers to proxy from destination host to client
