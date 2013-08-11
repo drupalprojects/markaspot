@@ -50,7 +50,7 @@ function mark_a_spot_views_default_views() {
     'title' => 'title',
   );
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Feld: Inhalt: Image */
+  /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image_1']['id'] = 'field_image_1';
   $handler->display->display_options['fields']['field_image_1']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image_1']['field'] = 'field_image';
@@ -67,7 +67,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_image_1']['group_column'] = 'fid';
   $handler->display->display_options['fields']['field_image_1']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image_1']['delta_offset'] = '0';
-  /* Feld: Inhalt: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -80,7 +80,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['preserve_tags'] = '<a>';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Feld: Global: Benutzerdefinierter Text */
+  /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -90,26 +90,26 @@ function mark_a_spot_views_default_views() {
       <!-- h3>[title]</h3 -->
     </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Sortierkriterien: Inhalt: Beitragsdatum */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filterkriterium: Inhalt: Veröffentlicht */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterium: Inhalt: Typ */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'report' => 'report',
   );
-  /* Filterkriterium: Inhalt: Image (field_image:fid) */
+  /* Filter criterion: Content: Image (field_image:fid) */
   $handler->display->display_options['filters']['field_image_fid']['id'] = 'field_image_fid';
   $handler->display->display_options['filters']['field_image_fid']['table'] = 'field_data_field_image';
   $handler->display->display_options['filters']['field_image_fid']['field'] = 'field_image_fid';
@@ -136,6 +136,7 @@ function mark_a_spot_views_default_views() {
       <!-- h3>[title]</h3 -->
     </div>'),
     t('Block'),
+    t('more'),
     t('Seite'),
   );
   $export['Gallery'] = $view;
@@ -171,30 +172,30 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = '';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Kopfbereich: Global: Textbereich */
+  /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  /* Beziehung: Inhalt: Choose Service (field_category) */
+  /* Relationship: Content: Choose Service (field_category) */
   $handler->display->display_options['relationships']['field_category_tid']['id'] = 'field_category_tid';
   $handler->display->display_options['relationships']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['relationships']['field_category_tid']['field'] = 'field_category_tid';
-  /* Beziehung: Inhalt: Status (field_status) */
+  /* Relationship: Content: Status (field_status) */
   $handler->display->display_options['relationships']['field_status_tid']['id'] = 'field_status_tid';
   $handler->display->display_options['relationships']['field_status_tid']['table'] = 'field_data_field_status';
   $handler->display->display_options['relationships']['field_status_tid']['field'] = 'field_status_tid';
-  /* Beziehung: Inhalt: Autor */
+  /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Feld: Inhalt: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Feld: Inhalt: Choose Service */
+  /* Field: Content: Choose Service */
   $handler->display->display_options['fields']['field_category']['id'] = 'field_category';
   $handler->display->display_options['fields']['field_category']['table'] = 'field_data_field_category';
   $handler->display->display_options['fields']['field_category']['field'] = 'field_category';
@@ -205,27 +206,27 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_category']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_category']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_category']['type'] = 'taxonomy_term_reference_plain';
-  /* Feld: Node Id */
+  /* Field: Node Id */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['ui_name'] = 'Node Id';
   $handler->display->display_options['fields']['nid']['label'] = 'nid';
   $handler->display->display_options['fields']['nid']['hide_alter_empty'] = FALSE;
-  /* Feld: Inhalt: Aktualisierungszeitpunkt */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'aktualisiert';
   $handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'long';
-  /* Feld: Inhalt: Beitragsdatum */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'long';
-  /* Feld: Inhalt: Status */
+  /* Field: Content: Status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -236,7 +237,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_status']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_status']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_status']['type'] = 'taxonomy_term_reference_plain';
-  /* Feld: Node Body */
+  /* Field: Node Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -247,14 +248,14 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '600',
   );
-  /* Feld: Status Hex Value */
+  /* Field: Status Hex Value */
   $handler->display->display_options['fields']['field_status_hex']['id'] = 'field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['table'] = 'field_data_field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['field'] = 'field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['relationship'] = 'field_status_tid';
   $handler->display->display_options['fields']['field_status_hex']['ui_name'] = 'Status Hex Value';
   $handler->display->display_options['fields']['field_status_hex']['hide_alter_empty'] = FALSE;
-  /* Feld: Taxonomie-Begriff: categoryHex */
+  /* Field: Taxonomy term: categoryHex */
   $handler->display->display_options['fields']['field_category_hex']['id'] = 'field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['table'] = 'field_data_field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['field'] = 'field_category_hex';
@@ -267,7 +268,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_category_hex']['settings'] = array(
     'trim_length' => '600',
   );
-  /* Feld: Position Latitude */
+  /* Field: Position Latitude */
   $handler->display->display_options['fields']['field_geo_1']['id'] = 'field_geo_1';
   $handler->display->display_options['fields']['field_geo_1']['table'] = 'field_data_field_geo';
   $handler->display->display_options['fields']['field_geo_1']['field'] = 'field_geo';
@@ -277,7 +278,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_geo_1']['click_sort_column'] = 'lat';
   $handler->display->display_options['fields']['field_geo_1']['type'] = 'geolocation_latitude';
   $handler->display->display_options['fields']['field_geo_1']['group_column'] = 'lat';
-  /* Feld: Position Longitude */
+  /* Field: Position Longitude */
   $handler->display->display_options['fields']['field_geo_2']['id'] = 'field_geo_2';
   $handler->display->display_options['fields']['field_geo_2']['table'] = 'field_data_field_geo';
   $handler->display->display_options['fields']['field_geo_2']['field'] = 'field_geo';
@@ -287,7 +288,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_geo_2']['click_sort_column'] = 'lng';
   $handler->display->display_options['fields']['field_geo_2']['type'] = 'geolocation_longitude';
   $handler->display->display_options['fields']['field_geo_2']['group_column'] = 'lat';
-  /* Feld: Inhalt: Image */
+  /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -300,11 +301,11 @@ function mark_a_spot_views_default_views() {
   );
   $handler->display->display_options['fields']['field_image']['group_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Feld: Inhalt: Non located report */
+  /* Field: Content: Non located report */
   $handler->display->display_options['fields']['field_common']['id'] = 'field_common';
   $handler->display->display_options['fields']['field_common']['table'] = 'field_data_field_common';
   $handler->display->display_options['fields']['field_common']['field'] = 'field_common';
-  /* Feld: Taxonomie-Begriff: categoryId */
+  /* Field: Taxonomy term: categoryId */
   $handler->display->display_options['fields']['field_category_id']['id'] = 'field_category_id';
   $handler->display->display_options['fields']['field_category_id']['table'] = 'field_data_field_category_id';
   $handler->display->display_options['fields']['field_category_id']['field'] = 'field_category_id';
@@ -313,19 +314,19 @@ function mark_a_spot_views_default_views() {
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
   );
-  /* Feld: address */
+  /* Field: address */
   $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
   $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['ui_name'] = 'address';
   $handler->display->display_options['fields']['field_address']['label'] = 'address';
-  /* Feld: Path */
+  /* Field: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['ui_name'] = 'Path';
   $handler->display->display_options['fields']['path']['label'] = 'path';
-  /* Feld: User Nickname */
+  /* Field: User Nickname */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -334,7 +335,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = 'userNickname';
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = TRUE;
   $handler->display->display_options['fields']['name']['anonymous_text'] = 'Gast';
-  /* Feld: created timestamp */
+  /* Field: created timestamp */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -342,7 +343,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['created_1']['label'] = 'timestamp';
   $handler->display->display_options['fields']['created_1']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created_1']['custom_date_format'] = 'U';
-  /* Kontextfilter: Inhalt: Choose Service (field_category) */
+  /* Contextual filter: Content: Choose Service (field_category) */
   $handler->display->display_options['arguments']['field_category_tid']['id'] = 'field_category_tid';
   $handler->display->display_options['arguments']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['arguments']['field_category_tid']['field'] = 'field_category_tid';
@@ -351,7 +352,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['field_category_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_category_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_category_tid']['summary_options']['items_per_page'] = '25';
-  /* Kontextfilter: Inhalt: Status (field_status) */
+  /* Contextual filter: Content: Status (field_status) */
   $handler->display->display_options['arguments']['field_status_tid']['id'] = 'field_status_tid';
   $handler->display->display_options['arguments']['field_status_tid']['table'] = 'field_data_field_status';
   $handler->display->display_options['arguments']['field_status_tid']['field'] = 'field_status_tid';
@@ -360,21 +361,21 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['field_status_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_status_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_status_tid']['summary_options']['items_per_page'] = '25';
-  /* Kontextfilter: Inhalt: Beitrags-ID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  /* Filterkriterium: Inhalt: Veröffentlicht */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterium: Inhalt: Typ */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -382,7 +383,7 @@ function mark_a_spot_views_default_views() {
     'report' => 'report',
   );
   $handler->display->display_options['filters']['type']['group'] = '0';
-  /* Filterkriterium: Inhalt: Choose Service (field_category) */
+  /* Filter criterion: Content: Choose Service (field_category) */
   $handler->display->display_options['filters']['field_category_tid']['id'] = 'field_category_tid';
   $handler->display->display_options['filters']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['filters']['field_category_tid']['field'] = 'field_category_tid';
@@ -394,7 +395,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_category_tid']['expose']['identifier'] = 'field_category_tid';
   $handler->display->display_options['filters']['field_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
-  /* Filterkriterium: Inhalt: Status (field_status) */
+  /* Filter criterion: Content: Status (field_status) */
   $handler->display->display_options['filters']['field_status_tid']['id'] = 'field_status_tid';
   $handler->display->display_options['filters']['field_status_tid']['table'] = 'field_data_field_status';
   $handler->display->display_options['filters']['field_status_tid']['field'] = 'field_status_tid';
@@ -445,7 +446,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Feld: Inhalt: Choose Service */
+  /* Field: Content: Choose Service */
   $handler->display->display_options['fields']['field_category']['id'] = 'field_category';
   $handler->display->display_options['fields']['field_category']['table'] = 'field_data_field_category';
   $handler->display->display_options['fields']['field_category']['field'] = 'field_category';
@@ -458,7 +459,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_category']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_category']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_category']['type'] = 'taxonomy_term_reference_plain';
-  /* Feld: Inhalt: Status */
+  /* Field: Content: Status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -471,7 +472,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_status']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_status']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_status']['type'] = 'taxonomy_term_reference_plain';
-  /* Feld: Taxonomie-Begriff: statusHex */
+  /* Field: Taxonomy term: statusHex */
   $handler->display->display_options['fields']['field_status_hex']['id'] = 'field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['table'] = 'field_data_field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['field'] = 'field_status_hex';
@@ -480,7 +481,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_status_hex']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_status_hex']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_status_hex']['hide_alter_empty'] = FALSE;
-  /* Feld: Taxonomie-Begriff: categoryHex */
+  /* Field: Taxonomy term: categoryHex */
   $handler->display->display_options['fields']['field_category_hex']['id'] = 'field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['table'] = 'field_data_field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['field'] = 'field_category_hex';
@@ -489,7 +490,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_category_hex']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_category_hex']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_category_hex']['hide_alter_empty'] = FALSE;
-  /* Feld: Category / Status Bar */
+  /* Field: Category / Status Bar */
   $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
   $handler->display->display_options['fields']['nothing_2']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
@@ -498,7 +499,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex]">[field_category]</span> <span class="label marker-status col-[field_status_hex]">[field_status]</span></div>';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing_2']['hide_alter_empty'] = TRUE;
-  /* Feld: Inhalt: Beitragsdatum */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -506,7 +507,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'medium';
-  /* Feld: Benutzer: Name */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -514,7 +515,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Feld: Inhalt: Aktualisierungszeitpunkt */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
@@ -523,7 +524,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'raw time ago';
-  /* Feld: Meta (name, timestamp) */
+  /* Field: Meta (name, timestamp) */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -532,7 +533,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<span class="submitted meta-info"> [created] </span>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
-  /* Feld: Inhalt: Body */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -540,14 +541,14 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = FALSE;
-  /* Feld: Inhalt: Beitrags-ID */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Feld: Inhalt: Address */
+  /* Field: Content: Address */
   $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
   $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
@@ -560,7 +561,7 @@ function mark_a_spot_views_default_views() {
 </div>';
   $handler->display->display_options['fields']['field_address']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_address']['hide_empty'] = TRUE;
-  /* Feld: Inhalt: Non located report */
+  /* Field: Content: Non located report */
   $handler->display->display_options['fields']['field_common']['id'] = 'field_common';
   $handler->display->display_options['fields']['field_common']['table'] = 'field_data_field_common';
   $handler->display->display_options['fields']['field_common']['field'] = 'field_common';
@@ -570,7 +571,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_common']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_common']['empty'] = '[field_address]';
   $handler->display->display_options['fields']['field_common']['empty_zero'] = TRUE;
-  /* Feld: Inhalt: Verwaltungskommentar */
+  /* Field: Content: Verwaltungskommentar */
   $handler->display->display_options['fields']['field_statement']['id'] = 'field_statement';
   $handler->display->display_options['fields']['field_statement']['table'] = 'field_data_field_statement';
   $handler->display->display_options['fields']['field_statement']['field'] = 'field_statement';
@@ -583,7 +584,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_statement']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontextfilter: Inhalt: Beitrags-ID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -595,14 +596,14 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterium: Inhalt: Veröffentlicht */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterium: Inhalt: Typ */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -679,7 +680,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* Verhalten, wenn keine Ergebnisse vorliegen: Global: Textbereich */
+  /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
@@ -689,14 +690,14 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['empty']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Feld: Inhalt: Beitrags-ID */
+  /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Feld: Inhalt: Status */
+  /* Field: Content: Status */
   $handler->display->display_options['fields']['field_status']['id'] = 'field_status';
   $handler->display->display_options['fields']['field_status']['table'] = 'field_data_field_status';
   $handler->display->display_options['fields']['field_status']['field'] = 'field_status';
@@ -709,7 +710,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_status']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_status']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_status']['type'] = 'taxonomy_term_reference_plain';
-  /* Feld: Inhalt: Choose Service */
+  /* Field: Content: Choose Service */
   $handler->display->display_options['fields']['field_category']['id'] = 'field_category';
   $handler->display->display_options['fields']['field_category']['table'] = 'field_data_field_category';
   $handler->display->display_options['fields']['field_category']['field'] = 'field_category';
@@ -722,7 +723,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_category']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_category']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_category']['type'] = 'taxonomy_term_reference_plain';
-  /* Feld: Inhalt: Beitragsdatum */
+  /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -730,7 +731,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'medium';
-  /* Feld: Taxonomie-Begriff: statusHex */
+  /* Field: Taxonomy term: statusHex */
   $handler->display->display_options['fields']['field_status_hex']['id'] = 'field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['table'] = 'field_data_field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['field'] = 'field_status_hex';
@@ -739,7 +740,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_status_hex']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_status_hex']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_status_hex']['hide_alter_empty'] = FALSE;
-  /* Feld: Taxonomie-Begriff: categoryHex */
+  /* Field: Taxonomy term: categoryHex */
   $handler->display->display_options['fields']['field_category_hex']['id'] = 'field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['table'] = 'field_data_field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['field'] = 'field_category_hex';
@@ -748,7 +749,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_category_hex']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_category_hex']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_category_hex']['hide_alter_empty'] = FALSE;
-  /* Feld: Benutzer: Name */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -756,7 +757,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Feld: Meta (name, timestamp) */
+  /* Field: Meta (name, timestamp) */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -769,7 +770,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
-  /* Feld: Category / Status Bar */
+  /* Field: Category / Status Bar */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
@@ -782,7 +783,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['element_wrapper_type'] = '0';
   $handler->display->display_options['fields']['nothing_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['nothing_1']['hide_alter_empty'] = TRUE;
-  /* Feld: Inhalt: Aktualisierungszeitpunkt */
+  /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
@@ -791,7 +792,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['changed']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['changed']['date_format'] = 'raw time ago';
-  /* Feld: Inhalt: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -801,7 +802,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Feld: Inhalt: Image */
+  /* Field: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -819,7 +820,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_image']['group_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_image']['delta_offset'] = '0';
-  /* Feld: Inhalt: Body */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -836,7 +837,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '200',
   );
-  /* Feld: Inhalt: Non located report */
+  /* Field: Content: Non located report */
   $handler->display->display_options['fields']['field_common']['id'] = 'field_common';
   $handler->display->display_options['fields']['field_common']['table'] = 'field_data_field_common';
   $handler->display->display_options['fields']['field_common']['field'] = 'field_common';
@@ -853,14 +854,14 @@ function mark_a_spot_views_default_views() {
 ';
   $handler->display->display_options['fields']['field_common']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_common']['type'] = 'list_key';
-  /* Feld: Inhalt: Link */
+  /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Weiterlesen';
-  /* Feld: Inhalt: Anzahl an Kommentaren */
+  /* Field: Content: Comment count */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -872,7 +873,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['separator'] = '.';
   $handler->display->display_options['fields']['comment_count']['format_plural_singular'] = '<span class="badge badge-info">1</span> Comment';
   $handler->display->display_options['fields']['comment_count']['format_plural_plural'] = '<span class="badge badge-info">@count</span> Comments';
-  /* Feld: Flag Common */
+  /* Field: Flag Common */
   $handler->display->display_options['fields']['field_common_1']['id'] = 'field_common_1';
   $handler->display->display_options['fields']['field_common_1']['table'] = 'field_data_field_common';
   $handler->display->display_options['fields']['field_common_1']['field'] = 'field_common';
@@ -885,14 +886,14 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_common_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_common_1']['empty_zero'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sortierkriterien: Inhalt: Beitragsdatum */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Beitragsdatum';
-  /* Sortierkriterien: Inhalt: Anzahl an Kommentaren */
+  /* Sort criterion: Content: Comment count */
   $handler->display->display_options['sorts']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['sorts']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['sorts']['comment_count']['field'] = 'comment_count';
@@ -902,14 +903,14 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterium: Inhalt: Veröffentlicht */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterium: Inhalt: Typ */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -917,7 +918,7 @@ function mark_a_spot_views_default_views() {
     'report' => 'report',
   );
   $handler->display->display_options['filters']['type']['group'] = '0';
-  /* Filterkriterium: Inhalt: Choose Service (field_category) */
+  /* Filter criterion: Content: Choose Service (field_category) */
   $handler->display->display_options['filters']['field_category_tid']['id'] = 'field_category_tid';
   $handler->display->display_options['filters']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['filters']['field_category_tid']['field'] = 'field_category_tid';
@@ -937,7 +938,7 @@ function mark_a_spot_views_default_views() {
   );
   $handler->display->display_options['filters']['field_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
-  /* Filterkriterium: Inhalt: Status (field_status) */
+  /* Filter criterion: Content: Status (field_status) */
   $handler->display->display_options['filters']['field_status_tid']['id'] = 'field_status_tid';
   $handler->display->display_options['filters']['field_status_tid']['table'] = 'field_data_field_status';
   $handler->display->display_options['filters']['field_status_tid']['field'] = 'field_status_tid';
@@ -993,13 +994,13 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sortierkriterien: Inhalt: Beitragsdatum */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontextfilter: Inhalt: Beitrags-ID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -1011,7 +1012,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Kontextfilter: Inhalt: Choose Service (field_category) */
+  /* Contextual filter: Content: Choose Service (field_category) */
   $handler->display->display_options['arguments']['field_category_tid']['id'] = 'field_category_tid';
   $handler->display->display_options['arguments']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['arguments']['field_category_tid']['field'] = 'field_category_tid';
@@ -1020,7 +1021,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['field_category_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_category_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_category_tid']['summary_options']['items_per_page'] = '25';
-  /* Kontextfilter: Inhalt: Status (field_status) */
+  /* Contextual filter: Content: Status (field_status) */
   $handler->display->display_options['arguments']['field_status_tid']['id'] = 'field_status_tid';
   $handler->display->display_options['arguments']['field_status_tid']['table'] = 'field_data_field_status';
   $handler->display->display_options['arguments']['field_status_tid']['field'] = 'field_status_tid';
@@ -1065,7 +1066,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontextfilter: Inhalt: Beitrags-ID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -1079,14 +1080,14 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterium: Inhalt: Veröffentlicht */
+  /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterium: Inhalt: Typ */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1094,7 +1095,7 @@ function mark_a_spot_views_default_views() {
     'report' => 'report',
   );
   $handler->display->display_options['filters']['type']['group'] = '0';
-  /* Filterkriterium: Inhalt: Choose Service (field_category) */
+  /* Filter criterion: Content: Choose Service (field_category) */
   $handler->display->display_options['filters']['field_category_tid']['id'] = 'field_category_tid';
   $handler->display->display_options['filters']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['filters']['field_category_tid']['field'] = 'field_category_tid';
@@ -1106,7 +1107,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_category_tid']['expose']['identifier'] = 'field_category_tid';
   $handler->display->display_options['filters']['field_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
-  /* Filterkriterium: Inhalt: Status (field_status) */
+  /* Filter criterion: Content: Status (field_status) */
   $handler->display->display_options['filters']['field_status_tid']['id'] = 'field_status_tid';
   $handler->display->display_options['filters']['field_status_tid']['table'] = 'field_data_field_status';
   $handler->display->display_options['filters']['field_status_tid']['field'] = 'field_status_tid';
@@ -1118,7 +1119,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_status_tid']['expose']['identifier'] = 'field_status_tid';
   $handler->display->display_options['filters']['field_status_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_status_tid']['vocabulary'] = 'status';
-  /* Filterkriterium: greater lat */
+  /* Filter criterion: greater lat */
   $handler->display->display_options['filters']['field_geo_lat']['id'] = 'field_geo_lat';
   $handler->display->display_options['filters']['field_geo_lat']['table'] = 'field_data_field_geo';
   $handler->display->display_options['filters']['field_geo_lat']['field'] = 'field_geo_lat';
@@ -1129,7 +1130,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_geo_lat']['expose']['label'] = 'Place your report (field_geo:lat)';
   $handler->display->display_options['filters']['field_geo_lat']['expose']['operator'] = 'field_geo_lat_op';
   $handler->display->display_options['filters']['field_geo_lat']['expose']['identifier'] = 'field_geo_lat';
-  /* Filterkriterium: less lat */
+  /* Filter criterion: less lat */
   $handler->display->display_options['filters']['field_geo_lat_1']['id'] = 'field_geo_lat_1';
   $handler->display->display_options['filters']['field_geo_lat_1']['table'] = 'field_data_field_geo';
   $handler->display->display_options['filters']['field_geo_lat_1']['field'] = 'field_geo_lat';
@@ -1140,7 +1141,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_geo_lat_1']['expose']['label'] = 'Place your report (field_geo:lat)';
   $handler->display->display_options['filters']['field_geo_lat_1']['expose']['operator'] = 'field_geo_lat_1_op';
   $handler->display->display_options['filters']['field_geo_lat_1']['expose']['identifier'] = 'field_geo_lat_1';
-  /* Filterkriterium: greater lng */
+  /* Filter criterion: greater lng */
   $handler->display->display_options['filters']['field_geo_lng']['id'] = 'field_geo_lng';
   $handler->display->display_options['filters']['field_geo_lng']['table'] = 'field_data_field_geo';
   $handler->display->display_options['filters']['field_geo_lng']['field'] = 'field_geo_lng';
@@ -1151,7 +1152,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_geo_lng']['expose']['label'] = 'Place your report (field_geo:lng)';
   $handler->display->display_options['filters']['field_geo_lng']['expose']['operator'] = 'field_geo_lng_op';
   $handler->display->display_options['filters']['field_geo_lng']['expose']['identifier'] = 'field_geo_lng';
-  /* Filterkriterium: less lng */
+  /* Filter criterion: less lng */
   $handler->display->display_options['filters']['field_geo_lng_1']['id'] = 'field_geo_lng_1';
   $handler->display->display_options['filters']['field_geo_lng_1']['table'] = 'field_data_field_geo';
   $handler->display->display_options['filters']['field_geo_lng_1']['field'] = 'field_geo_lng';
@@ -1198,13 +1199,13 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sortierkriterien: Inhalt: Beitragsdatum */
+  /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontextfilter: Inhalt: Beitrags-ID */
+  /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
@@ -1216,7 +1217,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Kontextfilter: Inhalt: Choose Service (field_category) */
+  /* Contextual filter: Content: Choose Service (field_category) */
   $handler->display->display_options['arguments']['field_category_tid']['id'] = 'field_category_tid';
   $handler->display->display_options['arguments']['field_category_tid']['table'] = 'field_data_field_category';
   $handler->display->display_options['arguments']['field_category_tid']['field'] = 'field_category_tid';
@@ -1225,7 +1226,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['field_category_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_category_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_category_tid']['summary_options']['items_per_page'] = '25';
-  /* Kontextfilter: Inhalt: Status (field_status) */
+  /* Contextual filter: Content: Status (field_status) */
   $handler->display->display_options['arguments']['field_status_tid']['id'] = 'field_status_tid';
   $handler->display->display_options['arguments']['field_status_tid']['table'] = 'field_data_field_status';
   $handler->display->display_options['arguments']['field_status_tid']['field'] = 'field_status_tid';
@@ -1244,9 +1245,9 @@ function mark_a_spot_views_default_views() {
     t('Sortieren nach'),
     t('Aufsteigend'),
     t('Absteigend'),
-    t('Begriff aus field_category'),
-    t('Begriff aus field_status'),
-    t('Autor'),
+    t('term from field_category'),
+    t('term from field_status'),
+    t('author'),
     t('title'),
     t('categoryTitle'),
     t('nid'),
@@ -1271,6 +1272,7 @@ function mark_a_spot_views_default_views() {
     t('Kategorie'),
     t('Status'),
     t('Feed'),
+    t('more'),
     t('Detail view'),
     t('Elemente pro Seite'),
     t('- Alle -'),

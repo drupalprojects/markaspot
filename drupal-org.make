@@ -4,6 +4,7 @@ core = 7.x
 ; Modules
 projects[] = "ctools"
 projects[] = "features"
+projects[] = "entity"
 projects[] = "geolocation"
 projects[] = "field_group"
 projects[] = "field_permissions"
