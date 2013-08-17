@@ -23,7 +23,7 @@ stylesheets[all][] = bootstrap/css/bootstrap.css
 stylesheets[all][] = bootstrap/css/responsive.css
 
 stylesheets[all][] = css/mas.css
-stylesheets[all][] = css/font-awesome.min.css
+;stylesheets[all][] = css/font-awesome.min.css
 scripts[] = js/mas.js
 
 

@@ -162,35 +162,36 @@ var markerLayer, queryString ;
             }
 
             if (getToggle == 1) {
-              colors = {
-               "red" : "FF0000",
-               "darkred" : "8B0000",
-               "orange" : "FFA500",
-               "green" : "008000",
-               "darkgreen" : "006400",
-               "blue" : "0000FF",
-               "darkblue" : "00008B",
-               "purple" : "800080",
-               "darkpurple" : "871F78",
-               "cadetblue" : "5F9EA0"
-              }
+              colors = [
+               {"color" : "red", "hex"  : "FF0000"},
+               {"color" : "darkred", "hex"  : "8B0000" },
+               {"color" : "orange", "hex"  : "FFA500" },
+               {"color" : "green", "hex"  : "008000"},
+               {"color" : "darkgreen", "hex"  : "006400"},
+               {"color" : "blue", "hex"  : "0000FF"},
+               {"color" : "darkblue", "hex"  : "00008B"},
+               {"color" : "purple" , "hex" : "800080"},
+               {"color" : "darkpurple", "hex"  : "871F78"},
+               {"color" : "cadetblue", "hex"  : "5F9EA0"},
+              ]
             }
             if (getToggle == 2) {
-              colors = {
-               "red" : "cc0000",
-               "green" : "8fe83b",
-               "orange" : "ff6600",
-             }
+              colors = [
+                {"color" : "red", "hex" : "cc0000"},
+                {"color" : "green" , "hex" : "8fe83b"},
+                {"color" : "orange" , "hex" : "ff6600"},
+              ]
             }
+
             $.each(colors, function(key, element) {
-              if (item.statusHex == element || item.categoryHex == element) {
-                var awesomeColor = key;
-                var awesomeIcon = 'comments'
+              if (item.statusHex == element.hex || item.categoryHex == element.hex) {
+                var awesomeColor = element.color;
+                var awesomeIcon = (getToggle == 1) ? item.categoryIcon  : item.statusIcon;
                 var marker = new L.Marker(latlon, {icon: L.AwesomeMarkers.icon({icon: awesomeIcon, color: awesomeColor, spin: false}) });
                 marker.bindPopup(html)
                 markerLayer.addLayer(marker);
                 bounds.extend(latlon);
-              }
+               }
             });
 
             var fn  = markerClickFn(latlon, html);
