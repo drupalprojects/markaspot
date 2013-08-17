@@ -601,7 +601,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_common']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_common']['empty'] = '[field_address]';
   $handler->display->display_options['fields']['field_common']['empty_zero'] = TRUE;
-  /* Field: Content: Verwaltungskommentar */
+  /* Field: Content: Adminstration statement */
   $handler->display->display_options['fields']['field_statement']['id'] = 'field_statement';
   $handler->display->display_options['fields']['field_statement']['table'] = 'field_data_field_statement';
   $handler->display->display_options['fields']['field_statement']['field'] = 'field_statement';

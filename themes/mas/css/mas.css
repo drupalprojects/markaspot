@@ -5,6 +5,9 @@ height: 100%;
 
 #map img{max-width: inherit;}
 
+.logo.pull-left img {
+    margin: 5px 0  0;
+}
 
 /* report design */
 
@@ -295,6 +298,12 @@ span.marker-status  {
     display:inline-block;
     width: 45%;
 }
+
+.page-map #map {
+    margin: 70px 0;
+    margin: 40px 0;
+}
+
 
 .page-map .marker-status {
     background: none;

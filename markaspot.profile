@@ -78,16 +78,16 @@ function _createStatus () {
 
   // Define the terms, with description and color
   $terms[0] = array('Open', 'This is just a description which should be replaced', 'cc0000', 'pause');
-  $terms[1] = array('In progress','This is just a description which should be replaced', 'ff6600', 'play') ;
-  $terms[3] = array('Solved','This is just a description which should be replaced', '8fe83b', 'checkmark') ;
-  $terms[4] = array('Archive','This is just a description which should be replaced', 'cccccc', 'drawer') ;
+  $terms[1] = array('In progress','This is just a description which should be replaced', 'ff6600', 'play');
+  $terms[3] = array('Solved','This is just a description which should be replaced', '8fe83b', 'checkmark');
+  $terms[4] = array('Archive','This is just a description which should be replaced', 'cccccc', 'drawer');
 
   // You may customize those entries
-  $terms[5] = array('dummy','This is just a description which should be replaced', '8fe83b') ;
-  $terms[6] = array('dummy','This is just a description which should be replaced', '8fe83b') ;
-  $terms[7] = array('dummy','This is just a description which should be replaced', '8fe83b') ;
-  $terms[8] = array('dummy','This is just a description which should be replaced', '8fe83b') ;
-  $terms[9] = array('dummy','This is just a description which should be replaced', '8fe83b') ;
+  $terms[5] = array('dummy','This is just a description which should be replaced', '8fe83b', '');
+  $terms[6] = array('dummy','This is just a description which should be replaced', '8fe83b', '');
+  $terms[7] = array('dummy','This is just a description which should be replaced', '8fe83b', '');
+  $terms[8] = array('dummy','This is just a description which should be replaced', '8fe83b', '');
+  $terms[9] = array('dummy','This is just a description which should be replaced', '8fe83b', '');
 
   foreach ($terms as $parent) {
     // Create the parent term.
@@ -138,7 +138,7 @@ function _createCategories() {
     $term['field_category_id']['und'][0]['value'] = $parent[2];
     $term['field_hash']['und'][0]['value'] = $parent[3];
     $term['field_category_hex']['und'][0]['value'] = $parent[4];
-    $term['field_icon']['und'][0]['value'] = $parent[5];
+    $term['field_category_icon']['und'][0]['value'] = $parent[5];
 
     // taxonomy_term_save((object)$term);
     // $term = ;

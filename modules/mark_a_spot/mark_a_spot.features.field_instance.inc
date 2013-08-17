@@ -53,7 +53,7 @@ function mark_a_spot_field_default_field_instances() {
     'bundle' => 'report',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Beschreiben Sie Ihr Anliegen, genauere Angaben zum Ort',
+    'description' => 'Enter details of the problem',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -101,31 +101,9 @@ function mark_a_spot_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Ihr Anliegen',
+    'label' => 'Report details',
     'required' => 0,
     'settings' => array(
-      'better_formats' => array(
-        'allowed_formats' => array(
-          'filtered_html' => 'filtered_html',
-          'full_html' => 'full_html',
-          'plain_text' => 'plain_text',
-        ),
-        'allowed_formats_toggle' => 0,
-        'default_order_toggle' => 0,
-        'default_order_wrapper' => array(
-          'formats' => array(
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
-            'full_html' => array(
-              'weight' => 1,
-            ),
-            'plain_text' => array(
-              'weight' => 10,
-            ),
-          ),
-        ),
-      ),
       'display_summary' => 0,
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -686,7 +664,7 @@ function mark_a_spot_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_statement',
-    'label' => 'Verwaltungskommentar',
+    'label' => 'Adminstration statement',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1064,23 +1042,23 @@ function mark_a_spot_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
+  t('Adminstration statement');
   t('Attachments and Documents');
-  t('Beschreiben Sie Ihr Anliegen, genauere Angaben zum Ort');
   t('Bürger benachrichtigen?');
   t('Choose Service');
   t('Comment');
   t('E-Mail');
+  t('Enter details of the problem');
   t('If you want to report a more common issue, click here');
-  t('Ihr Anliegen');
   t('Image');
   t('Non located report');
   t('Place your report');
   t('Please leave an e-Mail address, so that we can contact you, in case you don\'t want to register');
+  t('Report details');
   t('Status');
   t('StatusId');
   t('This field applies to the tweet311 module. A Twitter-hashtag that citizens may use, applying to a certain service/service code/category');
   t('This field can be used for attaching official documents');
-  t('Verwaltungskommentar');
   t('categoryHex');
   t('categoryId');
   t('category_icon');

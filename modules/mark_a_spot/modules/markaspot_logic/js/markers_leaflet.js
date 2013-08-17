@@ -133,8 +133,8 @@ var markerLayer, queryString ;
         categoryCond = mas.params.field_category_tid;
         statusCond = mas.params.field_status_tid;
       }
-      $("#markersidebar >*").remove();
-        $('#map').showLoading();
+      // $("#markersidebar >*").remove();
+        $('#map').showLoading({'indicatorZIndex':2,'overlayZIndex':1, 'parent': '#map'});
 
       $.getJSON(url, function(data){
       }).success(function(data){
