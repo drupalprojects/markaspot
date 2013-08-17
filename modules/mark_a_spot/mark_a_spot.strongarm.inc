@@ -21,7 +21,7 @@ function mark_a_spot_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'clean_url';
-  $strongarm->value = '0';
+  $strongarm->value = 1;
   $export['clean_url'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -116,6 +116,55 @@ function mark_a_spot_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'markaspot_address';
+  $strongarm->value = 'Pingsdorfer Straße 88, 50321 Brühl, Deutschland';
+  $export['markaspot_address'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'markaspot_city';
+  $strongarm->value = 'Brühl';
+  $export['markaspot_city'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'markaspot_country';
+  $strongarm->value = 'Deutschland';
+  $export['markaspot_country'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'markaspot_ini_lat';
+  $strongarm->value = '50.8212596';
+  $export['markaspot_ini_lat'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'markaspot_ini_lng';
+  $strongarm->value = '6.8961028';
+  $export['markaspot_ini_lng'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'markaspot_map_type';
+  $strongarm->value = '1';
+  $export['markaspot_map_type'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'markaspot_zip';
+  $strongarm->value = '50321';
+  $export['markaspot_zip'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_report';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -153,6 +202,34 @@ function mark_a_spot_strongarm() {
   $strongarm->name = 'node_submitted_report';
   $strongarm->value = 1;
   $export['node_submitted_report'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'nw_lat';
+  $strongarm->value = '50.8463';
+  $export['nw_lat'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'nw_lng';
+  $strongarm->value = '6.832';
+  $export['nw_lng'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'se_lat';
+  $strongarm->value = '50.8042';
+  $export['se_lat'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'se_lng';
+  $strongarm->value = '6.937';
+  $export['se_lng'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

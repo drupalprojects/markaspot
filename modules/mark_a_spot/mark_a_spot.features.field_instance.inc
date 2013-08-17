@@ -812,6 +812,40 @@ function mark_a_spot_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-category-field_category_icon'
+  $field_instances['taxonomy_term-category-field_category_icon'] = array(
+    'bundle' => 'category',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_category_icon',
+    'label' => 'category_icon',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-category-field_category_id'
   $field_instances['taxonomy_term-category-field_category_id'] = array(
     'bundle' => 'category',
@@ -960,6 +994,40 @@ function mark_a_spot_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-status-field_status_icon'
+  $field_instances['taxonomy_term-status-field_status_icon'] = array(
+    'bundle' => 'status',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_status_icon',
+    'label' => 'status_icon',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-status-field_status_id'
   $field_instances['taxonomy_term-status-field_status_id'] = array(
     'bundle' => 'status',
@@ -1015,9 +1083,11 @@ function mark_a_spot_field_default_field_instances() {
   t('Verwaltungskommentar');
   t('categoryHex');
   t('categoryId');
+  t('category_icon');
   t('hash');
   t('keywords');
   t('statusHex');
+  t('status_icon');
 
   return $field_instances;
 }
