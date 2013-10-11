@@ -13,6 +13,11 @@
   <![endif]-->
 </head>
 <body class="<?php print $classes; ?>">
+  <div id="header" class="container">
+     <div class="logo-area">
+        <strong class="logo-header"><a href="/">Gießen</a></strong>
+     </div>
+  </div>
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>

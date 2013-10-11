@@ -1,7 +1,7 @@
 <div class="navbar-wrapper">
   <div class="container">
-    <!-- header id="navbar" role="banner" class="navbar nav-collapse collapse navbar-inverse" -->
-    <header id="navbar" role="banner" class="navbar navbar-inverse">
+    <!-- header id="navbar" role="banner" class="navbar-inverse navbar-fixed-top" -->
+    <header id="navbar" role="banner" class="navbar ">
       <div class="navbar-inner">
         <div class="container">
           <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -43,39 +43,25 @@
     </header>
   </div>
 </div>
-<div id="map_wrapper_splash">
-  <a id="start" title="<?php t('Click to get the map view')?>" href="/map"></a>
-  <div id="map" class="front"></div>
-</div>
-<div class="mapheader masthead">
-  <div class="container">
-    <h1>Fix MaS-City</h1>
-    <p>Help to make your city a better place</p>
-    <p>
-      <a href="node/add/report" class="btn btn-primary btn-success btn-large"><i class="icon-bullhorn"> </i> Report Issue</a>
-       <a href="list" class="btn btn-primary btn-action btn-large"><i class="icon-eye-open"> </i>Track Issues</a>
 
-    </p>
-    <ul class="masthead-links">
-      <li>
-        <a href="imprint" onclick="">Imprint</a>
-      </li>
-      <li>
-        <a href="open311" onclick="">Open311</a>
-      </li>
-      <li>
-        <a href="about" onclick="">About us</a>
-      </li>
-      <li>
-        Mark-a-Spot Version 2.2
-      </li>
-    </ul>
-  </div>
+
+
+<div class="carouselheader masthead">
+  <?php
+    $type = 'bootstrap_carousel';
+    $nodes = node_load_multiple(array(), array('type' => $type));
+    foreach ($nodes as $carousel) :
+  ?>
+  <?php
+    $carousel = node_view($carousel);
+    print drupal_render($carousel);
+  ?>
+  <?php endforeach; ?>
 </div>
 
 
 <div class="main-container container">
-  
+
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
       <p class="lead"><?php print $site_slogan; ?></p>
@@ -90,13 +76,10 @@
       <aside class="span3" role="complementary">
         <?php print render($page['sidebar_first']); ?>
       </aside>  <!-- /#sidebar-first -->
-    <?php endif; ?>  
+    <?php endif; ?>
 
-    <section class="<?php print _bootstrap_content_span($columns); ?>">  
-      <?php
-      $viewName = 'Gallery';
-      print views_embed_view($viewName);
-      ?>
+    <section class="<?php print _bootstrap_content_span($columns); ?>">
+
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted hero-unit"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
@@ -117,18 +100,51 @@
       <?php if (!empty($action_links)): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
-      <?php print render($page['content']); ?>
+
+
+      <div class="welcome-text well">
+        <?php
+          $block = module_invoke('block', 'block_view', '1');
+          print render($block['content']);
+          // $block = module_invoke('block', 'block_view', '1');
+          // print $block['content'];
+        ?>
+      </div>
+      <div  class="span4 map" id="map_wrapper_splash">
+         <a id="start" title="Klicken Sie für die Kartenansicht" href="/map"></a>
+         <div id="map"></div>
+       </div>
+      <div class="span5">
+        <div class="add"><a href="node/add/report" class="btn btn-primary btn-large"><h3><i class="icon-bullhorn"></i> Machen Sie mit!</h3>Melden Sie Infrastrukturprobleme in Gießen</a></div>
+        <div class="list"><a href="list" class="btn btn-custom btn-action btn-large"><h3><i class="icon-eye-open"></i> Transparente Anliegen</h3>Wie ist der Bearbeitungsstand anderer Beiträge</a></div>
+      </div>
+      <div>
+      <h3>
+        <?php print t('Reports with Media'); ?>
+      </h3>
+      <?php
+        $viewName = 'Gallery';
+        print views_embed_view($viewName);
+      ?>
+
+      </div>
+
+
     </section>
 
     <?php if (!empty($page['sidebar_second'])): ?>
-      <aside class="span3" role="complementary">     
+      <aside class="span3" role="complementary">
         <?php print render($page['sidebar_second']); ?>
       </aside>  <!-- /#sidebar-second -->
     <?php endif; ?>
 
   </div>
+
+
+
+
 </div>
-<footer class="footer">
+<footer class="footer navbar-bottom">
   <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
     <div id="footer-columns" class="container">
       <?php print render($page['footer_firstcolumn']); ?>
