@@ -162,7 +162,7 @@ function _createCategories() {
 
 
 function _createNode(){
-  $i = 0;
+
   // now creating initial report
   $nodes[0] = array('Garbage Collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8212596','6.8961028','Pingsdorfer Straße 88, 50321 Brühl','holger@markaspot.org','11', '1', '0', 'flickr_by_dancentury_garbage_collection_4585329947');
 
@@ -177,18 +177,21 @@ function _createNode(){
   $nodes[5] = array('Garbage collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.826873' ,' 6.900167','Centre, 50321 Brühl','holger@markaspot.org', '11', '4', '1','flickr_by_realname_garbage-tonal-decay');
 
 
+  $nid =  db_query("SELECT nid FROM {node} ORDER BY nid DESC LIMIT 1")->fetchField();
+  // $nid=strval($last_nid + 1);
+
   foreach ($nodes as $node_data) {
     $node = new stdClass(); // Create a new node object
     $node->type = "report"; // Or page, or whatever content type you like
 
     node_object_prepare($node); // Set some default values
 
-    $i++;
+    $nid++;
     $node->title    = $node_data[0];
     $node->language = 'und'; // Or e.g. 'en' if locale is enabled
 
     $node->uid = 1; // UID of the author of the node; or use $node->name
-    $node->nid = $i;
+    $node->nid = $nid;
     $node->language = 'und'; // language - neutral
     $node->body[$node->language][0]['value']   = $node_data[1];
     $node->body[$node->language][0]['format']  = 'filtered_html';
@@ -225,24 +228,19 @@ function _createNode(){
 
 
 function _build_blocks() {
-  $blocks[0] = array('markaspot_log', 'markaspot_activity', 'sidebar_second', 'mas', 'node/*', '1');
-  $blocks[1] = array('markaspot_logic', 'taxonomy_category', 'sidebar_second', 'mas', 'map', '1');
-  $blocks[2] = array('markaspot_logic', 'taxonomy_status', 'sidebar_second', 'mas', 'map', '1');
-  $blocks[3] = array('markaspot_logic', 'markaspot_map', 'sidebar_second', 'mas', 'map', '1');
-  $blocks[4] = array('markaspot_unpubished', 'recent', 'sidebar_second', 'mas', '<front>', '1');
-  $blocks[5] = array('search', 'form', 'sidebar_second', 'mas', 'map', '1');
-  $blocks[6] = array('system', 'navigation', 'sidebar_second', 'mas', '<front>', '1');
-  $blocks[7] = array('user', 'login', 'sidebar_second', 'mas', '<front>', '1');
-  $blocks[7] = array('user', 'login', 'sidebar_second', 'mas', '<front>', '1');
-  $blocks[7] = array('user', 'login', 'sidebar_second', 'mas', '<front>', '1');
-  $blocks[7] = array('user', 'login', 'sidebar_second', 'mas', '<front>', '1');
-  $blocks[7] = array('user', 'login', 'sidebar_second', 'mas', '<front>', '1');
-
-  foreach ($blocks as $block) {
-    _activate_block($block[0],$block[1],$block[2],$block[3],$block[4],$block[5]);
-  }
-
-
+  _activate_block('markaspot_log', 'markaspot_activity', 'sidebar_second', 'mas', 'node/*', '1');
+  _activate_block('markaspot_logic', 'taxonomy_category', 'sidebar_second', 'mas', 'map', '1');
+  _activate_block('markaspot_logic', 'taxonomy_status', 'sidebar_second', 'mas', 'map', '1');
+  _activate_block('markaspot_logic', 'markaspot_map', 'sidebar_second', 'mas', 'map', '1');
+  _activate_block('markaspot_unpubished', 'recent', 'sidebar_second', 'mas', '<front>', '1');
+  // _activate_block('search', 'form', 'sidebar_second', 'mas', 'map', '0');
+  _activate_block('system', 'navigation', 'sidebar_second', 'mas', '<front>', '1');
+  _activate_block('menu', 'menu-secondary-navigation', 'footer' ,'mas', '', '0');
+  _activate_block('user', 'login', 'sidebar_second', 'mas', '<front>', '1');
+  _activate_block('markaspot_default_content', 'welcome', 'content', 'mas', '<front>', '1');
+  _activate_block('markaspot_stats', 'markaspot_stats', 'sidebar_second', 'mas', '<front>', '1');
+  _activate_block('comment', 'recent', 'sidebar_second', 'mas', '<front>', '1');
+  _activate_block('user', 'new', 'sidebar_second', 'mas', '<front>', '1');
 }
 
 function _activate_block($module, $block, $region, $theme, $pages, $visibility) {
@@ -259,7 +257,7 @@ function _activate_block($module, $block, $region, $theme, $pages, $visibility) 
 }
 
 function _delete_dummies(){
-  $taxonomies = taxonomy_get_tree(3, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+  $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
 
   foreach ($taxonomies as $term) {
   //print_r($term->name);
