@@ -51,8 +51,25 @@ function mark_a_spot_default_content_uuid_features_default_content() {
   'tnid' => 0,
   'translate' => 0,
   'uuid' => 'b5e1651f-9aad-457f-83e6-2a761ad2fd76',
-  'revision_uid' => 0,
-  'body' => array(),
+  'revision_uid' => 1,
+  'body' => array(
+    'und' => array(
+      0 => array(
+        'value' => 'Elementaque phoebe surgere pondus. Partim lucis. Illic illi otia emicuit. Iudicis est adhuc hanc elementaque cognati sponte recens mundo. Vis nebulas fert solum sidera adhuc turba iudicis. Campos circumfuso vix retinebat quam dei summaque. Tempora flexi diu convexi timebat vindice obliquis perveniunt montes.
+
+Stagna erat super retinebat animal. Satus lege pluvialibus natura hominum tempora pondus. Proxima contraria auroram adhuc caeca cesserunt imagine liquidum. Circumfuso norant foret mollia corpora. Prima declivia conversa. Aliis mutatas sorbentur ante. Cingebant tuti erat passim madescit derecti caelumque quem circumfuso. Nunc austro.
+
+Diu quanto poena mentes possedit prima ad. Caelo orbe fert. Media totidemque librata contraria turba dicere corpore principio. Sui caelumque dominari dissociata iners ne spisso solidumque. Aliud quam moles quae. Iners quanto pendebat nam. Animal sectamque horrifer figuras liberioris circumfuso metusque spisso liquidum.',
+        'summary' => '',
+        'format' => 'filtered_html',
+        'safe_value' => '<p>Elementaque phoebe surgere pondus. Partim lucis. Illic illi otia emicuit. Iudicis est adhuc hanc elementaque cognati sponte recens mundo. Vis nebulas fert solum sidera adhuc turba iudicis. Campos circumfuso vix retinebat quam dei summaque. Tempora flexi diu convexi timebat vindice obliquis perveniunt montes.</p>
+<p>Stagna erat super retinebat animal. Satus lege pluvialibus natura hominum tempora pondus. Proxima contraria auroram adhuc caeca cesserunt imagine liquidum. Circumfuso norant foret mollia corpora. Prima declivia conversa. Aliis mutatas sorbentur ante. Cingebant tuti erat passim madescit derecti caelumque quem circumfuso. Nunc austro.</p>
+<p>Diu quanto poena mentes possedit prima ad. Caelo orbe fert. Media totidemque librata contraria turba dicere corpore principio. Sui caelumque dominari dissociata iners ne spisso solidumque. Aliud quam moles quae. Iners quanto pendebat nam. Animal sectamque horrifer figuras liberioris circumfuso metusque spisso liquidum.</p>
+',
+        'safe_summary' => '',
+      ),
+    ),
+  ),
   'cid' => 0,
   'last_comment_name' => NULL,
   'last_comment_uid' => 0,
