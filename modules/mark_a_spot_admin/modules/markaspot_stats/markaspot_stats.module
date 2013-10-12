@@ -2,71 +2,12 @@
 
 /**
  * This module logs and shows logging of node (reports) actions.
- * toDo ... convert to entity-api? http://drupal.org/node/1026420 
+ * toDo ... convert to entity-api? http://drupal.org/node/1026420
  *
- * @author Holger Kreis - holger@markaspot.org
  */
-
-
-
-
-
-// function markaspot_stats_entity_info(){
-//   $markaspot_stats_info['mas_stats'] = array(
-//     'label' => t('Mark-a-Spot Activity Logging'),
-//     'controller class' => 'MasLogController',
-//     'base table' => 'markaspot_log',
-//     // view
-//     'uri callback' => 'markaspot_stats_uri',
-//     'fieldable' => TRUE,
-//     'entity keys' => array(
-//       'id' => 'id',
-//     ),
-//     'static cache' => TRUE,
-//     'bundles' => array(
-//       'markaspot_log'=> array(
-//         'label' => 'Mas_log',
-//         'admin' => array(
-//           'path' => 'admin/structure/mas_stats/manage',
-//           'access arguments' => array('administer Activity Logs'),
-//         ),
-//       ),
-//     ),
-//     'view modes' => array(
-//       'full' => array(
-//         'label' => t('Full MasLog'),
-//         'custom settings' =>  FALSE,
-//       ),
-//     )
-//   );
-  
-//   return $markaspot_stats_info;
-// }
-
-// function markaspot_stats_menu(){
-//   $items['admin/structure/mas_stats/manage'] = array(
-//     'title' => 'PostIt Admin',
-//     'description' => 'Manage PostIT structure',
-//     'page callback' => 'markaspot_stats_info',
-//     'access arguments' => array('administer mas_stats'),
-//   );
-//   $items['mas_stats/%mas_stats'] = array(
-//     'title callback' => 'markaspot_stats_page_title',
-//     'title arguments' => array(1),
-//     'page callback' => 'markaspot_stats_page_view',
-//     'page arguments' => array(1),
-//     'access arguments' => array('view mas_stats'),
-//     'type' => MENU_CALLBACK,
-//   );
-//   return $items;
-// }
 
 function markaspot_stats_permission(){
     return array(
-    // 'administer mas_stats' =>  array(
-    //   'title' => t('Administer mas_stats'),
-    //   'restrict access' => TRUE,
-    // ),
     'view_mas_stats' => array(
       'title' => t('View Stats'),
     )
@@ -74,48 +15,12 @@ function markaspot_stats_permission(){
 }
 
 
-// function markaspot_stats_info() {
-//   return ('Welcome to the administration page for your Postits!');
-// }
-
-// function markaspot_stats_page_title($mas_stats){
-//   return $mas_stats->id;
-// }
-
-// function markaspot_stats_page_view($mas_stats, $view_mode = 'full'){
-//   $mas_stats->content = array();
-
-//   // Build fields content.
-//   field_attach_prepare_view('mas_stats', array($mas_stats->id => $mas_stats), $view_mode);
-//   entity_prepare_view('mas_stats', array($mas_stats->id => $mas_stats));
-//   $mas_stats->content += field_attach_view('mas_stats', $mas_stats, $view_mode);
-
-//   return $mas_stats->content;
-// }
-
-
-// function markaspot_stats_field_extra_fields() {
-//   $return = array();
-//   $return['mas_stats']['mas_stats'] = array(
-//     'form' => array(
-//       'note' => array(
-//         'label' => t('Note'),
-//         'description' => t('PostIt Note'),
-//       ),
-//     ),
-//   );
-
-//   return $return;
-// }
-
-
-
 /**
  * Implements hook_block_info().
  *
- * 
+ *
  */
- 
+
 function markaspot_stats_block_info() {
   $blocks['markaspot_stats'] = array(
       'info' => t('Mark-a-Spot: Show Stats Block'),
@@ -135,26 +40,17 @@ function markaspot_stats_block_view($delta = '') {
       $block['subject'] = t('Mark-a-Spot Statistics');
 
       if (user_access('view_mas_stats')) {
-        
+
         $items = array();
 
-        $block['content'] =  '<h3>'.t("Category").'</h3>';     
+        $block['content'] =  '<h3>'.t("Category").'</h3>';
+        $tax_stats = taxonomy_get_tree(1, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+        $block['content'] .= theme('item_list', array(
+          'items' =>  _markaspot_stats_taxonomy($tax_stats)));
+        $block['content'] .=  '<h3>'.t("Status").'</h3>';
         $tax_stats = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
         $block['content'] .= theme('item_list', array(
           'items' =>  _markaspot_stats_taxonomy($tax_stats)));
-        $block['content'] .=  '<h3>'.t("Status").'</h3>';     
-        $tax_stats = taxonomy_get_tree(3, $parent = 0, $max_depth = 1, $load_entities = TRUE);
-        
-        $block['content'] .= theme('item_list', array(
-          'items' =>  _markaspot_stats_taxonomy($tax_stats)));
-
-        // $block['content'] .= '<h3>'.t('Users').'</h3>';
-        // $block['content'] .= _markaspot_stats_users();
-        // if (variable_get('visitors_published_nodes', 1)) {
-        //   $block['content'] .= t('Published Nodes: %nodes', array('%nodes' => db_query("SELECT COUNT(*) FROM {comments} WHERE status = 0")
-        //     )
-        // );
-        //
       }
     break;
   }
@@ -175,10 +71,10 @@ function _markaspot_stats_get($tid) {
   $result = array_map('intval', taxonomy_select_nodes($tids, $pager=null));
   // now match the values and count clean array keys;
   if (field_info_field('field_no_stat')){
-    //return count($result); 
+    //return count($result);
     return count(array_diff($result, _markaspot_stats_ignore()));
   } else {
-    return count($result); 
+    return count($result);
   }
 }
 
@@ -205,6 +101,7 @@ function _markaspot_stats_ignore(){
 }
 
 function _markaspot_stats_taxonomy($tax_stats){
+  $tids = null;
   foreach ($tax_stats as $taxonomy_term) {
     $tids['tids'][] = array($taxonomy_term->tid,$taxonomy_term->name);
   }
@@ -216,7 +113,7 @@ function _markaspot_stats_taxonomy($tax_stats){
   foreach ($tids['tids'] as $tid) {
     $items[] = array(
       'data' => '<span class="">'.views_trim_text($alter,$tid[1]).' : <strong>'._markaspot_stats_get($tid[0]).' </strong></span>');
-  }     
+  }
   return $items;
 }
 
@@ -226,7 +123,6 @@ function _markaspot_stats_users(){
   $interval   = REQUEST_TIME - variable_get('user_block_seconds_online', 900);
   $count_anon = _markaspot_session_count($interval, TRUE);
   $count_auth = _markaspot_session_count($interval, FALSE);
-  
   $users  = t('All registered users:');
   $users .= $members;
   $users .= ' <br /> ';
