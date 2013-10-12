@@ -104,10 +104,8 @@
 
       <div class="welcome-text well">
         <?php
-          $block = module_invoke('block', 'block_view', '1');
+          $block = module_invoke('markaspot_default_content', 'block_view', 'welcome');
           print render($block['content']);
-          // $block = module_invoke('block', 'block_view', '1');
-          // print $block['content'];
         ?>
       </div>
       <div  class="span4 map" id="map_wrapper_splash">
@@ -115,8 +113,13 @@
          <div id="map"></div>
        </div>
       <div class="span5">
-        <div class="add"><a href="node/add/report" class="btn btn-primary btn-large"><h3><i class="icon-bullhorn"></i> Machen Sie mit!</h3>Melden Sie Infrastrukturprobleme in Gießen</a></div>
-        <div class="list"><a href="list" class="btn btn-custom btn-action btn-large"><h3><i class="icon-eye-open"></i> Transparente Anliegen</h3>Wie ist der Bearbeitungsstand anderer Beiträge</a></div>
+
+        <?php
+          $block = module_invoke('markaspot_default_content', 'block_view', 'add_reports');
+          print render($block['content']);
+          $block = module_invoke('markaspot_default_content', 'block_view', 'watch_reports');
+          print render($block['content']);        ?>
+
       </div>
       <div>
       <h3>
