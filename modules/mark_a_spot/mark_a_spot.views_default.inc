@@ -404,9 +404,14 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_category_tid']['group'] = '0';
   $handler->display->display_options['filters']['field_category_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_category_tid']['expose']['operator_id'] = 'field_category_tid_op';
-  $handler->display->display_options['filters']['field_category_tid']['expose']['label'] = 'Kategorie';
+  $handler->display->display_options['filters']['field_category_tid']['expose']['label'] = 'Service';
   $handler->display->display_options['filters']['field_category_tid']['expose']['operator'] = 'field_category_tid_op';
   $handler->display->display_options['filters']['field_category_tid']['expose']['identifier'] = 'field_category_tid';
+  $handler->display->display_options['filters']['field_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
   $handler->display->display_options['filters']['field_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
   /* Filter criterion: Content: Status (field_status) */
@@ -495,6 +500,22 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_status_hex']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_status_hex']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_status_hex']['hide_alter_empty'] = FALSE;
+  /* Field: Taxonomy term: statusHex */
+  $handler->display->display_options['fields']['field_status_hex_1']['id'] = 'field_status_hex_1';
+  $handler->display->display_options['fields']['field_status_hex_1']['table'] = 'field_data_field_status_hex';
+  $handler->display->display_options['fields']['field_status_hex_1']['field'] = 'field_status_hex';
+  $handler->display->display_options['fields']['field_status_hex_1']['relationship'] = 'field_status_tid';
+  $handler->display->display_options['fields']['field_status_hex_1']['label'] = '';
+  $handler->display->display_options['fields']['field_status_hex_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_status_hex_1']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: status_icon */
+  $handler->display->display_options['fields']['field_status_icon']['id'] = 'field_status_icon';
+  $handler->display->display_options['fields']['field_status_icon']['table'] = 'field_data_field_status_icon';
+  $handler->display->display_options['fields']['field_status_icon']['field'] = 'field_status_icon';
+  $handler->display->display_options['fields']['field_status_icon']['relationship'] = 'field_status_tid';
+  $handler->display->display_options['fields']['field_status_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_status_icon']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_status_icon']['element_label_colon'] = FALSE;
   /* Field: Taxonomy term: categoryHex */
   $handler->display->display_options['fields']['field_category_hex']['id'] = 'field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['table'] = 'field_data_field_category_hex';
@@ -504,14 +525,6 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_category_hex']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_category_hex']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_category_hex']['hide_alter_empty'] = FALSE;
-  /* Field: Taxonomy term: status_icon */
-  $handler->display->display_options['fields']['field_status_icon']['id'] = 'field_status_icon';
-  $handler->display->display_options['fields']['field_status_icon']['table'] = 'field_data_field_status_icon';
-  $handler->display->display_options['fields']['field_status_icon']['field'] = 'field_status_icon';
-  $handler->display->display_options['fields']['field_status_icon']['relationship'] = 'field_status_tid';
-  $handler->display->display_options['fields']['field_status_icon']['label'] = '';
-  $handler->display->display_options['fields']['field_status_icon']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_status_icon']['element_label_colon'] = FALSE;
   /* Field: Taxonomy term: category_icon */
   $handler->display->display_options['fields']['field_category_icon']['id'] = 'field_category_icon';
   $handler->display->display_options['fields']['field_category_icon']['table'] = 'field_data_field_category_icon';
@@ -526,7 +539,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_2']['ui_name'] = 'Category / Status Bar';
   $handler->display->display_options['fields']['nothing_2']['label'] = '';
-  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex]"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex]"><i class="icon-li icon-[field_status_icon]"></i> [field_status]</span></div>';
+  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex] span6"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex] span6"><i class="icon-li icon-[field_status_icon]"></i> [field_status]</span></div>';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing_2']['hide_alter_empty'] = TRUE;
   /* Field: Content: Post date */
@@ -786,7 +799,17 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_category_icon']['relationship'] = 'field_category_tid';
   $handler->display->display_options['fields']['field_category_icon']['ui_name'] = 'Category Icon';
   $handler->display->display_options['fields']['field_category_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_category_icon']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_category_icon']['element_label_colon'] = FALSE;
+  /* Field: Status Icon */
+  $handler->display->display_options['fields']['field_status_icon']['id'] = 'field_status_icon';
+  $handler->display->display_options['fields']['field_status_icon']['table'] = 'field_data_field_status_icon';
+  $handler->display->display_options['fields']['field_status_icon']['field'] = 'field_status_icon';
+  $handler->display->display_options['fields']['field_status_icon']['relationship'] = 'field_status_tid';
+  $handler->display->display_options['fields']['field_status_icon']['ui_name'] = 'Status Icon';
+  $handler->display->display_options['fields']['field_status_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_status_icon']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_status_icon']['element_label_colon'] = FALSE;
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -814,7 +837,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'Category / Status Bar';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
-  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex]"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex]">[field_status]</span></div>';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex] span6"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex] span6"><i class="icon-li icon-[field_status_icon]"></i> [field_status]</span></div>';
   $handler->display->display_options['fields']['nothing_1']['element_type'] = '0';
   $handler->display->display_options['fields']['nothing_1']['element_label_type'] = '0';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
@@ -904,6 +927,7 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['label'] = '';
+  $handler->display->display_options['fields']['comment_count']['exclude'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '<span class="badge badge-info">[comment_count]</span> Comments';
   $handler->display->display_options['fields']['comment_count']['alter']['path'] = 'node/[nid]';
@@ -929,14 +953,12 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['created']['expose']['label'] = 'Beitragsdatum';
   /* Sort criterion: Content: Comment count */
   $handler->display->display_options['sorts']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['sorts']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['sorts']['comment_count']['field'] = 'comment_count';
   $handler->display->display_options['sorts']['comment_count']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['comment_count']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['comment_count']['expose']['label'] = 'Anzahl an Kommentaren';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
@@ -1104,7 +1126,7 @@ function mark_a_spot_views_default_views() {
     t('statusIcon'),
     t('categoryIcon'),
     t('Alle'),
-    t('Kategorie'),
+    t('Service'),
     t('Status'),
     t('Feed'),
     t('more'),
@@ -1118,7 +1140,7 @@ function mark_a_spot_views_default_views() {
     t('letzte Seite »'),
     t('[field_category]'),
     t('[field_status]'),
-    t('<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex]"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex]"><i class="icon-li icon-[field_status_icon]"></i> [field_status]</span></div>'),
+    t('<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex] span6"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex] span6"><i class="icon-li icon-[field_status_icon]"></i> [field_status]</span></div>'),
     t('<span class="submitted meta-info"> [created] </span>'),
     t('<div id="address-block">
 <h3 class="label">Adresse</h3>
@@ -1133,7 +1155,6 @@ function mark_a_spot_views_default_views() {
     t('List view'),
     t('No Results'),
     t('Für diese Kategorie / Status haben wir keine aktuellen Beiträge'),
-    t('<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex]"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex]">[field_status]</span></div>'),
     t('<h3 class="list-title">[title]</h3>'),
     t('<div class="non-located">Unlocated Report</div><div class="no-markers"><span></span></div>'),
     t('<div class="show-markers" title="Show marker in map" id="marker_[nid]"><span class="icon-chevron-left"></span></div>
@@ -1144,6 +1165,7 @@ function mark_a_spot_views_default_views() {
     t('common yes'),
     t('Beitragsdatum'),
     t('Anzahl an Kommentaren'),
+    t('Kategorie'),
     t('JSON View'),
     t('Sortieren'),
   );

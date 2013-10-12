@@ -48,7 +48,7 @@ function mark_a_spot_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_report_form';
   $field_group->data = array(
-    'label' => t('Location'),
+    'label' => 'Location',
     'weight' => '1',
     'children' => array(
       0 => 'field_address',
@@ -76,7 +76,7 @@ function mark_a_spot_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_report_form';
   $field_group->data = array(
-    'label' => t('Media'),
+    'label' => 'Media',
     'weight' => '3',
     'children' => array(
       0 => 'field_image',
@@ -134,7 +134,7 @@ function mark_a_spot_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_report_form';
   $field_group->data = array(
-    'label' => t('Your report'),
+    'label' => 'Your report',
     'weight' => '2',
     'children' => array(
       0 => 'body',
@@ -144,7 +144,7 @@ function mark_a_spot_field_group_info() {
     ),
     'format_type' => 'bootstrap_fieldgroup_nav_item',
     'format_settings' => array(
-      'label' => t('Your report'),
+      'label' => 'Your report',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => ' group-report field-group-bootstrap_fieldgroup_nav_item',

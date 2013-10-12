@@ -508,5 +508,7 @@ function mark_a_spot_default_page_manager_pages() {
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['page_list'] = $page;
+
   return $pages;
+
 }
