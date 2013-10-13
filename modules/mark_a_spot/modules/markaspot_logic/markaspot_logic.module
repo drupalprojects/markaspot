@@ -400,12 +400,6 @@ function _markaspot_logic_defaults($id) {
 
 
 
-/**
- * Implements hook_block_info().
- *
- * This hook declares what blocks are provided by the module.
- */
-
 function markaspot_logic_block_info() {
 
   $blocks['taxonomy_category'] = array(
@@ -472,7 +466,7 @@ function markaspot_logic_contents($which_block) {
       $list_category   .= '<li class="marker-category-wrapper-all">'. l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-category'))).'</li>';
       $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
-        $list_category .= '<li class="marker-category-wrapper">'. l(views_trim_text($alter, $term->name),'taxonomy/term/'.$term->tid, array('attributes' => array('class' => 'map-menue marker-category col-'.$term->field_category_hex['und'][0]['value'].' icon-'.$term->field_category_icon['und'][0]['value'], 'id' => 'tax-'.$term->tid))).'</li>';
+        $list_category .= '<li class="marker-status-wrapper">' . l('<span class="icon-' . $term->field_category_icon['und'][0]['value'] .'"></span> ' . views_trim_text($alter, $term->name),'taxonomy/term/'. $term->tid, array('attributes' => array('class' => 'map-menue marker-category col-'.$term->field_category_hex['und'][0]['value'], 'id' => 'tax-'.$term->tid), 'html' => TRUE)) .'</li>';
       }
       $list_category   .= '</ul>';
       $list_category   .= '</div>';
@@ -495,7 +489,7 @@ function markaspot_logic_contents($which_block) {
 
       $taxonomies = taxonomy_get_tree(3, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
-        $list_status .= "\n<li class='marker-status-wrapper'>". l(views_trim_text($alter, $term->name),'taxonomy/term/'.$term->tid, array('attributes' => array('class' => 'map-menue marker-status col-'.$term->field_status_hex['und'][0]['value'].' icon-'.$term->field_status_icon['und'][0]['value'], 'id' => 'tax-'.$term->tid))).'</li>';
+        $list_status .= '<li class="marker-status-wrapper">'. l('<span class="icon-' . $term->field_status_icon['und'][0]['value'] .'"></span> ' . views_trim_text($alter, $term->name),'taxonomy/term/'. $term->tid, array('attributes' => array('class' => 'map-menue marker-status col-'.$term->field_status_hex['und'][0]['value'], 'id' => 'tax-'.$term->tid), 'html' => TRUE)) .'</li>';
       }
       $list_status .= '</ul>';
       $list_status .= '</div>';
