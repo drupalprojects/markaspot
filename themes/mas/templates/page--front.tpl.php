@@ -147,7 +147,7 @@
 
 
 </div>
-<footer class="footer navbar-bottom">
+<footer class="footer navbar-bottom navbar-inner">
   <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
     <div id="footer-columns" class="container">
       <?php print render($page['footer_firstcolumn']); ?>
