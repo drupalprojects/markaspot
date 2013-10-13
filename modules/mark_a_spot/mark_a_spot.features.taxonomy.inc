@@ -9,6 +9,14 @@
  */
 function mark_a_spot_taxonomy_default_vocabularies() {
   return array(
+    'tags' => array(
+      'name' => 'Tags',
+      'machine_name' => 'tags',
+      'description' => 'Use tags to group articles on similar topics into categories.',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'category' => array(
       'name' => 'Category',
       'machine_name' => 'category',
@@ -21,14 +29,6 @@ function mark_a_spot_taxonomy_default_vocabularies() {
       'name' => 'Status',
       'machine_name' => 'status',
       'description' => NULL,
-      'hierarchy' => 0,
-      'module' => 'taxonomy',
-      'weight' => 0,
-    ),
-    'tags' => array(
-      'name' => 'Tags',
-      'machine_name' => 'tags',
-      'description' => 'Use tags to group articles on similar topics into categories.',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
