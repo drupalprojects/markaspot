@@ -1,5 +1,5 @@
-name = Mark-a-Spot Giessen
-description = A Bootstrap Theme for Giessen City Administration
+name = Mark-a-Spot
+description = A Bootstrap Theme for Mark-a-Spot
 version = 0.1
 core = 7.x
 base theme = bootstrap
@@ -40,7 +40,7 @@ scripts[] = js/mas.js
  scripts[] = 'bootstrap/js/bootstrap-dropdown.js'
  scripts[] = 'bootstrap/js/bootstrap-modal.js'
  scripts[] = 'bootstrap/js/bootstrap-tooltip.js'
- scripts[] = 'bootstrap/js/bootstrap-popover.js'
+ ;scripts[] = 'bootstrap/js/bootstrap-popover.js'
  scripts[] = 'bootstrap/js/bootstrap-scrollspy.js'
  scripts[] = 'bootstrap/js/bootstrap-transition.js'
  scripts[] = 'bootstrap/js/bootstrap-tab.js'

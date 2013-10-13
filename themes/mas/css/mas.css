@@ -148,7 +148,7 @@ body.toolbar-drawer {
 }
 
 
-#toolbar {
+#admin-menu {
   z-index: 9999;
 }
 
@@ -197,8 +197,8 @@ body.toolbar-drawer {
 
 /*footer header*/
 
-.logo-area{/* width:930px; */background: url("../images/header.png") no-repeat 100% 100%; padding: 10px 0 30px 0px;}
-.logo-header{width:215px;height:83px;background:url("../images/logo.png") no-repeat;display: block;text-indent: -999px;}
+.logo-area{/* width:930px; *//* background: url("../images/header.png") no-repeat 100% 100%; */ padding: 10px;}
+.logo-header{width:215px;height: 34px;background:url("../images/logo.png") no-repeat;display: block;text-indent: -999px;}
 .logo-header a{height:100%;width: 100%;display: block;}
 
 
@@ -220,6 +220,10 @@ body.toolbar-drawer {
   box-shadow: none;
   padding: 0;
   border: 0;
+}
+
+.footer .block-title {
+  display:none;
 }
 
 .page-map .footer {
@@ -266,7 +270,7 @@ margin-right:20px;
 
 
 body.page-map  {
-  padding: 0;
+  padding: 20üx;
 }
 
 .page-map .row.map-tools {
@@ -599,9 +603,7 @@ div.view.view-recent-edits ul, .block-user ul  {
 #map_wrapper_splash #map {
   height: 260px;
 }
-.navbar-wrapper {
-  z-index: 43;
-}
+
 
 .navbar-fixed-top,
 .navbar-fixed-bottom,
@@ -747,7 +749,7 @@ input[type="color"] {
 */
 
 
-#geolocation-help-15-0 {
+#geolocation-help-8-0 {
   font-size: 0.9em;
   color: #999;
   background: #fff;
@@ -757,7 +759,7 @@ input[type="color"] {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-#geolocation-help-15-0:before {
+#geolocation-help-8-0:before {
   font-family: 'markaspot';
   speak: none;
   font-size: 70px;
@@ -767,10 +769,10 @@ input[type="color"] {
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-    content: "\e005";
+    content: '&#xe004;
     float:right;
 }
-#geolocation-address-15-0 {
+#geolocation-address-8-0 {
     padding: 1em;
     width: 52%;
     float: left;
@@ -799,6 +801,7 @@ input[type="color"] {
     background: none;
     border: none;
     box-shadow: none;
+    padding: 0;
 }
 
 .geolocation-lng-item, .geolocation-lat-item {
@@ -992,15 +995,12 @@ input[type="color"] {
 
 
   .logo-area{
-    background: url("../images/header.png") no-repeat 100% 100%;
-    padding: 0px 0 30px 0px;
-    background-size:600px;
-
+    /* background: url("../images/header.png") no-repeat 100% 100%;
+       padding: 0px 0 30px 0px;
+       background-size:600px;
+    */
   }
   .logo-header{
-    width:107px;
-    height: 40px;
-    background-size:107px 40px;
     background-repeat:no-repeat;
   }
   .logo-header a{
@@ -1101,7 +1101,7 @@ input[type="color"] {
     top: 80px;
   }
   /*narrow form styles*/
-  #geolocation-address-15-0 {
+  #geolocation-address-8-0 {
     width: 100%;
     float: none;
   }
@@ -1356,11 +1356,11 @@ ul.icons li [class*=" icon-"] {
 
 
 /* Admin Styles */
-.page-map.toolbar .navbar,
-.page-map.toolbar #map,
-.page-map.toolbar .map-tools
+.page-map.admin-menu .navbar,
+.page-map.admin-menu #map,
+.page-map.admin-menu .map-tools
  {
-  margin: 70px 0;
+  margin: 30px 0;
 }
 
 .tab-content {

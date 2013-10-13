@@ -10,13 +10,13 @@ function mas_form_alter(&$form, &$form_state, $form_id) {
     case 'report_node_form': // the value we stole from the rendered form
 
       drupal_set_title(t('Add your report'));
-
-      $form['instruction'] = array(
-      '#type' => 'item',
-      '#markup' => '<div><p class="span6">In drei Schritten zu unseren Dienstleistungen: Suchen Sie die Strasse, beschreiben Sie Ihr Anliegen und laden Sie ggf. ein Foto hoch.</p>'.'<p class="span6 required-explained"><span class="form-required">*</span>'. t(' indicates required fields') .'</p></div>',
-      '#weight' => -1001, // Adjust so that you can place it whereever
-      );
-      break;
+      $form['revision_information']['#access'] = false;
+      // $form['instruction'] = array(
+      // '#type' => 'item',
+      // '#markup' => '<div><p class="span6">In drei Schritten zu unseren Dienstleistungen: Suchen Sie die Strasse, beschreiben Sie Ihr Anliegen und laden Sie ggf. ein Foto hoch.</p>'.'<p class="span6 required-explained"><span class="form-required">*</span>'. t(' indicates required fields') .'</p></div>',
+      // '#weight' => -1001, // Adjust so that you can place it whereever
+      // );
+      // break;
   }
 }
 
