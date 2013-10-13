@@ -17,6 +17,7 @@ projects[] = "views"
 projects[] = "views_datasource"
 projects[] = "better_exposed_filters"
 projects[] = "bootstrap_fieldgroup"
+projects[] = "admin_menu"
 
 
 ; Themes
