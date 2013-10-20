@@ -20,7 +20,7 @@ function mark_a_spot_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_report';
   $field_group->data = array(
-    'label' => 'Kontaktangaben',
+    'label' => 'Contact details',
     'weight' => '-2',
     'children' => array(
       0 => 'field_e_mail',
@@ -48,7 +48,7 @@ function mark_a_spot_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_report_form';
   $field_group->data = array(
-    'label' => 'Location',
+    'label' => '1. Location',
     'weight' => '1',
     'children' => array(
       0 => 'field_address',
@@ -57,7 +57,7 @@ function mark_a_spot_field_group_info() {
     ),
     'format_type' => 'bootstrap_fieldgroup_nav_item',
     'format_settings' => array(
-      'label' => '1. Straße / Adresse',
+      'label' => '1. Location',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => ' group-location field-group-bootstrap_fieldgroup_nav_item',
@@ -76,18 +76,17 @@ function mark_a_spot_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_report_form';
   $field_group->data = array(
-    'label' => 'Media',
+    'label' => '3. Media',
     'weight' => '3',
     'children' => array(
       0 => 'field_image',
-      1 => 'field_jquery_uploader_file',
     ),
     'format_type' => 'bootstrap_fieldgroup_nav_item',
     'format_settings' => array(
-      'formatter' => '',
+      'label' => '3. Media',
       'instance_settings' => array(
-        'classes' => ' group-multimedia field-group-bootstrap_fieldgroup_nav_item',
         'required_fields' => 1,
+        'classes' => ' group-multimedia field-group-bootstrap_fieldgroup_nav_item',
       ),
     ),
   );
@@ -107,8 +106,8 @@ function mark_a_spot_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'group_location',
-      1 => 'group_report',
-      2 => 'group_multimedia',
+      1 => 'group_multimedia',
+      2 => 'group_report',
     ),
     'format_type' => 'bootstrap_fieldgroup_nav',
     'format_settings' => array(
@@ -134,7 +133,7 @@ function mark_a_spot_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_report_form';
   $field_group->data = array(
-    'label' => 'Your report',
+    'label' => '2. Your report',
     'weight' => '2',
     'children' => array(
       0 => 'body',
@@ -144,7 +143,7 @@ function mark_a_spot_field_group_info() {
     ),
     'format_type' => 'bootstrap_fieldgroup_nav_item',
     'format_settings' => array(
-      'label' => 'Your report',
+      'label' => '2. Your report',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => ' group-report field-group-bootstrap_fieldgroup_nav_item',
