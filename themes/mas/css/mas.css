@@ -7,7 +7,7 @@ body {
   max-width: inherit;
 }
 /* report design */
-#markers-list-view div.report {
+#markers-list-view .report {
   min-height: 180px;
   padding: 0 0 20px 0px;
   margin: 0 0 40px 40px;
@@ -135,7 +135,6 @@ body.page-list div#map {
 }
 body.page-node div#map {
   height: 250px;
-  width: 100%;
 }
 body.toolbar-drawer {
   padding-top: 0px !important;
@@ -197,8 +196,7 @@ body.toolbar-drawer {
 
 /*footer header*/
 
-.logo-area{/* width:930px; *//* background: url("../images/header.png") no-repeat 100% 100%; */ padding: 10px;}
-.logo-header{width:215px;height: 34px;background:url("../images/logo.png") no-repeat;display: block;text-indent: -999px;}
+.logo-header{width: 59px;height: 43px;background: url("../images/logo.png") no-repeat 50% 50%;display: block;text-indent: -999px;}
 .logo-header a{height:100%;width: 100%;display: block;}
 
 
@@ -211,7 +209,6 @@ body.toolbar-drawer {
 }
 .footer {
   padding: 0;
-  background: #fff;
 }
 .footer .span3 {
   margin: 0 10px 0 0 ;
@@ -226,18 +223,20 @@ body.toolbar-drawer {
   display:none;
 }
 
+.footer {
+
+}
+
 .page-map .footer {
   margin: 0;
 }
 .region.region-footer {
-  background: #eee;
-  border-top: 5px solid #e2001a;
-  padding: 3px 20px;
+  padding: 10px 30px;
   color: #666;
 }
 
 .region.region-footer a{
-  color: #cc0000;
+  color: #434BAF;
 }
 
 
@@ -270,7 +269,7 @@ margin-right:20px;
 
 
 body.page-map  {
-  padding: 20üx;
+/*  padding: 20px;*/
 }
 
 .page-map .row.map-tools {
@@ -420,7 +419,7 @@ span.marker-status {
 }
 .mapheader a:hover,
 .region-footer a:hover {
-  color: #fff;
+  color: #8F8F8F;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
 
@@ -436,11 +435,8 @@ span.marker-status {
     margin: 5px 0 0 0;
 }
 
-.logo {
-  display: none;
-}
 
-.page-map .logo {
+.logo {
   padding: 3px 0;
   display: block;
 }
@@ -528,17 +524,44 @@ span.marker-status {
     margin: 10px 0;
 }
 
-
+.front .page-header {
+  display:none;
+}
 
 .row.welcome {
   padding: 10px 0;
 }
 
+.welcome-text.well {
+    background: none;
+    border: none;
+    padding: 3em 7em 3em 7em;
+}
+
+.carousel {
+  margin-top: -150px;
+  z-index: -1;
+}
+
+
+/* if you don't use the carousel, you may take a look at the page--front.tpl and find a block there */.
+.welcome-text.well{
+  margin: 30px;
+  margin: 4px 0;
+  background:none;
+}
+
+/*In case you need a header*/
+
+#header {
+  display:none;
+}
+
+
 .add a,
 .list a {
   display: block;
   min-height: 90px;
-  margin: 0 0px 30px 50px;
   font-size: 1em;
 }
 
@@ -550,11 +573,12 @@ span.marker-status {
 }
 
 .block-title.block-title {
-    font-size: 1.2em;
-    color: #336699;
+    font-size: 1.1em;
+    color: #888;
     margin: 0;
     padding: 0;
     line-height: 1.5em;
+    text-transform: uppercase;
 }
 
 .block {
@@ -583,28 +607,6 @@ div.view.view-recent-edits ul, .block-user ul  {
 }
 
 
-#map_wrapper_splash #start {
-  background: none repeat scroll 0 0 #FFFFFF;
-  display: block;
-  height: 250px;
-  left: 0;
-  opacity: 0.1;
-  position: absolute;
-  top: 0;
-  z-index: 40;
-}
-#map_wrapper_splash {
-  margin: 0;
-  background: none repeat scroll 0 0 transparent;
-  left: 0;
-  position: relative;
-  top: 0;
-}
-#map_wrapper_splash #map {
-  height: 260px;
-}
-
-
 .navbar-fixed-top,
 .navbar-fixed-bottom,
 .navbar-static-top {
@@ -615,6 +617,10 @@ div.view.view-recent-edits ul, .block-user ul  {
 
 /* Form styles */
 .form-text {
+}
+
+#edit-body-und-0-format {
+    display:none;
 }
 
 .control-label {
@@ -769,7 +775,7 @@ input[type="color"] {
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-    content: '&#xe004;
+    content: '&#xe004';
     float:right;
 }
 #geolocation-address-8-0 {
@@ -808,6 +814,67 @@ input[type="color"] {
     visibility: hidden;
 }
 
+
+
+
+.mapheader {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMWU1Nzk5IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzdkYjllOCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+  background: -moz-linear-gradient(-45deg, rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* IE10+ */
+  background: linear-gradient(135deg, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */  /*http://www.colorzilla.com/gradient-editor/*/
+  box-shadow: 0 2px 10px -2px #232323;
+  -moz-box-shadow: 0 2px 10px -2px #232323;
+  -webkit-box-shadow: 0 4px 10px -4px #232323;
+}
+
+.mapheader {
+  position: relative;
+  z-index: 42;
+  height: 420px;
+  padding: 40px 0;
+}
+
+#map_wrapper_splash #start {
+    background: none repeat scroll 0 0 #FFFFFF;
+    display: block;
+    height: 550px;
+    left: 0;
+    opacity: 0.1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+#map_wrapper_splash {
+    background: none repeat scroll 0 0 transparent;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 550px;
+    z-index: 39;
+}
+#map_wrapper_splash #map {
+    height: 500px;
+}
+
+.front .navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
 /* Responsive
 -------------------------------------------------- */
 /* Desktop large
@@ -815,12 +882,7 @@ input[type="color"] {
 @media (min-width: 1200px) {
   /* Remove any padding from the body */
   body {
-    padding-top: 0;
-  }
-
-  .main-container {
-    margin: 60px auto;
-    min-height: 400px;
+    /*padding-top: 0;*/
   }
 
   .report .show-markers {
@@ -828,6 +890,11 @@ input[type="color"] {
   }
   .report img.pull-left.thumbnail {
     display: none;
+  }
+
+  .add ,
+  .list  {
+    margin: 40px;
   }
 }
 /* Desktop
@@ -837,32 +904,32 @@ input[type="color"] {
   body {
     padding-top: 0;
   }
+  .add {
+      margin:  0 30px 0 30px;
+  }
+  .list {
+      margin:  0 30px 0 30px;
+  }
   /* Unfloat brand */
   body > .navbar-fixed-top .brand {
-    float: left;
+/*    float: left;
     margin-left: 0;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 10px;*/
   }
   /* Inline-block quick links for more spacing */
   .quick-links li {
     display: inline-block;
     margin: 5px;
   }
-
+  .main-container {
+    margin: 60px auto;
+  }
   .report .show-markers {
     display: block;
   }
   .report img.pull-left.thumbnail {
     display: none;
-  }
-  .navbar-wrapper {
-    position: fixed;
-    z-index: 9998;
-    margin-top: 0px;
-    top: 0;
-    left: 0;
-    right: 0;
   }
 }
 @media (min-width: 980px) {
@@ -870,8 +937,22 @@ input[type="color"] {
     padding-top: 0px;
   }
 
+  .front .navbar-wrapper {
+    top: 30px;
+  }
+
+
+  .map .navbar-wrapper {
+    position: fixed;
+    z-index: 9998;
+    margin-top: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
   .main-container {
-    margin: 20px auto;
+    margin: 40px auto;
     min-height: 400px;
   }
 
@@ -882,15 +963,10 @@ input[type="color"] {
     display: none;
   }
 
-  #map_wrapper_splash #start {
-    background: none repeat scroll 0 0 #FFFFFF;
-    display: block;
-    width: 370px;
-  }
 
   .add a,
   .list a {
-    margin: 0 0px 30px 50px;
+    margin: 0 0px 30px 0px;
   }
 
   /* Form Transitions*/
@@ -901,6 +977,9 @@ input[type="color"] {
 ------------------------- */
 @media (min-width: 768px) and (max-width: 979px) {
 
+  .front .navbar-wrapper {
+    top: 20px;
+  }
 
   /* Remove any padding from the body */
   body {
@@ -911,13 +990,11 @@ input[type="color"] {
   .add a,
   .list a {
     padding: 10px;
-    margin: 0 0px 30px 50px;
+    margin: 0 0px 30px 0px;
   }
 
   #map_wrapper_splash #start {
-    background: none repeat scroll 0 0 #FFFFFF;
-    display: block;
-    width: 230px;
+
   }
 
   .report .show-markers {
@@ -929,10 +1006,8 @@ input[type="color"] {
   /* Tighten up footer */
   .footer {
     margin: 0 -20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
   }
-  .pge-map .navbar-wrapper {
+  .page-map .navbar-wrapper {
     position: fixed;
     z-index: 9999;
     margin-top: 0px;
@@ -942,12 +1017,8 @@ input[type="color"] {
     position: absolute;
     top: 80px;
   }
-  .carouselheader.masthead {
-    min-height: 10px;
-  }
-  #header {
-    margin-top: 50px;
-  }
+
+
 
 }
 /* Tablet
@@ -959,18 +1030,29 @@ input[type="color"] {
   }
 
   body{
-    padding-top: 40px;
+    /*padding-top: 40px;*/
   }
+
+  #map_wrapper_splash #map {
+    margin: 0 20px
+  }
+
   .add a,
   .list a {
-    padding: 10px;
+    padding: 0px;
     margin: 10px 0px 10px 0px;
+    font-size: 12px;
+  },
+  .add h3,
+  .list h3 {
+    font-size: 12px;
+
   }
-
-
+  .welcome-text.well {
+      padding: 2em 4em 2em 4em;
+  }
   .main-container {
     margin: 0px auto;
-    min-height: 400px;
   }
 
   .report img.pull-left.thumbnail {
@@ -982,15 +1064,12 @@ input[type="color"] {
   /* Tighten up footer */
   .footer {
     margin: 0 -20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   .page-map .row.map-tools {
     position: absolute;
     top: 40px;
-  }
-  .carouselheader.masthead {
-    min-height: 10px;
   }
 
 
@@ -1005,7 +1084,9 @@ input[type="color"] {
   }
   .logo-header a{
     height:100%;width: 100%;display: block;
-  }
+
+    /* background-color: #cc0000; */
+}
 
   table td {
     word-wrap:break-word;
@@ -1013,7 +1094,7 @@ input[type="color"] {
 
 
   /* Report design small */
-  #markers-list-view div.report {
+  #markers-list-view .report {
     padding: 0;
     margin-left: 0;
   }
@@ -1038,6 +1119,9 @@ input[type="color"] {
   .mapheader .btn {
     font-size: 18px;
   }*/
+  .welcome-text.well {
+      padding: 2em;
+  }
   .mapheader .btn {
     display: block;
     margin: 5px auto;
@@ -1069,14 +1153,9 @@ input[type="color"] {
     margin-top: 0px;
   }
 
-  .carouselheader.masthead {
-    min-height: 10px;
-  }
   /* Tighten up footer */
   .footer {
     margin: 0 -20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
   }
   /* Container and Map Handling in List View */
   .panel-col-first.panel-panel {
@@ -1085,7 +1164,7 @@ input[type="color"] {
   .panel-col-last.panel-panel {
     width: 100%;
   }
-  #markers-list-view div.report {
+  #markers-list-view .report {
     padding: 0 0 20px 0;
   }
   .report div.pull-left.thumbnail,
@@ -1105,12 +1184,10 @@ input[type="color"] {
     width: 100%;
     float: none;
   }
-  #header {
-    margin-top: 5px;
-  }
+
 
   /* Report design small */
-  #markers-list-view div.report {
+  #markers-list-view .report {
     padding: 0;
     margin-left: 0;
   }
@@ -1353,7 +1430,6 @@ ul.icons li [class*=" icon-"] {
     height: .75em;
   }
 }
-
 
 /* Admin Styles */
 .page-map.admin-menu .navbar,
