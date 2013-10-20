@@ -41,8 +41,10 @@
       }).done(function (result) {
 
         if (result) {
-            var street = result.address.road ? result.address.road : undefined;
-            var street = street ? street : result.address.pedestrian;
+            var street = result.address.construction ? result.address.construction : undefined;
+            street = street ? street : result.address.road;
+            street = street ? street : result.address.pedestrian;
+            street = street ? street : result.address.footway;
             var street = result.address.house_number ? street  + ' ' + result.address.house_number : street;
             var address = street + ', ' + result.address.postcode + ' ' + result.address.city;
 
