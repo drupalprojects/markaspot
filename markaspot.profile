@@ -25,12 +25,13 @@ function markaspot_install_finished(&$install_state) {
   // saving taxonomies for category
   _createCategories();
   // creating example node
-  _createNode();
+  _createReports();
   // activating blocks
   _build_blocks();
   // deleting dummy entries
   _delete_dummies();
-
+  // create slider image files
+   _createPages();
 
   drupal_set_title(st('Mark-a-Spot installation complete'));
   $messages = drupal_set_message();
@@ -161,7 +162,7 @@ function _createCategories() {
 
 
 
-function _createNode(){
+function _createReports(){
 
   // now creating initial report
   $nodes[0] = array('Garbage Collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8212596','6.8961028','Pingsdorfer Straße 88, 50321 Brühl','holger@markaspot.org','11', '1', 'flickr_by_dancentury_garbage_collection_4585329947');
@@ -227,23 +228,70 @@ function _createNode(){
 
 
 
-function _build_blocks() {
-  _activate_block('markaspot_log', 'markaspot_activity', 'sidebar_second', 'mas', 'node/*', '1');
-  _activate_block('markaspot_logic', 'taxonomy_category', 'sidebar_second', 'mas', 'map', '1');
-  _activate_block('markaspot_logic', 'taxonomy_status', 'sidebar_second', 'mas', 'map', '1');
-  _activate_block('markaspot_logic', 'markaspot_map', 'sidebar_second', 'mas', 'map', '1');
-  _activate_block('markaspot_unpubished', 'recent', 'sidebar_second', 'mas', '<front>', '1');
-  // _activate_block('search', 'form', 'sidebar_second', 'mas', 'map', '0');
-  _activate_block('system', 'navigation', 'sidebar_second', 'mas', '<front>', '1');
-  _activate_block('menu', 'menu-secondary-navigation', 'footer' ,'mas', '', '0');
-  _activate_block('user', 'login', 'sidebar_second', 'mas', '<front>', '1');
-  _activate_block('markaspot_default_content', 'welcome', 'content', 'mas', '<front>', '1');
-  _activate_block('markaspot_stats', 'markaspot_stats', 'sidebar_second', 'mas', '<front>', '1');
-  _activate_block('comment', 'recent', 'sidebar_second', 'mas', '<front>', '1');
-  _activate_block('user', 'new', 'sidebar_second', 'mas', '<front>', '1');
+function _createPages(){
+
+  // now creating articles
+  $nodes[0] = array('Open311', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'slider_2');
+
+  // now creating initial report
+  $nodes[1] = array('About this platform', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'slider_1');
+
+
+
+  // $nid=strval($last_nid + 1);
+
+  foreach ($nodes as $node_data) {
+    $node = new stdClass(); // Create a new node object
+    $node->type = "page"; // Or page, or whatever content type you like
+
+    node_object_prepare($node); // Set some default values
+
+    $nid =  db_query("SELECT nid FROM {node} ORDER BY nid DESC LIMIT 1")->fetchField();
+    $nid++;
+
+    $node->title    = $node_data[0];
+    $node->language = 'und'; // Or e.g. 'en' if locale is enabled
+
+    $node->uid = 1; // UID of the author of the node; or use $node->name
+    $node->nid = $nid;
+    $node->language = 'und'; // language - neutral
+    $node->body[$node->language][0]['value']   = $node_data[1];
+    $node->body[$node->language][0]['format']  = 'filtered_html';
+
+    $node->is_new = true;
+    $node->promote = 0;
+    $filename = 'image_'.$node_data[2].'.jpg';
+    // var_dump(base_path().'profiles/markaspot/themes/mas/images/'.$node_data[9]);
+    $image = file_get_contents('profiles/markaspot/themes/mas/images/'.$node_data[2].'.jpg');
+    $file = file_save_data($image, 'public://' . $filename, FILE_EXISTS_RENAME);
+    $node->field_image = array(LANGUAGE_NONE => array('0' => (array)$file));
+
+    if($node = node_submit($node)) { // Prepare node for saving
+        node_save($node);
+        drupal_set_message(t('Created Carousel node "%node."', array('%node' => $node->title)));
+
+    }
+  }
 }
 
-function _activate_block($module, $block, $region, $theme, $pages, $visibility) {
+
+function _build_blocks() {
+  _activate_block('markaspot_log', 'markaspot_activity', 'content', 'mas', 'node/*', '1', '5');
+  _activate_block('markaspot_logic', 'taxonomy_category', 'sidebar_second', 'mas', 'map', '1', '0');
+  _activate_block('markaspot_logic', 'taxonomy_status', 'sidebar_second', 'mas', 'map', '1', '0');
+  _activate_block('markaspot_logic', 'markaspot_map', 'sidebar_second', 'mas', 'map', '1', '0');
+  _activate_block('markaspot_unpubished', 'recent', 'sidebar_second', 'mas', '<front>', '1', '0');
+  // _activate_block('search', 'form', 'sidebar_second', 'mas', 'map', '0');
+  _activate_block('system', 'navigation', 'sidebar_second', 'mas', '<front>', '1', '0');
+  _activate_block('menu', 'menu-secondary-navigation', 'footer' ,'mas', '', '0', '0');
+  _activate_block('user', 'login', 'sidebar_second', 'mas', '<front>', '1', '0');
+  _activate_block('markaspot_default_content', 'welcome', 'content', 'mas', '<front>', '1', '0');
+  _activate_block('markaspot_stats', 'markaspot_stats', 'sidebar_second', 'mas', '<front>', '1', '0');
+  _activate_block('comment', 'recent', 'sidebar_second', 'mas', '<front>', '1', '0');
+  _activate_block('user', 'new', 'sidebar_second', 'mas', '<front>', '1', '0');
+}
+
+function _activate_block($module, $block, $region, $theme, $pages, $visibility, $weight) {
   drupal_set_message("Activating block $module:$block\n");
   db_merge('block')
   ->key(array('theme' => $theme, 'delta' => $block, 'module' => $module))
@@ -252,12 +300,13 @@ function _activate_block($module, $block, $region, $theme, $pages, $visibility) 
     'pages' => trim($pages),
     'status' => (int) ($region != BLOCK_REGION_NONE),
     'visibility' => $visibility,
+    'weight' => $weight
   ))
   ->execute();
 }
 
 function _delete_dummies(){
-  $taxonomies = taxonomy_get_tree(3, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+  $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
 
   foreach ($taxonomies as $term) {
   //print_r($term->name);
