@@ -12,7 +12,7 @@ function markaspot_default_content_block_info() {
    *);
    */
   $blocks['welcome'] = array(
-    'info' => t('Add Button for frontpage'),
+    'info' => t('Welcome Text for frontpage'),
     'cache' => DRUPAL_NO_CACHE
   );
 
@@ -57,15 +57,15 @@ function markaspot_default_content_block_view($delta = '') {
    */
     case 'welcome':
       $block['subject'] = t('Welcome to MaS-City');
-      $block['content'] = '<p>'.t('Elementaque phoebe surgere pondus. Partim lucis. Illic illi otia emicuit. Iudicis est adhuc hanc elementaque cognati sponte recens mundo.').'</p>';
+      $block['content'] = '<h1>'.t('Welcome to MaS-City').'</h1><p>'.t('Elementaque phoebe surgere pondus. Partim lucis. Illic illi otia emicuit. Iudicis est adhuc hanc elementaque cognati sponte recens mundo.').'</p>';
       break;
     case 'add_reports':
       $block['subject'] = t('Add Report');
-      $block['content'] = '<div class="add"><a href="node/add/report" class="btn btn-primary btn-large"><h3><i class="icon-bullhorn"></i> '.t('Help us!').'</h3>'.t('Report local problems in your area').'</a></div>';
+      $block['content'] = '<div class="add"><a href="node/add/report" class="btn btn-primary btn-large btn-success"><h3><i class="icon-bullhorn"></i> '.t('Help us!').'</h3>'.t('Report local problems in your area').'</a></div>';
       break;
     case 'watch_reports':
       $block['subject'] = t('Watch Reports');
-      $block['content'] = ' <div class="list"><a href="list" class="btn btn-custom btn-action btn-large"><h3><i class="icon-eye-open"></i> '.t('Watch Reports').'</h3>'.t('Track local government fixing them').'</a></div>';
+      $block['content'] = ' <div class="list"><a href="list" class="btn btn-primary btn-action btn-large"><h3><i class="icon-eye-open"></i> '.t('Watch Reports').'</h3>'.t('Track local government fixing them').'</a></div>';
       break;
   }
   return $block;
