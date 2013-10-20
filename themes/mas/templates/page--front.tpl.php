@@ -1,7 +1,6 @@
 <div class="navbar-wrapper">
   <div class="container">
-    <!-- header id="navbar" role="banner" class="navbar-inverse navbar-fixed-top" -->
-    <header id="navbar" role="banner" class="navbar ">
+    <header id="navbar" role="banner" class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
           <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -44,23 +43,40 @@
   </div>
 </div>
 
-
-
-<div class="carouselheader masthead">
-  <?php
-    $type = 'bootstrap_carousel';
-    $nodes = node_load_multiple(array(), array('type' => $type));
-    foreach ($nodes as $carousel) :
-  ?>
-  <?php
-    $carousel = node_view($carousel);
-    print drupal_render($carousel);
-  ?>
-  <?php endforeach; ?>
+<div id="map_wrapper_splash">
+  <a id="start" title="<?php t('Click to get the map view')?>" href="/map"></a>
+  <div id="map" class="front"></div>
 </div>
+<div class="mapheader masthead">
+  <div class="container">
+      <div class="welcome-text well">
+        <?php
+          // if you don't want bootstrap carousel to welcome visitors
+          // you can use this block
+          $block = module_invoke('markaspot_default_content', 'block_view', 'welcome');
+          print render($block['content']);
+        ?>
+      </div>
+  </div>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span6">
+        <?php
+          $block = module_invoke('markaspot_default_content', 'block_view', 'watch_reports');
+          print render($block['content']);        ?>
+      </div>
 
+      <div class="span6">
+        <?php
+          $block = module_invoke('markaspot_default_content', 'block_view', 'add_reports');
+          print render($block['content']);
+        ?>
+      </div>
 
-<div class="main-container container">
+    </div>
+  </div>
+</div>
+<div class="container main-container">
 
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
@@ -87,7 +103,7 @@
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
       <?php if (!empty($title)): ?>
-        <h1 class="page-header"><?php print $title; ?></h1>
+        <h1 class="page-header element-invisible"><?php print $title; ?></h1>
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
@@ -102,26 +118,8 @@
       <?php endif; ?>
 
 
-      <div class="welcome-text well">
-        <?php
-          $block = module_invoke('markaspot_default_content', 'block_view', 'welcome');
-          print render($block['content']);
-        ?>
-      </div>
-      <div  class="span4 map" id="map_wrapper_splash">
-         <a id="start" title="Klicken Sie für die Kartenansicht" href="/map"></a>
-         <div id="map"></div>
-       </div>
-      <div class="span5">
 
-        <?php
-          $block = module_invoke('markaspot_default_content', 'block_view', 'add_reports');
-          print render($block['content']);
-          $block = module_invoke('markaspot_default_content', 'block_view', 'watch_reports');
-          print render($block['content']);        ?>
-
-      </div>
-      <div>
+      <div class="media gallery">
       <h3>
         <?php print t('Reports with Media'); ?>
       </h3>

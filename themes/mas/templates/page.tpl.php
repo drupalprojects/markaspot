@@ -1,6 +1,6 @@
 <div class="navbar-wrapper">
   <div class="container">
-    <header id="navbar" role="banner" class="navbar">
+    <header id="navbar" role="banner" class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
           <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -42,6 +42,20 @@
     </header>
   </div>
 </div>
+
+<?php if (!empty($page)): ?>
+
+<div class="carouselheader masthead">
+  <?php
+    // var_dump($page);
+    $viewName = 'carousel';
+    // print views_embed_view($viewName);
+
+  ?>
+  </div>
+<?php endif; ?>
+
+
 <div class="main-container container">
 
   <header role="banner" id="page-header">
@@ -92,6 +106,7 @@
 
   </div>
 </div>
+
 <footer class="footer navbar-bottom navbar-inner">
   <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
     <div id="footer-columns" class="container">
