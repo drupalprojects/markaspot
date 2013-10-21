@@ -219,40 +219,6 @@ function mark_a_spot_admin_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
-  $translatables['mark_a_spot_admin_comments'] = array(
-    t('Master'),
-    t('Neueste Kommentare'),
-    t('mehr'),
-    t('Anwenden'),
-    t('Zurücksetzen'),
-    t('Sortieren nach'),
-    t('Aufsteigend'),
-    t('Absteigend'),
-    t('Elemente pro Seite'),
-    t('- Alle -'),
-    t('Offset'),
-    t('« erste Seite'),
-    t('‹ vorherige Seite'),
-    t('nächste Seite ›'),
-    t('letzte Seite »'),
-    t('Content'),
-    t('gehört zu:'),
-    t('Nid'),
-    t('.'),
-    t(','),
-    t('Parent CID'),
-    t('Approved'),
-    t('<ul class="mas-admin action-links links clearfix">
-<li>[approve_comment]</li>
-<li>[replyto_comment]</li>
-<li>[edit_comment]</li>
-<li>[delete_comment]</li>
-</ul>'),
-    t('Page'),
-    t('more'),
-    t('Antworte an'),
-    t('Block'),
-  );
   $export['mark_a_spot_admin_comments'] = $view;
 
   $view = new view();
@@ -267,7 +233,7 @@ function mark_a_spot_admin_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Aktive Beiträge';
+  $handler->display->display_options['title'] = 'Active Content';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mehr';
@@ -276,9 +242,9 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Anwenden';
-  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Zurücksetzen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortieren nach';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Submit';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Reset';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sort';
   $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Aufsteigend';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Absteigend';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
@@ -288,7 +254,6 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['pager']['options']['id'] = '1';
   $handler->display->display_options['pager']['options']['total_pages'] = '0';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elemente pro Seite';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« erste Seite';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorherige Seite';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'nächste Seite ›';
@@ -405,7 +370,7 @@ function mark_a_spot_admin_views_default_views() {
   /* Display: MaS Reports Open */
   $handler = $view->new_display('block', 'MaS Reports Open', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Unbearbeitete Hinweise';
+  $handler->display->display_options['title'] = 'Last Reports (closed)';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -615,7 +580,7 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['pager']['options']['id'] = '2';
   $handler->display->display_options['pager']['options']['total_pages'] = '0';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Elemente pro Seite';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- All -';
   $handler->display->display_options['pager']['options']['tags']['first'] = '« erste Seite';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorherige Seite';
   $handler->display->display_options['pager']['options']['tags']['next'] = 'nächste Seite ›';
@@ -1416,58 +1381,6 @@ function mark_a_spot_admin_views_default_views() {
     0 => '13',
   );
   $handler->display->display_options['filters']['field_status_tid']['vocabulary'] = 'status';
-  $translatables['mark_a_spot_admin_reports'] = array(
-    t('Master'),
-    t('Aktive Beiträge'),
-    t('mehr'),
-    t('Anwenden'),
-    t('Zurücksetzen'),
-    t('Sortieren nach'),
-    t('Aufsteigend'),
-    t('Absteigend'),
-    t('Elemente pro Seite'),
-    t('- Alle -'),
-    t('Offset'),
-    t('« erste Seite'),
-    t('‹ vorherige Seite'),
-    t('nächste Seite ›'),
-    t('letzte Seite »'),
-    t('No results'),
-    t('Keine Ergebnisse für diesen Filter'),
-    t('author'),
-    t('term from field_status'),
-    t('<div class="status_[field_status_hex]">[field_status]</div>'),
-    t('[name] [created]'),
-    t('MaS Reports Open'),
-    t('Unbearbeitete Hinweise'),
-    t('more'),
-    t('Status (field_status)'),
-    t('Kategorie'),
-    t('Mas Reports Solved'),
-    t('Erledigte Beiträge'),
-    t('Anliegen'),
-    t('Beitrag vom'),
-    t('Status'),
-    t('Bearbeiten (Archivieren)'),
-    t('Mas Reports Edited Recently'),
-    t('Recentrly edited reports'),
-    t('Zuletzt bearbeitet vor'),
-    t('Mas Reports Table Active'),
-    t('Beitrag-Nummer'),
-    t('#[nid]'),
-    t('Beschreibung'),
-    t('Title'),
-    t('Category'),
-    t('Benutzer'),
-    t('Updated/commented date'),
-    t('<span class="meta-info"> [last_updated] Uhr </span>'),
-    t('Nid'),
-    t('Path'),
-    t('Beitrags-ID'),
-    t('Mas Reports archived'),
-    t('Archived reports'),
-    t('Bearbeiten'),
-  );
   $export['mark_a_spot_admin_reports'] = $view;
 
   return $export;
