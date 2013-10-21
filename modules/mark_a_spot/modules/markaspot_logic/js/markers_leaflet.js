@@ -55,9 +55,6 @@ var markerLayer, queryString ;
         readData(2, "list", "All", "All");
         break;
       break;
-      case "node":
-        readData(2, pathId[1], categoryCond, statusCond);
-        break;
       case "admin":
       case "overlay":
         return false;
