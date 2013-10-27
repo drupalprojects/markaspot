@@ -561,8 +561,7 @@ span.marker-status {
 .add a,
 .list a {
   display: block;
-  min-height: 90px;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 .region.region-sidebar-second h3 {
@@ -875,6 +874,11 @@ input[type="color"] {
   z-index: 50;
 }
 
+.add h3, .list h3 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
 /* Responsive
 -------------------------------------------------- */
 /* Desktop large
@@ -894,7 +898,8 @@ input[type="color"] {
 
   .add ,
   .list  {
-    margin: 40px;
+    margin: 50px;
+    font-size: 20px;
   }
 }
 /* Desktop
@@ -1041,13 +1046,9 @@ input[type="color"] {
   .list a {
     padding: 0px;
     margin: 10px 0px 10px 0px;
-    font-size: 12px;
-  },
-  .add h3,
-  .list h3 {
-    font-size: 12px;
-
+    font-size: 14px;
   }
+
   .welcome-text.well {
       padding: 2em 4em 2em 4em;
   }
