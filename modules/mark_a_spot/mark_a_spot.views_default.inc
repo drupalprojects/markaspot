@@ -122,6 +122,23 @@ function mark_a_spot_views_default_views() {
   /* Display: Seite */
   $handler = $view->new_display('page', 'Seite', 'page_1');
   $handler->display->display_options['path'] = 'reports/gallery';
+  $translatables['Gallery'] = array(
+    t('Master'),
+    t('Beiträge mit Bild'),
+    t('mehr'),
+    t('Anwenden'),
+    t('Zurücksetzen'),
+    t('Sortieren nach'),
+    t('Aufsteigend'),
+    t('Absteigend'),
+    t('    <div class="thumbnail">
+      [field_image_1]
+      <!-- h3>[title]</h3 -->
+    </div>'),
+    t('Block'),
+    t('more'),
+    t('Seite'),
+  );
   $export['Gallery'] = $view;
 
   $view = new view();
@@ -144,6 +161,8 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
     'general' => array(
       'allow_secondary' => 0,
@@ -748,6 +767,63 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['arguments']['field_status_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_status_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['path'] = 'reports/json';
+  $translatables['markers'] = array(
+    t('Master'),
+    t('Reports Mark-a-Spot'),
+    t('mehr'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('term from field_category'),
+    t('term from field_status'),
+    t('author'),
+    t('title'),
+    t('nid'),
+    t('created'),
+    t('statusTitle'),
+    t('Status: [field_status]'),
+    t('statusHex'),
+    t('categoryHex'),
+    t('positionLat'),
+    t('positionLng'),
+    t('categoryId'),
+    t('address'),
+    t('path'),
+    t('userNickname'),
+    t('Gast'),
+    t('timestamp'),
+    t('statusIcon'),
+    t('categoryIcon'),
+    t('Alle'),
+    t('Service'),
+    t('Status'),
+    t('List view'),
+    t('more'),
+    t('Elemente pro Seite'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous Page'),
+    t('next Page ›'),
+    t('last Page »'),
+    t('No Results'),
+    t('Für diese Kategorie / Status haben wir keine aktuellen Beiträge'),
+    t('[field_status]'),
+    t('[field_category]'),
+    t('<span class="submitted meta-info"> [created] </span>'),
+    t('<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex] span6"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex] span6"><i class="icon-li icon-[field_status_icon]"></i> [field_status]</span></div>'),
+    t('<h3 class="list-title">[title]</h3>'),
+    t('Weiterlesen'),
+    t('<span class="badge badge-info">[comment_count]</span> Comments'),
+    t('.'),
+    t('Beitragsdatum'),
+    t('Anzahl an Kommentaren'),
+    t('Category'),
+    t('Feed'),
+    t('JSON View'),
+  );
   $export['markers'] = $view;
 
   return $export;

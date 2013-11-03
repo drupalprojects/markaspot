@@ -89,7 +89,7 @@ function mark_a_spot_field_default_field_instances() {
           'trim_length' => 300,
         ),
         'type' => 'text_trimmed',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'search_result' => array(
         'label' => 'hidden',
@@ -320,7 +320,7 @@ function mark_a_spot_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -466,10 +466,20 @@ function mark_a_spot_field_default_field_instances() {
         'weight' => 1,
       ),
       'report_list' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
+        'label' => 'hidden',
+        'module' => 'geolocation_cloudmade_osm',
+        'settings' => array(
+          'cloudmade_api_key' => '165795623c424338ad9a8eb60484ef0e',
+          'field_formatter_class' => 'thumbnail pull-left',
+          'leafletImagePath' => '/profiles/markaspot/libraries/leaflet-0.6.3/images/',
+          'map_dimensions' => '100x100',
+          'map_imageformat' => 'png',
+          'map_style' => 22677,
+          'map_zoomlevel' => 15,
+          'marker_icon' => '',
+        ),
+        'type' => 'geolocation_cloudmade_osm_static',
+        'weight' => 1,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -653,7 +663,7 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -700,7 +710,7 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -764,7 +774,7 @@ function mark_a_spot_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'search_result' => array(
         'label' => 'above',
