@@ -25,16 +25,14 @@
     $('.node-report-form #edit-submit').html(Drupal.t('Add data'));
     // Submit changes
     $('.node-report-form #edit-submit').click(function(e) {
-
       var url = document.URL.toString();
-
       e.preventDefault();
-      if (!url.split('#')[1] || url.match('1.')) {
+      if (!url.split('#')[1] || url.match('1--')) {
         $('a[href=#2--your-report]').tab('show');
-      } else if (url.match('2.')) {
+      } else if (url.match('2--')) {
         $('a[href=#3--media]').tab('show');
         $('#edit-submit').html(Drupal.t('Save'));
-      } else if (url.match('3.')) {
+      } else if (url.match('3--')) {
         $('form').unbind('submit').submit();
       }
     });
