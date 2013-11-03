@@ -81,7 +81,7 @@ function _createStatus () {
   $terms[0] = array('Open', 'This is just a description which should be replaced', 'cc0000', 'pause');
   $terms[1] = array('In progress','This is just a description which should be replaced', 'ff6600', 'play');
   $terms[3] = array('Solved','This is just a description which should be replaced', '8fe83b', 'checkmark');
-  $terms[4] = array('Archive','This is just a description which should be replaced', 'cccccc', 'drawer');
+  $terms[4] = array('Archive','This is just a description which should be replaced', '5F9EA0', 'drawer');
 
   // You may customize those entries
   $terms[5] = array('dummy','This is just a description which should be replaced', '8fe83b', '');
