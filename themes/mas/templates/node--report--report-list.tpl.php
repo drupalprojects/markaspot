@@ -83,7 +83,7 @@
   $status   = $node->field_status['und'][0]['taxonomy_term'];
 ?>
 
-  <header>
+  <header class="clearfix">
     <?php print render($title_prefix); ?>
     <?php if (!$page && $title): ?>
       <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>

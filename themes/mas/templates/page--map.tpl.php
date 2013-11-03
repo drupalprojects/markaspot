@@ -1,5 +1,4 @@
 <div class="navbar-wrapper">
-  <div class="container">
     <header id="navbar" role="banner" class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -40,7 +39,7 @@
         </div>
       </div>
     </header>
-  </div>
+
 </div>
 <div id="map" style="width:100%; height:100%"> </div>
 <div class="main-container container">

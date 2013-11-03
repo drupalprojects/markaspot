@@ -49,30 +49,33 @@
 </div>
 <div class="mapheader masthead">
   <div class="container">
-      <div class="welcome-text well">
-        <?php
-          // if you don't want bootstrap carousel to welcome visitors
-          // you can use this block
-          $block = module_invoke('markaspot_default_content', 'block_view', 'welcome');
-          print render($block['content']);
-        ?>
-      </div>
+
   </div>
-  <div class="container">
+  <div class="container stage">
     <div class="row-fluid">
       <div class="span6">
-        <?php
-          $block = module_invoke('markaspot_default_content', 'block_view', 'watch_reports');
-          print render($block['content']);        ?>
+        <div class="welcome-text well">
+          <?php
+            // if you don't want bootstrap carousel to welcome visitors
+            // you can use this block
+            $block = module_invoke('markaspot_default_content', 'block_view', 'welcome');
+            print render($block['content']);
+          ?>
+        </div>
+        <div class="row-fluid welcome">
+          <?php
+            $block = module_invoke('markaspot_default_content', 'block_view', 'add_reports');
+            print render($block['content']);
+          ?>
+          <?php
+            $block = module_invoke('markaspot_default_content', 'block_view', 'watch_reports');
+            print render($block['content']);
+          ?>
+        </div>
       </div>
-
-      <div class="span6">
-        <?php
-          $block = module_invoke('markaspot_default_content', 'block_view', 'add_reports');
-          print render($block['content']);
-        ?>
+      <div class="span5 offset1 thumbnail">
+        <img src="http://local.mas/sites/default/files/styles/mas_medium/public/image_flickr_by_realname_garbage-tonal-decay_82.jpg?itok=hy4lw8Vl" width="720" height="480">
       </div>
-
     </div>
   </div>
 </div>
