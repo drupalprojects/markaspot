@@ -96,10 +96,15 @@ function markaspot_logic_init() {
     'mas' => array(
       'markaspot_address' => variable_get('markaspot_address'),
       'markaspot_city' => variable_get('markaspot_city'),
-
+      'markaspot_zip' => variable_get('markaspot_zip'),
       'markaspot_ini_lat' => variable_get('markaspot_ini_lat'),
       'markaspot_ini_lng' => variable_get('markaspot_ini_lng'),
       'cloudmade_api_key' => variable_get('cloudmade_api_key'),
+
+      'bbox_nw_lat' => variable_get('bbox_nw_lat'),
+      'bbox_nw_lng' => variable_get('bbox_nw_lng'),
+      'bbox_se_lat' => variable_get('bbox_se_lat'),
+      'bbox_se_lng' => variable_get('bbox_se_lng'),
 
       'uri' => request_uri(),
       'node_type' => $type,
@@ -306,6 +311,35 @@ function markaspot_logic_admin_settings() {
     '#default_value' => variable_get('bbox_se_lng', _markaspot_logic_defaults('bbox_se_lng')),
     '#title' => t('South-East longitude.'),
   );
+  if (module_exists('markaspot_open311')){
+    $form['open311'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Open311 Service Discovery'),
+      '#collapsible' => TRUE,
+      '#description' => t('See http://wiki.open311.org/Service_Discovery. This service discovery specification is meant to be read-only and can be provided either dynamically or using a manually edited static file.'),
+    );
+
+    $form['open311']['open311_contact'] = array(
+      '#type' => 'textfield',
+      '#default_value' => variable_get('open311_contact', _markaspot_logic_defaults('open311_contact')),
+      '#title' => t('Open311 Contact Details'),
+    );
+    $form['open311']['open311_type'] = array(
+      '#type' => 'textfield',
+      '#default_value' => variable_get('open311_type', _markaspot_logic_defaults('open311_type')),
+      '#title' => t('Open311 Server type. Either "production" or "test" defines whether the information is live and will be acted upon'),
+    );
+    $form['open311']['open311_key_service'] = array(
+      '#type' => 'textfield',
+      '#default_value' => variable_get('open311_key_service', _markaspot_logic_defaults('open311_key_service')),
+      '#title' => t('Human readable information on how to get an API key'),
+    );
+    $form['open311']['open311_changeset'] = array(
+      '#type' => 'textfield',
+      '#default_value' => variable_get('open311_changeset', _markaspot_logic_defaults('open311_changeset')),
+      '#title' => t('Sortable field that specifies the last time this document was updated'),
+    );
+  }
   if (module_exists('markaspot_archive')){
     $form['archive'] = array(
         '#type' => 'fieldset',
@@ -362,7 +396,7 @@ function markaspot_logic_page_alter(&$page) {
 
 
 /**
- * Default texts for text variables that build the feedback page.
+ * Default texts for text variables that build the configuration page.
  * Texts that can be configured on the settings page.
  *
  * @param string $id
@@ -396,6 +430,14 @@ function _markaspot_logic_defaults($id) {
       return '6.937';
     case 'archive_days':
       return '30';
+    case 'open311_contact':
+      return 'You can email or call for assistance api@mycity.org +1 (555) 555-5555';
+    case 'open311_changeset':
+      return '2013-11-03 00:00';
+    case 'open311_key_service':
+      return 'You can request a key here: http://api.mycity.gov/api_key/request';
+    case 'open311_type':
+      return 'production';
   }
 }
 
