@@ -18,7 +18,9 @@ projects[] = "views_datasource"
 projects[] = "better_exposed_filters"
 projects[] = "bootstrap_fieldgroup"
 projects[] = "admin_menu"
-
+projects[] = "field_formatter_settings"
+projects[] = "field_formatter_class"
+projects[] = "field_formatter_css_class"
 
 ; Themes
 projects[] = "bootstrap"
