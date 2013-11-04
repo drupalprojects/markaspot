@@ -21,13 +21,11 @@ projects[admin_menu][subdir] = "contrib"
 projects[field_formatter_settings][subdir] = "contrib"
 projects[field_formatter_class][subdir] = "contrib"
 projects[field_formatter_css_class][subdir] = "contrib"
+projects[uuid][subdir] = "contrib"
+projects[uuid_features][subdir] = "contrib"
+
 
 ; Themes
-projects[bootstrap][subdir] = "themes"
 projects[bootstrap][type] = "theme"
-
-projects[rubik][subdir] = "themes"
 projects[rubik][type] = "theme"
-
-projects[tao][subdir] = "themes"
 projects[tao][type] = "theme"
