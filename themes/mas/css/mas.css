@@ -3,6 +3,29 @@ body {
   height: 100%;
   color: #222;
 }
+
+.field.field-name-body {
+    margin: 30px 0;
+    font-size: 1.1em;
+}
+
+.spec-table th {
+    margin: 1em;
+    width: 100px;
+    background: #f2f2f2;
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+
+}
+
+.spec-table td {
+    margin: 1em;
+    background: #fff;
+    padding: 20px;
+    font: 0.9em Courier, Monotype;
+    border-bottom: 1px solid #f2f2f2;
+}
+
 #map img {
   max-width: inherit;
 }

@@ -229,12 +229,327 @@ function _createReports(){
 
 
 function _createPages(){
-
+  global $base_url;
   // now creating articles
-  $nodes[0] = array('Open311', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'slider_2');
+  $nodes[0] = array('Open311', '
+
+  <p>
+    <img src="/profiles/markaspot/themes/mas/images/open311georeportv2-type1.png" alt="Open311 Logo" style="width:300px; margin: 0 0 0 10px; height:114px;float:right">
+    Open311 is a form of technology that provides open channels of communication for issues that concern public space and public services. Primarily, Open311 refers to a standardized protocol for location-based collaborative issue-tracking.
+  </p>
+  <p>
+    By offering free web API access to an existing 311 service, Open311 is an evolution of the phone-based 311 systems that many cities in North America offer. [taken from
+    <a href="http://open311.org/learn/">
+      Open311 Learn
+    </a>
+    ]
+  </p>
+  <p>
+    Mark-a-Spot comes with a built-in GeoReport Server. See how it works:
+  </p>
+  <h3>
+    Services
+  </h3>
+  <table class="spec-table">
+    <tbody>
+      <tr>
+        <th scope="row">
+          Purpose
+        </th>
+        <td>
+          provide a list of acceptable 311 service request types and their associated service codes. These request types can be unique to the city/jurisdiction.
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          URL
+        </th>
+        <td>
+          <a href="' . $base_url . '/georeport/v2/services.xml">
+            ' . $base_url . '/georeport/v2/services.[format]
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Sample URL
+        </th>
+        <td>
+          <a href="' . $base_url . '/georeport/v2/services.xml">
+            ' . $base_url . '/georeport/v2/services.xml
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Formats
+        </th>
+        <td>
+          XML / JSON
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          HTTP Method
+        </th>
+        <td>
+          GET
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Requires API Key
+        </th>
+        <td>
+          No
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>
+    Requests
+  </h3>
+  <table class="spec-table">
+    <tbody>
+      <tr>
+        <th scope="row">
+          Purpose
+        </th>
+        <td>
+          Query the current status of multiple requests
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          URL
+        </th>
+        <td>
+          <a href="' . $base_url . '/georeport/v2/requests.json">
+            ' . $base_url . '/georeport/v2/requests.[format]
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Sample URL
+        </th>
+        <td>
+          <a href="' . $base_url . '/georeport/v2/requests.json?start_date='. date("Y-n-j") .'">
+            ' . $base_url . '/georeport/v2/requests.json?start_date='. date("Y-n-j") .'...
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Formats
+        </th>
+        <td>
+          XML, JSON
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          HTTP Method
+        </th>
+        <td>
+          GET
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Requires API Key
+        </th>
+        <td>
+          No
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h4>
+    Optionale Parameter
+  </h4>
+  <table class="spec-table arguments-table">
+    <tbody>
+      <tr>
+        <th>
+          Field Name
+        </th>
+        <th class="spec-description">
+          Description
+        </th>
+        <th class="spec-requirements">
+          Notes &amp; Requirements
+        </th>
+      </tr>
+      <!-- tr>
+<td class="field">
+<dl>
+<dt>
+service_request_id
+<br />
+</dt>
+</dl>
+</td>
+<td>
+To call multiple Service Requests at once, multiple service_request_id can be declared; comma delimited.
+</td>
+<td>
+This overrides all other arguments.
+</td>
+</tr -->
+  <tr>
+    <td class="field">
+      <dl>
+        <dt>
+          service_code
+          <br>
+        </dt>
+      </dl>
+    </td>
+    <td>
+      Specify the service type by calling the unique ID of the service_code.
+    </td>
+    <td>
+      This defaults to all service codes when not declared; can be declared multiple times, comma delimited
+    </td>
+  </tr>
+  <tr>
+    <td class="field">
+      <dl>
+        <dt>
+          start_date
+          <br>
+        </dt>
+      </dl>
+    </td>
+    <td>
+      Earliest datetime to include in search. When provided with end_date, allows one to search for requests which have a requested_datetime that matches a given range, but may not span more than 90 days.
+    </td>
+    <td>
+      When not specified, the range defaults to most recent 90 days. Must use w3 format, eg 2010-01-01T00:00:00Z.
+    </td>
+  </tr>
+  <tr>
+    <td class="field">
+      <dl>
+        <dt>
+          end_date
+          <br>
+        </dt>
+      </dl>
+    </td>
+    <td>
+      Latest datetime to include in search. When provided with start_date, allows one to search for requests which have a requested_datetime that matches a given range, but may not span more than 90 days.
+    </td>
+    <td>
+      When not specified, the range defaults to most recent 90 days. Must use w3 format, eg 2010-01-01T00:00:00Z.
+    </td>
+  </tr>
+  <tr>
+    <td class="field">
+      <dl>
+        <dt>
+          status
+          <br>
+        </dt>
+      </dl>
+    </td>
+    <td>
+      Allows one to search for requests which have a specific status. This defaults to all statuses; can be declared multiple times, comma delimited;
+    </td>
+    <td>
+      Options:
+      <span class="strict-value">
+        open
+      </span>
+      ,
+      <span class="strict-value">
+        closed
+      </span>
+    </td>
+  </tr>
+  </tbody>
+  </table>
+  <h3>
+    Single Request
+  </h3>
+  <table class="spec-table">
+    <tbody>
+      <tr>
+        <th scope="row">
+          Purpose
+        </th>
+        <td>
+          Query the current status of an individual request
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          URL
+        </th>
+        <td>
+          <a href="' . $base_url . '/georeport/v2/requests/2.xml">
+            ' . $base_url . '/georeport/v2/request/#ID.[format]
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Sample URL
+        </th>
+        <td>
+          <a href="' . $base_url . '/georeport/v2/requests/1.json">
+            ' . $base_url . '/georeport/v2/requests/254.json
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Formats
+        </th>
+        <td>
+          XML, JSON
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          HTTP Method
+        </th>
+        <td>
+          GET
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          Requires API Key
+        </th>
+        <td>
+          No
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+    ', 'slider_2');
 
   // now creating initial report
-  $nodes[1] = array('About this platform', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'slider_1');
+  $nodes[1] = array('About this platform', '
+
+  <p>This platform is based on <a href="http://markaspot.de/en">Mark-a-Spot</a>, a Drupal distribution for public issue reporting or other geobased crowdsourcing.</p>
+  <p>This text can be easily changed and <a href="?q=node/8/edit">customized</a>. If you feel like giving attribution, please leave a link to <a href="http://mark-a-spot.org">mark-a-spot.org</a> somewhere.</p>
+
+  <p>If you need any help with customizing this platform, like theming extending, or even integrating it in your SOA infrastructure, please <a href="http://markaspot.de/en/contact">get in touch with us</a>.</p>
+  <h3>Photo credits</h3>
+  <ul>
+  <li>Garbage Collection by Dan Century (Flickr)</li>
+  <li>Garbage Collection by Tonal Decay (Flickr)</li>
+  <li>Abandoned Car by Mike Baird (Flickr)</li>
+  <li>Abandoned Car by Thomas Brandt (Flickr)</li>
+  <li>Graffiti by striatic (Flickr)</li>
+  <li>River Tree by Astonishing / photocase.com</li>
+  </ul>
+
+    ', 'slider_1');
 
 
 
@@ -256,7 +571,7 @@ function _createPages(){
     $node->nid = $nid;
     $node->language = 'und'; // language - neutral
     $node->body[$node->language][0]['value']   = $node_data[1];
-    $node->body[$node->language][0]['format']  = 'filtered_html';
+    $node->body[$node->language][0]['format']  = 'full_html';
 
     $node->is_new = true;
     $node->promote = 0;
@@ -268,7 +583,7 @@ function _createPages(){
 
     if($node = node_submit($node)) { // Prepare node for saving
         node_save($node);
-        drupal_set_message(t('Created Carousel node "%node."', array('%node' => $node->title)));
+        drupal_set_message(t('Created Page node "%node."', array('%node' => $node->title)));
 
     }
   }
@@ -282,11 +597,11 @@ function _build_blocks() {
   _activate_block('markaspot_logic', 'markaspot_map', 'sidebar_second', 'mas', 'map', '1', '0');
   _activate_block('markaspot_unpubished', 'recent', 'sidebar_second', 'mas', '<front>', '1', '0');
   // _activate_block('search', 'form', 'sidebar_second', 'mas', 'map', '0');
-  _activate_block('system', 'navigation', 'sidebar_second', 'mas', '<front>', '1', '0');
+  _activate_block('system', 'navigation', 'sidebar_second', 'mas', '<front>'. "\n" .'node/7'. "\n" .'node/8', '1', '0');
   _activate_block('menu', 'menu-secondary-navigation', 'footer' ,'mas', '', '0', '0');
-  _activate_block('user', 'login', 'sidebar_second', 'mas', '<front>', '1', '0');
+  _activate_block('user', 'login', 'sidebar_second', 'mas', '<front>'. "\n" .'node/7'. "\n" .'node/8', '1', '0');
   _activate_block('markaspot_default_content', 'welcome', 'content', 'mas', '<front>', '1', '0');
-  _activate_block('markaspot_stats', 'markaspot_stats', 'sidebar_second', 'mas', '<front>', '1', '0');
+  _activate_block('markaspot_stats', 'markaspot_stats', 'sidebar_second', 'mas', '<front>'. "\n" .'node/7'. "\n" .'node/8', '1', '0');
   _activate_block('comment', 'recent', 'sidebar_second', 'mas', '<front>', '1', '0');
   _activate_block('user', 'new', 'sidebar_second', 'mas', '<front>', '1', '0');
 }
@@ -297,7 +612,7 @@ function _activate_block($module, $block, $region, $theme, $pages, $visibility, 
   ->key(array('theme' => $theme, 'delta' => $block, 'module' => $module))
   ->fields(array(
     'region' => ($region == BLOCK_REGION_NONE ? '' : $region),
-    'pages' => trim($pages),
+    'pages' => $pages,
     'status' => (int) ($region != BLOCK_REGION_NONE),
     'visibility' => $visibility,
     'weight' => $weight
