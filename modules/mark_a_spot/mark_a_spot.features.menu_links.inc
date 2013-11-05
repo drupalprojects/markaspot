@@ -14,7 +14,7 @@ function mark_a_spot_menu_default_menu_links() {
   $menu_links['main-menu_report-issue:node/add/report'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'node/add/report',
-    'router_path' => 'node/add/report',
+    'router_path' => 'node/add',
     'link_title' => 'Report Issue',
     'options' => array(
       'attributes' => array(
