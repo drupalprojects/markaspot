@@ -238,11 +238,7 @@ function _createPages(){
     Open311 is a form of technology that provides open channels of communication for issues that concern public space and public services. Primarily, Open311 refers to a standardized protocol for location-based collaborative issue-tracking.
   </p>
   <p>
-    By offering free web API access to an existing 311 service, Open311 is an evolution of the phone-based 311 systems that many cities in North America offer. [taken from
-    <a href="http://open311.org/learn/">
-      Open311 Learn
-    </a>
-    ]
+    By offering free web API access to an existing 311 service, Open311 is an evolution of the phone-based 311 systems that many cities in North America offer. [taken from <a href="http://open311.org/learn/"> Open311 Learn </a>]
   </p>
   <p>
     Mark-a-Spot comes with a built-in GeoReport Server. See how it works:
@@ -538,7 +534,7 @@ This overrides all other arguments.
   <p>This platform is based on <a href="http://markaspot.de/en">Mark-a-Spot</a>, a Drupal distribution for public issue reporting or other geobased crowdsourcing.</p>
   <p>This text can be easily changed and <a href="?q=node/8/edit">customized</a>. If you feel like giving attribution, please leave a link to <a href="http://mark-a-spot.org">mark-a-spot.org</a> somewhere.</p>
 
-  <p>If you need any help with customizing this platform, like theming extending, or even integrating it in your SOA infrastructure, please <a href="http://markaspot.de/en/contact">get in touch with us</a>.</p>
+  <p>If you need any help with customizing this platform, like theming, extending or even integrating it in your SOA infrastructure, please <a href="http://markaspot.de/en/contact">get in touch with us</a>.</p>
   <h3>Photo credits</h3>
   <ul>
   <li>Garbage Collection by Dan Century (Flickr)</li>
