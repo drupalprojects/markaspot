@@ -163,6 +163,7 @@ function _createCategories() {
 
 
 function _createReports(){
+  $last_tid =  db_query("SELECT tid FROM {taxonomy_term_data} ORDER BY tid DESC LIMIT 1")->fetchField();
 
   // now creating initial report
   $nodes[0] = array('Garbage Collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8212596','6.8961028','Pingsdorfer Straße 88, 50321 Brühl','holger@markaspot.org','11', '1', 'flickr_by_dancentury_garbage_collection_4585329947');
@@ -201,8 +202,8 @@ function _createReports(){
     $node->field_geo[$node->language][0]['lng'] = $node_data[3];
     $node->field_address[$node->language][0]['value'] = $node_data[4];
     $node->field_e_mail[$node->language][0]['value'] = $node_data[5];
-    $node->field_category[$node->language][0]['tid'] = $node_data[6];
-    $node->field_status[$node->language][0]['tid'] = $node_data[7];
+    $node->field_category[$node->language][0]['tid'] = $last_tid + $node_data[6];
+    $node->field_status[$node->language][0]['tid'] = $last_tid + $node_data[7];
     $node->is_new = true;
     $node->promote = 0;
     $filename = 'image_'.$node_data[8].'.jpg';
