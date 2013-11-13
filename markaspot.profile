@@ -617,7 +617,9 @@ function _activate_block($module, $block, $region, $theme, $pages, $visibility, 
 }
 
 function _delete_dummies(){
-  $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+  // Get the vocabulary ID.
+  $vid = db_query("SELECT vid FROM {taxonomy_vocabulary} WHERE machine_name = 'status'")->fetchField();
+  $taxonomies = taxonomy_get_tree($vid, $parent = 0, $max_depth = 1, $load_entities = TRUE);
 
   foreach ($taxonomies as $term) {
   //print_r($term->name);
