@@ -67,13 +67,6 @@ function markaspot_install_finished(&$install_state) {
 
 function _createStatus () {
 
-  // // Create taxonomy vocabulary for status.
-  // taxonomy_vocabulary_save((object) array(
-  //   'name' => 'Status',
-  //   'machine_name' => 'status',
-  // ));
-
-
   // Get the vocabulary ID.
   $vid = db_query("SELECT vid FROM {taxonomy_vocabulary} WHERE machine_name = 'status'")->fetchField();
 
@@ -97,14 +90,16 @@ function _createStatus () {
     $term['description'] = $parent[1];
     $term['field_status_hex']['und'][0]['value'] = $parent[2];
     $term['field_status_icon']['und'][0]['value'] = $parent[3];
-
+    // var_dump($parent);
     // taxonomy_term_save((object)$term);
     // $term = ;
+
     $status = taxonomy_term_save((object)$term);
     switch ($status) {
       case SAVED_NEW:
         drupal_set_message(t('Created new term %term.', array('%term' => $term['name'])));
-        // watchdog('taxonomy', 'Created new term %term.', array('%term' => $term['name']), WATCHDOG_NOTICE, l(t('edit'), 'taxonomy/term/' . $term['tid'] . '/edit'));
+        //  watchdog('taxonomy', 'Created new term %term.', array('%term' => $term['name']), WATCHDOG_NOTICE, l(t('edit'), 'taxonomy/term/' . $term['tid'] . '/edit'));
+
         break;
       case SAVED_UPDATED:
         drupal_set_message(t('Updated term %term.', array('%term' => $term['name'])));
@@ -131,6 +126,7 @@ function _createCategories() {
 
 
   foreach ($terms as $parent) {
+
     // Create the parent term.
     $term['vid'] = $vid;
 
@@ -157,13 +153,14 @@ function _createCategories() {
         break;
     }
   }
+
   return;
 }
 
 
 
 function _createReports(){
-  $last_tid =  db_query("SELECT tid FROM {taxonomy_term_data} ORDER BY tid DESC LIMIT 1")->fetchField();
+
 
   // now creating initial report
   $nodes[0] = array('Garbage Collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8212596','6.8961028','Pingsdorfer Straße 88, 50321 Brühl','holger@markaspot.org','11', '1', 'flickr_by_dancentury_garbage_collection_4585329947');
@@ -202,8 +199,9 @@ function _createReports(){
     $node->field_geo[$node->language][0]['lng'] = $node_data[3];
     $node->field_address[$node->language][0]['value'] = $node_data[4];
     $node->field_e_mail[$node->language][0]['value'] = $node_data[5];
-    $node->field_category[$node->language][0]['tid'] = $last_tid + $node_data[6];
-    $node->field_status[$node->language][0]['tid'] = $last_tid + $node_data[7];
+    $node->field_category[$node->language][0]['tid'] = $node_data[6];
+
+    $node->field_status[$node->language][0]['tid'] = $node_data[7];
     $node->is_new = true;
     $node->promote = 0;
     $filename = 'image_'.$node_data[8].'.jpg';
