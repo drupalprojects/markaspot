@@ -28,6 +28,7 @@ projects[twitter][patch][2132231] = "https://drupal.org/files/issues/Twitter-add
 projects[oauth][subdir] = "contrib"
 projects[workbench][subdir] = "contrib"
 projects[chosen][subdir] = "contrib"
+projects[chosen][version] = 7.x-2.x-dev
 
 
 
