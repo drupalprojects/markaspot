@@ -114,7 +114,8 @@ function markaspot_logic_init() {
   );
 
   drupal_add_js(drupal_get_path('module','markaspot_logic'). '/markaspot_logic.js');
-
+  drupal_add_css(drupal_get_path('profile','markaspot') . '/libraries/Leaflet.awesome-markers-master/dist/leaflet.awesome-markers.css');
+  drupal_add_css(drupal_get_path('profile','markaspot') . '/libraries/markaspot-font/style.css');
 
   //  drupal_set_message($type, 'status', FALSE);
   // Add some css to show which line is output by which script
@@ -148,8 +149,7 @@ function markaspot_logic_init() {
           '!IE' => FALSE
           )
       ));
-      drupal_add_css(drupal_get_path('profile','markaspot') . '/libraries/Leaflet.awesome-markers-master/dist/leaflet.awesome-markers.css');
-      drupal_add_css(drupal_get_path('profile','markaspot') . '/libraries/markaspot-font/style.css');
+
 
       drupal_add_js(drupal_get_path('profile','markaspot') . '/libraries/leaflet-0.6.3/leaflet.js');
 
