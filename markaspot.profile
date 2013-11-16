@@ -65,6 +65,15 @@ function markaspot_install_finished(&$install_state) {
   return $output;
 }
 
+function get_term_id($termname){
+  $terms = taxonomy_get_term_by_name($termname);
+  foreach ($terms as $term) {
+    if ($term->name == $termname) {
+      return $term->tid;
+    }
+  }
+}
+
 function _createStatus () {
 
   // // Create taxonomy vocabulary for status.
@@ -145,10 +154,10 @@ function _createCategories() {
     // taxonomy_term_save((object)$term);
     // $term = ;
     $status = taxonomy_term_save((object)$term);
+
     switch ($status) {
       case SAVED_NEW:
         drupal_set_message(t('Created new term %term.', array('%term' => $term['name'])));
-
         break;
       case SAVED_UPDATED:
         drupal_set_message(t('Updated term %term.', array('%term' => $term['name'])));
@@ -166,17 +175,17 @@ function _createCategories() {
 function _createReports(){
 
   // now creating initial report
-  $nodes[0] = array('Garbage Collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8212596','6.8961028','Pingsdorfer Straße 88, 50321 Brühl','holger@markaspot.org','11', '1', 'flickr_by_dancentury_garbage_collection_4585329947');
+  $nodes[0] = array('Garbage Collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8212596','6.8961028','Pingsdorfer Straße 88, 50321 Brühl','holger@markaspot.org','Litter Basket Complaint', 'Open', 'flickr_by_dancentury_garbage_collection_4585329947');
 
-  $nodes[1] = array('Some graffiti', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.81812812677597','6.8905774494293155','Am Ringofen 21, 50321 Brühl','holger@markaspot.org', '12', '1', 'flickr_by_striatic_grafitti_133146861');
+  $nodes[1] = array('Some graffiti', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.81812812677597','6.8905774494293155','Am Ringofen 21, 50321 Brühl','holger@markaspot.org', 'Graffiti Report', 'Open', 'flickr_by_striatic_grafitti_133146861');
 
-  $nodes[2] = array('Abandoned car', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.82435019881909','6.895512714016718','Liblarer Straße 88, 50321, Brühl','holger@markaspot.org', '10', '3', 'flickr_thomasbrandt');
+  $nodes[2] = array('Abandoned car', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.82435019881909','6.895512714016718','Liblarer Straße 88, 50321, Brühl','holger@markaspot.org', 'Abandoned Cars', 'Solved', 'flickr_thomasbrandt');
 
-  $nodes[3] = array('Danger at subway construction', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8282131596655','6.90819419823913','Promenade, 50321 Brühl','holger@markaspot.org', '13','3', 'flickr_holger_baustellenlage_ebertplatz');
+  $nodes[3] = array('Danger at subway construction', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8282131596655','6.90819419823913','Promenade, 50321 Brühl','holger@markaspot.org', 'Building Construction Complaint','In progress', 'flickr_holger_baustellenlage_ebertplatz');
 
-  $nodes[4] = array('Really Abandoned car', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8327211', '6.9032226','Friedrichstraße 23 50321 Brühl','holger@markaspot.org', '10', '4','flickr_by_mikebaird_abandoned_car_4585329947');
+  $nodes[4] = array('Really Abandoned car', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.8327211', '6.9032226','Friedrichstraße 23 50321 Brühl','holger@markaspot.org', 'Abandoned Cars', 'Archive','flickr_by_mikebaird_abandoned_car_4585329947');
 
-  $nodes[5] = array('Garbage collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.826873' ,' 6.900167','Centre, 50321 Brühl','holger@markaspot.org', '11', '4','flickr_by_realname_garbage-tonal-decay');
+  $nodes[5] = array('Garbage collection', 'Lorem Ipsum Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo', '50.826873' ,' 6.900167','Centre, 50321 Brühl','holger@markaspot.org', 'Litter Basket Complaint', 'Solved','flickr_by_realname_garbage-tonal-decay');
 
 
   // $nid=strval($last_nid + 1);
@@ -202,12 +211,12 @@ function _createReports(){
     $node->field_geo[$node->language][0]['lng'] = $node_data[3];
     $node->field_address[$node->language][0]['value'] = $node_data[4];
     $node->field_e_mail[$node->language][0]['value'] = $node_data[5];
-    $node->field_category[$node->language][0]['tid'] = $node_data[6];
-    $node->field_status[$node->language][0]['tid'] = $node_data[7];
+    $node->field_category[$node->language][0]['tid'] = get_term_id($node_data[6]);
+    $node->field_status[$node->language][0]['tid'] = get_term_id($node_data[7]);
     $node->is_new = true;
     $node->promote = 0;
     $filename = 'image_'.$node_data[8].'.jpg';
-    // var_dump(base_path().'profiles/markaspot/themes/mas/images/'.$node_data[9]);
+
     $image = file_get_contents('profiles/markaspot/themes/mas/images/'.$node_data[8].'.jpg');
     $file = file_save_data($image, 'public://' . $filename, FILE_EXISTS_RENAME);
     $node->field_image = array(LANGUAGE_NONE => array('0' => (array)$file));
@@ -496,7 +505,7 @@ This overrides all other arguments.
         </th>
         <td>
           <a href="' . $base_url . '/georeport/v2/requests/1.json">
-            ' . $base_url . '/georeport/v2/requests/254.json
+            ' . $base_url . '/georeport/v2/requests/1.json
           </a>
         </td>
       </tr>
@@ -573,7 +582,7 @@ This overrides all other arguments.
     $node->is_new = true;
     $node->promote = 0;
     $filename = 'image_'.$node_data[2].'.jpg';
-    // var_dump(base_path().'profiles/markaspot/themes/mas/images/'.$node_data[9]);
+
     $image = file_get_contents('profiles/markaspot/themes/mas/images/'.$node_data[2].'.jpg');
     $file = file_save_data($image, 'public://' . $filename, FILE_EXISTS_RENAME);
     $node->field_image = array(LANGUAGE_NONE => array('0' => (array)$file));
