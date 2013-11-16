@@ -249,9 +249,9 @@ function markaspot_install() {
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'ember')
+    ->condition('name', 'rubik')
     ->execute();
-  variable_set('admin_theme', 'ember');
+  variable_set('admin_theme', 'rubik');
   variable_set('node_admin_theme', '1');
 
 

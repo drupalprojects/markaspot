@@ -47,6 +47,9 @@ function markaspot_install_finished(&$install_state) {
   // Remember the profile which was used.
   variable_set('install_profile', drupal_get_profile());
 
+  variable_set('chosen_minimum_single', 3);
+
+
   // Install profiles are always loaded last
   db_update('system')
     ->fields(array('weight' => 1000))
@@ -604,7 +607,7 @@ function _build_blocks() {
   _activate_block('markaspot_unpubished', 'recent', 'sidebar_second', 'mas', '<front>', '1', '0');
   // _activate_block('search', 'form', 'sidebar_second', 'mas', 'map', '0');
   _activate_block('system', 'navigation', 'sidebar_second', 'mas', '<front>'. "\n" .'node/7'. "\n" .'node/8', '1', '0');
-  _activate_block('menu', 'menu-secondary-navigation', 'footer' ,'mas', '', '0', '0');
+  _activate_block('menu', 'menu-secondary-navigation', 'footer' ,'mas', 'admin'. "\n" .'admin/*', '0', '0');
   _activate_block('user', 'login', 'sidebar_second', 'mas', '<front>'. "\n" .'node/7'. "\n" .'node/8', '1', '0');
   _activate_block('markaspot_default_content', 'welcome', 'content', 'mas', '<front>', '1', '0');
   _activate_block('markaspot_stats', 'markaspot_stats', 'sidebar_second', 'mas', '<front>'. "\n" .'node/7'. "\n" .'node/8', '1', '0');
