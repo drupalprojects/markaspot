@@ -27,6 +27,7 @@ projects[twitter][subdir] = "contrib"
 projects[twitter][patch][2132231] = "https://drupal.org/files/issues/Twitter-add_geo_and_entities_Twitter_object_2132231-1_0.patch"
 projects[oauth][subdir] = "contrib"
 projects[workbench][subdir] = "contrib"
+projects[chosen][subdir] = "contrib"
 
 
 
