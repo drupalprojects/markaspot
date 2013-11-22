@@ -56,10 +56,8 @@
       <div class="span6">
         <div class="welcome-text well">
           <?php
-            // if you don't want bootstrap carousel to welcome visitors
-            // you can use this block
-            //$block = module_invoke('markaspot_default_content', 'block_view', 'welcome');
-            //print render($block['content']);
+            $block = module_invoke('markaspot_default_content', 'block_view', 'welcome');
+            print render($block['content']);
           ?>
         </div>
         <div class="row-fluid welcome">
