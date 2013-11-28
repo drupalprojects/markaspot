@@ -42,7 +42,8 @@ libraries[chosen][directory_name] = chosen
 
 libraries[Leaflet.awesome-markers][type] = libraries
 libraries[Leaflet.awesome-markers][download][type] = git
-libraries[Leaflet.awesome-markers][download][url] = "https://github.com/lvoogdt/Leaflet.awesome-markers.git"
+libraries[Leaflet.awesome-markers][download][url] = "https://github.com/markaspot/Leaflet.awesome-markers.git"
+libraries[Leaflet.awesome-markers][branch] = additional-colors
 libraries[Leaflet.awesome-markers][directory_name] = Leaflet.awesome-markers
 
 libraries[Leaflet.markercluster][type] = libraries
@@ -59,6 +60,18 @@ libraries[spin.js][type] = libraries
 libraries[spin.js][download][type] = git
 libraries[spin.js][download][url] = "https://github.com/fgnass/spin.js.git"
 libraries[spin.js][directory_name] = spin.js
+
+libraries[markaspot-font][type] = libraries
+libraries[markaspot-font][download][type] = git
+libraries[markaspot-font][download][url] = "https://github.com/markaspot/markaspot-font.git"
+libraries[markaspot-font][directory_name] = markaspot-font
+
+libraries[proxy][type] = libraries
+libraries[proxy][download][type] = git
+libraries[proxy][download][url] = "https://github.com/markaspot/Simple-php-proxy-script.git"
+libraries[proxy][directory_name] = proxy
+libraries[proxy][branch] = osm-nominatim
+
 
 
 ; Themes
