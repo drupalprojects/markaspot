@@ -43,7 +43,7 @@ libraries[chosen][directory_name] = chosen
 libraries[Leaflet.awesome-markers][type] = libraries
 libraries[Leaflet.awesome-markers][download][type] = git
 libraries[Leaflet.awesome-markers][download][url] = "https://github.com/markaspot/Leaflet.awesome-markers.git"
-libraries[Leaflet.awesome-markers][branch] = additional-colors
+libraries[Leaflet.awesome-markers][download][branch] = additional-colors
 libraries[Leaflet.awesome-markers][directory_name] = Leaflet.awesome-markers
 
 libraries[Leaflet.markercluster][type] = libraries
@@ -69,8 +69,8 @@ libraries[markaspot-font][directory_name] = markaspot-font
 libraries[proxy][type] = libraries
 libraries[proxy][download][type] = git
 libraries[proxy][download][url] = "https://github.com/markaspot/Simple-php-proxy-script.git"
+libraries[proxy][download][branch] = osm-nominatim
 libraries[proxy][directory_name] = proxy
-libraries[proxy][branch] = osm-nominatim
 
 
 
