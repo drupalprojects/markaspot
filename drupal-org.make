@@ -53,8 +53,8 @@ libraries[Leaflet.markercluster][directory_name] = Leaflet.markercluster
 
 libraries[Leaflet][type] = libraries
 libraries[Leaflet][download][type] = git
-libraries[Leaflet][download][url] = "https://github.com/Leaflet/Leaflet.git"
-libraries[Leaflet][directory_name] = Leaflet
+libraries[leaflet][download][url] = "http://leaflet-cdn.s3.amazonaws.com/build/leaflet-0.7.zip"
+libraries[Leaflet][directory_name] = leaflet
 
 libraries[spin.js][type] = libraries
 libraries[spin.js][download][type] = git
