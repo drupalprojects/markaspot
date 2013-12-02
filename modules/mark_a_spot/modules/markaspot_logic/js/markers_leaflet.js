@@ -64,12 +64,11 @@ var markerLayer, queryString;
     if (mas.cloudmade_api_key) {
       var url = 'https://ssl_tiles.cloudmade.com/'+ mas.cloudmade_api_key +'/22677/256/{z}/{x}/{y}.png';
       var attribution = 'Map data &copy; 2013 OpenStreetMap contributors, Imagery &copy; 2013 CloudMade';
-    }
-
-    if (mas.osm_custom_tile_url) {
+    } else {
       var url = mas.osm_custom_tile_url;
       var attribution = mas.osm_custom_attribution;
     }
+
 
     layer = new L.TileLayer(url, {maxZoom: 18, attribution: attribution});
     Drupal.Markaspot.maps[0].setView(new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng), 13).addLayer(layer);
