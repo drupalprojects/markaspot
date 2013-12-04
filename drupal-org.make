@@ -72,6 +72,11 @@ libraries[proxy][download][url] = "https://github.com/markaspot/Simple-php-proxy
 libraries[proxy][download][branch] = osm-nominatim
 libraries[proxy][directory_name] = proxy
 
+libraries[bootstrap][download][type] = "get"
+libraries[bootstrap][download][url] = "https://github.com/twbs/bootstrap/archive/v2.3.2.zip"
+libraries[bootstrap][directory_name] = "bootstrap"
+libraries[bootstrap][destination] = themes/masbootstrap
+libraries[bootstrap][overwrite] = TRUE
 
 
 ; Themes

@@ -19,11 +19,8 @@ regions[footer] = Footer
 
 
 
-;stylesheets[all][] = bootstrap/css/bootstrap.css
-;stylesheets[all][] = bootstrap/css/responsive.css
-
-stylesheets[all][] = bootstrap/css/bootstrap-responsive.min.css
-
+stylesheets[all][] = bootstrap/css/bootstrap.css
+stylesheets[all][] = bootstrap/css/responsive.css
 
 stylesheets[all][] = css/mas.css
 ; stylesheets[all][] = css/font-awesome.min.css
@@ -35,7 +32,6 @@ scripts[] = js/mas.js
 ; METHOD 1: Bootstrap Source Files
 ;**********************************
 
-scripts[] = 'bootstrap/js/bootstrap.min.js'
 ; scripts[] = 'bootstrap/js/bootstrap-affix.js'
 ; scripts[] = 'bootstrap/js/bootstrap-alert.js'
 ; scripts[] = 'bootstrap/js/bootstrap-button.js'
@@ -44,7 +40,7 @@ scripts[] = 'bootstrap/js/bootstrap.min.js'
 ; scripts[] = 'bootstrap/js/bootstrap-dropdown.js'
 ; scripts[] = 'bootstrap/js/bootstrap-modal.js'
 ; scripts[] = 'bootstrap/js/bootstrap-tooltip.js'
-; scripts[] = 'bootstrap/js/bootstrap-popover.js'
+; ;scripts[] = 'bootstrap/js/bootstrap-popover.js'
 ; scripts[] = 'bootstrap/js/bootstrap-scrollspy.js'
 ; scripts[] = 'bootstrap/js/bootstrap-transition.js'
 ; scripts[] = 'bootstrap/js/bootstrap-tab.js'
@@ -54,7 +50,7 @@ scripts[] = 'bootstrap/js/bootstrap.min.js'
 ; ;settings[toggle_name] = 0
 ; ;settings[toggle_search] = 1
 ; Disable the CDN as we are using our own source files.
- settings[cdn_bootstrap] = 0
+; settings[cdn_bootstrap] = 0
 
 
 settings[toggle_name] = 0
