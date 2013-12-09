@@ -32,7 +32,7 @@ scripts[] = js/mas.js
 ; METHOD 1: Bootstrap Source Files
 ;**********************************
 
-; scripts[] = 'bootstrap/js/bootstrap-affix.js'
+scripts[] = 'bootstrap/js/bootstrap.js'
 ; scripts[] = 'bootstrap/js/bootstrap-alert.js'
 ; scripts[] = 'bootstrap/js/bootstrap-button.js'
 ; scripts[] = 'bootstrap/js/bootstrap-carousel.js'
