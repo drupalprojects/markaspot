@@ -292,6 +292,12 @@ function _request_map_node($request) {
   $node->modified = time();
 
 
+  $node_options = variable_get('node_options_report', array());
+
+  if($node_options['status'] != 1) {
+    $node->status = 0;
+  }
+
   $node->language = 'und'; // language - neutral
 
   // mapping the requested service code to taxonomy id
