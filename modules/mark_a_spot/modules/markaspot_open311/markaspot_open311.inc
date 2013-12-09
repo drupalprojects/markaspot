@@ -311,7 +311,7 @@ function _request_map_node($request) {
   $node->title = $service_code->name;
 
   // All incoming requests get status "open"
-  $node->field_status[$node->language][0]['tid'] = "1";
+  $node->field_status[$node->language][0]['tid'] = "5";
 
   $node->body[$node->language][0]['value'] = $request->description;
   $node->body[$node->language][0]['format']  = 'filtered_html';
