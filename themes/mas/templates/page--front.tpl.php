@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="col-md-4 col-md-offset-1 thumbnail">
-        <img class="img-responsive" src="http://local.mas/sites/default/files/styles/mas_medium/public/image_flickr_by_realname_garbage-tonal-decay_82.jpg?itok=hy4lw8Vl" width="720" height="480">
+        <img class="img-responsive" src="sites/default/files/styles/mas_medium/public/image_flickr_by_realname_garbage-tonal-decay_82.jpg?itok=hy4lw8Vl" width="720" height="480">
       </div>
     </div>
   </div>
