@@ -1,5 +1,5 @@
-api = 2
 core = 7.x
+api = 2
 
 ; According to https://github.com/drush-ops/drush/issues/234#issuecomment-27656033
 ; https://drupal.org/comment/8140319#comment-8140319
