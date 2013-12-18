@@ -54,7 +54,7 @@ stylesheets[all][] = css/mas.css
  scripts[] = 'bootstrap/js/transition.js'
 ;
 ; ; Disable BootstrapCDN if using Bootstrap source files in your sub-theme.
-;settings[bootstrap_cdn] = '0'
+settings[bootstrap_cdn] = ''
 
 
 ; ;-------------------------
