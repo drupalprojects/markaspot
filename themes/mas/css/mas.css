@@ -678,6 +678,15 @@ div.view.view-recent-edits ul, .block-user ul  {
 
 
 /* Form styles */
+/* Form styles */
+
+.form-control {
+  border: 1px solid #f2f2f2;
+
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.005);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.005);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.005);}
+
 .form-text {
 }
 
