@@ -63,7 +63,11 @@ function _markaspot_open311_requests_create($data) {
   markaspot_open311_write_request($node);
 
   // we have the node-id
-  $service_request[0]['service_request_id'] = $node->nid;
+  if (module_exists('markaspot_uuid')) {
+    $service_request[0]['service_request_id'] = $node->uuid;
+  } else {
+    $service_request[0]['service_request_id'] = $node->id;
+  }
   $service_request[0]['service_notice'] = "";
   return $service_request;
 }
@@ -88,13 +92,21 @@ function _markaspot_open311_requests_retrieve($id, $parameters) {
   if (module_exists('markaspot_uuid')) {
     //  Get node->nid by uuid
     $service_request_id = entity_get_id_by_uuid('node', array($id));
-     // load node with nid
-    $node = node_load($service_request_id[$id]);
+
+    if(!empty($service_request_id[$id])) {
+      // load node with translated nid
+      $node = node_load($service_request_id[$id]);
+    } else {
+      return _process_services_error(t('Service request not found'), 404);
+    }
   } else {
     $node = node_load($id);
   }
-  $status = _tax_map_status($node->field_status['und'][0]["tid"]);
 
+  if ($node == false) {
+  } else {
+    $status = _tax_map_status($node->field_status['und'][0]["tid"]);
+  }
   $service_requests[] = _node_map_request($node, $status, $parameters);
   return $service_requests;
 
