@@ -189,10 +189,6 @@ body.toolbar-drawer {
 
 /*footer header*/
 
-.logo-header{width: 59px;height: 43px;background: url("../images/logo.png") no-repeat 50% 50%;display: block;text-indent: -999px;}
-.logo-header a{height:100%;width: 100%;display: block;}
-
-
 #footer-columns {
   padding: 10px;
 }
@@ -220,27 +216,27 @@ body.toolbar-drawer {
 
 }
 
-.page-map .footer {
-  margin: 0;
-}
+
 .region.region-footer {
   padding: 10px 30px;
-  /* color: #666; */
+  color: #fff;
 }
 
 .region.region-footer a{
-  /* color: #434BAF; */
+  color: #fff;
 }
 
 
 /* Footer Menue */
 
 footer.footer .region.region-footer section.block-menu {
-margin-bottom:0;
+margin: 0;
 float:right;
 }
 
 footer.footer .region.region-footer section.block-menu li a {
+  margin:0;
+  padding: 0 20px
 }
 
 footer.footer .region.region-footer section.block-menu li a:hover,footer.footer .region.region-footer section.block-menu li a:focus {
@@ -254,6 +250,7 @@ font-weight:700;
 footer.footer .region.region-footer section.block-menu li {
 float:left;
 margin-right:20px;
+margin:0;
 }
 
 
@@ -262,9 +259,7 @@ body.page-map  {
 }
 
 .page-map .row.map-tools {
-
   position: absolute;
-  z-index: 999;
   width: 100%;
   top:40px;
   left: 0;
@@ -277,15 +272,18 @@ body.page-map  {
 }
 
 
-.page-map .navbar-inner {
-    opacity: 0.6;
+.page-map .navbar-inner,
+.page-map .footer {
+    opacity: 0.4;
     -webkit-transition: opacity 500ms ease-out;
     -moz-transition: opacity 500ms ease-out;
     -o-transition: opacity 500ms ease-out;
     transition: opacity 500ms ease-out;
 }
 
-.page-map .navbar-inner:hover {
+.page-map .navbar-inner:hover,
+.page-map .footer:hover,
+.page-map .footer:focus {
     opacity: 0.9;
 }
 
@@ -464,8 +462,22 @@ span.marker-category {
 
 /* map @map-page*/
 
-.page-map .logo-area {
+#page-header {
+    height: 70px;
+    background: url('../logo.png') 50% 50% no-repeat;
+}
+
+.page-map #page-header {
     display: none;
+}
+
+.not-front .logo.navbar-btn.pull-left,
+.front .logo.navbar-btn.pull-left {
+    display: none;
+}
+
+.page-map .logo.navbar-btn.pull-left {
+    display: block;
 }
 
 
@@ -564,10 +576,6 @@ span.marker-category {
 }
 
 
-.not-front .main-container.container.page {
-margin-top: 130px;
-}
-
 .front .main-container.container.page {
 margin-top: 100px;
 }
@@ -585,6 +593,12 @@ margin-top: 100px;
   display:none;
 }
 
+.page-header {
+padding-bottom: 9px;
+margin: 0 0 20px;
+border-bottom: 1px solid #EEE;
+}
+
 .row.welcome {
   padding: 10px 0;
 }
@@ -598,7 +612,7 @@ margin-top: 100px;
 }
 
 .container.stage {
-    padding: 70px 0;
+    padding: 25px 0;
 }
 
 .stage .span5.offset1.thumbnail {
@@ -617,13 +631,6 @@ margin-top: 100px;
   margin: 4px 0;
   background:none;
 }
-
-/*In case you need a header*/
-
-#header {
-  display:none;
-}
-
 
 .region.region-sidebar-second h3 {
     margin: 10px 0 0 0;
@@ -678,9 +685,8 @@ div.view.view-recent-edits ul, .block-user ul  {
 
 
 /* Form styles */
-/* Form styles */
 
-.form-control {
+.form-control.form-select {
   border: 1px solid #f2f2f2;
 
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.005);
@@ -722,35 +728,47 @@ input[type="color"] {
           box-sizing: border-box;
 }
 
+.geolocation-address .form-type-textfield {
+float: none;
+}
+
+.geolocation-address {
+  margin: 10px 0;
+  float:left;
+  width:100%;
+}
+
+.geolocation-address-geocode, .geolocation-client-location {
+  background-color: #96BC44;
+  color: #FFF;
+  padding: 2px 10px 3px 10px;
+  cursor: pointer;
+  margin: 2px 0 0 4px;
+}
 
 
-#geolocation-help-8-0 {
+.geolocation-help  {
   font-size: 0.9em;
   color: #999;
   background: #fff;
-  border: solid 1px #eeeeee;
-  padding: 1em;
+  padding: 10px;
+  margin: 20px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-#geolocation-help-8-0:before {
-  font-family: 'markaspot';
+.geolocation-help:before {
+  font-family: 'Markaspot';
   speak: none;
-  font-size: 70px;
+  font-size: 30px;
   color: #ddd;
   font-style: normal;
   font-weight: normal;
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-    content: '&#xe004';
-    float:right;
-}
-#geolocation-address-8-0 {
-    padding: 1em;
-    width: 52%;
-    float: left;
+  content: "\e005";
+  float:right;
 }
 
 .geolocation-map {
@@ -808,37 +826,27 @@ input[type="color"] {
 .mapheader {
   position: relative;
   z-index: 42;
-  height: 420px;
+  height: 350px;
   padding: 40px 0;
 }
-
-
-/*
-#map_wrapper_splash #start {
-    background: none repeat scroll 0 0 #FFFFFF;
-    display: block;
-    height: 550px;
-    left: 0;
-    opacity: 0.1;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 0;
-}*/
 
 
 #map_wrapper_splash {
     background: none repeat scroll 0 0 transparent;
     left: 0;
     position: absolute;
-    top: 0;
+    top: 70px;
     width: 100%;
-    height: 344px;
     z-index: 39;
 }
 #map_wrapper_splash #map {
-    height: 420px;
+    height: 348px;
 }
+
+.admin-menu #map_wrapper_splash {
+    top: 100px;
+}
+
 
 .front .navbar-wrapper {
   position: absolute;
@@ -929,9 +937,7 @@ margin: 10px 30px;}
     display: inline-block;
     margin: 5px;
   }
-  .main-container {
-    margin: 60px auto;
-  }
+
   .report .show-markers {
     display: block;
   }
@@ -945,7 +951,7 @@ margin: 10px 30px;}
   }
 
   .front .navbar-wrapper {
-    top: 30px;
+    top: 85px;
   }
   .navbar-tray-open.navbar-horizontal .navbar-wrapper {
     top: 80px;
@@ -956,7 +962,7 @@ margin: 10px 30px;}
   }
   .stage p {
       font-size: 1.5em;
-      margin: 2em;
+      margin: 1em;
       line-height: 1.4em;
   }
 
@@ -984,8 +990,9 @@ margin: 10px 30px;}
 ------------------------- */
 @media (min-width: 768px) and (max-width: 979px) {
 
+
   .front .navbar-wrapper {
-    top: 20px;
+    top: 90px;
   }
 
   /* Remove any padding from the body */
@@ -1027,10 +1034,31 @@ margin: 10px 30px;}
   /* Remove any padding from the body */
   body {
     padding-top: 0;
+    font-size: 120%;
   }
-  body{
-    /*padding-top: 40px;*/
+
+
+#page-header {
+    display: none;
+}
+
+
+
+
+   #map_wrapper_splash {
+    top: 0px;
   }
+
+
+   .admin-menu #map_wrapper_splash {
+    top: 30px;
+  }
+
+
+  .front .logo.navbar-btn.pull-left {
+    display: block;
+  }
+
 
   #map_wrapper_splash #map {
     margin: 0
@@ -1073,22 +1101,6 @@ margin: 10px 30px;}
     position: absolute;
     top: 40px;
   }
-
-
-  .logo-area{
-    /* background: url("../images/header.png") no-repeat 100% 100%;
-       padding: 0px 0 30px 0px;
-       background-size:600px;
-    */
-  }
-  .logo-header{
-    background-repeat:no-repeat;
-  }
-  .logo-header a{
-    height:100%;width: 100%;display: block;
-
-    /* background-color: #cc0000; */
-}
 
   table td {
     word-wrap:break-word;
