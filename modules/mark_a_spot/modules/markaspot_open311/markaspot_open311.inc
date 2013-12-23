@@ -78,14 +78,25 @@ function _markaspot_open311_requests_create($data) {
  *
  */
 
-function _markaspot_open311_requests_retrieve($nid, $parameters) {
-   // added optional parameters achiving this:
-   // http://lists.open311.org/groups/discuss/messages/topic/AaxmrRLUHToO7jCQdjAXy
-   $node = node_load($nid);
-   $status = _tax_map_status($node->field_status['und'][0]["tid"]);
+function _markaspot_open311_requests_retrieve($id, $parameters) {
+  // added optional parameters achiving this:
+  // http://lists.open311.org/groups/discuss/messages/topic/AaxmrRLUHToO7jCQdjAXy
 
-   $service_requests[] = _node_map_request($node, $status, $parameters);
-   return $service_requests;
+  // using entity_load is slower than node_load()
+  // $entity = _uuid_services_entity_retrieve('node', $uuid);
+
+  if (module_exists('markaspot_uuid')) {
+    //  Get node->nid by uuid
+    $service_request_id = entity_get_id_by_uuid('node', array($id));
+     // load node with nid
+    $node = node_load($service_request_id[$id]);
+  } else {
+    $node = node_load($id);
+  }
+  $status = _tax_map_status($node->field_status['und'][0]["tid"]);
+
+  $service_requests[] = _node_map_request($node, $status, $parameters);
+  return $service_requests;
 
 }
 
@@ -212,8 +223,12 @@ function _markaspot_open311_services_retrieve($service_code) {
 
 function _node_map_request($node, $status, $parameters){
   //print_r($node,$parameters);
+  if(module_exists('markaspot_uuid')) {
+    $request['service_request_id'] = $node->uuid;
+  } else {
+    $request['service_request_id'] = $node->nid;
+  }
 
-  $request['service_request_id'] = intval($node->nid);
   $request['status'] = $status;
   if (isset($node->field_statement['und'][0]['value'])){
     $request['status_notes'] = $node->field_statement['und'][0]['value'];
@@ -260,7 +275,6 @@ function _node_map_request($node, $status, $parameters){
     $request['status_code'] = $node->field_status['und'][0]["tid"];
     $term['status_sub'] = taxonomy_term_load($node->field_status['und'][0]["tid"]);
     $request['status_sub'] = $term['status_sub']->name;
-
   }
 
   return $request;
@@ -327,7 +341,10 @@ function _request_map_node($request) {
 
   // Non Open311 compliant fields can be added here
   if(isset($parameters['extension'])) {
-    $node->field_common[$node->language]['value'] = $request->field_common['und'];
+    $request['status_code'] = $node->field_status[$node->language][0]["tid"];
+    $term['status_sub'] = taxonomy_term_load($node->field_status[$node->language][0]["tid"]);
+    $request['status_sub'] = $term['status_sub']->name;
+
   }
 
   $node->is_new = true;
