@@ -35,16 +35,38 @@ function _markaspot_open311_requests_create($data) {
   global $user;
   $data = (object) $data;
 
+  // could be more validation here
   if (!isset($data->email)) {
     return _process_services_error(t('Please provide a valid email address.'), 400);
   }
 
 
+  if (!isset($data->lat) || !isset($data->long)) {
+    return _process_services_error(t('Missing position parameters lat and long'), 400);
+  } else
+
+  $lat = $data->lat;
+  $lon = $data->long;
+  $nw = FALSE;
+  $se = FALSE;
+  $bbox = array(
+    'nw' => array('lat' => variable_get('bbox_nw_lat'), 'lng' => variable_get('bbox_nw_lng')),
+    'se' => array('lat' => variable_get('bbox_se_lat'), 'lng' => variable_get('bbox_se_lng')),
+  );
+
+  if  (($bbox['nw']['lat'] >= $lat) && ($bbox['nw']['lng'] <= $lon)) {
+   $nw = TRUE;
+  }
+  if  (($bbox['se']['lat'] <= $lat) && ($bbox['se']['lng'] >= $lon)) {
+   $se = TRUE;
+  }
+
+  if ($se == FALSE || $nw == FALSE) {
+    return _process_services_error(t('Your position is not located in our range of activity'), 400);
+  }
+
   if (!isset($data->service_code)) {
     return _process_services_error(t('Service_code missing or empty.'), 404);
-  }
-  if (!isset($data->lat) || !isset($data->long)) {
-    return _process_services_error(t('Missing position parameters lat and long'), $code);
   }
 
   // Check if submitted service code is in ServiceList:
@@ -52,6 +74,7 @@ function _markaspot_open311_requests_create($data) {
   foreach ($services as $service) {
     $services_available[] = $service['service_code'];
   }
+
   if (!in_array($data->service_code, $services_available)) {
     return services_error('Service_code was not found', 404);
   }
