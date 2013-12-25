@@ -473,7 +473,7 @@ span.marker-category {
 
 #page-header {
   height: 70px;
-  background: url('http://www.siegburg.de/img/static/siegburg-logo.gif') no-repeat;
+  background: url('../logo.png') 50% 50% no-repeat;
 }
 
 .page-map #page-header {
@@ -955,7 +955,7 @@ margin: 10px 30px;}
   }
 
   .front .navbar-wrapper {
-    top: 85px;
+    top: 60px;
   }
   .navbar-tray-open.navbar-horizontal .navbar-wrapper {
     top: 80px;
