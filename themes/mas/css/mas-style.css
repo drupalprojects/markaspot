@@ -6253,8 +6253,10 @@ a.tabledrag-handle .handle {
 }
 div.error,
 table tr.error {
+  padding: 10px;
   background-color: #f2dede;
   color: #b94a48;
+  border-radius: 4px;
 }
 .control-group.error {
   background: none;

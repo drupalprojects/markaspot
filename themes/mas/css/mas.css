@@ -418,6 +418,12 @@ span.marker-category {
   font-weight: 700;
 }
 
+.page-map .marker-status.col-5F9EA0,
+.page-map .marker-status.col-5F9EA0 a {
+  background: none;
+  color: #5F9EA0;
+  font-weight: 400;
+}
 .page-map .marker-category.col-8B0000,
 .page-map .marker-category.col-8B0000 a {
   color: #8B0000;
