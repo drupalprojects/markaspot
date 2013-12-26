@@ -195,8 +195,11 @@ function mark_a_spot_views_default_views() {
       ),
     ),
   );
-  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = '';
   $handler->display->display_options['row_plugin'] = 'entity';
@@ -774,6 +777,13 @@ function mark_a_spot_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('term from field_category'),
     t('term from field_status'),
     t('author'),
@@ -800,9 +810,6 @@ function mark_a_spot_views_default_views() {
     t('List view'),
     t('more'),
     t('Elemente pro Seite'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
     t('‹ previous Page'),
     t('next Page ›'),
     t('last Page »'),
