@@ -124,11 +124,14 @@ function _markaspot_open311_requests_retrieve($id, $parameters) {
     }
   } else {
     $node = node_load($id);
+    $node->language = LANGUAGE_NONE;
+
   }
 
   if ($node == false) {
   } else {
-    $status = _tax_map_status($node->field_status['und'][0]["tid"]);
+    $node->language = LANGUAGE_NONE;
+    $status = _tax_map_status($node->field_status[$node->language][0]["tid"]);
   }
   $service_requests[] = _node_map_request($node, $status, $parameters);
   return $service_requests;
@@ -202,7 +205,9 @@ function _markaspot_open311_requests_index($page, $parameters) {
   $requests = false;
   // now exploring nodes matching other parameters
   foreach ($nodes as $node) {
-    $status = _tax_map_status($node->field_status['und'][0]["tid"]);
+    $node->language = LANGUAGE_NONE;
+
+    $status = _tax_map_status($node->field_status[$node->language][0]["tid"]);
     $requests[] = _node_map_request($node, $status, $parameters);
   }
 
@@ -265,20 +270,20 @@ function _node_map_request($node, $status, $parameters){
   }
 
   $request['status'] = $status;
-  if (isset($node->field_statement['und'][0]['value'])){
-    $request['status_notes'] = $node->field_statement['und'][0]['value'];
+  if (isset($node->field_statement[$node->language][0]['value'])){
+    $request['status_notes'] = $node->field_statement[$node->language][0]['value'];
   }
-  $term['category'] = taxonomy_term_load($node->field_category['und'][0]["tid"]);
+  $term['category'] = taxonomy_term_load($node->field_category[$node->language][0]["tid"]);
 
   // defining content of the status-field
-  $status = _tax_map_status($node->field_status['und'][0]["tid"]);
+  $status = _tax_map_status($node->field_status[$node->language][0]["tid"]);
 
   if (isset($term['category'])) {
-    $request['service_code'] = $term['category']->field_category_id['und'][0]['value'];
+    $request['service_code'] = $term['category']->field_category_id[$node->language][0]['value'];
     $request['service_name'] = $term['category']->name;
   }
 
-  $request['description'] = $node->body['und'][0]['value'];
+  $request['description'] = $node->body[$node->language][0]['value'];
 
   $request['agency_responsible'] = null;
   $request['service_notice'] = null;
@@ -290,25 +295,25 @@ function _node_map_request($node, $status, $parameters){
 
 
   // Geo Information including address
-  if (isset($node->field_address['und'][0]['value'])){
-    $request['address'] = $node->field_address['und'][0]['value'];
+  if (isset($node->field_address[$node->language][0]['value'])){
+    $request['address'] = $node->field_address[$node->language][0]['value'];
   }
   $request['zipcode'] = null;
 
-  $request['lat'] = floatval($node->field_geo['und'][0]['lat']);
-  $request['long'] = floatval($node->field_geo['und'][0]['lng']);
+  $request['lat'] = floatval($node->field_geo[$node->language][0]['lat']);
+  $request['long'] = floatval($node->field_geo[$node->language][0]['lng']);
 
 
   // Media Url
-  if(isset($node->field_image['und'])){
-    $image_uri = image_style_url("large", file_build_uri($node->field_image['und'][0]['filename']));
+  if(isset($node->field_image[$node->language])){
+    $image_uri = image_style_url("large", file_build_uri($node->field_image[$node->language][0]['filename']));
     $request['media_url'] = $image_uri;
   }
 
   // Non Open311 compliant fields can be added here
   if(isset($parameters['extension'])) {
-    $request['status_code'] = $node->field_status['und'][0]["tid"];
-    $term['status_sub'] = taxonomy_term_load($node->field_status['und'][0]["tid"]);
+    $request['status_code'] = $node->field_status[$node->language][0]["tid"];
+    $term['status_sub'] = taxonomy_term_load($node->field_status[$node->language][0]["tid"]);
     $request['status_sub'] = $term['status_sub']->name;
   }
 
@@ -339,7 +344,7 @@ function _request_map_node($request) {
     $node->status = 0;
   }
 
-  $node->language = 'und'; // language - neutral
+  $node->language = $node->language; // language - neutral
 
   // mapping the requested service code to taxonomy id
   $tid = _service_map_tax($request->service_code);
@@ -400,12 +405,12 @@ function _request_map_node($request) {
 
 function _tax_map_service($taxonomy_term) {
   // $result=field_view_field('taxonomy_term',$term,'field_desired_field');
-  $service['service_code'] = $taxonomy_term->field_category_id['und'][0]['value'];
+  $service['service_code'] = $taxonomy_term->field_category_id[$node->language][0]['value'];
   $service['service_name'] = $taxonomy_term->name;
   $service['metadata'] = "false";
   $service['type'] = 'realtime';
   $service['description'] = $taxonomy_term->description;
-  $service['keywords'] = $taxonomy_term->field_hash['und'][0]['value'];
+  $service['keywords'] = $taxonomy_term->field_hash[$node->language][0]['value'];
 
   return $service;
 }
@@ -420,9 +425,8 @@ function _tax_map_status($taxonomyId) {
   // Mapping Status to Open311 Status (open/closed)
   $term['status'] = taxonomy_term_load($taxonomyId);
   if (isset($term['status'])) {
-    // declare all taxonomy-ids for status "open"
-    // (could be "acknowledged", "edited", "in progress")
-    $status_open = array(variable_get('open311_status_open', _markaspot_logic_defaults('open311_status_open')));
+
+    $status_open = explode(',', variable_get('open311_status_open', _markaspot_logic_defaults('open311_status_open')));
 
     if (in_array($term['status']->tid, $status_open)) {
       $status = 'open';
@@ -430,7 +434,7 @@ function _tax_map_status($taxonomyId) {
       $status = 'closed';
     }
   }
-  //print_r($status);
+  print_r($status);
   return $status;
 }
 
