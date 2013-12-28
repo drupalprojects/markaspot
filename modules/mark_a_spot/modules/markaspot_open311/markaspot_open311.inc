@@ -339,12 +339,13 @@ function _request_map_node($request) {
 
 
   $node_options = variable_get('node_options_report', array());
-
-  if($node_options['status'] != 1) {
+  if(in_array('status',$node_options)) {
+    $node->status = 1;
+  } else {
     $node->status = 0;
   }
 
-  $node->language = $node->language; // language - neutral
+  $node->language = LANGUAGE_NONE; // language - neutral
 
   // mapping the requested service code to taxonomy id
   $tid = _service_map_tax($request->service_code);
@@ -406,6 +407,7 @@ function _request_map_node($request) {
 function _tax_map_service($taxonomy_term) {
   // $result=field_view_field('taxonomy_term',$term,'field_desired_field');
   $node->language = LANGUAGE_NONE;
+
   $service['service_code'] = $taxonomy_term->field_category_id[$node->language][0]['value'];
   $service['service_name'] = $taxonomy_term->name;
   $service['metadata'] = "false";
@@ -435,7 +437,6 @@ function _tax_map_status($taxonomyId) {
       $status = 'closed';
     }
   }
-  print_r($status);
   return $status;
 }
 
