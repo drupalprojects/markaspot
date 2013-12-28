@@ -10,7 +10,7 @@
       hash = e.target.hash;
 
       $('html, body').animate({
-         scrollTop: $(hash).offset().top + 60
+         scrollTop: $(hash).offset().top
        }, 600, function(){
          window.location.hash = hash;
       });
@@ -18,7 +18,7 @@
       if (hash.match('3--'))  {
         $('.node-report-form #edit-submit').html(Drupal.t('Save'));
       } else {
-        $('.node-report-form #edit-submit').html(Drupal.t('Add data'));
+        $('.node-report-form #edit-submit').html(Drupal.t('Next'));
       }
     });
 
@@ -27,7 +27,7 @@
       $('.nav-tabs a[href=#' + url.split('#')[1] + ']').tab('show');
     }
 
-    $('.node-report-form #edit-submit').html(Drupal.t('Add data'));
+    $('.node-report-form #edit-submit').html(Drupal.t('Next'));
     // Submit changes
     $('.node-report-form #edit-submit').click(function(e) {
 

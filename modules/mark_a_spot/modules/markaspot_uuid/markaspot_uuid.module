@@ -50,13 +50,15 @@ function _uuid_generate_mas() {
 
 function markaspot_uuid_node_insert($node) {
 
-  // Instead of contributed module auto entity_title:
-  // get the service name by ID and update the title field
-
-  $tid = $node->field_category[LANGUAGE_NONE][0]['tid'];
-  $service = taxonomy_term_load($tid);
-
   if ($node->type == 'report' && variable_get('uuid_title') == 1) {
+
+
+    // Instead of contributed module auto entity_title:
+    // get the service name by ID and update the title field
+
+    $tid = $node->field_category[LANGUAGE_NONE][0]['tid'];
+    $service = taxonomy_term_load($tid);
+
     $num_updated = db_update('node')
     ->fields(array(
       'title' => '#' . $node->uuid . " ". $service->name,
