@@ -485,7 +485,7 @@ span.marker-category {
 
 #page-header {
   height: 70px;
-  background: url('../logo.png') 50% 50% no-repeat;
+  background: url('../logo.png') 15px 50% no-repeat;
 }
 
 .page-map #page-header {
