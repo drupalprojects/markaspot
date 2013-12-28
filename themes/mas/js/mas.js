@@ -4,7 +4,7 @@
     $('.field-label').addClass('label');
 
     $('.geolocation-address-geocode, .geolocation-client-location, .geolocation-remove').addClass('btn');
-    $('#edit-submit').addClass('btn-lg');
+
     $('.nav-tabs > li > a').on('click', function(e) {
 
       hash = e.target.hash;
