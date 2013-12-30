@@ -1076,6 +1076,12 @@ margin: 10px 30px;}
   }
 
 
+  .not-front .logo.navbar-btn.pull-left,
+  .front .logo.navbar-btn.pull-left {
+    display: block;
+  }
+
+
    .admin-menu #map_wrapper_splash {
     top: 0px;
   }
