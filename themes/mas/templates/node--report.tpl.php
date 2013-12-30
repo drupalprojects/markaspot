@@ -49,8 +49,10 @@
     <div class="col-md-6">
       <?php print render($content['comments']); ?>
     </div>
-    <div class="col-md-5 col-md-offset-1">
-      <?php print render($content['field_image']); ?>
+    <div class="col-md-5 col-md-offset-1 ">
+      <div class="thumbnail">
+        <?php print render($content['field_image']); ?>
+      </div>
     </div>
   </div>
 </article> <!-- /.node -->
