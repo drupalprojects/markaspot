@@ -24,17 +24,17 @@ function markaspot_logic_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Implements hook_validate().
  */
-function markaspot_logic_validate(&$form) {
+function markaspot_logic_validate($form, &$form_state) {
 
-  $mail = $form['values']['field_e_mail']['und'][0]['value'];
+  $mail = $form_state['values']['field_e_mail']['und'][0]['value'];
 
   if (!valid_email_address($mail)) {
     form_set_error('field_e_mail', t('Please enter a valid e-mail address.'));
   }
 
   /* Bounding Box */
-  $lat = $form['values']['field_geo']['und'][0]['lat'];
-  $lon = $form['values']['field_geo']['und'][0]['lng'];
+  $lat = $form_state['values']['field_geo']['und'][0]['lat'];
+  $lon = $form_state['values']['field_geo']['und'][0]['lng'];
   $nw = FALSE;
   $se = FALSE;
   $bbox = array(
@@ -49,7 +49,7 @@ function markaspot_logic_validate(&$form) {
     $se = TRUE;
   }
 
-  if (!strstr($form['values']['field_geo']['und'][0]['address']['field'], variable_get('markaspot_city'))) {
+  if (!strstr($form_state['values']['field_geo']['und'][0]['address']['field'], variable_get('markaspot_city'))) {
     form_set_error('field_geo', t('The string given for "City" is not valid'));
   }
   else {
