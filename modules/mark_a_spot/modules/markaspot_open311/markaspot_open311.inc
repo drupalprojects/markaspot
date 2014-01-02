@@ -4,7 +4,6 @@
  * Several methods for mapping drupal entities and georeport spedification.
  */
 
-
 /**
  * Process errors with http status codes.
  *
@@ -335,8 +334,8 @@ function node_map_request($node, $status, $parameters) {
 
   $request['requested_datetime'] = date('c', $node->created);
   $request['updated_datetime'] = date('c', $node->changed);
-  // $request['expected_datetime'] = date('c',$node->changed);
 
+  // $request['expected_datetime'] = date('c',$node->changed);
   // Geo Information including address:
   if (isset($node->field_address[$node->language][0]['value'])) {
     $request['address'] = $node->field_address[$node->language][0]['value'];
@@ -393,7 +392,7 @@ function request_map_node($request) {
   // Mapping the requested service code to taxonomy id:
   $tid = service_map_tax($request->service_code);
 
-  // applying term-name to title and it's taxonomyId to field_category
+  // Applying term-name to title and it's taxonomyId to field_category
   $node->field_category[$node->language][0]['tid'] = $tid;
 
   // Loading the taxonomy term by requested service_code
@@ -419,7 +418,10 @@ function request_map_node($request) {
     // define('FILE_EXISTS_REPLACE', 1)
     $file = system_retrieve_file($request->media_url, 'public://', $managed, FILE_EXISTS_REPLACE);
     $node->field_image[$node->language] = array(
-      0 => array('fid' => $file->fid, 'display' => 1, 'description' => $service_code->name)
+      0 => array(
+        'fid' => $file->fid, 'display' => 1,
+        'description' => $service_code->name,
+      ),
     );
   }
 
@@ -522,7 +524,6 @@ function service_map_tax($service_code) {
     ->entityCondition('bundle', 'category')
     ->fieldCondition('field_category_id', 'value', $service_code, '=')
     ->addMetaData('account', user_load(1));
-    // Run the query as user 1.
 
   $result = $query->execute();
   foreach ($result['taxonomy_term'] as $term) {

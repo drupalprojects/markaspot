@@ -18,6 +18,15 @@ function markaspot_open311_rest_server_response_formatters_alter(&$formatters) {
 
 class Open311XMLFormatter implements ServicesFormatterInterface {
 
+  /**
+   * Rendering data as Open311 Specific when XML format is requested.
+   *
+   * @param array $data
+   *   The data array
+   *
+   * @return string
+   *   The XML Tree
+   */
   public function render($data) {
 
     $doc = new DOMDocument('1.0', 'utf-8');
@@ -44,13 +53,22 @@ class Open311XMLFormatter implements ServicesFormatterInterface {
       }
     }
     $doc->appendChild($root);
-    $this->xml_recurse($doc, $root, $data);
+    $this->xmlRecurse($doc, $root, $data);
 
     return $doc->saveXML();
   }
 
-
-  private function xml_recurse(&$doc, &$parent, $data) {
+  /**
+   * Checking data against Open311 Specification and creating elements.
+   *
+   * @param object $doc
+   *   The doc object
+   * @param string $parent
+   *   The parent element
+   * @param object $data
+   *   The element
+   */
+  protected function xmlRecurse(&$doc, &$parent, $data) {
     if (is_object($data)) {
       $data = get_object_vars($data);
     }
@@ -62,7 +80,8 @@ class Open311XMLFormatter implements ServicesFormatterInterface {
         if (is_numeric($key)) {
 
           // Mark-a-Spot Integration
-          // Instead of "items" geoReport v2 requires an "request" or "service"-element for arrays.
+          // Instead of "items" geoReport v2 requires an "request" or
+          // "service"-element for arrays.
           $key = 'item';
           if (array_key_exists('code', $data[0])) {
             $key = 'error';
@@ -92,7 +111,7 @@ class Open311XMLFormatter implements ServicesFormatterInterface {
         }
         $element = $doc->createElement($key);
         $parent->appendChild($element);
-        $this->xml_recurse($doc, $element, $value);
+        $this->xmlRecurse($doc, $element, $value);
       }
 
       if (!$assoc) {
@@ -140,10 +159,9 @@ function _markaspot_open311_access($op, $args) {
  * @param int $id
  *   The request id
  *
- * @return
+ * @return object
  *   An object containing the node object.
  */
-
 function markaspot_open311_get_requests($id) {
   return db_query('SELECT * FROM {node} WHERE nid=:id', array(':id' => $id))
     ->fetchAll();
