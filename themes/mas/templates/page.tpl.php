@@ -1,5 +1,9 @@
+<header role="banner" id="page-header" class="container">
+  <?php print render($page['header']); ?>
+</header> <!-- /#header -->
+
 <div class="navbar-wrapper">
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
       <div class="navbar-header">
        <?php if ($logo): ?>
@@ -42,14 +46,6 @@
 </div>
 
 <div class="main-container container page">
-
-  <header role="banner" id="page-header">
-    <?php if (!empty($site_slogan)): ?>
-      <p class="lead"><?php print $site_slogan; ?></p>
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-  </header> <!-- /#header -->
 
   <div class="row">
     <?php if (!empty($page['sidebar_first'])): ?>

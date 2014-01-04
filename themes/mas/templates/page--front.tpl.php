@@ -1,3 +1,7 @@
+<header role="banner" id="page-header" class="container">
+  <?php print render($page['header']); ?>
+</header> <!-- /#header -->
+
 <div class="navbar-wrapper">
   <div class="container">
     <div class="navbar navbar-inverse" role="navigation">
@@ -54,7 +58,7 @@
 
   </div>
   <div class="container stage">
-    <div class="row">
+    <div>
       <div class="col-md-7">
         <div class="welcome-text well">
           <?php
@@ -76,20 +80,14 @@
         </div>
       </div>
       <div class="col-md-4 col-md-offset-1 thumbnail">
-        <img class="img-responsive" src="sites/default/files/styles/mas_medium/public/image_flickr_by_realname_garbage-tonal-decay_82.jpg?itok=hy4lw8Vl" width="720" height="480">
+        <img class="img-responsive" src="sites/default/files/styles/mas_medium/public/image_flickr_by_realname_garbage-tonal-decay.jpg?itok=hy4lw8Vl" width="720" height="480">
       </div>
     </div>
   </div>
 </div>
 <div class="container main-container">
 
-  <header role="banner" id="page-header">
-    <?php if (!empty($site_slogan)): ?>
-      <p class="lead"><?php print $site_slogan; ?></p>
-    <?php endif; ?>
 
-    <?php print render($page['header']); ?>
-  </header> <!-- /#header -->
 
   <div class="row">
 
