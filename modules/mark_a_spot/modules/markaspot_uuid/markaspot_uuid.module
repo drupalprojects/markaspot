@@ -1,7 +1,8 @@
 <?php
 /**
  * @file
- * This module provides hooks for altering the report form and custom UUID generator
+ * This module provides hooks for altering the report form and
+ * custom UUID generator
  * http://drupal.org/node/1588044
  */
 
@@ -53,7 +54,7 @@ function _uuid_generate_mas() {
     // 32 bits for "time_low".
     mt_rand(0, 65535),
     // 16 bits for "time_mid".
-    mt_rand(0, 65535)) . '-' .$count;
+    mt_rand(0, 65535)) . '-' . $count;
 }
 
 

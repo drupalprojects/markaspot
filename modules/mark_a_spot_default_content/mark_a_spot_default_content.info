@@ -1,8 +1,8 @@
 name = Mark-a-Spot Default Content
-core = 7.x
-package = Features
-version = 7.x-2.2-3
-project = mark_a_spot_default_content
+package = Mark-a-Spot
+project = Mark-a-Spot
+core = "7.x"
+
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = image
