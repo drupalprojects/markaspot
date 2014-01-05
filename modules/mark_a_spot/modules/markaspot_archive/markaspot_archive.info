@@ -1,7 +1,6 @@
 name = Mark-a-Spot Archive
 description = Provides cron to archive reports automatically
 package = "Mark-a-Spot"
-
-core = 7.x
+core = "7.x"
 
 dependencies[] = "markaspot_logic"

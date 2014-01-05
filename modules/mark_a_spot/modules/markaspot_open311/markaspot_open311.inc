@@ -132,7 +132,7 @@ function markaspot_open311_requests_create($data) {
 function markaspot_open311_requests_retrieve($id, $parameters) {
   /*
    * Added optional parameters achiving this:
-   * http://lists.open311.org/groups/discuss/messages/topic/AaxmrRLUHToO7jCQdjAXy
+   * lists.open311.org/groups/discuss/messages/topic/AaxmrRLUHToO7jCQdjAXy
    *
    * Using entity_load is slower than node_load()
    *
@@ -251,9 +251,8 @@ function markaspot_open311_requests_index($page, $parameters) {
 
 
 /**
- * Provides a list of acceptable 311 service types and their associated
- * service codes.
- * 
+ * Provides a list of acceptable 311 service types.
+ *
  * These request types can be unique to the city/jurisdiction.
  *
  * @param array $args
@@ -405,7 +404,7 @@ function request_map_node($request) {
 
   $node->body[$node->language][0]['value'] = $request->description;
   $node->body[$node->language][0]['format'] = 'filtered_html';
-  if (isset($request->address_string)){
+  if (isset($request->address_string)) {
     $node->field_address[$node->language][0]['value'] = $request->address_string;
   }
   $node->field_geo[$node->language][0]['lat'] = $request->lat;
