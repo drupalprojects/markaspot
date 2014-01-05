@@ -1,7 +1,7 @@
 name = Mark-a-Spot Admin
 package = "Mark-a-Spot"
 core = "7.x"
-project = Mark-a-Spot
+package = Mark-a-Spot
 
 dependencies[] = ctools
 dependencies[] = features

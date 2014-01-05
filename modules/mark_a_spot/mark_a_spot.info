@@ -1,8 +1,8 @@
 name = Mark-a-Spot
 description = Feature included within the mark-a-spot distribution
 core = 7.x
-package = Features
-project = mark_a_spot
+package = Mark-a-Spot
+
 dependencies[] = rest_server
 dependencies[] = services
 dependencies[] = better_exposed_filters

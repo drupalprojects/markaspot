@@ -32,7 +32,7 @@ function markaspot_uuid_form_alter(&$form, &$form_state, $form_id) {
  */
 function markaspot_uuid_generate_uuid() {
 
-  $callback = '_uuid_generate_mas';
+  $callback = 'markaspot_uuid_generate_mas';
   return $callback();
 }
 
@@ -42,7 +42,7 @@ function markaspot_uuid_generate_uuid() {
  * @return string
  *   the UUID
  */
-function _uuid_generate_mas() {
+function markaspot_uuid_generate_mas() {
 
   // First get the last inserted node-id
   $query = db_select('node');

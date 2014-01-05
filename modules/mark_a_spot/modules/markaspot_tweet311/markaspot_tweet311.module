@@ -288,7 +288,7 @@ function _markaspot_tweet311_map_node($tweet, $twitter_user) {
   $node = new stdClass();
   $node->language = 'und';
 
-  $user = _twitter_create_user_from_tweet($twitter_user);
+  $user = _markaspot_tweet311_twitter_create_user_from_tweet($twitter_user);
 
   // Loading the taxonomy term by requested hashed #service_code or #hash-tag:
   $service = _markaspot_get_taxonomy($tweet);
@@ -374,7 +374,7 @@ function _markaspot_tweet311_get_tweet_pic($picurl) {
  * @return bool
  *   The user object
  */
-function _twitter_create_user_from_tweet($username) {
+function _markaspot_tweet311_twitter_create_user_from_tweet($username) {
 
   // Check if user is already registered:
   if (!db_query("SELECT COUNT(*) FROM {users} WHERE name = :name", array(':name' => $username))->fetchField()) {
@@ -395,57 +395,4 @@ function _twitter_create_user_from_tweet($username) {
   }
   return $user;
 
-}
-
-
-/**
- * Returns field values as actual entities where possible.
- *
- * Also allows selection of individual items to be returned
- */
-function field_fetch_field_values($entity_type, $entity, $field_name, $get_delta = NULL, $get_key = NULL) {
-  $values = array();
-  if (isset($entity->$field_name) && !empty($entity->$field_name)) {
-    foreach (field_get_items($entity_type, $entity, $field_name) as $delta => $item) {
-      $value = $item;
-      $keys = array_keys($item);
-      if (count($keys) == 1) {
-        $key = $keys[0];
-        switch ($key) {
-          case 'nid':
-            $value = array_shift(entity_load('node', array($item[$key])));
-            break;
-
-          case 'uid':
-            $value = array_shift(entity_load('user', array($item[$key])));
-            break;
-
-          case 'tid':
-            $value = array_shift(entity_load('taxonomy_term', array($item[$key])));
-            break;
-
-          case 'vid':
-            $value = array_shift(entity_load('taxonomy_vocabulary', array($item[$key])));
-            break;
-
-          case 'value':
-            $value = $item['value'];
-            break;
-        }
-      }
-      else {
-        if ($get_key && isset($item[$get_key])) {
-          $value = $item[$get_key];
-        }
-        elseif (array_key_exists('value', $item)) {
-          $value = isset($item['safe_value']) ? $item['safe_value'] : $item['value'];
-        }
-      }
-      $values[$delta] = $value;
-    }
-  }
-  if (is_numeric($get_delta)) {
-    return isset($values[$get_delta]) ? $values[$get_delta] : NULL;
-  }
-  return $values;
 }
