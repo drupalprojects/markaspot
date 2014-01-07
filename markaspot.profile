@@ -685,7 +685,6 @@ function markaspot_build_blocks() {
   markaspot_activate_block('markaspot_logic', 'taxonomy_category', 'sidebar_second', 'mas', 'map', '1', '0');
   markaspot_activate_block('markaspot_logic', 'taxonomy_status', 'sidebar_second', 'mas', 'map', '1', '0');
   markaspot_activate_block('markaspot_logic', 'markaspot_map', 'sidebar_second', 'mas', 'map', '1', '0');
-  markaspot_activate_block('markaspot_unpubished', 'recent', 'sidebar_second', 'mas', '<front>', '1>', '1', '0');
   markaspot_activate_block('system', 'navigation', 'sidebar_second', 'mas', '<front>' . "\n" . 'node/7' . "\n" . 'node/8', '1', '0');
   markaspot_activate_block('menu', 'menu-secondary-navigation', 'footer', 'mas', 'admin' . "\n" . 'admin/*', '0', '0');
   markaspot_activate_block('user', 'login', 'sidebar_second', 'mas', '<front>' . "\n" . 'node/7' . "\n" . 'node/8', '1', '0');
