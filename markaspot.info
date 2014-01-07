@@ -24,7 +24,6 @@ dependencies[] = file
 dependencies[] = taxonomy
 dependencies[] = features
 dependencies[] = uuid
-dependencies[] = uuid_features
 dependencies[] = field_group
 dependencies[] = field_permissions
 dependencies[] = field_formatter_settings
