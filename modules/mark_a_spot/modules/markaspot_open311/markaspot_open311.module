@@ -142,11 +142,11 @@ function _markaspot_open311_access($op, $args) {
 
   switch ($op) {
     case 'view':
-      $access = user_access('View published content');
+      $access = user_access('access content');
       break;
 
     case 'create':
-      $access = user_access('Report: Create new content');
+      $access = user_access('create report content');
       break;
   }
 
