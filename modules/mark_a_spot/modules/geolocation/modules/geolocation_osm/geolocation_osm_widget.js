@@ -74,7 +74,7 @@
      */
     mas = Drupal.settings.mas;
 
-    var address = $('#edit-field-geo-und-0-address-field').val() + ", " + mas.markaspot_city + ", " + "Deutschland";
+    var address = $('#edit-field-geo-und-0-address-field').val() + ", " + mas.markaspot_city;
     // Mark-a-Spot End
     var nominatimEmail = Drupal.settings.geolocation.settings.nominatimEmail;
     var url = Drupal.settings.geolocation.settings.geocode_service + '/search';
