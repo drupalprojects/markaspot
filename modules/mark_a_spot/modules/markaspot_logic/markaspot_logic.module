@@ -72,18 +72,6 @@ function markaspot_logic_validate($form, &$form_state) {
 }
 
 /**
- * Implements hook_node_presave().
- */
-function markaspot_node_presave($node) {
-  /*
-  if ($node->title == "") {
-  $node->title = $node->field_address["und"][0]["value"];
-  }
-  */
-}
-
-
-/**
  * Implements hook_css_alter().
  */
 function markaspot_logic_css_alter(&$css) {
@@ -104,7 +92,6 @@ function markaspot_logic_init() {
     'mas' => array(
       'markaspot_address' => variable_get('markaspot_address'),
       'markaspot_city' => variable_get('markaspot_city'),
-      'markaspot_zip' => variable_get('markaspot_zip'),
       'markaspot_ini_lat' => variable_get('markaspot_ini_lat'),
       'markaspot_ini_lng' => variable_get('markaspot_ini_lng'),
       'bbox_nw_lat' => variable_get('bbox_nw_lat'),
@@ -445,9 +432,6 @@ function markaspot_logic_defaults($id) {
 
     case 'markaspot_address':
       return 'Pingsdorfer Straße 88, 50321 Brühl, Deutschland';
-
-    case 'markaspot_zip':
-      return '50321';
 
     case 'markaspot_city':
       return 'Brühl';
