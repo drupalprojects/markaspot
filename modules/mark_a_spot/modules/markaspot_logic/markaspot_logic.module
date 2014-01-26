@@ -79,13 +79,13 @@ function markaspot_logic_css_alter(&$css) {
 }
 
 /**
- * Implements hook_init().
+ * Implements hook_page_build().
  *
  * - adds some php information to js
  * - adds css
  * - needs refactoring for leaflet
  */
-function markaspot_logic_init() {
+function markaspot_logic_page_build(&$page) {
   $node = menu_get_object();
   $type = (isset($node)) ? $node->type : NULL;
   drupal_add_js(array(
