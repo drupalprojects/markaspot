@@ -37,6 +37,13 @@ projects[workbench][subdir] = "contrib"
 projects[chosen][subdir] = "contrib"
 projects[chosen][version] = 2.x-dev
 
+projects[geolocation_osm][download][type] = git
+projects[geolocation_osm][download][url] = "http://git.drupal.org/sandbox/markaspot/2182047.git"
+
+projects[geolocation_cloudmade_osm][download][type] = git
+projects[geolocation_cloudmade_osm][download][url] = "http://git.drupal.org/sandbox/markaspot/1792752.git"
+
+
 libraries[chosen][type] = libraries
 libraries[chosen][download][type] = get
 libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/1.0.0/chosen_v1.0.0.zip"

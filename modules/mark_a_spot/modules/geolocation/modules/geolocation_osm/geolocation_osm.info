@@ -1,5 +1,0 @@
-name = Geolocation OSM
-description = Provides osm OSM Maps widgets and formaters for geolocation field.
-package = Geolocation
-dependencies[] = geolocation
-core = "7.x"
