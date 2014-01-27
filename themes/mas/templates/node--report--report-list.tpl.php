@@ -1,7 +1,6 @@
 <?php
 /**
  * @file
- *
  * Available variables:
  * - $title: the (sanitized) title of the node.
  * - $content: An array of node items. Use render($content) to print them all,

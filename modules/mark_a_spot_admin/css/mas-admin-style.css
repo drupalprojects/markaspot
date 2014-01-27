@@ -29,7 +29,6 @@
   font-size: 25px;
   margin: 10px 5px;
   color: #bbb;
-
 }
 
 .page-admin-track-content span.icon {
@@ -38,9 +37,7 @@
 
 .view-mark-a-spot-admin-comments .item-list li,
 .view-mark-a-spot-admin-comments .item-list li.views-row-last {
-
   padding: 10px 5px 25px 10px;
-
 }
 
 .view-mark-a-spot-admin-comments .views-field-timestamp {
@@ -64,7 +61,6 @@ ul.mas-admin.action-links li {
   padding: 5px 10px;
   color: #333;
   text-shadow: white 0 1px 0;
-
 }
 
 .admin-menu .nav.required-fields.group-report-form {
@@ -185,6 +181,5 @@ input.fluid {
 }
 
 .print-footer {
-  display: none
+  display: none;
 }
-

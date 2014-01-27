@@ -1,6 +1,5 @@
 <?php
 /**
- *
  * @file
  * Node template for reports
  */
