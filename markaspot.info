@@ -36,4 +36,3 @@ dependencies[] = mark_a_spot_admin
 dependencies[] = mark_a_spot_default_content
 dependencies[] = twitter
 dependencies[] = chosen
-
