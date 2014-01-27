@@ -26,7 +26,6 @@ class Open311XMLFormatter implements ServicesFormatterInterface {
    * @return string
    *   The XML Tree
    */
-
   public function render($data) {
 
     if (!is_array($data)) {

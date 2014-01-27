@@ -257,7 +257,7 @@ function markaspot_install() {
 
   // enable some modules
   $module_list = array('jquery_update');
-  module_enable($module_list, $enable_dependencies = TRUE);
+  module_enable($module_list);
 
   variable_set('jquery_update_jquery_version', '1.7');
   // Setting some Mark-a-Spot default values

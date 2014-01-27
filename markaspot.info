@@ -37,4 +37,3 @@ dependencies[] = mark_a_spot_default_content
 dependencies[] = twitter
 dependencies[] = chosen
 
-files[] = markaspot.profile

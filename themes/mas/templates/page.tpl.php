@@ -1,3 +1,9 @@
+<?php
+/**
+ * @file
+ * Page template for Mark-a-Spot
+ */
+?>
 <header role="banner" id="page-header" class="container">
   <?php print render($page['header']); ?>
 </header> <!-- /#header -->

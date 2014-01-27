@@ -215,7 +215,7 @@ function markaspot_open311_requests_index($page, $parameters) {
     // Get the service of the current node:
     $tids = markaspot_open311_status_map_tax($parameters['status']);
     $query->fieldCondition('field_status', 'tid', $tids);
-   }
+  }
 
   // start_date param or travel back to 1970
   $start_timestamp = (isset($parameters['start_date']) && $parameters['start_date'] != '') ? strtotime($parameters['start_date']) : strtotime('01-01-1970');
@@ -241,7 +241,8 @@ function markaspot_open311_requests_index($page, $parameters) {
       $status = markaspot_open311_tax_map_status($node->field_status[$node->language][0]["tid"]);
       $requests[] = markaspot_open311_node_map_request($node, $status, $parameters);
     }
-  } else {
+  }
+  else {
     markaspot_open311_process_services_error(t('No service requests found'), 404);
 
   }
@@ -311,7 +312,6 @@ function markaspot_open311_node_map_request($node, $status, $parameters) {
   else {
     $request['service_request_id'] = $node->nid;
   }
-
 
   // Defining content of the status-field:
   $status = markaspot_open311_tax_map_status($node->field_status[$node->language][0]["tid"]);
