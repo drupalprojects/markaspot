@@ -1182,7 +1182,7 @@ function mark_a_spot_field_default_field_instances() {
   t('Image');
   t('Notify User?');
   t('Place your report');
-  t('Please leave an e-Mail address, so that we can contact you, in case you don\'t want to register');
+  t('Please leave an e-Mail address, so that we can contact you');
   t('Report details');
   t('Status');
   t('StatusId');

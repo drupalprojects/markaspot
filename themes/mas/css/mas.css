@@ -566,16 +566,6 @@ span.marker-category {
   z-index: 20;
 }
 
-/* Flip around the padding for proper display in narrow viewports */
-.front .navbar-wrapper .container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.front .navbar-wrapper .navbar {
-  padding-left: 15px;
-  padding-right: 15px;
-}
 
 .front .main-container.container.page {
   margin-top: 100px;
@@ -1037,6 +1027,21 @@ div.list a h3 {
   #page-header {
     display: none;
   }
+
+
+  /* Flip around the padding for proper display in narrow viewports */
+  .navbar-wrapper .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .navbar-wrapper .navbar {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+
 
   #edit-submit {
     width: 100%;
