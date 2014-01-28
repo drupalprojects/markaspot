@@ -228,7 +228,7 @@ body.toolbar-drawer {
 }
 
 .region.region-footer {
-  padding: 10px 30px;
+  padding: 10px 15px;
   color: #fff;
 }
 
@@ -1093,7 +1093,7 @@ div.list a h3 {
 
   /* Tighten up footer */
   .footer {
-    margin: 0 -20px;
+    margin: 0;
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -1140,11 +1140,6 @@ div.list a h3 {
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     position: fixed;
-  }
-
-  /* Tighten up footer */
-  .footer {
-    margin: 0 -20px;
   }
 
   /* Container and Map Handling in List View */
