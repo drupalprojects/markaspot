@@ -485,7 +485,7 @@ function mark_a_spot_field_default_field_instances() {
       ),
       'report_list' => array(
         'label' => 'hidden',
-        'module' => 'geolocation_cloudmade_osm',
+        'module' => 'geolocation_osm',
         'settings' => array(
           'cloudmade_api_key' => '165795623c424338ad9a8eb60484ef0e',
           'field_formatter_class' => 'thumbnail pull-left',
@@ -497,7 +497,7 @@ function mark_a_spot_field_default_field_instances() {
           'marker_icon' => '',
           'semantic_field_format' => 0,
         ),
-        'type' => 'geolocation_cloudmade_osm_static',
+        'type' => 'geolocation_osm_static',
         'weight' => 1,
       ),
       'search_result' => array(
@@ -524,7 +524,7 @@ function mark_a_spot_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'geolocation_cloudmade_osm',
+        'module' => 'geolocation_osm',
         'settings' => array(
           'cloudmade_api_key' => '165795623c424338ad9a8eb60484ef0e',
           'field_formatter_class' => '',
@@ -536,7 +536,7 @@ function mark_a_spot_field_default_field_instances() {
           'marker_icon' => '',
           'semantic_field_format' => 0,
         ),
-        'type' => 'geolocation_cloudmade_osm_static',
+        'type' => 'geolocation_osm_static',
         'weight' => 2,
       ),
     ),

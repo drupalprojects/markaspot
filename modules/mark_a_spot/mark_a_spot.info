@@ -16,7 +16,6 @@ dependencies[] = field_permissions
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = geolocation
-dependencies[] = geolocation_cloudmade_osm
 dependencies[] = geolocation_googlemaps
 dependencies[] = geolocation_osm
 dependencies[] = image
