@@ -19,7 +19,7 @@ function markaspot_archive_cron() {
 
   $nodes = node_load_multiple(array_keys($result['node']));
 
-  $period = variable_get('archive_days') * 86400;
+  $period = variable_get('markaspot_logic_archive_days') * 86400;
 
   foreach ($nodes as $node) {
     if ($node->changed <= time() - $period && $node->field_status['und'][0]['tid'] == 7) {
