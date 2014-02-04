@@ -121,7 +121,7 @@ function markaspot_logic_page_build(&$page) {
   if (arg(0) == "list" || arg(0) == "map" || drupal_is_front_page() == TRUE) {
     drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/spin.js/spin.js', NULL);
 
-    if (variable_get('markaspot_map_type') == 0) {
+    if (variable_get('markaspot_logic_map_type') == 0) {
 
       drupal_add_js('https://maps.google.com/maps/api/js?sensor=true&v=3.1.3', 'external');
       drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/markerclusterer/markerclusterer_compiled.js', NULL);
@@ -208,7 +208,7 @@ function markaspot_logic_admin_settings() {
     '#title' => t('General'),
     '#collapsible' => TRUE,
   );
-  $form['general']['markaspot_address'] = array(
+  $form['general']['markaspot_logic_address'] = array(
     '#type' => 'textfield',
     '#title' => t('Initial Address'),
     '#default_value' => variable_get('markaspot_logic_address', markaspot_logic_defaults('markaspot_logic_address')),
@@ -217,7 +217,7 @@ function markaspot_logic_admin_settings() {
     '#description' => t('Insert the initial address'),
   );
 
-  $form['general']['markaspot_city'] = array(
+  $form['general']['markaspot_logic_city'] = array(
     '#type' => 'textfield',
     '#title' => t('City'),
     '#default_value' => variable_get('markaspot_logic_city', markaspot_logic_defaults('markaspot_logic_city')),
@@ -226,7 +226,7 @@ function markaspot_logic_admin_settings() {
     '#description' => t('Insert the municipality'),
   );
 
-  $form['general']['markaspot_ini_lat'] = array(
+  $form['general']['markaspot_logic_ini_lat'] = array(
     '#type' => 'textfield',
     '#title' => t('Inital Lat'),
     '#default_value' => variable_get('markaspot_logic_ini_lat', markaspot_logic_defaults('markaspot_logic_ini_lat')),
@@ -234,7 +234,7 @@ function markaspot_logic_admin_settings() {
     '#maxlength' => 32,
     '#description' => t('Insert the initial latitude'),
   );
-  $form['general']['markaspot_ini_lng'] = array(
+  $form['general']['markaspot_logic_ini_lng'] = array(
     '#type' => 'textfield',
     '#title' => t('Inital Lng'),
     '#default_value' => variable_get('markaspot_logic_ini_lng', markaspot_logic_defaults('markaspot_logic_ini_lng')),
@@ -242,25 +242,25 @@ function markaspot_logic_admin_settings() {
     '#maxlength' => 32,
     '#description' => t('Insert the initial longitude'),
   );
-  $form['types']['markaspot_map_type'] = array(
+  $form['types']['markaspot_logic_map_type'] = array(
     '#type' => 'radios',
     '#title' => t('Map type'),
     '#default_value' => variable_get('markaspot_logic_map_type', 0),
     '#options' => array(t('Google Maps'), t('Cloudmade'), t('Other OSM')),
   );
-  $form['types']['cloudmade_api_key'] = array(
+  $form['types']['markaspot_logic_cloudmade_api_key'] = array(
     '#type' => 'textfield',
     '#title' => t('Cloudmade API Key'),
     '#default_value' => variable_get('markaspot_logic_cloudmade_api_key'),
     '#description' => t('Insert your API Key here'),
   );
-  $form['types']['osm']['osm_custom_tile_url'] = array(
+  $form['types']['osm']['markaspot_logic_osm_custom_tile_url'] = array(
     '#type' => 'textfield',
     '#title' => t('Tile URL, if not from Cloudmade'),
     '#default_value' => variable_get('markaspot_logic_osm_custom_tile_url', markaspot_logic_defaults('markaspot_logic_osm_custom_tile_url')),
     '#description' => t('If you want to use a different tile service or https with cloudmade, enter the url pattern, e.g. http://{s}.somedomain.com/your-api-key/{z}/{x}/{y}.png'),
   );
-  $form['types']['osm']['osm_custom_attribution'] = array(
+  $form['types']['osm']['markaspot_logic_osm_custom_attribution'] = array(
     '#type' => 'textfield',
     '#title' => t('Attribution Statement, if not from Cloudmade'),
     '#default_value' => variable_get('markaspot_logic_osm_custom_attribution', markaspot_logic_defaults('markaspot_logic_osm_custom_attribution')),
@@ -379,7 +379,7 @@ function markaspot_logic_admin_settings() {
       '#description' => t('Let Twitter-Users sending issues by sending mentions to') . ' ' . variable_get('markaspot_logic_twittername') . '. ' . t('Tweet-location should be enabled. Tweets are applied to category-id by hashtag (#id)'),
     );
 
-    $form['twitter']['markaspot_twittername'] = array(
+    $form['twitter']['markaspot_logic_twittername'] = array(
       '#type' => 'textfield',
       '#title' => t('Twitter Name'),
       '#default_value' => variable_get('markaspot_logic_twittername', markaspot_logic_defaults('markaspot_logic_twittername')),
@@ -393,7 +393,7 @@ function markaspot_logic_admin_settings() {
     $form['twitter']['markaspot_logic_tweetSearch'] = array(
       '#type' => 'radios',
       '#title' => t('Search in tweets for #hashtags or Service Code'),
-      '#default_value' => variable_get('markaspot_logic_tweetSearch'),
+      '#default_value' => variable_get('markaspot_logic_twittername'),
       '#options' => array(t('Hash'), t('Service Code')),
     );
   }
@@ -446,7 +446,7 @@ function markaspot_logic_defaults($id) {
     case 'markaspot_logic_bbox_nw_lng':
       return '6.832';
 
-    case 'bmarkaspot_logic_box_se_lat':
+    case 'markaspot_logic_bbox_se_lat':
       return '50.8042';
 
     case 'markaspot_logic_bbox_se_lng':
