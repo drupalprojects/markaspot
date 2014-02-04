@@ -425,7 +425,7 @@ function markaspot_logic_defaults($id) {
     case 'markaspot_logic_ini_lng':
       return '6.8961028';
 
-    case 'markaspot_logic_markaspot_address':
+    case 'markaspot_logic_address':
       return 'Pingsdorfer Straße 88, 50321 Brühl, Deutschland';
 
     case 'markaspot_logic_city':

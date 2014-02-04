@@ -21,7 +21,7 @@ function markaspot_archive_cron() {
     ->fieldCondition('field_status', 'tid', 7)
     ->propertyOrderBy('created', 'DESC');
   $result = $query->execute();
-  
+
   if ($result) {
     $nodes = node_load_multiple(array_keys($result['node']));
 
