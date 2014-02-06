@@ -26,7 +26,7 @@ function markaspot_archive_cron() {
     $nodes = node_load_multiple(array_keys($result['node']));
 
     foreach ($nodes as $node) {
-      $node->field_status['und'][0]['tid'] = "8";
+      $node->field_status[LANGUAGE_NONE][0]['tid'] = "8";
       node_save($node);
     }
   }
