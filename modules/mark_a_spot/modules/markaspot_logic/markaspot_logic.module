@@ -458,6 +458,9 @@ function markaspot_logic_defaults($id) {
     case 'markaspot_logic_uuid_title':
       return 1;
 
+    case 'markaspot_logic_map_type':
+      return 2;
+
     case 'markaspot_logic_open311_contact':
       return 'You can email or call for assistance api@mycity.org +1 (555) 555-5555';
 
