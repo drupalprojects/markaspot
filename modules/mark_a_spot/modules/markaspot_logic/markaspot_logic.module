@@ -11,6 +11,7 @@
  */
 function markaspot_logic_form_report_node_form_alter(&$form, &$form_state, $form_id) {
   global $user;
+  unset($form['field_status'][LANGUAGE_NONE]['#options']['_none']);
   $form['field_address'][LANGUAGE_NONE][0]['value']['#type'] = "hidden";
   // Registered users' mail will be prefilled:
   if (isset($user->mail) && arg(0) == 'node' && arg(1) == 'add') {
