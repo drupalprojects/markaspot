@@ -38,8 +38,6 @@ projects[chosen][subdir] = "contrib"
 projects[chosen][version] = 2.x-dev
 
 projects[geolocation_osm][type] = module
-projects[geolocation_osm][download][type] = git
-projects[geolocation_osm][download][branch] = "master"
 projects[geolocation_osm][subdir] = "contrib"
 projects[geolocation_osm][download][url] = "http://git.drupal.org/sandbox/markaspot/2182047.git"
 
