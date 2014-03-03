@@ -445,11 +445,11 @@ function mark_a_spot_field_default_field_instances() {
         'module' => 'geolocation_osm',
         'settings' => array(
           'field_formatter_class' => '',
-          'leafletImagePath' => '/profiles/markaspot/libraries/Leaflet/images',
+          'leafletImagePath' => '/profiles/markaspot/libraries/leaflet/images',
           'map_dimensions' => '100%x300px',
           'map_scrollwheel' => 1,
           'map_zoomlevel' => 16,
-          'marker_icon' => 'profiles/markaspot/libraries/Leaflet/images/marker-icon.png',
+          'marker_icon' => 'profiles/markaspot/libraries/leaflet/images/marker-icon.png',
           'tile_server_dynamic' => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
         ),
         'type' => 'geolocation_osm_dynamic',
@@ -482,7 +482,7 @@ function mark_a_spot_field_default_field_instances() {
         'module' => 'geolocation_osm',
         'settings' => array(
           'field_formatter_class' => 'thumbnail pull-left',
-          'leafletImagePath' => 'profiles/markaspot/libraries/Leaflet/images/',
+          'leafletImagePath' => 'profiles/markaspot/libraries/leaflet/images/',
           'map_dimensions' => '100x100',
           'map_imageformat' => 'png',
           'map_key' => '',
@@ -521,7 +521,7 @@ function mark_a_spot_field_default_field_instances() {
         'settings' => array(
           'cloudmade_api_key' => '165795623c424338ad9a8eb60484ef0e',
           'field_formatter_class' => '',
-          'leafletImagePath' => 'profiles/markaspot/libraries/Leaflet/images/',
+          'leafletImagePath' => 'profiles/markaspot/libraries/leaflet/images/',
           'map_dimensions' => '300x300',
           'map_imageformat' => 'png',
           'map_key' => '',
@@ -548,7 +548,7 @@ function mark_a_spot_field_default_field_instances() {
       'settings' => array(
         'bbox' => '6.832,50.8464,6.937,50.8043',
         'geocode_service' => 'http://nominatim.openstreetmap.org',
-        'leafletImagePath' => '/profiles/markaspot/libraries/Leaflet/images',
+        'leafletImagePath' => '/profiles/markaspot/libraries/leaflet/images',
         'marker_draggable' => 1,
         'nominatimEmail' => 'holger@markaspot.org',
         'scrollwheel' => 0,
