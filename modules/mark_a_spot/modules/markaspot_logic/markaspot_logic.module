@@ -123,7 +123,6 @@ function markaspot_logic_page_build(&$page) {
     drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/spin.js/spin.js', NULL);
 
     if (variable_get('markaspot_logic_map_type') == 0) {
-
       drupal_add_js('https://maps.google.com/maps/api/js?sensor=true&v=3.13', 'external');
       drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/markerclusterer/markerclusterer_compiled.js', NULL);
       drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/mapiconmaker/mapiconmaker.js', NULL);
@@ -242,10 +241,15 @@ function markaspot_logic_admin_settings() {
     '#maxlength' => 32,
     '#description' => t('Insert the initial longitude'),
   );
+  $form['types'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Map Types'),
+    '#collapsible' => TRUE,
+  );
   $form['types']['markaspot_logic_map_type'] = array(
     '#type' => 'radios',
     '#title' => t('Map type'),
-    '#default_value' => variable_get('markaspot_logic_map_type', markaspot_logic_defaults('markaspot_logic_map_type')),
+    '#default_value' => variable_get('markaspot_logic_map_type', 0),
     '#options' => array(t('Google Maps'), t('Cloudmade'), t('Other OSM')),
   );
   $form['types']['markaspot_logic_cloudmade_api_key'] = array(
@@ -344,9 +348,10 @@ function markaspot_logic_admin_settings() {
     );
   }
   if (module_exists('markaspot_uuid')) {
-    $form['markaspot_logic_uuid'] = array(
+    $form['uuid'] = array(
       '#type' => 'fieldset',
       '#title' => t('UUID'),
+      '#collapsible' => TRUE,
       '#description' => t('UUID Module is enabled and service requests are identified by an unique ID. For better
         usability when communicating on other channels, the ID can be customized'),
     );
@@ -354,6 +359,18 @@ function markaspot_logic_admin_settings() {
       '#type' => 'checkbox',
       '#title' => t('Display UUID in title?'),
       '#default_value' => variable_get('markaspot_logic_uuid_title', markaspot_logic_defaults('markaspot_logic_uuid_title')),
+    );
+    $form['uuid']['markaspot_logic_uuid_pattern'] = array(
+      '#type' => 'radios',
+      '#title' => t('The global UUID pattern'),
+      '#default_value' => variable_get('markaspot_logic_uuid_pattern', markaspot_logic_defaults('markaspot_logic_uuid_pattern')),
+      '#options' => array(t('#3e80-67'), t('#3e8031-67'), t('#3e8031b0-67')),
+    );
+    $form['uuid']['markaspot_logic_title_pattern'] = array(
+      '#type' => 'radios',
+      '#title' => t('How do you want the the title be look like'),
+      '#default_value' => variable_get('markaspot_logic_title_pattern', markaspot_logic_defaults('markaspot_logic_title_pattern')),
+      '#options' => array(t('Lorem Impsum dolor sit #3e80-67'), t('#3e8031-67 Lorem Impsum dolor sit #3e80-67')),
     );
   }
 
@@ -457,6 +474,12 @@ function markaspot_logic_defaults($id) {
 
     case 'markaspot_logic_uuid_title':
       return 1;
+
+    case 'markaspot_logic_uuid_pattern':
+      return 0;
+
+    case 'markaspot_logic_title_pattern':
+      return 0;
 
     case 'markaspot_logic_map_type':
       return 2;

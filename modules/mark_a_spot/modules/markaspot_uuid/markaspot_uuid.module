@@ -43,16 +43,23 @@ function markaspot_uuid_generate_uuid() {
 function markaspot_uuid_generate_mas() {
 
   // First get the last inserted node-id
-  $query = db_select('node');
-  $query->addExpression('COUNT(*)');
-  $count = $query->execute()->fetchField() + 1;
+
+  $last_nid = db_query(db_query_range("SELECT nid FROM {node} ORDER BY nid DESC", 0, 1))->fetchField();
+  $next_nid = $last_nid + 1;
+
   // Assuming other entities will be less frequently generated.
   // Taxonomies should still be unique.
-  return sprintf('%04x',
+
+  $uuid_pattern = array(
+    '%04x','0x%1x','%04x%04x'
+  );
+
+  $uuid_preset_length = variable_get('markaspot_logic_uuid_pattern', 0);
+  return sprintf( $uuid_pattern[$uuid_preset_length],
     // 32 bits for "time_low".
     mt_rand(0, 65535),
     // 16 bits for "time_mid".
-    mt_rand(0, 65535)) . '-' . $count;
+    mt_rand(0, 65535)) . '-' . $next_nid;
 }
 
 
@@ -64,25 +71,55 @@ function markaspot_uuid_generate_mas() {
  */
 function markaspot_uuid_node_insert($node) {
 
-  if ($node->type == 'report' && variable_get('uuid_title') == 1) {
-
+  if ($node->type == 'report' && variable_get('markaspot_logic_uuid_title') == 1) {
     // Instead of contributed module auto entity_title:
     // Get the service name by ID and update the title field.
     $tid = $node->field_category[LANGUAGE_NONE][0]['tid'];
     $service = taxonomy_term_load($tid);
-
-    db_update('node')
-      ->fields(array(
-        'title' => '#' . $node->uuid . " " . $service->name,
-      ))
-      ->condition('nid', $node->nid, '=')
-      ->execute();
-
-    db_update('node_revision')
-      ->fields(array(
-        'title' => '#' . $node->uuid . " " . $service->name,
-      ))
-      ->condition('nid', $node->nid, '=')
-      ->execute();
+    markaspot_uuid_update_title($node, $service);
   }
+}
+
+/**
+ * Implements hook_node_insert().
+ *
+ * Need to update the title field with UUID
+ * toDo: make this configurable
+ */
+function markaspot_uuid_node_update($node) {
+
+  if ($node->type == 'report' && variable_get('markaspot_logic_uuid_title') == 1) {
+    // Instead of contributed module auto entity_title:
+    // Get the service name by ID and update the title field.
+    $tid = $node->field_category[LANGUAGE_NONE][0]['tid'];
+    $service = taxonomy_term_load($tid);
+    markaspot_uuid_update_title($node, $service);
+  }
+}
+
+
+/*
+ * Update the title
+ */
+
+function markaspot_uuid_update_title($node, $service) {
+  $title_pattern = variable_get('markaspot_logic_title_pattern', 0);
+  $generated_title = array(
+    $service->name . ' #' . $node->uuid,
+    '#' . $node->uuid . " " . $service->name
+  );
+
+  db_update('node')
+    ->fields(array(
+      'title' => $generated_title[$title_pattern],
+    ))
+    ->condition('nid', $node->nid, '=')
+    ->execute();
+
+  db_update('node_revision')
+    ->fields(array(
+      'title' => $generated_title[$title_pattern],
+    ))
+    ->condition('nid', $node->nid, '=')
+    ->execute();
 }
