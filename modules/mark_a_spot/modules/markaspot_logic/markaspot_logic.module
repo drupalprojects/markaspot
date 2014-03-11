@@ -350,10 +350,11 @@ function markaspot_logic_admin_settings() {
   if (module_exists('markaspot_uuid')) {
     $form['uuid'] = array(
       '#type' => 'fieldset',
-      '#title' => t('UUID'),
+      '#title' => t('Auto Title and UUID'),
       '#collapsible' => TRUE,
-      '#description' => t('UUID Module is enabled and service requests are identified by an unique ID. For better
-        usability when communicating on other channels, the ID can be customized'),
+      '#description' => t('The Mark-a-Spot UUID Module is enabled, so that service requests are "auto-titled" with the chosen service name
+        plus an unique ID. This can be useful in an Open311 service oriented architecture.
+        You can <a href="@module-page#edit-modules-mark-a-spot">disable</a> this module at any time, if you prefer user-generated node titles.', array('@module-page' => url('admin/modules'))),
     );
     $form['uuid']['markaspot_logic_uuid_title'] = array(
       '#type' => 'checkbox',
@@ -362,7 +363,7 @@ function markaspot_logic_admin_settings() {
     );
     $form['uuid']['markaspot_logic_uuid_pattern'] = array(
       '#type' => 'radios',
-      '#title' => t('The global UUID pattern'),
+      '#title' => t('The UUID pattern'),
       '#default_value' => variable_get('markaspot_logic_uuid_pattern', markaspot_logic_defaults('markaspot_logic_uuid_pattern')),
       '#options' => array(t('#3e80-67'), t('#3e8031-67'), t('#3e8031b0-67')),
     );
@@ -370,7 +371,7 @@ function markaspot_logic_admin_settings() {
       '#type' => 'radios',
       '#title' => t('How do you want the the title be look like'),
       '#default_value' => variable_get('markaspot_logic_title_pattern', markaspot_logic_defaults('markaspot_logic_title_pattern')),
-      '#options' => array(t('Lorem Impsum dolor sit #3e80-67'), t('#3e8031-67 Lorem Impsum dolor sit')),
+      '#options' => array(t('Service Name #3e80-67'), t('#3e80-67 Service Name')),
     );
   }
 
