@@ -361,18 +361,19 @@ function markaspot_logic_admin_settings() {
       '#title' => t('Display UUID in title?'),
       '#default_value' => variable_get('markaspot_logic_uuid_title', markaspot_logic_defaults('markaspot_logic_uuid_title')),
     );
-    $form['uuid']['markaspot_logic_uuid_pattern'] = array(
-      '#type' => 'radios',
-      '#title' => t('The UUID pattern'),
-      '#default_value' => variable_get('markaspot_logic_uuid_pattern', markaspot_logic_defaults('markaspot_logic_uuid_pattern')),
-      '#options' => array(t('#3e80-67'), t('#3e8031-67'), t('#3e8031b0-67')),
-    );
     $form['uuid']['markaspot_logic_title_pattern'] = array(
       '#type' => 'radios',
-      '#title' => t('How do you want the the title be look like'),
+      '#title' => t('How should titles appear in report nodes?'),
       '#default_value' => variable_get('markaspot_logic_title_pattern', markaspot_logic_defaults('markaspot_logic_title_pattern')),
       '#options' => array(t('Service Name #3e80-67'), t('#3e80-67 Service Name')),
     );
+    $form['uuid']['markaspot_logic_uuid_pattern'] = array(
+      '#type' => 'radios',
+      '#title' => t('Choose the UUID pattern.'),
+      '#default_value' => variable_get('markaspot_logic_uuid_pattern', markaspot_logic_defaults('markaspot_logic_uuid_pattern')),
+      '#options' => array(t('#3e80-67'), t('#3e8031-67'), t('#3e8031b0-67')),
+    );
+
   }
 
   if (module_exists('markaspot_archive')) {
