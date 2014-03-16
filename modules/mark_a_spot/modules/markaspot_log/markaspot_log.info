@@ -2,5 +2,3 @@ name = Mark-a-Spot Logging
 package = "Mark-a-Spot"
 core = 7.x
 description = Provides a logging block for civic and administrative activity on reports
-
-dependencies[] = views
