@@ -570,7 +570,7 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'field_formatter_class' => 'img-responsive',
+          'field_formatter_class' => 'img-thumbnail',
           'image_link' => 'content',
           'image_style' => 'mas_medium',
         ),
