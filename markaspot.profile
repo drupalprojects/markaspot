@@ -480,7 +480,7 @@ function markaspot_delete_dummies() {
 
   foreach ($taxonomies as $term) {
     if ($term->name == 'dummy') {
-      db_delete('taxonomy_term_data')->condition('tid', $term->tid)->execute();
+      taxonomy_term_delete($term->tid);
     }
   }
 }
