@@ -33,42 +33,54 @@ function markaspot_logic_validate($form, &$form_state) {
     form_set_error('field_e_mail', t('Please enter a valid e-mail address.'));
   }
 
+
+  $validate_cities = explode(",", variable_get('markaspot_logic_city'));
+
+  foreach ($validate_cities as $validate_city) {
+    $valid[] = strstr($form_state['values']['field_geo'][LANGUAGE_NONE][0]['address']['field'], $validate_city) ? TRUE : FALSE;
+  }
+
+
+  if (!in_array(TRUE, $valid)) {
+    $last_element = array_pop($validate_cities);
+    array_push($validate_cities, 'or ' . $last_element);
+    form_set_error('field_geo', t('Sorry, we only operate in the following areas: @area', array('@area' => implode(", ", $validate_cities))));
+  }
+
   /* Bounding Box */
   $lat = $form_state['values']['field_geo'][LANGUAGE_NONE][0]['lat'];
   $lon = $form_state['values']['field_geo'][LANGUAGE_NONE][0]['lng'];
-  $nw = FALSE;
-  $se = FALSE;
+
+  $north_west = FALSE;
+  $south_east = FALSE;
+
   $bbox = array(
     'nw' => array('lat' => variable_get('markaspot_logic_bbox_nw_lat'), 'lng' => variable_get('markaspot_logic_bbox_nw_lng')),
     'se' => array('lat' => variable_get('markaspot_logic_bbox_se_lat'), 'lng' => variable_get('markaspot_logic_bbox_se_lng')),
   );
 
   if (($bbox['nw']['lat'] >= $lat) && ($bbox['nw']['lng'] <= $lon)) {
-    $nw = TRUE;
+    $north_west = TRUE;
   }
   if (($bbox['se']['lat'] <= $lat) && ($bbox['se']['lng'] >= $lon)) {
-    $se = TRUE;
+    $south_east = TRUE;
   }
 
-  if (!strstr($form_state['values']['field_geo'][LANGUAGE_NONE][0]['address']['field'], variable_get('markaspot_logic_city'))) {
-    form_set_error('field_geo', t('The string given for "City" is not valid'));
+
+  if ($south_east == FALSE || $north_west == FALSE) {
+    form_set_error('field_geo', t('The position does not seem to be inside a valid bounding box in @city',
+      array('@city' => variable_get('markaspot_logic_city'))));
   }
   else {
-    if ($se == FALSE || $nw == FALSE) {
-
-      form_set_error('field_geo', t('The position does not seem to be inside a valid bounding box in @city',
-        array('@city' => variable_get('markaspot_logic_city'))));
+    // Fill the address field only, if it's not equal to the initial value:
+    if ($form_state['values']['field_geo'][LANGUAGE_NONE][0]['lat'] != variable_get('markaspot_logic_ini_lat')) {
+      $form_state['values']['field_address'][LANGUAGE_NONE][0]['value'] = $form_state['values']['field_geo'][LANGUAGE_NONE][0]['address']['field'];
     }
     else {
-      // Fill the address field only, if it's not equal to the initial value:
-      if ($form_state['values']['field_geo'][LANGUAGE_NONE][0]['lat'] != variable_get('markaspot_logic_ini_lat')) {
-        $form_state['values']['field_address'][LANGUAGE_NONE][0]['value'] = $form_state['values']['field_geo'][LANGUAGE_NONE][0]['address']['field'];
-      }
-      else {
-        form_set_error('field_geo', t('Please enter a location, different from the default one'));
-      }
+      form_set_error('field_geo', t('Please enter a location, different from the default one'));
     }
   }
+
 
 }
 
@@ -115,7 +127,6 @@ function markaspot_logic_page_build(&$page) {
     ), 'setting');
   }
 
-  drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/markaspot_logic.js');
   drupal_add_css(drupal_get_path('profile', 'markaspot') . '/libraries/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css');
   drupal_add_css(drupal_get_path('profile', 'markaspot') . '/libraries/markaspot-font/style.css');
 
@@ -150,11 +161,21 @@ function markaspot_logic_page_build(&$page) {
       drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/leaflet/leaflet.js');
       drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markers_leaflet.js');
       drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js', NULL);
-
       drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/Leaflet.markercluster/dist/leaflet.markercluster.js', NULL);
 
     }
   }
+
+  if (strstr(current_path(), 'system/mark_a_spot')) {
+    drupal_add_css(drupal_get_path('profile', 'markaspot') . '/libraries/leaflet/leaflet.css');
+    drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/leaflet/leaflet.js');
+    drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/Leaflet.draw/dist/leaflet.draw.js', NULL);
+    drupal_add_css(drupal_get_path('profile', 'markaspot') . '/libraries/Leaflet.draw/dist/leaflet.draw.css');
+    drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markaspot_logic.js');
+    drupal_add_css(drupal_get_path('module', 'markaspot_logic') . '/css/markaspot_logic.css');
+
+  };
+
   drupal_add_css(drupal_get_path('module', 'custom') . '/css/custom.css', array(
     'group' => CSS_DEFAULT,
     'every_page' => TRUE,
@@ -218,11 +239,11 @@ function markaspot_logic_admin_settings() {
 
   $form['general']['markaspot_logic_city'] = array(
     '#type' => 'textfield',
-    '#title' => t('City'),
+    '#title' => t('Validation of City Name Strings'),
     '#default_value' => variable_get('markaspot_logic_city', markaspot_logic_defaults('markaspot_logic_city')),
     '#size' => '16',
     '#maxlength' => 16,
-    '#description' => t('Insert the municipality'),
+    '#description' => t('Insert a comma separated list of valid names, this installation is built for, eg. "New York, NY, Big Apple"'),
   );
 
   $form['general']['markaspot_logic_ini_lat'] = array(
@@ -272,6 +293,7 @@ function markaspot_logic_admin_settings() {
   );
 
   $form['bbox'] = array(
+    '#suffix' => '<div id="map-wrapper"><div id="settings-map"></div></div>',
     '#type' => 'fieldset',
     '#title' => t('Bounding Box'),
     '#collapsible' => TRUE,
