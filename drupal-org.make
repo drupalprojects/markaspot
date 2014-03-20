@@ -52,10 +52,10 @@ libraries[Leaflet.awesome-markers][download][url] = "https://github.com/markaspo
 libraries[Leaflet.awesome-markers][download][branch] = additional-colors
 libraries[Leaflet.awesome-markers][directory_name] = Leaflet.awesome-markers
 
-libraries[Leaflet.awesome-markers][type] = libraries
-libraries[Leaflet.awesome-markers][download][type] = git
-libraries[Leaflet.awesome-markers][download][url] = "https://github.com/Leaflet/Leaflet.draw.git"
-libraries[Leaflet.awesome-markers][directory_name] = Leaflet.draw
+libraries[Leaflet.draw][type] = libraries
+libraries[Leaflet.draw][download][type] = git
+libraries[Leaflet.draw][download][url] = "https://github.com/Leaflet/Leaflet.draw.git"
+libraries[Leaflet.draw][directory_name] = Leaflet.draw
 
 
 libraries[Leaflet.markercluster][type] = libraries
