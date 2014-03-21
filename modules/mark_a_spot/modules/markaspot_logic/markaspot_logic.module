@@ -33,18 +33,21 @@ function markaspot_logic_validate($form, &$form_state) {
     form_set_error('field_e_mail', t('Please enter a valid e-mail address.'));
   }
 
-
   $validate_cities = explode(",", variable_get('markaspot_logic_city'));
 
+  // Transform cities into a readable string.
+  if (count(array_keys($validate_cities)) >= 1) {
+    $last_element = array_pop($validate_cities);
+    $area = implode(", ", $validate_cities);
+    $area = $area . ' ' . t('or') . ' ' . $last_element;
+  }
+  // Iterate through all strings.
   foreach ($validate_cities as $validate_city) {
     $valid[] = strstr($form_state['values']['field_geo'][LANGUAGE_NONE][0]['address']['field'], $validate_city) ? TRUE : FALSE;
   }
 
-
   if (!in_array(TRUE, $valid)) {
-    $last_element = array_pop($validate_cities);
-    array_push($validate_cities, 'or ' . $last_element);
-    form_set_error('field_geo', t('Sorry, we only operate in the following areas: @area', array('@area' => implode(", ", $validate_cities))));
+    form_set_error('field_geo', t('Sorry, we only operate in the following areas: @area', array('@area' => $area)));
   }
 
   /* Bounding Box */
@@ -55,8 +58,14 @@ function markaspot_logic_validate($form, &$form_state) {
   $south_east = FALSE;
 
   $bbox = array(
-    'nw' => array('lat' => variable_get('markaspot_logic_bbox_nw_lat'), 'lng' => variable_get('markaspot_logic_bbox_nw_lng')),
-    'se' => array('lat' => variable_get('markaspot_logic_bbox_se_lat'), 'lng' => variable_get('markaspot_logic_bbox_se_lng')),
+    'nw' => array(
+      'lat' => variable_get('markaspot_logic_bbox_nw_lat'),
+      'lng' => variable_get('markaspot_logic_bbox_nw_lng'),
+    ),
+    'se' => array(
+      'lat' => variable_get('markaspot_logic_bbox_se_lat'),
+      'lng' => variable_get('markaspot_logic_bbox_se_lng'),
+    ),
   );
 
   if (($bbox['nw']['lat'] >= $lat) && ($bbox['nw']['lng'] <= $lon)) {
@@ -66,10 +75,9 @@ function markaspot_logic_validate($form, &$form_state) {
     $south_east = TRUE;
   }
 
-
   if ($south_east == FALSE || $north_west == FALSE) {
-    form_set_error('field_geo', t('The position does not seem to be inside a valid bounding box in @city',
-      array('@city' => variable_get('markaspot_logic_city'))));
+    form_set_error('field_geo', t('The position does not seem to be inside a valid bounding box in @area',
+      array('@area' => $area)));
   }
   else {
     // Fill the address field only, if it's not equal to the initial value:
@@ -80,10 +88,7 @@ function markaspot_logic_validate($form, &$form_state) {
       form_set_error('field_geo', t('Please enter a location, different from the default one'));
     }
   }
-
-
 }
-
 
 /**
  * Implements hook_page_build().
@@ -238,11 +243,10 @@ function markaspot_logic_admin_settings() {
   );
 
   $form['general']['markaspot_logic_city'] = array(
-    '#type' => 'textfield',
+    '#type' => 'textarea',
     '#title' => t('Validation of City Name Strings'),
     '#default_value' => variable_get('markaspot_logic_city', markaspot_logic_defaults('markaspot_logic_city')),
     '#size' => '16',
-    '#maxlength' => 16,
     '#description' => t('Insert a comma separated list of valid names, this installation is built for, eg. "New York, NY, Big Apple"'),
   );
 
@@ -297,7 +301,7 @@ function markaspot_logic_admin_settings() {
     '#type' => 'fieldset',
     '#title' => t('Bounding Box'),
     '#collapsible' => TRUE,
-    '#description' => t('Define an area within all reports will be based on a valid location'),
+    '#description' => t('Draw a rectancle (click on the black box) in the map to mark the boundaries for valid reports'),
   );
 
   $form['bbox']['markaspot_logic_bbox_nw_lat'] = array(
@@ -470,7 +474,7 @@ function markaspot_logic_defaults($id) {
       return 'Pingsdorfer Straße 88, 50321 Brühl, Deutschland';
 
     case 'markaspot_logic_city':
-      return 'Brühl';
+      return 'Brühl, Erftstadt';
 
     case 'markaspot_logic_country':
       return 'Deutschland';
