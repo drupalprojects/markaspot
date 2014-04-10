@@ -874,6 +874,11 @@ div.list a h3 {
   right: 0;
 }
 
+.report .img-thumbnail {
+  margin: 0 10px 10px 0;
+}
+
+
 /* Responsive
 -------------------------------------------------- */
 /* Desktop large
