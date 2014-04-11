@@ -129,7 +129,7 @@ function mark_a_spot_views_default_views() {
     t('Sortieren nach'),
     t('Aufsteigend'),
     t('Absteigend'),
-    t('    <div class="col-md-4 thumbnail">
+    t('    <div class="col-md-4">
       [field_image_1]
       <!-- h3>[title]</h3 -->
     </div>'),

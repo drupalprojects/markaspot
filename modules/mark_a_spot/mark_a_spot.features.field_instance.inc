@@ -481,7 +481,7 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'geolocation_osm',
         'settings' => array(
-          'field_formatter_class' => 'thumbnail pull-left',
+          'field_formatter_class' => 'pull-left',
           'leafletImagePath' => 'profiles/markaspot/libraries/leaflet/images/',
           'map_dimensions' => '100x100',
           'map_imageformat' => 'png',
@@ -593,7 +593,7 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
-          'field_formatter_class' => 'thumbnail pull-left',
+          'field_formatter_class' => 'pull-left',
           'image_link' => '',
           'image_style' => 'mas_thumb',
         ),
@@ -630,7 +630,7 @@ function mark_a_spot_field_default_field_instances() {
         'settings' => array(
           'field_formatter_class' => '',
           'image_link' => '',
-          'image_style' => 'thumbnail',
+          'image_style' => 'mas_thumb',
           'semantic_field_format' => 0,
         ),
         'type' => 'image',
