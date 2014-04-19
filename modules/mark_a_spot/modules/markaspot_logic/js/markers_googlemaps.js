@@ -67,28 +67,28 @@ var markerLayer, queryString;
     $("#block-markaspot-logic-taxonomy-category ul li a.map-menue").click(function (e) {
       e.preventDefault();
       hideMarkers();
-      readData(1, getMarkerId, getTaxId(this.id), "All");
+      readData(1, arg, getTaxId(this.id), "All");
       return false;
     });
 
     $("#block-markaspot-logic-taxonomy-status ul li a.map-menue").click(function (e) {
       e.preventDefault();
       hideMarkers();
-      readData(2, getMarkerId, "All", getTaxId(this.id));
+      readData(2, arg, "All", getTaxId(this.id));
       return false;
     });
 
-    $("a.map-all.category").click(function (e) {
+    $("#block-markaspot-logic-taxonomy-category ul li a.map-menue-all").click(function (e) {
       e.preventDefault();
       hideMarkers();
-      readData(1, getMarkerId, "All", "All");
+      readData(1, arg, "All", "All");
       return false;
     });
 
-    $("a.map-all.status").click(function (e) {
+    $("#block-markaspot-logic-taxonomy-status ul li a.map-menue-all").click(function (e) {
       e.preventDefault();
       hideMarkers();
-      readData(2, getMarkerId, "All", "All");
+      readData(2, arg, "All", "All");
       return false;
     });
 
@@ -96,12 +96,6 @@ var markerLayer, queryString;
       id = id.split("-");
       return id[1];
     }
-
-    function hideMarkers() {
-      if (mc !== null) {
-        mc.clearMarkers();
-      }
-    };
 
     function readData(getToggle, arg, categoryCond, statusCond) {
 
@@ -192,7 +186,7 @@ var markerLayer, queryString;
         });
         // $.each
 
-        var mc = new MarkerClusterer(Drupal.Markaspot.maps[0], markers, {maxZoom: 15, gridSize: 50});
+        mc = new MarkerClusterer(Drupal.Markaspot.maps[0], markers, {maxZoom: 15, gridSize: 50});
 
         Drupal.Markaspot.maps[0].fitBounds(bounds);
         var listener = google.maps.event.addListener(Drupal.Markaspot.maps[0], "idle", function () {
