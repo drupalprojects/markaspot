@@ -37,8 +37,9 @@ function markaspot_logic_validate($form, &$form_state) {
 
   // Transform cities into a readable string.
   if (count(array_keys($validate_cities)) > 1) {
-    $last_element = array_pop($validate_cities);
-    $area = implode(", ", $validate_cities);
+    $area_cities = $validate_cities;
+    $last_element = array_pop($area_cities);
+    $area = implode(", ", $area_cities);
     $area = $area . ' ' . t('or') . ' ' . $last_element;
   }
   else {
