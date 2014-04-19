@@ -57,9 +57,9 @@ var markerLayer, queryString;
 
     Drupal.Markaspot.maps[0] = new L.Map('map');
 
-    if (mas.cloudmade_api_key) {
-      var url = 'https://ssl_tiles.cloudmade.com/' + mas.cloudmade_api_key + '/22677/256/{z}/{x}/{y}.png';
-      var attribution = 'Map data &copy; 2013 OpenStreetMap contributors, Imagery &copy; 2013 CloudMade';
+    if (mas.mapbox_map_id) {
+      var url = 'https://{s}.tiles.mapbox.com/v3/' + mas.mapbox_map_id + '/{z}/{x}/{y}.png';
+      var attribution = '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>';
     } else {
       var url = mas.osm_custom_tile_url;
       var attribution = mas.osm_custom_attribution;

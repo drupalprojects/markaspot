@@ -125,7 +125,7 @@ function markaspot_logic_page_build(&$page) {
   if (variable_get('markaspot_logic_map_type') == 1) {
     drupal_add_js(array(
       'mas' => array(
-        'cloudmade_api_key' => variable_get('markaspot_logic_cloudmade_api_key'),
+        'mapbox_map_id' => variable_get('markaspot_logic_mapbox_map_id'),
       ),
     ), 'setting');
   }
@@ -281,23 +281,23 @@ function markaspot_logic_admin_settings() {
     '#type' => 'radios',
     '#title' => t('Map type'),
     '#default_value' => variable_get('markaspot_logic_map_type', 0),
-    '#options' => array(t('Google Maps'), t('Cloudmade'), t('Other OSM')),
+    '#options' => array(t('Google Maps'), t('Mapbox'), t('Other OSM')),
   );
-  $form['types']['markaspot_logic_cloudmade_api_key'] = array(
+  $form['types']['markaspot_logic_mapbox_map_id'] = array(
     '#type' => 'textfield',
-    '#title' => t('Cloudmade API Key'),
-    '#default_value' => variable_get('markaspot_logic_cloudmade_api_key'),
-    '#description' => t('Insert your API Key here'),
+    '#title' => t('Mapbox Map ID'),
+    '#default_value' => variable_get('markaspot_logic_mapbox_map_id'),
+    '#description' => t('Insert your Map ID (e.g. markaspot.Ejs23a) here'),
   );
   $form['types']['osm']['markaspot_logic_osm_custom_tile_url'] = array(
     '#type' => 'textfield',
-    '#title' => t('Tile URL, if not from Cloudmade'),
+    '#title' => t('Tile URL, if not from Mapbox'),
     '#default_value' => variable_get('markaspot_logic_osm_custom_tile_url', markaspot_logic_defaults('markaspot_logic_osm_custom_tile_url')),
-    '#description' => t('If you want to use a different tile service or https with cloudmade, enter the url pattern, e.g. http://{s}.somedomain.com/your-api-key/{z}/{x}/{y}.png'),
+    '#description' => t('If you want to use a different tile service, enter the url pattern, e.g. http://{s}.somedomain.com/your-api-key/{z}/{x}/{y}.png'),
   );
   $form['types']['osm']['markaspot_logic_osm_custom_attribution'] = array(
     '#type' => 'textfield',
-    '#title' => t('Attribution Statement, if not from Cloudmade'),
+    '#title' => t('Attribution Statement, if not from Mapbox'),
     '#default_value' => variable_get('markaspot_logic_osm_custom_attribution', markaspot_logic_defaults('markaspot_logic_osm_custom_attribution')),
     '#description' => t('If you use an alternative Operator for serving tiles show special attribution'),
   );
