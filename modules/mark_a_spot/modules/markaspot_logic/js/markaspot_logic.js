@@ -53,13 +53,3 @@
     }
   });
 })(jQuery);
-
-
-(function ($) {
-  $(document).ready(function(){
-
-  console.log(map);
-
-
-  });
-})(jQuery);
