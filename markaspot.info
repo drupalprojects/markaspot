@@ -38,3 +38,5 @@ dependencies[] = mark_a_spot_default_content
 dependencies[] = mark_a_spot_log
 dependencies[] = twitter
 dependencies[] = chosen
+dependencies[] = geophp
+dependencies[] = views_geojson
