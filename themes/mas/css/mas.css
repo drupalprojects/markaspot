@@ -924,6 +924,10 @@ div.list a h3 {
     margin-bottom: 0;
   }
 
+  .col-md-4.col-md-offset-1.thumbnail {
+    display: none;
+  }
+
   /* Inline-block quick links for more spacing */
   .quick-links li {
     display: inline-block;
@@ -992,7 +996,6 @@ div.list a h3 {
     padding-top: 0;
   }
 
-  /* Widen masthead and social buttons to fill body padding */
   .col-md-4.col-md-offset-1.thumbnail {
     display: none;
   }
@@ -1003,11 +1006,6 @@ div.list a h3 {
 
   .report img.pull-left.thumbnail {
     display: none;
-  }
-
-  /* Tighten up footer */
-  .footer {
-    margin: 0 -20px;
   }
 
   .page-map .row.map-tools {
