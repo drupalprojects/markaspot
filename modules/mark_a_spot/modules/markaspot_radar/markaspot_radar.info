@@ -1,0 +1,4 @@
+name = Mark-a-Spot Radar
+description = Checking existent reports nearby while locating own report on the map
+core = 7.x
+package = Mark-a-Spot
