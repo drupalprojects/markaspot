@@ -851,21 +851,6 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_status_tid']['expose']['identifier'] = 'field_status_tid';
   $handler->display->display_options['filters']['field_status_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_status_tid']['vocabulary'] = 'status';
-  /* Filter criterion: Content: Place your report (field_geo:lng) */
-  $handler->display->display_options['filters']['field_geo_lng']['id'] = 'field_geo_lng';
-  $handler->display->display_options['filters']['field_geo_lng']['table'] = 'field_data_field_geo';
-  $handler->display->display_options['filters']['field_geo_lng']['field'] = 'field_geo_lng';
-  $handler->display->display_options['filters']['field_geo_lng']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_geo_lng']['value']['value'] = '6.8';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['operator_id'] = 'field_geo_lng_op';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['label'] = 'Place your report (field_geo:lng)';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['operator'] = 'field_geo_lng_op';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['identifier'] = 'field_geo_lng';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
   $handler->display->display_options['path'] = 'reports/geojson';
 
   /* Display: GeoJSON Map */
@@ -1046,21 +1031,6 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_status_tid']['expose']['identifier'] = 'field_status_tid';
   $handler->display->display_options['filters']['field_status_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_status_tid']['vocabulary'] = 'status';
-  /* Filter criterion: Content: Place your report (field_geo:lng) */
-  $handler->display->display_options['filters']['field_geo_lng']['id'] = 'field_geo_lng';
-  $handler->display->display_options['filters']['field_geo_lng']['table'] = 'field_data_field_geo';
-  $handler->display->display_options['filters']['field_geo_lng']['field'] = 'field_geo_lng';
-  $handler->display->display_options['filters']['field_geo_lng']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_geo_lng']['value']['value'] = '6.8';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['operator_id'] = 'field_geo_lng_op';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['label'] = 'Place your report (field_geo:lng)';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['operator'] = 'field_geo_lng_op';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['identifier'] = 'field_geo_lng';
-  $handler->display->display_options['filters']['field_geo_lng']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
   $handler->display->display_options['path'] = 'reports/geojson/map';
   $translatables['markers'] = array(
     t('Master'),
@@ -1103,7 +1073,6 @@ function mark_a_spot_views_default_views() {
     t('next Page ›'),
     t('last Page »'),
     t('No Results'),
-    t('Für diese Kategorie / Status haben wir keine aktuellen Beiträge'),
     t('[field_status]'),
     t('[field_category]'),
     t('<span class="submitted meta-info"> [created] </span>'),
