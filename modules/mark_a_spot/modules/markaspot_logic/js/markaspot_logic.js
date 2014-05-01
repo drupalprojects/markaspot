@@ -28,6 +28,7 @@
       }
     });
     map.addControl(drawControl);
+    L.control.locate().addTo(map);
 
     map.on('draw:edited', function (e) {
       var layers = e.layers;
