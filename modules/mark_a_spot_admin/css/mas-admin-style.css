@@ -185,9 +185,10 @@ input.fluid {
 }
 
 #geolocation-address-geocode-7-0 {
-  display: inline-block;
+  display: inline;
   padding: 5px;
-  margin: 5px;
+  /* margin: 5px; */
+  float: left;
 }
 
 .views-field-uuid {

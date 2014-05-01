@@ -52,21 +52,31 @@ var markerLayer;
     }
 
     var initialLatLng = new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng);
+    var mapType = mas.markaspot_map_type;
 
     Drupal.Markaspot.maps[0] = new L.Map('map');
+    console.log(mapType);
+    switch (mapType){
+      case '0':
+        var attribution = mas.osm_custom_attribution;
+        var layer = new L.Google('ROADMAP');
+        break;
 
-    if (mas.mapbox_map_id) {
-      var url = 'https://{s}.tiles.mapbox.com/v3/' + mas.mapbox_map_id + '/{z}/{x}/{y}.png';
-      var attribution = '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>';
-    } else {
-      var url = mas.osm_custom_tile_url;
-      var attribution = mas.osm_custom_attribution;
+      case '1':
+        var tiles = 'https://{s}.tiles.mapbox.com/v3/' + mas.mapbox_map_id + '/{z}/{x}/{y}.png';
+        var attribution = '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>';
+        var layer = new L.TileLayer(tiles, {maxZoom: 18, attribution: attribution});
+        break;
+
+      case '2':
+        var tiles = mas.osm_custom_tile_url;
+        var attribution = mas.osm_custom_attribution;
+        var layer = new L.TileLayer(tiles, {maxZoom: 18, attribution: attribution});
+
     }
 
-    layer = new L.TileLayer(url, {maxZoom: 18, attribution: attribution});
     Drupal.Markaspot.maps[0].setView(new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng), 13).addLayer(layer);
 
-    $("#markers-list").append("<ul>");
 
     /**Sidebar Marker-functions*/
 
@@ -114,8 +124,7 @@ var markerLayer;
       var target = document.getElementById('map');
       var spinner = new Spinner().spin(target);
 
-      $.getJSON(url,function (data) {
-        }).done(function (data) {
+      $.getJSON(url).done(function (data) {
 
         spinner.stop();
         bounds = new L.LatLngBounds(initialLatLng);
@@ -175,7 +184,7 @@ var markerLayer;
         Drupal.Markaspot.maps[0].addLayer(markerLayer);
         // Drupal.Markaspot.maps[0].fitBounds(bounds);
       });
-    }
+     }
   });
 })(jQuery);
 

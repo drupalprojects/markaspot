@@ -702,8 +702,13 @@ input[type="color"] {
 }
 
 .geolocation-address .form-type-textfield {
-  float: none;
+  width: 60%;
 }
+
+div#edit-field-geo-und-0-address label{
+  display:block
+}
+
 
 .geolocation-address {
   background: rgba(255, 255, 255, 0.6);
