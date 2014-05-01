@@ -22,7 +22,10 @@ projects[field_formatter_settings][subdir] = "contrib"
 projects[field_formatter_class][subdir] = "contrib"
 projects[field_formatter_css_class][subdir] = "contrib"
 projects[geophp][subdir] = "contrib"
+
 projects[views_geojson][subdir] = "contrib"
+projects[views_geojson][version] = 1.x-dev
+
 
 projects[twitter][subdir] = "contrib"
 projects[twitter][patch][2132231] = "https://drupal.org/files/issues/Twitter-add_geo_and_entities_Twitter_object_2132231-1_0.patch"
