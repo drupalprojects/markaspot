@@ -55,7 +55,7 @@ var markerLayer;
     var mapType = mas.markaspot_map_type;
 
     Drupal.Markaspot.maps[0] = new L.Map('map');
-    console.log(mapType);
+
     switch (mapType){
       case '0':
         var attribution = mas.osm_custom_attribution;
@@ -118,7 +118,7 @@ var markerLayer;
       markerLayer = new L.MarkerClusterGroup({disableClusteringAtZoom: 15, maxClusterRadius: 40 });
 
       uri = mas.uri.split('?');
-      url = Drupal.settings.basePath + 'reports/geojson?' + uri[1];
+      url = Drupal.settings.basePath + 'reports/geojson/map?' + uri[1];
 
       // Spinner injection.
       var target = document.getElementById('map');
@@ -173,6 +173,7 @@ var markerLayer;
               var awesomeColor = element.color;
               var awesomeIcon = (getToggle == 1) ? item.field_category_icon : item.field_status_icon;
               var marker = new L.Marker(latlon, {icon: L.AwesomeMarkers.icon({icon: awesomeIcon, prefix: 'icon', markerColor: awesomeColor, spin: false}) });
+
               marker.bindPopup(html);
               markerLayer.addLayer(marker);
               bounds.extend(latlon);
