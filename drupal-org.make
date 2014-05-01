@@ -37,7 +37,7 @@ projects[oauth][subdir] = "contrib"
 projects[workbench][subdir] = "contrib"
 
 projects[chosen][subdir] = "contrib"
-projects[chosen][version] = 2.x-beta-4
+projects[chosen][version] = 2.x-dev
 
 projects[geolocation_osm][type] = module
 projects[geolocation_osm][subdir] = "contrib"
