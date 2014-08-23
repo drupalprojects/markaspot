@@ -1,0 +1,4 @@
+name = Mark-a-Spot Static GeoJSON file Generator
+description = generates static geojson file in /geojson/All.geojson
+package = "Mark-a-Spot"
+core = "7.x"
