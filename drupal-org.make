@@ -109,3 +109,4 @@ libraries[bootstrap][overwrite] = TRUE
 ; Themes
 projects[bootstrap][type] = "theme"
 projects[ember][type] = "theme"
+projects[ember][version] = 2.x-dev
