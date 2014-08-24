@@ -164,7 +164,6 @@
      * Show
      */
     showData: function(getToggle, dataset) {
-
       var mas = Drupal.settings.mas;
 
       markerLayer = new L.MarkerClusterGroup({
@@ -211,17 +210,17 @@
           }, {
             "color": "darkpurple", "hex": "871F78"
           }, {
-            "color": "cadetblue", "hex": "5F9EA0",
+            "color": "cadetblue", "hex": "5F9EA0"
           }, {
-            "color": "lightgray", "hex": "D3D3D3",
+            "color": "lightgray", "hex": "D3D3D3", "iconColor" : "black"
           }, {
-            "color": "gray", "hex": "808080",
+            "color": "gray", "hex": "808080"
           }, {
-            "color": "black", "hex": "000000",
+            "color": "black", "hex": "000000"
           }, {
-            "color": "beige", "hex": "F5F5DC",
+            "color": "beige", "hex": "F5F5DC", "iconColor" : "darkred"
           }, {
-            "color": "white", "hex": "5F9EA0",
+            "color": "white", "hex": "FFFFFF", "iconColor" : "black"
           }];
           colorswitch = item.field_category_hex;
         }
@@ -238,14 +237,17 @@
           colorswitch = item.field_status_hex;
         }
         $.each(colors, function(key, element) {
+
           if (colorswitch == element.hex) {
             var awesomeColor = element.color;
-            var awesomeIcon = (getToggle == 1) ? item.field_category_icon : item.field_status_icon;
+            var awesomeIcon  = (getToggle == 1) ? item.field_category_icon : item.field_status_icon;
+            var iconColor    = element.iconColor ? element.iconColor : "#ffffff";
             var marker = new L.Marker(latlon, {
               icon: L.AwesomeMarkers.icon({
                 icon: awesomeIcon,
                 prefix: 'icon',
                 markerColor: awesomeColor,
+                iconColor: iconColor,
                 spin: false
               })
             });
@@ -269,6 +271,7 @@
 
       //Mark-a-Spot Static Module detected, get all data via JSON in sites/default/files/geojson.
       if (moduleStatic) {
+
         if (categoryCond == "All" && statusCond == "All") {
           var dataset = data.features;
           Drupal.markaspot.showData(getToggle, dataset);
