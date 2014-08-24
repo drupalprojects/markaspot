@@ -42,7 +42,7 @@
             attribution: attribution
           });
       }
-      Drupal.Markaspot.maps[0].setView(new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng), 15).addLayer(layer);
+      Drupal.Markaspot.maps[0].setView(new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng), 13).addLayer(layer);
 
       if ($('#markers-list-view').length !== 0) {
         var offset = $("#map").offset();
@@ -164,6 +164,7 @@
      * Show
      */
     showData: function(getToggle, dataset) {
+
       var mas = Drupal.settings.mas;
 
       markerLayer = new L.MarkerClusterGroup({
@@ -188,42 +189,54 @@
           html += '<div><a class="infowindow-link" href="' + item.path + '">' + Drupal.t('read more') + '</a></div>';
         }
 
+        var colorswitch, colors;
 
-
-        var colors = [{
-          "color": "red", "hex": "FF0000"
-        }, {
-          "color": "darkred", "hex": "8B0000"
-        }, {
-          "color": "orange", "hex": "FFA500"
-        }, {
-          "color": "green", "hex": "008000"
-        }, {
-          "color": "darkgreen", "hex": "006400"
-        }, {
-          "color": "blue", "hex": "0000FF"
-        }, {
-          "color": "darkblue", "hex": "00008B"
-        }, {
-          "color": "purple", "hex": "800080"
-        }, {
-          "color": "darkpurple", "hex": "871F78"
-        }, {
-          "color": "cadetblue", "hex": "5F9EA0",
-        }, {
-          "color": "lightgray", "hex": "D3D3D3",
-        }, {
-          "color": "gray", "hex": "808080",
-        }, {
-          "color": "black", "hex": "000000",
-        }, {
-          "color": "beige", "hex": "F5F5DC",
-        }, {
-          "color": "white", "hex": "5F9EA0",
-        }];
-
-        var colorswitch = (getToggle == 1) ? String(item.field_category_hex) : String(item.field_status_hex);
-
+        if (getToggle == 1) {
+          colors = [{
+            "color": "red", "hex": "FF0000"
+          }, {
+            "color": "darkred", "hex": "8B0000"
+          }, {
+            "color": "orange", "hex": "FFA500"
+          }, {
+            "color": "green", "hex": "008000"
+          }, {
+            "color": "darkgreen", "hex": "006400"
+          }, {
+            "color": "blue", "hex": "0000FF"
+          }, {
+            "color": "darkblue", "hex": "00008B"
+          }, {
+            "color": "purple", "hex": "800080"
+          }, {
+            "color": "darkpurple", "hex": "871F78"
+          }, {
+            "color": "cadetblue", "hex": "5F9EA0",
+          }, {
+            "color": "lightgray", "hex": "D3D3D3",
+          }, {
+            "color": "gray", "hex": "808080",
+          }, {
+            "color": "black", "hex": "000000",
+          }, {
+            "color": "beige", "hex": "F5F5DC",
+          }, {
+            "color": "white", "hex": "5F9EA0",
+          }];
+          colorswitch = item.field_category_hex;
+        }
+        if (getToggle == 2) {
+          colors = [{
+            "color": "red", "hex": "FF0000"
+          }, {
+            "color": "green", "hex": "008000"
+          }, {
+            "color": "orange", "hex": "FFA500"
+          }, {
+            "color": "cadetblue", "hex": "5F9EA0"
+          }];
+          colorswitch = item.field_status_hex;
+        }
         $.each(colors, function(key, element) {
           if (colorswitch == element.hex) {
             var awesomeColor = element.color;
@@ -239,7 +252,6 @@
             markerLayer.addLayer(marker);
             marker.on('click', Drupal.markaspot.markerClickFn(latlon, html, item.uuid));
           }
-
         });
         var fn = Drupal.markaspot.markerClickFn(latlon, html, item.uuid);
         $('#marker_' + item.nid).on('hover', fn);
@@ -303,5 +315,5 @@
       return id[1];
     }
 
-  }
+}
 })(jQuery);
