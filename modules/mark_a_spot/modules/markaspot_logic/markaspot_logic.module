@@ -417,7 +417,13 @@ function markaspot_logic_admin_settings() {
       '#type' => 'radios',
       '#title' => t('Choose the UUID pattern.'),
       '#default_value' => variable_get('markaspot_logic_uuid_pattern', markaspot_logic_defaults('markaspot_logic_uuid_pattern')),
-      '#options' => array(t('#3e80-67'), t('#3e8031-67'), t('#3e8031b0-67')),
+      '#options' => array(t('#3e80-67'), t('#3e8031-67'), t('#3e8031b0-67'), 'Other:'),
+    );
+
+    $form['uuid']['markaspot_logic_uuid_prefix'] = array(
+      '#type' => 'textfield',
+      '#default_value' => variable_get('markaspot_logic_uuid_prefix', markaspot_logic_defaults('markaspot_logic_uuid_prefix')),
+      '#title' => t('In case you want to have no hex code in an multi-stage environment you could just add a String here, but make sure nodes stay unique'),
     );
 
   }
@@ -525,6 +531,8 @@ function markaspot_logic_defaults($id) {
 
     case 'markaspot_logic_uuid_pattern':
       return 0;
+    case 'markaspot_logic_uuid_prefix':
+      return 'A';
 
     case 'markaspot_logic_title_pattern':
       return 0;
