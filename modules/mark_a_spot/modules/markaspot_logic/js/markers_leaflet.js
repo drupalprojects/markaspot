@@ -42,7 +42,7 @@
             attribution: attribution
           });
       }
-      Drupal.Markaspot.maps[0].setView(new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng), 13).addLayer(layer);
+      Drupal.Markaspot.maps[0].setView(new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng), 15).addLayer(layer);
 
       if ($('#markers-list-view').length !== 0) {
         var offset = $("#map").offset();
@@ -196,7 +196,7 @@
           }, {
             "color": "darkred", "hex": "8B0000"
           }, {
-            "color": "orange", "hex": "FFA500"
+            "color": "orange", "hex": "FFA500", "iconColor" : "black"
           }, {
             "color": "green", "hex": "008000"
           }, {
