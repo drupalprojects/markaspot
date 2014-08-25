@@ -125,6 +125,7 @@
      * Hide Layers
      */
     hideMarkers: function() {
+      Drupal.Markaspot.maps[0].closePopup();
       Drupal.Markaspot.maps[0].removeLayer(markerLayer);
     },
 
@@ -133,16 +134,20 @@
      */
     markerClickFn: function (latlon, html, id) {
       return function (e) {
+        var target  = document.getElementById('map');
+        var spinner = new Spinner().spin(target);
         map = Drupal.Markaspot.maps[0];
         map.closePopup();
         var report_url = Drupal.settings.basePath + 'georeport/v2/requests/' + id + '.json';
         $.getJSON(report_url).success(function (data) {
-          var request = data[0].media_url ? '<img style="height: 80px; margin: 20px 10px 10px 0" src="' + data[0].media_url + '" class="map img-thumbnail pull-left"><p>' + data[0].description + '</p>' : '<p>' + data[0].description + '</p>';
-
-          L.popup({autoPanPadding: new L.Point(15,120)})
+          var description = data[0].description ? data[0].description : "";
+          var request = data[0].media_url ? '<img style="height: 80px; margin: 10px 10px 10px 0" src="' + data[0].media_url + '" class="map img-thumbnail pull-left"><p class="report-detail">' + description + '</p>' : '<p class="report-detail">' + description + '</p>';
+          // L.popup({autoPanPadding: new L.Point(15,120)})
+          L.popup()
             .setLatLng(latlon)
             .setContent(html + request + '</div>')
             .openOn(map);
+          spinner.stop();
         });
 
         map.on('popupopen', function (e) {
@@ -173,8 +178,7 @@
 
       var initialLatLng = new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng);
       // bounds = new L.LatLngBounds(initialLatLng);
-
-      if (!dataset && mas.node_type == 'report') {
+      if (dataset.length == 0) {
         alert(Drupal.t('No reports found for this category/status'));
       }
 
@@ -196,7 +200,7 @@
           }, {
             "color": "darkred", "hex": "8B0000"
           }, {
-            "color": "orange", "hex": "FFA500", "iconColor" : "black"
+            "color": "orange", "hex": "FFA500", "iconColor" : "dark-red"
           }, {
             "color": "green", "hex": "008000"
           }, {
@@ -256,7 +260,7 @@
           }
         });
         var fn = Drupal.markaspot.markerClickFn(latlon, html, item.uuid);
-        $('#marker_' + item.nid).on('hover', fn);
+        $('#marker_' + item.nid).on('hover, click', fn);
         Drupal.Markaspot.maps[0].addLayer(markerLayer);
       });
     },
@@ -318,5 +322,5 @@
       return id[1];
     }
 
-}
+  }
 })(jQuery);
