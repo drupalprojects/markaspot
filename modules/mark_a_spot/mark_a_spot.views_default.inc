@@ -857,7 +857,12 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_status_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_status_tid']['vocabulary'] = 'status';
   $handler->display->display_options['path'] = 'reports/geojson';
-
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Nid */
+  $handler->display->display_options['sorts']['nid']['id'] = 'nid';
+  $handler->display->display_options['sorts']['nid']['table'] = 'node';
+  $handler->display->display_options['sorts']['nid']['field'] = 'nid';
+  $handler->display->display_options['sorts']['nid']['order'] = 'DESC';
   /* Display: GeoJSON Map */
   $handler = $view->new_display('page', 'GeoJSON Map', 'geojson_map');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
