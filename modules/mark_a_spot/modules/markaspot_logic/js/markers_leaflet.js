@@ -196,47 +196,47 @@
 
         if (getToggle == 1) {
           colors = [{
-            "color": "red", "hex": "FF0000"
+            "color": "red", "hex": "#FF0000"
           }, {
-            "color": "darkred", "hex": "8B0000"
+            "color": "darkred", "hex": "#8B0000"
           }, {
-            "color": "orange", "hex": "FFA500", "iconColor" : "dark-red"
+            "color": "orange", "hex": "#FFA500", "iconColor" : "dark-red"
           }, {
-            "color": "green", "hex": "008000"
+            "color": "green", "hex": "#008000"
           }, {
-            "color": "darkgreen", "hex": "006400"
+            "color": "darkgreen", "hex": "#006400"
           }, {
-            "color": "blue", "hex": "0000FF"
+            "color": "blue", "hex": "#0000FF"
           }, {
-            "color": "darkblue", "hex": "00008B"
+            "color": "darkblue", "hex": "#00008B"
           }, {
-            "color": "purple", "hex": "800080"
+            "color": "purple", "hex": "#800080"
           }, {
-            "color": "darkpurple", "hex": "871F78"
+            "color": "darkpurple", "hex": "#871F78"
           }, {
-            "color": "cadetblue", "hex": "5F9EA0"
+            "color": "cadetblue", "hex": "#5F9EA0"
           }, {
-            "color": "lightgray", "hex": "D3D3D3", "iconColor" : "black"
+            "color": "lightgray", "hex": "#D3D3D3", "iconColor" : "black"
           }, {
-            "color": "gray", "hex": "808080"
+            "color": "gray", "hex": "#808080"
           }, {
-            "color": "black", "hex": "000000"
+            "color": "black", "hex": "#000000"
           }, {
-            "color": "beige", "hex": "F5F5DC", "iconColor" : "darkred"
+            "color": "beige", "hex": "#F5F5DC", "iconColor" : "darkred"
           }, {
-            "color": "white", "hex": "FFFFFF", "iconColor" : "black"
+            "color": "white", "hex": "#FFFFFF", "iconColor" : "black"
           }];
           colorswitch = item.field_category_hex;
         }
         if (getToggle == 2) {
           colors = [{
-            "color": "red", "hex": "FF0000"
+            "color": "red", "hex": "#FF0000"
           }, {
-            "color": "green", "hex": "008000"
+            "color": "green", "hex": "#008000"
           }, {
-            "color": "orange", "hex": "FFA500"
+            "color": "orange", "hex": "#FFA500"
           }, {
-            "color": "cadetblue", "hex": "5F9EA0"
+            "color": "cadetblue", "hex": "#5F9EA0"
           }];
           colorswitch = item.field_status_hex;
         }

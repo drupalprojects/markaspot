@@ -8,6 +8,7 @@ dependencies[] = services
 dependencies[] = better_exposed_filters
 dependencies[] = block
 dependencies[] = bootstrap_fieldgroup
+dependencies[] = color_field
 dependencies[] = ctools
 dependencies[] = entity
 dependencies[] = features

@@ -191,26 +191,19 @@ function mark_a_spot_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
+    'foreign keys' => array(),
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'rgb' => array(
+        0 => 'rgb',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'color_field',
     'settings' => array(
-      'max_length' => 6,
+      'default_colors' => '#FF0000, #8B0000, #FFA500, #008000, #006400, #0000FF, #00008B, #800080, #871F78, #5F9EA0, #D3D3D3, #808080, #000000, #F5F5DC, #FFFFFF',
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'color_field_rgb',
   );
 
   // Exported field_base: 'field_category_icon'
@@ -550,26 +543,19 @@ function mark_a_spot_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
+    'foreign keys' => array(),
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'rgb' => array(
+        0 => 'rgb',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'color_field',
     'settings' => array(
-      'max_length' => 6,
+      'default_colors' => '#FF0000, #8B0000, #FFA500, #008000, #006400, #0000FF, #00008B, #800080, #871F78, #5F9EA0, #D3D3D3, #808080, #000000, #F5F5DC, #FFFFFF',
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'color_field_rgb',
   );
 
   // Exported field_base: 'field_status_icon'
@@ -611,6 +597,9 @@ function mark_a_spot_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_status_id',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
