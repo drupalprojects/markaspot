@@ -881,39 +881,29 @@ function mark_a_spot_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'list',
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'text_default',
-        'weight' => 3,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'text_default',
-        'weight' => 4,
+        'type' => 'list_default',
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_category_icon',
-    'label' => 'Icon ',
-    'required' => 1,
+    'label' => 'Icon',
+    'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'options',
       'settings' => array(
-        'size' => 60,
+        'apply_chosen' => '',
       ),
-      'type' => 'text_textfield',
-      'weight' => 5,
+      'type' => 'options_select',
+      'weight' => 32,
     ),
   );
 
@@ -1066,6 +1056,7 @@ function mark_a_spot_field_default_field_instances() {
     ),
   );
 
+
   // Exported field_instance: 'taxonomy_term-status-field_status_hex'
   $field_instances['taxonomy_term-status-field_status_hex'] = array(
     'bundle' => 'status',
@@ -1108,13 +1099,12 @@ function mark_a_spot_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'list',
         'settings' => array(
           'field_formatter_class' => '',
-          'semantic_field_format' => 0,
         ),
-        'type' => 'text_default',
-        'weight' => 2,
+        'type' => 'list_default',
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'taxonomy_term',
@@ -1122,17 +1112,16 @@ function mark_a_spot_field_default_field_instances() {
     'label' => 'Icon',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'options',
       'settings' => array(
-        'size' => 60,
+        'apply_chosen' => '',
       ),
-      'type' => 'text_textfield',
-      'weight' => 3,
+      'type' => 'options_select',
+      'weight' => 32,
     ),
   );
 
@@ -1182,7 +1171,6 @@ function mark_a_spot_field_default_field_instances() {
   t('Hash');
   t('ID');
   t('Icon');
-  t('Icon ');
   t('Image');
   t('Keywords');
   t('Marker and Background Color');
