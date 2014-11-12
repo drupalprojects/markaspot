@@ -340,7 +340,7 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'time ago';
-  /* Field: Taxonomy term: categoryHex */
+  /* Field: Taxonomy term: Marker and Background Color */
   $handler->display->display_options['fields']['field_category_hex']['id'] = 'field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['table'] = 'field_data_field_category_hex';
   $handler->display->display_options['fields']['field_category_hex']['field'] = 'field_category_hex';
@@ -348,7 +348,7 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['field_category_hex']['label'] = '';
   $handler->display->display_options['fields']['field_category_hex']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_category_hex']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: statusHex */
+  /* Field: Taxonomy term: Marker and Background Color */
   $handler->display->display_options['fields']['field_status_hex_1']['id'] = 'field_status_hex_1';
   $handler->display->display_options['fields']['field_status_hex_1']['table'] = 'field_data_field_status_hex';
   $handler->display->display_options['fields']['field_status_hex_1']['field'] = 'field_status_hex';
@@ -522,7 +522,7 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['field_status']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_status']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_status']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Taxonomy term: statusHex */
+  /* Field: Taxonomy term: Marker and Background Color */
   $handler->display->display_options['fields']['field_status_hex']['id'] = 'field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['table'] = 'field_data_field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['field'] = 'field_status_hex';
@@ -643,7 +643,7 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['field_status']['label'] = '';
   $handler->display->display_options['fields']['field_status']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_status']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: statusHex */
+  /* Field: Taxonomy term: Marker and Background Color */
   $handler->display->display_options['fields']['field_status_hex']['id'] = 'field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['table'] = 'field_data_field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['field'] = 'field_status_hex';
@@ -897,7 +897,7 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['field_status']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_status']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_status']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Taxonomy term: statusHex */
+  /* Field: Taxonomy term: Marker and Background Color */
   $handler->display->display_options['fields']['field_status_hex']['id'] = 'field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['table'] = 'field_data_field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['field'] = 'field_status_hex';
@@ -1146,7 +1146,7 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['field_status']['label'] = '';
   $handler->display->display_options['fields']['field_status']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_status']['element_label_colon'] = FALSE;
-  /* Field: Taxonomy term: statusHex */
+  /* Field: Taxonomy term: Marker and Background Color */
   $handler->display->display_options['fields']['field_status_hex']['id'] = 'field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['table'] = 'field_data_field_status_hex';
   $handler->display->display_options['fields']['field_status_hex']['field'] = 'field_status_hex';
