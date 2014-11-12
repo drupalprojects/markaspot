@@ -14,10 +14,10 @@
       $.each(Drupal.settings.geolocation.defaults, function (i, mapDefaults) {
         var map = Drupal.geolocation.maps[i];
 
-        map.on('load', function (e) {
-          Drupal.markaspotRadar.addReports(map);
-        });
+        // Initial Loading
+        Drupal.markaspotRadar.addReports(map);
 
+        // Load GeoJSON on ZoomEnd and DragEnd
         map.on('zoomend', function (e) {
           Drupal.markaspotRadar.addReports(map);
         });
@@ -26,8 +26,6 @@
           Drupal.markaspotRadar.addReports(map);
         });
 
-        // Initial State, still looking for an event to catch this.
-        // map.addLayer(markerLayer);
 
       });
 
@@ -48,9 +46,8 @@
     },
     addReports: function (map) {
       currentBounds = map.getBounds();
-
       // Only get new geoJSON on certain zoom level
-      if (map.getZoom() >= 14) {
+      if (map.getZoom() >= Drupal.settings.mas.markaspot_radar_zoom) {
         Drupal.markaspotRadar.clearMap(map);
         var reportMarkers = Drupal.markaspotRadar.geoJsonLoad(currentBounds);
         var reportMarkerLayer = L.layerGroup(reportMarkers);
