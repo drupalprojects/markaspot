@@ -1,0 +1,13 @@
+name = Mark-a-Spot Rules
+core = 7.x
+package = Mark-a-Spot
+project = mark_a_spot_rules
+description = Provide some basic workflow for notification mails
+dependencies[] = entity
+dependencies[] = rules
+dependencies[] = entity
+dependencies[] = rules_admin
+features[features_api][] = api:2
+features[rules_config][] = rules_new_report_notification
+features[rules_config][] = rules_report_added
+mtime = 1416117874

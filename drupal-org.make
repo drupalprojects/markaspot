@@ -41,6 +41,8 @@ projects[uuid][patch][2161375] = https://drupal.org/files/issues/custom_method_o
 
 projects[oauth][subdir] = "contrib"
 projects[workbench][subdir] = "contrib"
+projects[rules][subdir] = "contrib"
+
 
 projects[chosen][subdir] = "contrib"
 projects[chosen][version] = 2.x-dev
