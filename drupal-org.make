@@ -54,7 +54,7 @@ projects[navbar][version] = 1.4
 projects[navbar][subdir] = "contrib"
 
 projects[ckeditor][type] = module
-projects[ckeditor][version] = 1.13
+projects[ckeditor][version] = 1.16
 projects[ckeditor][subdir] = contrib
 
 libraries[chosen][type] = libraries
