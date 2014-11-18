@@ -421,6 +421,18 @@ function markaspot_update_7206() {
 
 }
 
+/**
+ * Enable Spark modules (Navbar and ckeditor).
+ *
+ */
+function markaspot_update_7207() {
+  if (!module_exists('navbar') || !module_exists('ckeditor')) {
+    throw new DrupalUpdateException(t('Navbar and ckeditor has to be installed to run updates'));
+  } else {
+    module_disable(array('admin_menu'));
+    module_enable(array('navbar', 'ckeditor'));
+  }
+}
 
 /**
  * Change form widget for a field.

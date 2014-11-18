@@ -43,13 +43,17 @@ projects[oauth][subdir] = "contrib"
 projects[workbench][subdir] = "contrib"
 projects[rules][subdir] = "contrib"
 
-
 projects[chosen][subdir] = "contrib"
 projects[chosen][version] = 2.x-dev
 
 projects[geolocation_osm][type] = module
 projects[geolocation_osm][subdir] = "contrib"
 projects[geolocation_osm][download][url] = "http://git.drupal.org/project/geolocation_osm.git"
+
+projects[navbar][type] = module
+projects[navbar][version] = 1.4
+projects[navbar][subdir] = "contrib"
+
 
 libraries[chosen][type] = libraries
 libraries[chosen][download][type] = get
@@ -109,6 +113,15 @@ libraries[bootstrap][download][url] = "https://github.com/twbs/bootstrap/archive
 libraries[bootstrap][directory_name] = "bootstrap"
 libraries[bootstrap][destination] = "themes/mas"
 libraries[bootstrap][overwrite] = TRUE
+
+libraries[underscore][download][type] = get
+libraries[underscore][download][url] = https://github.com/jashkenas/underscore/archive/1.5.2.zip
+
+libraries[backbone][download][type] = get
+libraries[backbone][download][url] = https://github.com/jashkenas/backbone/archive/1.1.0.zip
+
+libraries[modernizr][download][type] = "get"
+libraries[modernizr][download][url] = "https://github.com/Modernizr/Modernizr/archive/v2.7.0.tar.gz"
 
 
 ; Themes
