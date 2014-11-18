@@ -54,6 +54,9 @@ projects[navbar][type] = module
 projects[navbar][version] = 1.4
 projects[navbar][subdir] = "contrib"
 
+projects[ckeditor][type] = module
+projects[ckeditor][version] = 1.13
+projects[ckeditor][subdir] = contrib
 
 libraries[chosen][type] = libraries
 libraries[chosen][download][type] = get
@@ -123,6 +126,8 @@ libraries[backbone][download][url] = https://github.com/jashkenas/backbone/archi
 libraries[modernizr][download][type] = "get"
 libraries[modernizr][download][url] = "https://github.com/Modernizr/Modernizr/archive/v2.7.0.tar.gz"
 
+libraries[ckeditor][download][type] = get
+libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor%20for%20Drupal/edit/ckeditor_4.3.2_edit.zip
 
 ; Themes
 projects[bootstrap][type] = "theme"
