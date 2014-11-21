@@ -426,11 +426,12 @@ function markaspot_update_7206() {
  *
  */
 function markaspot_update_7207() {
+  module_enable(array('navbar', 'ckeditor'));
+
   if (!module_exists('navbar') || !module_exists('ckeditor')) {
     throw new DrupalUpdateException(t('Navbar and ckeditor has to be installed to run updates'));
   } else {
     module_disable(array('admin_menu'));
-    module_enable(array('navbar', 'ckeditor'));
   }
 }
 
