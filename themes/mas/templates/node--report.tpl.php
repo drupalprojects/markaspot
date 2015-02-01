@@ -36,11 +36,15 @@
         hide($content['comments']);
         hide($content['links']);
         hide($content['field_tags']);
+        hide($content['field_address']);
+
         print render($content['body']);
-        print render($content['field_address']);
         print render($content['field_statement']);
 
       ?>
+      <?php if (!empty($node->field_address)): ?>
+        <div class="marker-address"><p><i class="icon-li icon-location "></i><?php print $node->field_address[$node->language][0]['value'];?></p></div>
+      <?php endif; ?>
     </div>
     <div class="col-md-5 col-md-offset-1">
       <?php print render($content['field_geo']); ?>

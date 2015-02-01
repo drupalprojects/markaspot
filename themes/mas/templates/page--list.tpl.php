@@ -1,9 +1,13 @@
 <?php
 /**
  * @file
- * Map page template for Mark-a-Spot
+ * Page template for Mark-a-Spot
  */
 ?>
+<header role="banner" id="page-header" class="container">
+  <?php print render($page['header']); ?>
+</header> <!-- /#header -->
+<div id="map"></div>
 <div class="navbar-wrapper">
   <div class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="container-fluid">
@@ -46,15 +50,53 @@
     </div>
   </div>
 </div>
-<div id="map" style="width:100%; height:100%"> </div>
-<div>
-  <header role="banner" id="page-header">
-    <?php if (!empty($site_slogan)): ?>
-      <p class="lead"><?php print $site_slogan; ?></p>
+<div class="main-container container page">
+
+  <div class="row">
+    <?php if (!empty($page['sidebar_first'])): ?>
+      <aside class="col-md-3" role="complementary">
+        <?php print render($page['sidebar_first']); ?>
+      </aside>  <!-- /#sidebar-first -->
     <?php endif; ?>
-    <?php print render($page['header']); ?>
-  </header> <!-- /#header -->
+
+    <?php if (empty($page['sidebar_second'])): ?>
+      <section class="col-md-12">
+    <?php else:; ?>
+      <section class="col-md-7">
+    <?php endif; ?>
+      <?php if (!empty($page['highlighted'])): ?>
+        <div class="highlighted hero-unit"><?php print render($page['highlighted']); ?></div>
+      <?php endif; ?>
+      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+      <a id="main-content"></a>
+      <?php print render($title_prefix); ?>
+      <?php if (!empty($title)): ?>
+        <h1 class="page-header"><?php print $title; ?></h1>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
+      <?php print $messages; ?>
+      <?php if (!empty($tabs)): ?>
+        <?php print render($tabs); ?>
+      <?php endif; ?>
+      <?php if (!empty($page['help'])): ?>
+        <div class="well"><?php print render($page['help']); ?></div>
+      <?php endif; ?>
+      <?php if (!empty($action_links)): ?>
+        <ul class="action-links"><?php print render($action_links); ?></ul>
+      <?php endif; ?>
+      <?php print render($page['content']); ?>
+    </section>
+
+    <?php if (!empty($page['sidebar_second'])): ?>
+      <aside class="col-md-4 col-md-offset-1" role="complementary">
+        <?php print render($page['sidebar_second']); ?>
+      </aside>  <!-- /#sidebar-second -->
+    <?php endif; ?>
+
+  </div>
 </div>
+
 <footer class="footer navbar-inverse navbar-fixed-bottom">
   <?php print render($page['footer']); ?>
 </footer>
+
