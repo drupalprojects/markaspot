@@ -96,6 +96,10 @@ function markaspot_uuid_generate_mas($id_field) {
       // 16 bits for "time_mid".
       mt_rand(0, 65535)) . '-' . $next_id;
   }
+  elseif ($uuid_preset_length == 3){
+
+    return format_date(time(), 'custom', variable_get('markaspot_logic_uuid_prefix')) . '-' . $next_id;
+  }
   else {
 
     return variable_get('markaspot_logic_uuid_prefix', 'A') . '-' . $next_id;
