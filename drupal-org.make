@@ -67,7 +67,7 @@ libraries[chosen][directory_name] = chosen
 
 libraries[waypoints][type] = libraries
 libraries[waypoints][download][type] = git
-libraries[waypoints][download][url] = "https://github.com/imakewebthings/jquery-waypoints.git"
+libraries[waypoints][download][url] = "https://github.com/imakewebthings/waypoints.git"
 libraries[waypoints][directory_name] = waypoints
 
 libraries[bootbox][type] = libraries
