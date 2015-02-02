@@ -1,0 +1,6 @@
+name = Mark-a-Spot Open311 / GeoReport v2 client
+description = Provides a GeoReport V2 client interface for posting requests via map
+core = 7.x
+package = Mark-a-Spot
+
+dependencies[] = fontawesome
