@@ -71,8 +71,8 @@ libraries[waypoints][download][url] = "https://github.com/imakewebthings/jquery-
 libraries[waypoints][directory_name] = waypoints
 
 libraries[bootbox][type] = libraries
-libraries[bootbox][download][type] = git
-libraries[bootbox][download][url] = "https://github.com/makeusabrew/bootbox.git"
+libraries[bootbox][download][type] = get
+libraries[bootbox][download][url] = "https://github.com/makeusabrew/bootbox/releases/download/v4.3.0/bootbox.min.js"
 libraries[bootbox][directory_name] = bootbox
 
 libraries[Leaflet.awesome-markers][type] = libraries
