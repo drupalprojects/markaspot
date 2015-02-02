@@ -129,7 +129,7 @@ libraries[spin.js][directory_name] = spin.js
 libraries[jquery-html5-upload][type] = libraries
 libraries[jquery-html5-upload][download][type] = git
 libraries[jquery-html5-upload][download][url] = "https://github.com/mihaild/jquery-html5-upload.git"
-libraries[jquery-html5-upload][directory_name] = markaspot-font
+libraries[jquery-html5-upload][directory_name] = jquery-html5-upload
 
 libraries[markaspot-font][type] = libraries
 libraries[markaspot-font][download][type] = git
