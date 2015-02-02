@@ -683,6 +683,10 @@ div.view.view-recent-edits ul,
   }
 }
 
+.pane-markers .pane-content {
+  margin: 0 0 100px 0
+}
+
 .jumbotron,
 .pane-views-exp-markers-report-list .pane-content {
   background: #FFFFFF;

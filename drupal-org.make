@@ -57,10 +57,17 @@ projects[ckeditor][type] = module
 projects[ckeditor][version] = 1.16
 projects[ckeditor][subdir] = contrib
 
+projects[search_api][subdir] = contrib
+
 libraries[chosen][type] = libraries
 libraries[chosen][download][type] = get
 libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/1.0.0/chosen_v1.0.0.zip"
 libraries[chosen][directory_name] = chosen
+
+libraries[waypoints][type] = libraries
+libraries[waypoints][download][type] = git
+libraries[waypoints][download][url] = "https://github.com/imakewebthings/jquery-waypoints.git"
+libraries[waypoints][directory_name] = waypoints
 
 libraries[Leaflet.awesome-markers][type] = libraries
 libraries[Leaflet.awesome-markers][download][type] = git
@@ -73,6 +80,10 @@ libraries[Leaflet.draw][download][type] = git
 libraries[Leaflet.draw][download][url] = "https://github.com/Leaflet/Leaflet.draw.git"
 libraries[Leaflet.draw][directory_name] = Leaflet.draw
 
+libraries[Leaflet.EasyButton][type] = libraries
+libraries[Leaflet.EasyButton][download][type] = git
+libraries[Leaflet.EasyButton][download][url] = "https://github.com/CliffCloud/Leaflet.EasyButton.git"
+libraries[Leaflet.EasyButton][directory_name] = Leaflet.draw
 
 libraries[Leaflet.markercluster][type] = libraries
 libraries[Leaflet.markercluster][download][type] = git
@@ -84,10 +95,20 @@ libraries[leaflet-locatecontrol][download][type] = git
 libraries[leaflet-locatecontrol][download][url] = "https://github.com/domoritz/leaflet-locatecontrol.git"
 libraries[leaflet-locatecontrol][directory_name] = leaflet-locatecontrol
 
+libraries[Leaflet.Sync][type] = libraries
+libraries[Leaflet.Sync][download][type] = git
+libraries[Leaflet.Sync][download][url] = "https://github.com/turban/Leaflet.Sync.git"
+libraries[Leaflet.Sync][directory_name] = Leaflet.Sync
+
 libraries[leaflet-plugins][type] = libraries
 libraries[leaflet-plugins][download][type] = git
 libraries[leaflet-plugins][download][url] = "https://github.com/shramov/leaflet-plugins.git"
 libraries[leaflet-plugins][directory_name] = leaflet-plugins
+
+libraries[leaflet.bouncemarker][type] = libraries
+libraries[leaflet.bouncemarker][download][type] = git
+libraries[leaflet.bouncemarker][download][url] = "https://github.com/maximeh/leaflet.bouncemarker.git"
+libraries[leaflet.bouncemarker][directory_name] = leaflet.bouncemarker
 
 libraries[Leaflet][type] = libraries
 libraries[Leaflet][download][type] = file
@@ -99,10 +120,21 @@ libraries[spin.js][download][type] = git
 libraries[spin.js][download][url] = "https://github.com/fgnass/spin.js.git"
 libraries[spin.js][directory_name] = spin.js
 
+libraries[jquery-html5-upload][type] = libraries
+libraries[jquery-html5-upload][download][type] = git
+libraries[jquery-html5-upload][download][url] = "https://github.com/mihaild/jquery-html5-upload.git"
+libraries[jquery-html5-upload][directory_name] = markaspot-font
+
 libraries[markaspot-font][type] = libraries
 libraries[markaspot-font][download][type] = git
 libraries[markaspot-font][download][url] = "https://github.com/markaspot/markaspot-font.git"
 libraries[markaspot-font][directory_name] = markaspot-font
+
+libraries[fontawesome][type] = "libraries"
+libraries[fontawesome][download][type] = "get"
+libraries[fontawesome][download][url] = "https://github.com/FortAwesome/Font-Awesome/archive/master.zip"
+libraries[fontawesome][directory_name] = "fontawesome"
+libraries[fontawesome][destination] = "libraries"
 
 libraries[proxy][type] = libraries
 libraries[proxy][download][type] = git

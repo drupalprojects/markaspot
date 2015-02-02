@@ -152,25 +152,31 @@ function mark_a_spot_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_plain',
+        'weight' => 5,
+      ),
+      'report_list' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_plain',
+        'weight' => 3,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(
           'field_formatter_class' => '',
         ),
         'type' => 'text_default',
-        'weight' => 5,
-      ),
-      'report_list' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 8,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'node',
@@ -268,7 +274,7 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'node',
@@ -326,7 +332,7 @@ function mark_a_spot_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -352,7 +358,7 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'node',
@@ -396,13 +402,13 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'node',
@@ -430,7 +436,7 @@ function mark_a_spot_field_default_field_instances() {
     'default_value' => array(
       0 => array(
         'address' => array(
-          'field' => 'Fritz-Wündisch-Straße 52, 50321 Brühl',
+          'field' => '',
         ),
         'lat' => '50.81834062114927',
         'lng' => '6.8978047370910645',
@@ -467,6 +473,7 @@ function mark_a_spot_field_default_field_instances() {
           'field_formatter_class' => '',
           'map_height' => '300px',
           'map_imageformat' => 'png',
+          'map_link' => 0,
           'map_maptype' => 'roadmap',
           'map_width' => '300px',
           'map_zoomlevel' => 17,
@@ -500,6 +507,7 @@ function mark_a_spot_field_default_field_instances() {
           'field_formatter_class' => '',
           'map_height' => '300px',
           'map_imageformat' => 'png32',
+          'map_link' => 0,
           'map_maptype' => 'roadmap',
           'map_width' => '300px',
           'map_zoomlevel' => 17,
@@ -547,11 +555,13 @@ function mark_a_spot_field_default_field_instances() {
         'bbox' => '6.832,50.8464,6.937,50.8043',
         'geocode_service' => 'http://nominatim.openstreetmap.org',
         'leafletImagePath' => '/profiles/markaspot/libraries/leaflet/images',
+        'map_key' => '',
+        'map_zoomlevel' => 0,
+        'mapbox' => 0,
         'marker_draggable' => 1,
         'nominatimEmail' => 'holger@markaspot.org',
         'scrollwheel' => 0,
         'tile_server_dynamic' => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-        'tile_server_static' => '',
       ),
       'type' => 'geolocation_osm',
       'weight' => 15,
@@ -661,6 +671,54 @@ function mark_a_spot_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-report-field_notes'
+  $field_instances['node-report-field_notes'] = array(
+    'bundle' => 'report',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'report_list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_notes',
+    'label' => 'Internal Notes',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 19,
+    ),
+  );
+
   // Exported field_instance: 'node-report-field_notify_user'
   $field_instances['node-report-field_notify_user'] = array(
     'bundle' => 'report',
@@ -682,13 +740,13 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'node',
@@ -718,24 +776,24 @@ function mark_a_spot_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
+        'module' => 'node_reference',
         'settings' => array(
           'field_formatter_class' => '',
         ),
-        'type' => 'text_default',
+        'type' => 'node_reference_default',
         'weight' => 6,
       ),
       'report_list' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'node',
@@ -754,6 +812,54 @@ function mark_a_spot_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 17,
+    ),
+  );
+
+  // Exported field_instance: 'node-report-field_statement_comment'
+  $field_instances['node-report-field_statement_comment'] = array(
+    'bundle' => 'report',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Use this field in case you want to enunciate something more freely',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'report_list' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_statement_comment',
+    'label' => 'Administration Comment',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 20,
     ),
   );
 
@@ -794,7 +900,7 @@ function mark_a_spot_field_default_field_instances() {
           'field_formatter_class' => '',
         ),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -820,7 +926,7 @@ function mark_a_spot_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'node',
@@ -1056,7 +1162,6 @@ function mark_a_spot_field_default_field_instances() {
     ),
   );
 
-
   // Exported field_instance: 'taxonomy_term-status-field_status_hex'
   $field_instances['taxonomy_term-status-field_status_hex'] = array(
     'bundle' => 'status',
@@ -1162,6 +1267,7 @@ function mark_a_spot_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
+  t('Administration Comment');
   t('Adminstration statement');
   t('Attachments and Documents');
   t('Category');
@@ -1172,6 +1278,7 @@ function mark_a_spot_field_default_field_instances() {
   t('ID');
   t('Icon');
   t('Image');
+  t('Internal Notes');
   t('Keywords');
   t('Marker and Background Color');
   t('Notify User?');
@@ -1182,6 +1289,7 @@ function mark_a_spot_field_default_field_instances() {
   t('Status');
   t('This field applies to the tweet311 module. A Twitter-hashtag that citizens may use, applying to a certain service/service code/category');
   t('This field can be used for attaching official documents');
+  t('Use this field in case you want to enunciate something more freely');
 
   return $field_instances;
 }
