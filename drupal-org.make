@@ -58,6 +58,7 @@ projects[ckeditor][version] = 1.16
 projects[ckeditor][subdir] = contrib
 
 projects[search_api][subdir] = contrib
+projects[search_api_db][subdir] = contrib
 
 libraries[chosen][type] = libraries
 libraries[chosen][download][type] = get
@@ -68,6 +69,11 @@ libraries[waypoints][type] = libraries
 libraries[waypoints][download][type] = git
 libraries[waypoints][download][url] = "https://github.com/imakewebthings/jquery-waypoints.git"
 libraries[waypoints][directory_name] = waypoints
+
+libraries[bootbox][type] = libraries
+libraries[bootbox][download][type] = git
+libraries[bootbox][download][url] = "https://github.com/makeusabrew/bootbox.git"
+libraries[bootbox][directory_name] = bootbox
 
 libraries[Leaflet.awesome-markers][type] = libraries
 libraries[Leaflet.awesome-markers][download][type] = git
@@ -83,7 +89,7 @@ libraries[Leaflet.draw][directory_name] = Leaflet.draw
 libraries[Leaflet.EasyButton][type] = libraries
 libraries[Leaflet.EasyButton][download][type] = git
 libraries[Leaflet.EasyButton][download][url] = "https://github.com/CliffCloud/Leaflet.EasyButton.git"
-libraries[Leaflet.EasyButton][directory_name] = Leaflet.draw
+libraries[Leaflet.EasyButton][directory_name] = Leaflet.EasyButton
 
 libraries[Leaflet.markercluster][type] = libraries
 libraries[Leaflet.markercluster][download][type] = git
