@@ -499,7 +499,7 @@ span.marker-category {
 
 
 #page-header {
-  height: 100px;
+  height: 60px;
   background: url('../images/logo-small.png') 15px 50% no-repeat;
 }
 
@@ -608,10 +608,9 @@ span.marker-category {
   min-height: 100%;
   margin: 60px auto -155px; /* the bottom margin is the negative value of the footer's height */
 }
-}
 
 .container.stage {
-  padding: 25px 0;
+  padding: 40px;
 }
 
 .stage .span5.offset1.thumbnail {
