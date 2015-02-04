@@ -47,7 +47,7 @@
       L.easyButton('fa fa-bullhorn',
         function () {
           if (!localStorage['tour']) {
-            bootbox.alert(Drupal.t('Click or drag marker to file an issue at this location. You can adjust the location in the appeating form'), tourDone);
+            bootbox.alert(Drupal.t('Click or drag marker to file an issue at this location. You can then adjust the location in the opening report form'), tourDone);
             function tourDone() {
               localStorage['tour'] = true;
             }
