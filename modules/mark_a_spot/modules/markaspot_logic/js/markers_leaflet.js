@@ -49,7 +49,6 @@
       }
       Drupal.Markaspot.maps[0].setView(new L.LatLng(mas.markaspot_ini_lat, mas.markaspot_ini_lng), 15).addLayer(layer);
 
-
       switch (pathId[0]) {
         case "map":
           if (Drupal.markaspot.static_enable() != true) {
@@ -61,6 +60,10 @@
         case "list":
           Drupal.markaspot.parse(2, "All", "All", false);
           break;
+        case "node":
+          Drupal.markaspot.parse(1, "All", "All", false);
+          break;
+
         case "admin":
           return;
       }
