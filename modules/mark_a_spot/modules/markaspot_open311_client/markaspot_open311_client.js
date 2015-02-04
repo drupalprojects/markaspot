@@ -14,6 +14,9 @@
       var map = Drupal.Markaspot.maps[0];
       Drupal.markaspotOpen311Client.map = Drupal.markaspotOpen311Client.createMap(Drupal.Markaspot.maps[0].getCenter());
 
+      // Define layer:
+      addMarkerLayer = new L.LayerGroup();
+
       map.on('click', function (e) {
         Drupal.markaspotOpen311Client.setMapMarker(e.latlng, 0);
       });
@@ -60,7 +63,7 @@
   };
   Drupal.markaspotOpen311Client = {
     setMapMarker: function (latLng) {
-      var addMarkerLayer = new L.LayerGroup();
+
       // Add Layergroup and define ImagePath.
       L.Icon.Default.imagePath = Drupal.settings.markaspotOpen311Client.markaspot_open311_client_leafletImagePath;
 
@@ -307,7 +310,7 @@
       Drupal.markaspotOpen311Client.codeLatLng(marker.getLatLng(), 0, 'marker');
 
       $("#open311_client_submit").click(function (e) {
-        console.log(e, "clicked");
+
         e.preventDefault();
         var target = document.getElementById('open311_client_form');
         spinner = new Spinner().spin(target);
