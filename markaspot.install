@@ -472,6 +472,37 @@ function markaspot_update_7209() {
   markaspot_set_allowed_value_list('field_status_icon');
 }
 
+
+/**
+ * Revert Mark-a-Spot feature for use of Search API as backend.
+ *
+ */
+function markaspot_update_7210(){
+  module_enable(array('search_api', 'search_api_db', 'search_api_views'));
+
+  if (!module_exists('search_api') || !module_exists('search_api_db') || !module_exists('search_api_views')) {
+    throw new DrupalUpdateException(t('Search API and Search API db have to be installed to run updates'));
+  } else {
+    cache_clear_all();
+    features_revert(array('mark_a_spot' => array('field_base', 'field_instance')));
+    features_revert(array('mark_a_spot' => array('views_default')));
+    features_revert(array('mark_a_spot' => array('search_api_server')));
+    features_revert(array('mark_a_spot' => array('search_api_index')));
+
+    cache_clear_all();
+
+    drupal_load('module', array('search_api', 'search_api_db'));
+
+    $index = search_api_index_load('default_report_index');
+
+    if (!empty($index)) {
+      search_api_index_items($index, 100);
+    }
+  }
+
+}
+
+
 /**
  * Change allowed values for icon field.
  *
