@@ -220,12 +220,37 @@ body.toolbar-drawer {
   color: #666;
 }
 
-.page-list footer.navbar-fixed-bottom,
-.page-map footer.navbar-fixed-bottom {
+.page-map footer.navbar-fixed-bottom,
+.page-list footer.navbar-fixed-bottom {
   width: 300px;
+  position: fixed;
   font-size: 70%;
   background: rgba(0, 0, 0, 0.2);
   border: 0;
+  height: 30px
+}
+
+footer, .push {
+  height: 155px; /* '.push' must be the same height as 'footer' */
+}
+
+.page-node-add footer,
+.page-node- footer,
+.front footer {
+  background-color: rgba(55,55,55,0.3);
+}
+
+.mapheader a,
+.region-footer a {
+  color: rgba(255, 255, 255, 0.9);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.mapheader a:hover,
+.region-footer a:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
 
 
@@ -238,7 +263,7 @@ footer.footer .region.region-footer section.block-menu {
 
 footer.footer .region.region-footer section.block-menu li a {
   margin: 0;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 footer.footer .region.region-footer section.block-menu li a:hover,
@@ -254,11 +279,6 @@ footer.footer .region.region-footer section.block-menu li {
   float: left;
   margin: 0;
 }
-
-
-
-
-
 
 
 .page-map a.map-menue,
@@ -324,6 +344,11 @@ footer.footer .region.region-footer section.block-menu li {
 #map .leaflet-top {
   top: 45px;
 }
+
+.front .leaflet-control-container {
+  display: none;
+}
+
 .navbar-fixed #map .leaflet-top {
   top: 85px;
 }
@@ -473,32 +498,11 @@ span.marker-category {
 }
 
 
-/* Jumbotrons
--------------------------------------------------- */
-/* Base class
-------------------------- */
-
-/* Link styles (used on .masthead-links as well) */
-.mapheader a,
-.region-footer a {
-  /* color: rgba(255, 255, 255, 0.9); */
-  /* -webkit-transition: all 0.2s ease-in-out; */
-  -moz-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+.front #page-header {
+  height: 100px;
+  background: url('../images/logo-small.png') 15px 50% no-repeat;
 }
 
-.mapheader a:hover,
-.region-footer a:hover {
-  /* color: #8F8F8F; */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
-}
-
-/* map @map-page*/
-
-#page-header {
-  /* height: 70px; */
-  /* background: url('../images/logo-small.png') 15px 50% no-repeat; */
-}
 
 .page-list #page-header,
 .page-map #page-header {
@@ -601,7 +605,9 @@ span.marker-category {
 }
 
 .main-container {
-  margin: 60px auto;
+  min-height: 100%;
+  margin: 60px auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
 }
 
 .container.stage {
@@ -1024,6 +1030,12 @@ div.list a h3 {
     padding-bottom: 40px;
   }
 
+  .mapheader a {
+    display:block;
+    width: 60%;
+    margin: 20px auto;
+  }
+
 }
 
 /* Tablet
@@ -1109,15 +1121,6 @@ div.list a h3 {
   }
 
 
-
-  /* Tighten up footer */
-  .footer {
-    margin: 0px;
-    padding-top: 0;
-    padding-bottom: 0;
-    font-size: 0.7em;
-
-  }
 
   .page-map .row.map-tools {
     position: absolute;
