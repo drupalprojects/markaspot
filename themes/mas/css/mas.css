@@ -498,7 +498,7 @@ span.marker-category {
 }
 
 
-.front #page-header {
+#page-header {
   height: 100px;
   background: url('../images/logo-small.png') 15px 50% no-repeat;
 }
@@ -775,7 +775,7 @@ div#edit-field-geo-und-0-address label{
 
 .geolocation-help {
   font-size: 0.8em;
-  color: #999;
+  color: #000;
   background: rgba(255, 255, 255, 0.6);
   padding: 10px;
   margin: 0;
@@ -784,10 +784,10 @@ div#edit-field-geo-und-0-address label{
   border-radius: 3px;
   position: absolute;
   z-index: 9999;
-  top: 12px;
-  width: 136px;
+  top: 112px;
+  width: 200px;
   right: 10px;
-  height: 110px;
+  height: 125px;
 }
 
 .geolocation-help:before {
@@ -1161,11 +1161,10 @@ div.list a h3 {
   }
 
   .geolocation-help {
-    top: 5px;
-    width: 136px;
-    right: 5px;
-    height: 110px
-  }
+    top: 110px;
+    width: 200px;
+    right: 25px;
+    height: 130px;}
 
   .main-container {
     min-height: 380px;
