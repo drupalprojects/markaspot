@@ -48,13 +48,6 @@ function mark_a_spot_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_minimum_single';
-  $strongarm->value = '20';
-  $export['chosen_minimum_single'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'chosen_minimum_width';
   $strongarm->value = '200';
   $export['chosen_minimum_width'] = $strongarm;

@@ -754,10 +754,12 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_status']['expose']['operator_id'] = 'field_status_op';
   $handler->display->display_options['filters']['field_status']['expose']['label'] = 'Status';
   $handler->display->display_options['filters']['field_status']['expose']['operator'] = 'field_status_op';
-  $handler->display->display_options['filters']['field_status']['expose']['identifier'] = 'field_status';
+  $handler->display->display_options['filters']['field_status']['expose']['identifier'] = 'status';
   $handler->display->display_options['filters']['field_status']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    5 => 0,
+    4 => 0,
     3 => 0,
   );
   $handler->display->display_options['filters']['field_status']['expose']['reduce'] = 0;
@@ -770,10 +772,12 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['field_category']['expose']['operator_id'] = 'field_category_op';
   $handler->display->display_options['filters']['field_category']['expose']['label'] = 'Category';
   $handler->display->display_options['filters']['field_category']['expose']['operator'] = 'field_category_op';
-  $handler->display->display_options['filters']['field_category']['expose']['identifier'] = 'field_category';
+  $handler->display->display_options['filters']['field_category']['expose']['identifier'] = 'category';
   $handler->display->display_options['filters']['field_category']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
+    5 => 0,
+    4 => 0,
     3 => 0,
   );
   $handler->display->display_options['filters']['field_category']['expose']['reduce'] = 0;

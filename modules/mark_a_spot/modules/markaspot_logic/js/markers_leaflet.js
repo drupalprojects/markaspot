@@ -347,7 +347,7 @@
         uri = mas.uri.split('?');
         if (uri[0].search('map') != -1 || uri[0].search('home') != -1) {
           // map view
-          url = Drupal.settings.basePath + 'reports/geojson/map?' + 'category_tid=' + categoryCond + '&status_tid=' + statusCond;
+          url = Drupal.settings.basePath + 'reports/geojson/map?' + 'category=' + categoryCond + '&status=' + statusCond;
         } else {
           url = Drupal.settings.basePath + 'reports/geojson?' + uri[1];
         }
