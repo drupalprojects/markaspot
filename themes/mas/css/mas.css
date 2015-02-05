@@ -230,19 +230,16 @@ body.toolbar-drawer {
   height: 30px
 }
 
-footer, .push {
-  height: 155px; /* '.push' must be the same height as 'footer' */
+footer.footer, .push {
+  height: 55px; /* '.push' must be the same height as 'footer' */
 }
 
-.page-node-add footer,
-.page-node- footer,
-.front footer {
+footer.footer {
   background-color: rgba(55,55,55,0.3);
 }
-
 .mapheader a,
-.region-footer a {
-  color: rgba(255, 255, 255, 0.9);
+.region-footer ul li a {
+  /* color: rgba(255, 255, 255, 0.9); */
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -606,7 +603,7 @@ span.marker-category {
 
 .main-container {
   min-height: 100%;
-  margin: 60px auto -155px; /* the bottom margin is the negative value of the footer's height */
+  margin: 60px auto -55px; /* the bottom margin is the negative value of the footer's height */
 }
 
 .container.stage {
