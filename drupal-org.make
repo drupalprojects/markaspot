@@ -149,7 +149,7 @@ libraries[proxy][download][branch] = osm-nominatim
 libraries[proxy][directory_name] = proxy
 
 libraries[bootstrap][download][type] = "get"
-libraries[bootstrap][download][url] = "https://github.com/twbs/bootstrap/archive/v3.1.1.zip"
+libraries[bootstrap][download][url] = "https://github.com/twbs/bootstrap/archive/v3.3.2.zip"
 libraries[bootstrap][directory_name] = "bootstrap"
 libraries[bootstrap][destination] = "themes/mas"
 libraries[bootstrap][overwrite] = TRUE
