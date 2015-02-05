@@ -88,7 +88,7 @@ libraries[Leaflet.draw][directory_name] = Leaflet.draw
 
 libraries[Leaflet.EasyButton][type] = libraries
 libraries[Leaflet.EasyButton][download][type] = git
-libraries[Leaflet.EasyButton][download][url] = "https://github.com/CliffCloud/Leaflet.EasyButton.git"
+libraries[Leaflet.EasyButton][download][url] = "https://github.com/markaspot/Leaflet.EasyButton.git"
 libraries[Leaflet.EasyButton][directory_name] = Leaflet.EasyButton
 
 libraries[Leaflet.markercluster][type] = libraries

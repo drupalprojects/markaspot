@@ -134,3 +134,11 @@ button.navbar-toggle.btn {
   color: white;
   font-size: 11px
 }
+
+
+.leaflet-top.leaflet-right div a {
+  font-size: 1.3em;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+}

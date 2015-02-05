@@ -41,10 +41,10 @@
           outsideMapBoundsMsg: Drupal.t("You seem located outside the boundaries of the map") // default message for onLocationOutsideMapBounds
         },
         locateOptions: {}  // define location options e.g enableHighAccuracy: true or maxZoom: 10
-      }).addTo(Drupal.Markaspot.maps[0]);
+      }).addTo(map);
 
       // Add a report button
-      L.easyButton('fa fa-bullhorn',
+      L.easyButton('fa fa-bullhorn', 'topright',
         function () {
           if (!localStorage['tour']) {
             bootbox.alert(Drupal.t('Click or drag marker to file an issue at this location. You can then adjust the location in the opening report form'), tourDone);
@@ -57,7 +57,6 @@
         Drupal.t('Report at map center'),
         map
       );
-
     }
 
   };
