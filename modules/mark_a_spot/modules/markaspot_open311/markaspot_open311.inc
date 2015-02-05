@@ -50,10 +50,11 @@ function markaspot_open311_discovery() {
  *   The service request response
  */
 function markaspot_open311_requests_create($data) {
+
   $data = (object) $data;
   $service_request = array();
   // Could be more validation here:
-  if (!isset($data->email) || $data->email == '') {
+  if (!isset($data->email)) {
     markaspot_open311_process_services_error(t('Please provide a valid email address.'), 400);
   }
 
@@ -444,24 +445,30 @@ function markaspot_open311_request_map_node($request_id, $request) {
       $node = node_load($request_id);
     }
 
-    // Get the first status tid (of open, closed);
+    // Look for query params;
     $parameters = drupal_get_query_parameters();
 
+    // Check for permitted roles to update protected fields (status_notes, status_sub).
+    $permitted_roles = array( 'administrator', 'City Admin', 'Management');
+    if (array_intersect($permitted_roles, $user->roles) && array_key_exists('api_key', $parameters) && isset($parameters['extension'])) {
 
-    // Non Open311 compliant fields can be added here:
-    if (array_key_exists('api_key', $parameters)) {
       if(isset($request->status_sub)){
         $status_tid = markaspot_open311_custom_status_map_tax($request->status_sub);
         $node->field_status[$node->language][0]['tid'] = $status_tid;
       }
       $node->field_notify_user[$node->language][0]['value'] = isset($request->notify) ? 1 : 0;
 
-    } else {
-      // Get the first status tid (of open, closed);
-      $status_tids = markaspot_open311_status_map_tax($request->status);
-      $node->field_status[$node->language][0]['tid'] = $status_tids[0];
+      // Update Statement field
       $node->field_statement[$node->language][0]['value'] = isset($request->status_notes) ? $request->status_notes : '';
+    } else {
+      markaspot_open311_process_services_error(t('Missing or wrong API Key'), 403);
     }
+
+    // Get the first status tid (of open, closed);
+    $status_tids = markaspot_open311_status_map_tax($request->status);
+    $node->field_status[$node->language][0]['tid'] = $status_tids[0];
+
+
 
   } else {
 
@@ -474,8 +481,11 @@ function markaspot_open311_request_map_node($request_id, $request) {
     // All incoming requests get status "open"
     $node->field_status[$node->language][0]['tid'] = array_values(variable_get('markaspot_logic_open311_status_open_start', markaspot_logic_defaults('markaspot_logic_open311_status_open_start')));
   }
+
+  // Modified date set to time of request.
   $node->modified = time();
 
+  // Set status for published/unpublished.
   $node_options = variable_get('markaspot_logic_open311_node_options_status');
   $node->status = $node_options;
 
@@ -501,7 +511,7 @@ function markaspot_open311_request_map_node($request_id, $request) {
   $node->field_geo[$node->language][0]['lat'] = $request->lat;
   $node->field_geo[$node->language][0]['lng'] = $request->long;
 
-  $node->field_e_mail[$node->language][0]['value'] = ($request->email != '') ? $request->email : markaspot_open311_process_services_error(t('Please enter a valid e-mail address.'), 400);
+  $node->field_e_mail[$node->language][0]['value'] = isset($request->email) ? $request->email : '';
 
   // File Handling:
   if (isset($request->media_url) && strstr($request->media_url, "http")) {
