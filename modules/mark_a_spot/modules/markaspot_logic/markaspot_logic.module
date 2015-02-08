@@ -788,7 +788,14 @@ function markaspot_logic_contents($which_block) {
       $list_category .= '<li class="marker-category-wrapper-all">' . l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-category'))) . '</li>';
       $taxonomies = taxonomy_get_tree(1, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
-        $list_category .= '<li class="marker-category-wrapper">' . l('<span class="icon-' . $term->field_category_icon[LANGUAGE_NONE][0]['value'] . '"></span> ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
+
+        $icon_category = array(
+          '#theme'  => 'icon',
+          '#bundle' => $term->field_category_icon[LANGUAGE_NONE][0]['bundle'],
+          '#icon'   => $term->field_category_icon[LANGUAGE_NONE][0]['icon'],
+        );
+
+        $list_category .= '<li class="marker-category-wrapper">' .  l(drupal_render($icon_category) . ' ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
             'attributes' => array(
               'class' => 'map-menue marker-category col-' . ltrim($term->field_category_hex[LANGUAGE_NONE][0]['rgb'],'#'),
               'id' => 'tax-' . $term->tid,
@@ -815,7 +822,14 @@ function markaspot_logic_contents($which_block) {
 
       $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
-        $list_status .= '<li class="marker-status-wrapper">' . l('<span class="icon-' . $term->field_status_icon[LANGUAGE_NONE][0]['value'] . '"></span> ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
+
+        $icon_status = array(
+          '#theme'  => 'icon',
+          '#bundle' => $term->field_status_icon[LANGUAGE_NONE][0]['bundle'],
+          '#icon'   => $term->field_status_icon[LANGUAGE_NONE][0]['icon'],
+        );
+
+        $list_status .= '<li class="marker-status-wrapper">' .  l(drupal_render($icon_status) . ' ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
             'attributes' => array(
               'class' => 'map-menue marker-status col-' . ltrim($term->field_status_hex[LANGUAGE_NONE][0]['rgb'],'#'),
               'id' => 'tax-' . $term->tid,

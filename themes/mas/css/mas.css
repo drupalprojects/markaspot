@@ -283,7 +283,12 @@ footer.footer .region.region-footer section.block-menu li {
   display: block;
   padding: 10px 15px;
   font-weight: 700;
+}
 
+.map-menue i {
+  display: inline-block;
+  width: 20px;
+  text-align: center
 }
 
 .page-map li .map-menue-all.active{
