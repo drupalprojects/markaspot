@@ -110,24 +110,28 @@ function markaspot_create_status() {
     'This is just a description which should be replaced',
     '#FF0000',
     'pause',
+    'markaspot-font',
   );
   $terms[1] = array(
     'In progress',
     'This is just a description which should be replaced',
     '#FFA500',
     'play',
+    'markaspot-font',
   );
   $terms[3] = array(
     'Solved',
     'This is just a description which should be replaced',
     '#008000',
     'checkmark',
+    'markaspot-font',
   );
   $terms[4] = array(
     'Archive',
     'This is just a description which should be replaced',
     '#5F9EA0',
     'drawer',
+    'markaspot-font',
   );
 
   // You may customize those entries:
@@ -136,11 +140,13 @@ function markaspot_create_status() {
     'This is just a description which should be replaced',
     '#FFFFFF',
     '',
+    '',
   );
   $terms[6] = array(
     'dummy',
     'This is just a description which should be replaced',
     '#FFFFFF',
+    '',
     '',
   );
   $terms[7] = array(
@@ -148,17 +154,20 @@ function markaspot_create_status() {
     'This is just a description which should be replaced',
     '#FFFFFF',
     '',
+    '',
   );
   $terms[8] = array(
     'dummy',
     'This is just a description which should be replaced',
     '#FFFFFF',
     '',
+    '',
   );
   $terms[9] = array(
     'dummy',
     'This is just a description which should be replaced',
     '#FFFFFF',
+    '',
     '',
   );
 
@@ -168,7 +177,8 @@ function markaspot_create_status() {
     $term['name'] = $parent[0];
     $term['description'] = $parent[1];
     $term['field_status_hex'][LANGUAGE_NONE][0]['rgb'] = $parent[2];
-    $term['field_status_icon'][LANGUAGE_NONE][0]['value'] = $parent[3];
+    $term['field_status_icon'][LANGUAGE_NONE][0]['icon'] = $parent[3];
+    $term['field_status_icon'][LANGUAGE_NONE][0]['bundle'] = $parent[4];
 
     $status = taxonomy_term_save((object) $term);
     switch ($status) {
@@ -196,11 +206,12 @@ function markaspot_create_categories() {
   // Define the terms.
   $terms[0] = array(
     'Abandoned Cars',
-    'abandoned, wrecked, dismantled, or inoperative cars on private property',
+    'Abandoned, wrecked, dismantled, or inoperative cars on private property',
     '010',
     'abandonedcar, cars, wreckedcar, car',
     '#8B0000',
     'car',
+    'markaspot-font',
   );
   $terms[1] = array(
     'Litter Basket Complaint',
@@ -209,6 +220,7 @@ function markaspot_create_categories() {
     'litter, trash, garbage',
     '#5F9EA0',
     'trash',
+    'markaspot-font',
   );
   $terms[2] = array(
     'Graffiti Report',
@@ -217,14 +229,16 @@ function markaspot_create_categories() {
     'graffiti, paintings',
     '#F5F5DC',
     'graffiti',
+    'markaspot-font',
   );
   $terms[3] = array(
     'Building Construction Complaint',
-    'Dangerous Buildings and Vacant Property Operations historically has been known for the demolition of dangerous buildings, but recent adjustments in service delivery are focusing on inventorying vacant structures',
+    'Dangerous buildings and vacant property operations historically has been known for the demolition of dangerous buildings, but recent adjustments in service delivery are focusing on inventorying vacant structures',
     '013',
     'graffiti, demolition',
     '#006400',
     'office',
+    'markaspot-font',
   );
 
   foreach ($terms as $parent) {
@@ -236,7 +250,8 @@ function markaspot_create_categories() {
     $term['field_category_id'][LANGUAGE_NONE][0]['value'] = $parent[2];
     $term['field_hash'][LANGUAGE_NONE][0]['value'] = $parent[3];
     $term['field_category_hex'][LANGUAGE_NONE][0]['rgb'] = $parent[4];
-    $term['field_category_icon'][LANGUAGE_NONE][0]['value'] = $parent[5];
+    $term['field_category_icon'][LANGUAGE_NONE][0]['icon'] = $parent[5];
+    $term['field_category_icon'][LANGUAGE_NONE][0]['bundle'] = $parent[6];
 
     // taxonomy_term_save((object)$term);
     // $term = ;
