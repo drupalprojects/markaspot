@@ -76,11 +76,11 @@
  */
 ?>
 <?php
-$category = $node->field_category[$node->language][0]['taxonomy_term'];
-$status   = $node->field_status[$node->language][0]['taxonomy_term'];
+$category = $node->field_category[LANGUAGE_NONE][0]['taxonomy_term'];
+$status   = $node->field_status[LANGUAGE_NONE][0]['taxonomy_term'];
 ?>
 
-<article id="node-<?php print $node->nid; ?>" class="report <?php print $classes; ?> col-<?php echo ltrim($status->field_status_hex[$node->language][0]['rgb'],'#') ?>"><i class="icon-li icon-<?php echo $category->field_category_icon[LANGUAGE_NONE][0]['value'] ?> clearfix"<?php print $attributes; ?>>
+<article id="node-<?php print $node->nid; ?>" class="report <?php print $classes; ?> col-<?php echo ltrim($status->field_status_hex[LANGUAGE_NONE][0]['rgb'],'#') ?>">
 
 
   <header class="clearfix">
@@ -96,7 +96,7 @@ $status   = $node->field_status[$node->language][0]['taxonomy_term'];
       </span>
     <?php endif; ?>
     <div class="cat-stat-wrapper">
-        <span class="label label-default marker-category col-<?php echo ltrim($category->field_category_hex[$node->language][0]['rgb'],'#') ?> col-md-6"><i class="icon-li icon-<?php echo $category->field_category_icon[LANGUAGE_NONE][0]['value'] ?>"></i> <?php echo $category->name?> </span> <span class="label marker-status col-<?php echo ltrim($status->field_status_hex[LANGUAGE_NONE][0]['rgb'], '#'); ?> col-md-6"><i class="icon-li icon-<?php echo $status->field_status_icon[LANGUAGE_NONE][0]['value'] ?>"></i> <?php echo $status->name ?></span>
+      <span class="label label-default marker-category col-<?php echo ltrim($category->field_category_hex[LANGUAGE_NONE][0]['rgb'], '#') ?> col-md-6"><?php print drupal_render($variables['icon_category']); ?> <?php echo $category->name?> </span> <span class="label label-default marker-status col-<?php echo ltrim($status->field_status_hex[LANGUAGE_NONE][0]['rgb'],'#') ?> col-md-6"><?php print drupal_render($variables['icon_status']); ?> <?php echo $status->name ?></span>
     </div>
 
   </header>
@@ -113,7 +113,7 @@ $status   = $node->field_status[$node->language][0]['taxonomy_term'];
 
   ?>
   <?php if (!empty($node->field_address)): ?>
-    <div class="marker-address"><p><i class="icon-li icon-location "></i><?php print $node->field_address[$node->language][0]['value'];?></p></div>
+    <div class="marker-address"><p><i class="icon-location "></i><?php print $node->field_address[LANGUAGE_NONE][0]['value'];?></p></div>
   <?php endif; ?>
 
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>

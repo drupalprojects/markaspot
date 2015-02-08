@@ -24,6 +24,8 @@ projects[geophp][subdir] = "contrib"
 projects[references][subdir] = "contrib"
 projects[references_dialog][subdir] = "contrib"
 projects[color_field][subdir] = "contrib"
+projects[icon][subdir] = "contrib"
+projects[fontawesome][subdir] = "contrib"
 
 projects[views_geojson][subdir] = "contrib"
 projects[views_geojson][version] = 1.x-dev

@@ -167,7 +167,7 @@ function markaspot_logic_page_build(&$page) {
   }
 
   drupal_add_css(drupal_get_path('profile', 'markaspot') . '/libraries/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css');
-  drupal_add_css(drupal_get_path('profile', 'markaspot') . '/libraries/markaspot-font/style.css');
+  // drupal_add_css(drupal_get_path('profile', 'markaspot') . '/libraries/markaspot-font/style.css');
 
   if (arg(0) == "list" || arg(0) == "map" || drupal_is_front_page() == TRUE) {
     drupal_add_js(drupal_get_path('profile', 'markaspot') . '/libraries/spin.js/spin.js', NULL);

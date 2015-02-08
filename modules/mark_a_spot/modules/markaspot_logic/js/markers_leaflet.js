@@ -227,7 +227,6 @@
           colorswitch = item.status_hex;
         }
         $.each(colors, function (key, element) {
-
           if (colorswitch == element.hex) {
             var awesomeColor = element.color;
             var awesomeIcon = (getToggle == 1) ? item.category_icon : item.status_icon;
@@ -235,7 +234,7 @@
 
             var icon = L.AwesomeMarkers.icon({
               icon: awesomeIcon,
-              prefix: 'icon',
+              prefix: awesomeIcon,
               markerColor: awesomeColor,
               iconColor: iconColor
             });
