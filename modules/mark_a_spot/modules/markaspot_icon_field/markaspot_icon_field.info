@@ -1,0 +1,8 @@
+name = Mark-a-Spot Icon
+package = "Mark-a-Spot"
+description = Mark-a-Spot Icon formatter
+
+dependencies[] = fontello
+
+core = "7.x"
+
