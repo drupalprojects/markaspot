@@ -945,6 +945,38 @@ function mark_a_spot_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'taxonomy_term-category-field_blah'
+  $field_instances['taxonomy_term-category-field_blah'] = array(
+    'bundle' => 'category',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'geolocation',
+        'settings' => array(
+          'field_formatter_class' => '',
+        ),
+        'type' => 'geolocation_text',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_blah',
+    'label' => 'blah',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'geolocation',
+      'settings' => array(),
+      'type' => 'geolocation_text',
+      'weight' => 33,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-category-field_category_hex'
   $field_instances['taxonomy_term-category-field_category_hex'] = array(
     'bundle' => 'category',
@@ -983,15 +1015,15 @@ function mark_a_spot_field_default_field_instances() {
     'bundle' => 'category',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Please check http://yourserver.com/profiles/markaspot/libraries/markaspot-font/ for an overview',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'markaspot_icon_field',
         'settings' => array(
-          'field_formatter_class' => '',
+          'field_formatter_class' => 'blah',
         ),
-        'type' => 'list_default',
+        'type' => 'markaspot_icon_field_default',
         'weight' => 7,
       ),
     ),
@@ -1000,15 +1032,15 @@ function mark_a_spot_field_default_field_instances() {
     'label' => 'Icon',
     'required' => 0,
     'settings' => array(
+      'bundle' => NULL,
+      'icon' => NULL,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
+      'active' => 0,
+      'module' => 'markaspot_icon_field',
+      'settings' => array(),
+      'type' => 'markaspot_icon_field',
       'weight' => 32,
     ),
   );
@@ -1204,28 +1236,28 @@ function mark_a_spot_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
+        'module' => 'icon_field',
         'settings' => array(
           'field_formatter_class' => '',
+          'link_to_content' => FALSE,
         ),
-        'type' => 'list_default',
+        'type' => 'icon_field_default',
         'weight' => 7,
       ),
     ),
     'entity_type' => 'taxonomy_term',
     'field_name' => 'field_status_icon',
     'label' => 'Icon',
-    'required' => 0,
+    'required' => FALSE,
     'settings' => array(
+      'bundle' => NULL,
+      'icon' => NULL,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
+      'module' => 'icon_field',
+      'settings' => array(),
+      'type' => 'icon_field',
       'weight' => 32,
     ),
   );
@@ -1283,13 +1315,13 @@ function mark_a_spot_field_default_field_instances() {
   t('Marker and Background Color');
   t('Notify User?');
   t('Place your report');
-  t('Please check http://yourserver.com/profiles/markaspot/libraries/markaspot-font/ for an overview');
   t('Please leave an e-Mail address, so that we can contact you, in case you don\'t want to register');
   t('Report details');
   t('Status');
   t('This field applies to the tweet311 module. A Twitter-hashtag that citizens may use, applying to a certain service/service code/category');
   t('This field can be used for attaching official documents');
   t('Use this field in case you want to enunciate something more freely');
+  t('blah');
 
   return $field_instances;
 }

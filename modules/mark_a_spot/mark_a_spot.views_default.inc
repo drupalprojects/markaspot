@@ -517,28 +517,12 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['nid_1']['label'] = 'nid';
   $handler->display->display_options['fields']['nid_1']['separator'] = '';
   $handler->display->display_options['fields']['nid_1']['link_to_entity'] = 0;
-  /* Field: Category: Icon (indexed) */
-  $handler->display->display_options['fields']['field_category_field_category_icon']['id'] = 'field_category_field_category_icon';
-  $handler->display->display_options['fields']['field_category_field_category_icon']['table'] = 'search_api_index_default_report_index';
-  $handler->display->display_options['fields']['field_category_field_category_icon']['field'] = 'field_category_field_category_icon';
-  $handler->display->display_options['fields']['field_category_field_category_icon']['label'] = 'category_icon';
-  $handler->display->display_options['fields']['field_category_field_category_icon']['settings'] = array(
-    'field_formatter_class' => '',
-  );
   /* Field: Indexed Node: Address */
   $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['table'] = 'search_api_index_default_report_index';
   $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['label'] = 'address';
   $handler->display->display_options['fields']['field_address']['settings'] = array(
-    'field_formatter_class' => '',
-  );
-  /* Field: Status: Icon (indexed) */
-  $handler->display->display_options['fields']['field_status_field_status_icon']['id'] = 'field_status_field_status_icon';
-  $handler->display->display_options['fields']['field_status_field_status_icon']['table'] = 'search_api_index_default_report_index';
-  $handler->display->display_options['fields']['field_status_field_status_icon']['field'] = 'field_status_field_status_icon';
-  $handler->display->display_options['fields']['field_status_field_status_icon']['label'] = 'status_icon';
-  $handler->display->display_options['fields']['field_status_field_status_icon']['settings'] = array(
     'field_formatter_class' => '',
   );
   /* Field: Category » Marker and Background Color: The color of the color field. (indexed) */
@@ -553,6 +537,18 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_status_field_status_hex_rgb']['field'] = 'field_status_field_status_hex_rgb';
   $handler->display->display_options['fields']['field_status_field_status_hex_rgb']['label'] = 'status_hex';
   $handler->display->display_options['fields']['field_status_field_status_hex_rgb']['link_to_entity'] = 0;
+  /* Field: Status » Icon: Icon Class (indexed) */
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['id'] = 'field_status_field_status_icon_class';
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['table'] = 'search_api_index_default_report_index';
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['field'] = 'field_status_field_status_icon_class';
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['label'] = 'status_icon';
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['link_to_entity'] = 0;
+  /* Field: Category » Icon: Icon Class (indexed) */
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['id'] = 'field_category_field_category_icon_class';
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['table'] = 'search_api_index_default_report_index';
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['field'] = 'field_category_field_category_icon_class';
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['label'] = 'category_icon';
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Indexed Node: Node ID */
   $handler->display->display_options['sorts']['nid']['id'] = 'nid';
@@ -706,28 +702,12 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['nid_1']['label'] = 'nid';
   $handler->display->display_options['fields']['nid_1']['separator'] = '';
   $handler->display->display_options['fields']['nid_1']['link_to_entity'] = 0;
-  /* Field: Category: Icon (indexed) */
-  $handler->display->display_options['fields']['field_category_field_category_icon']['id'] = 'field_category_field_category_icon';
-  $handler->display->display_options['fields']['field_category_field_category_icon']['table'] = 'search_api_index_default_report_index';
-  $handler->display->display_options['fields']['field_category_field_category_icon']['field'] = 'field_category_field_category_icon';
-  $handler->display->display_options['fields']['field_category_field_category_icon']['label'] = 'category_icon';
-  $handler->display->display_options['fields']['field_category_field_category_icon']['settings'] = array(
-    'field_formatter_class' => '',
-  );
   /* Field: Indexed Node: Address */
   $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['table'] = 'search_api_index_default_report_index';
   $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
   $handler->display->display_options['fields']['field_address']['label'] = 'address';
   $handler->display->display_options['fields']['field_address']['settings'] = array(
-    'field_formatter_class' => '',
-  );
-  /* Field: Status: Icon (indexed) */
-  $handler->display->display_options['fields']['field_status_field_status_icon']['id'] = 'field_status_field_status_icon';
-  $handler->display->display_options['fields']['field_status_field_status_icon']['table'] = 'search_api_index_default_report_index';
-  $handler->display->display_options['fields']['field_status_field_status_icon']['field'] = 'field_status_field_status_icon';
-  $handler->display->display_options['fields']['field_status_field_status_icon']['label'] = 'status_icon';
-  $handler->display->display_options['fields']['field_status_field_status_icon']['settings'] = array(
     'field_formatter_class' => '',
   );
   /* Field: Category » Marker and Background Color: The color of the color field. (indexed) */
@@ -742,6 +722,18 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['fields']['field_status_field_status_hex_rgb']['field'] = 'field_status_field_status_hex_rgb';
   $handler->display->display_options['fields']['field_status_field_status_hex_rgb']['label'] = 'status_hex';
   $handler->display->display_options['fields']['field_status_field_status_hex_rgb']['link_to_entity'] = 0;
+  /* Field: Status » Icon: Icon Class (indexed) */
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['id'] = 'field_status_field_status_icon_class';
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['table'] = 'search_api_index_default_report_index';
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['field'] = 'field_status_field_status_icon_class';
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['label'] = 'status_icon';
+  $handler->display->display_options['fields']['field_status_field_status_icon_class']['link_to_entity'] = 0;
+  /* Field: Category » Icon: Icon Class (indexed) */
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['id'] = 'field_category_field_category_icon_class';
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['table'] = 'search_api_index_default_report_index';
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['field'] = 'field_category_field_category_icon_class';
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['label'] = 'category_icon';
+  $handler->display->display_options['fields']['field_category_field_category_icon_class']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -827,11 +819,11 @@ function mark_a_spot_views_default_views() {
     t('uuid'),
     t('nid'),
     t('.'),
-    t('category_icon'),
     t('address'),
-    t('status_icon'),
     t('category_hex'),
     t('status_hex'),
+    t('status_icon'),
+    t('category_icon'),
     t('GeoJSON Map'),
   );
   $export['markers'] = $view;

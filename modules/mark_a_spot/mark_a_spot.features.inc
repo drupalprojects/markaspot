@@ -135,7 +135,7 @@ function mark_a_spot_default_search_api_index() {
         "field_address" : { "type" : "text" },
         "field_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_category:field_category_hex:rgb" : { "type" : "string" },
-        "field_category:field_category_icon" : { "type" : "string" },
+        "field_category:field_category_icon:class" : { "type" : "string" },
         "field_category:name" : { "type" : "text" },
         "field_geo:lat" : { "type" : "decimal" },
         "field_geo:lng" : { "type" : "decimal" },
@@ -144,7 +144,7 @@ function mark_a_spot_default_search_api_index() {
         "field_statement_comment" : { "type" : "text" },
         "field_status" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_status:field_status_hex:rgb" : { "type" : "string" },
-        "field_status:field_status_icon" : { "type" : "string" },
+        "field_status:field_status_icon:class" : { "type" : "string" },
         "field_status:name" : { "type" : "text" },
         "field_status:tid" : { "type" : "integer" },
         "nid" : { "type" : "integer" },
@@ -329,12 +329,6 @@ function mark_a_spot_default_search_api_server() {
             "type" : "text",
             "boost" : "1.0"
           },
-          "field_category:field_category_icon" : {
-            "table" : "search_api_db_default_report_index",
-            "column" : "field_category_field_category_icon",
-            "type" : "string",
-            "boost" : "1.0"
-          },
           "field_geo:lat" : {
             "table" : "search_api_db_default_report_index",
             "column" : "field_geo_lat",
@@ -358,12 +352,6 @@ function mark_a_spot_default_search_api_server() {
             "type" : "text",
             "boost" : "1.0"
           },
-          "field_status:field_status_icon" : {
-            "table" : "search_api_db_default_report_index",
-            "column" : "field_status_field_status_icon",
-            "type" : "string",
-            "boost" : "1.0"
-          },
           "field_category:field_category_hex:rgb" : {
             "table" : "search_api_db_default_report_index",
             "column" : "field_category_field_category_hex_rgb",
@@ -385,6 +373,18 @@ function mark_a_spot_default_search_api_server() {
           "field_statement_comment" : {
             "table" : "search_api_db_default_report_index_text",
             "type" : "text",
+            "boost" : "1.0"
+          },
+          "field_status:field_status_icon:class" : {
+            "table" : "search_api_db_default_report_index",
+            "column" : "field_status_field_status_icon_class",
+            "type" : "string",
+            "boost" : "1.0"
+          },
+          "field_category:field_category_icon:class" : {
+            "table" : "search_api_db_default_report_index",
+            "column" : "field_category_field_category_icon_class",
+            "type" : "string",
             "boost" : "1.0"
           }
         }
