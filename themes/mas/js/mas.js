@@ -2,6 +2,7 @@
   $(document).ready(function () {
 
     // Add some bootstrap stuff to elements
+    $('a.leaflet-bar-part i').removeClass('fa-lg');
     $('.field-label').addClass('label');
     $('.geolocation-address-geocode, .geolocation-client-location, .geolocation-remove').addClass('btn');
 

@@ -44,7 +44,7 @@
       }).addTo(map);
 
       // Add a report button
-      L.easyButton('fa fa-bullhorn', 'topright',
+      L.easyButton('fa fa-edit', 'topright',
         function () {
           if (!localStorage['tour']) {
             bootbox.alert(Drupal.t('Click or drag marker to file an issue at this location. You can then adjust the location in the opening report form'), tourDone);
