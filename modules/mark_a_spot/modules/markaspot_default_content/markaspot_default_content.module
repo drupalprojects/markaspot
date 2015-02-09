@@ -67,7 +67,7 @@ function markaspot_default_content_block_view($delta = '') {
 
     case 'add_reports':
       $block['subject'] = t('Add Report');
-      $block['content'] = '<div class="add"><a href="node/add/report" class="col-md-5 btn btn-primary btn-info"><h3>
+      $block['content'] = '<div class="add"><a href="node/add/report" class="col-md-5 btn btn-primary btn-success"><h3>
         <i class="icon-bullhorn"></i> ' . t('Report Issue') . '</h3>' . '</a></div>';
       break;
 
