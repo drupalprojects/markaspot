@@ -3,6 +3,7 @@ core = 7.x
 
 ; Modules
 projects[ctools][subdir] = "contrib"
+projects[icon][subdir] = "contrib"
 projects[features][subdir] = "contrib"
 projects[entity][subdir] = "contrib"
 projects[geolocation][subdir] = "contrib"
@@ -24,7 +25,6 @@ projects[geophp][subdir] = "contrib"
 projects[references][subdir] = "contrib"
 projects[references_dialog][subdir] = "contrib"
 projects[color_field][subdir] = "contrib"
-projects[icon][subdir] = "contrib"
 projects[fontawesome][subdir] = "contrib"
 projects[views_bulk_operations][subdir] = "contrib"
 
