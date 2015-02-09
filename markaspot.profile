@@ -98,7 +98,7 @@ function markaspot_install_finished(&$install_state) {
   // Cache a fully-built schema:
   drupal_get_schema(NULL, TRUE);
   drupal_cron_run();
-  module_enable('icon');
+  module_enable(array('icon'));
   return $output;
 }
 
