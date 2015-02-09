@@ -36,6 +36,7 @@ dependencies[] = better_exposed_filters
 dependencies[] = mark_a_spot
 dependencies[] = markaspot_uuid
 dependencies[] = markaspot_radar
+dependencies[] = markaspot_open311_client
 dependencies[] = mark_a_spot_admin
 dependencies[] = mark_a_spot_default_content
 dependencies[] = mark_a_spot_log
