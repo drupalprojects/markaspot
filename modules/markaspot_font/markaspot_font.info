@@ -3,4 +3,4 @@ description = Integrates the markaspot icomoon font for Icon API.
 core = 7.x
 configure = admin/config/media/icons
 package = Mark-a-Spot
-dependencies[] = icon (>=7.x-1.0-beta4)
+;dependencies[] = icon (>=7.x-1.0-beta4)
