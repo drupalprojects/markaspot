@@ -10,6 +10,9 @@
  * Perform actions to set up the site for this profile.
  */
 function markaspot_install() {
+
+  ini_set('max_execution_time', '300');
+
   // Add text formats.
   $filtered_html_format = array(
     'format' => 'filtered_html',
