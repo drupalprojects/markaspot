@@ -24,7 +24,6 @@ dependencies[] = geolocation_googlemaps
 dependencies[] = geolocation_osm
 dependencies[] = geophp
 dependencies[] = icon
-dependencies[] = icon_field
 dependencies[] = image
 dependencies[] = list
 dependencies[] = locale
