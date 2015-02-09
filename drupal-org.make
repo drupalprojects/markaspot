@@ -39,7 +39,7 @@ projects[pathauto][subdir] = "contrib"
 projects[token][subdir] = "contrib"
 
 projects[uuid][subdir] = "contrib"
-projects[uuid][patch][2161375] = https://drupal.org/files/issues/custom_method_of_UUID_creation_2161375_1.patch
+;projects[uuid][patch][2161375] = https://drupal.org/files/issues/custom_method_of_UUID_creation_2161375_1.patch
 
 projects[oauth][subdir] = "contrib"
 projects[workbench][subdir] = "contrib"
