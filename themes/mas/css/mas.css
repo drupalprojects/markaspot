@@ -231,11 +231,11 @@ body.toolbar-drawer {
 }
 
 footer.footer, .push {
-  height: 55px; /* '.push' must be the same height as 'footer' */
+  height: 40px; /* '.push' must be the same height as 'footer' */
 }
 
 footer.footer {
-  background-color: rgba(55,55,55,0.3);
+  background-color: rgba(237, 237, 237, 1);
 }
 .mapheader a,
 .region-footer ul li a {
