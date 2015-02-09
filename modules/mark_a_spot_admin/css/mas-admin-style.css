@@ -236,12 +236,10 @@ div#geolocation-help-7-0 {
   display: none;
 }
 
-.page-node-edit.node-type-report .form-wrapper {
+.page-node-edit.node-type-report .panel-pane {
   background: #fff;
   padding: 10px 20px;
-  /* min-height: 130px
-*/
-}
+  min-height: 130px}
 
 .page-node-edit.node-type-report .fieldset-wrapper {
   border: 1px solid #eaeaea;
@@ -273,8 +271,15 @@ div#geolocation-help-7-0 {
   float: left;
   margin: 0 0 30px 0;
   min-height: 150px;
-  background: #fff;
+}
 
+.panel-pane.pane-node-form-publishing {
+  background: #fff;
+  padding: 10px;
+}
+
+.panel-pane.pane-node-form-publishing h2{
+  display:none;
 }
 
 .panel-pane.pane-entity-form-field.pane-node-field-status,

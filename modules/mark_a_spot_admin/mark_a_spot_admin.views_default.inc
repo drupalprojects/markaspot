@@ -267,7 +267,7 @@ function mark_a_spot_admin_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Aktive Anliegen';
+  $handler->display->display_options['title'] = 'Active reports';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mehr';
@@ -409,7 +409,7 @@ function mark_a_spot_admin_views_default_views() {
   /* Display: Mas Reports Solved */
   $handler = $view->new_display('block', 'Mas Reports Solved', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Abgeschlossene Anliegen';
+  $handler->display->display_options['title'] = 'Fixed reports';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -838,7 +838,6 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['ui_name'] = '#nid';
-  $handler->display->display_options['fields']['nid']['label'] = 'Beitrag-Nummer';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['text'] = '#[nid]';
@@ -846,17 +845,11 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['fields']['title_1']['table'] = 'node';
-  $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Beitrag';
   /* Field: User */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -872,7 +865,7 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = 'Beitrag vom';
+  $handler->display->display_options['fields']['created']['label'] = 'Created';
   $handler->display->display_options['fields']['created']['element_type'] = 'span';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['element_default_classes'] = FALSE;
@@ -946,6 +939,137 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Field: Bulk operations: Content */
+  $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
+  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
+  $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
+  $handler->display->display_options['fields']['views_bulk_operations']['label'] = 'Bulk operations';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+    'action::node_assign_owner_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::views_bulk_operations_delete_item' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::views_bulk_operations_delete_revision' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::views_bulk_operations_script_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::node_make_sticky_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::node_make_unsticky_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::views_bulk_operations_modify_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 1,
+      'skip_confirmation' => 1,
+      'override_label' => 1,
+      'label' => 'Change Status',
+      'settings' => array(
+        'show_all_tokens' => 1,
+        'display_values' => array(
+          'report::field_status' => 'report::field_status',
+        ),
+      ),
+    ),
+    'action::views_bulk_operations_argument_selector_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+      'settings' => array(
+        'url' => '',
+      ),
+    ),
+    'action::node_promote_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::node_publish_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::node_unpromote_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::node_save_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::system_send_email_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::node_unpublish_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::node_unpublish_by_keyword_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::pathauto_node_update_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -1018,24 +1142,6 @@ function mark_a_spot_admin_views_default_views() {
   $handler->display->display_options['filters']['field_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
   $handler->display->display_options['filters']['field_category_tid']['hierarchy'] = 1;
-  /* Filter criterion: Broken/missing handler */
-  $handler->display->display_options['filters']['field_department_tid']['id'] = 'field_department_tid';
-  $handler->display->display_options['filters']['field_department_tid']['table'] = 'field_data_field_department';
-  $handler->display->display_options['filters']['field_department_tid']['field'] = 'field_department_tid';
-  $handler->display->display_options['filters']['field_department_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_department_tid']['expose']['operator_id'] = 'field_department_tid_op';
-  $handler->display->display_options['filters']['field_department_tid']['expose']['label'] = 'Orga';
-  $handler->display->display_options['filters']['field_department_tid']['expose']['operator'] = 'field_department_tid_op';
-  $handler->display->display_options['filters']['field_department_tid']['expose']['identifier'] = 'field_department_tid';
-  $handler->display->display_options['filters']['field_department_tid']['expose']['remember'] = TRUE;
-  $handler->display->display_options['filters']['field_department_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-    6 => 0,
-  );
 
   /* Display: Mas Reports archived */
   $handler = $view->new_display('block', 'Mas Reports archived', 'block_2');
@@ -1384,7 +1490,7 @@ function mark_a_spot_admin_views_default_views() {
   );
   $translatables['mark_a_spot_admin_reports'] = array(
     t('Master'),
-    t('Aktive Anliegen'),
+    t('Active reports'),
     t('mehr'),
     t('Absenden'),
     t('Zurücksetzen'),
@@ -1405,7 +1511,7 @@ function mark_a_spot_admin_views_default_views() {
     t('<div class="status_[field_status_hex]">[field_status]</div>'),
     t('[name] [created]'),
     t('Mas Reports Solved'),
-    t('Abgeschlossene Anliegen'),
+    t('Fixed reports'),
     t('more'),
     t('Anliegen'),
     t('Beitrag vom'),
@@ -1417,19 +1523,20 @@ function mark_a_spot_admin_views_default_views() {
     t('Mas Reports Table Active'),
     t('Anwenden'),
     t('Sortieren nach'),
-    t('Beitrag-Nummer'),
+    t('Nid'),
     t('#[nid]'),
     t('Title'),
-    t('Beitrag'),
     t('Benutzer'),
+    t('Created'),
     t('Address'),
     t('Updated/commented date'),
     t('<span class="meta-info"> [last_updated] Uhr </span>'),
-    t('Nid'),
     t('Path'),
+    t('Bulk operations'),
+    t('- Choose an operation -'),
+    t('Change Status'),
     t('Beitragsdatum'),
     t('Kategorie'),
-    t('Orga'),
     t('Mas Reports archived'),
     t('Archived reports'),
     t('Bearbeiten'),

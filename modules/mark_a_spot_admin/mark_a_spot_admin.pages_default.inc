@@ -175,6 +175,29 @@ function mark_a_spot_admin_default_page_manager_handlers() {
     $display->content['new-ba244e90-3b9b-40ad-8e4d-b68d5108d041'] = $pane;
     $display->panels['left_above'][3] = 'new-ba244e90-3b9b-40ad-8e4d-b68d5108d041';
     $pane = new stdClass();
+    $pane->pid = 'new-10021fc2-e139-409b-8e4e-46ce8bbda783';
+    $pane->panel = 'left_above';
+    $pane->type = 'node_form_publishing';
+    $pane->subtype = 'node_form_publishing';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'argument_node_edit_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '10021fc2-e139-409b-8e4e-46ce8bbda783';
+    $display->content['new-10021fc2-e139-409b-8e4e-46ce8bbda783'] = $pane;
+    $display->panels['left_above'][4] = 'new-10021fc2-e139-409b-8e4e-46ce8bbda783';
+    $pane = new stdClass();
     $pane->pid = 'new-63c1b65f-497a-4ed9-b4f5-ac056fafd003';
     $pane->panel = 'right_above';
     $pane->type = 'entity_form_field';
