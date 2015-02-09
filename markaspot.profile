@@ -5,6 +5,18 @@
  */
 
 /**
+ * Implements hook_install_tasks()
+ */
+function markaspot_install_tasks(&$install_state) {
+  $tasks = array();
+
+  // Add our custom CSS file for the installation process
+  drupal_add_css(drupal_get_path('profile', 'markaspot') . '/markaspot.css');
+  return $tasks;
+}
+
+
+/**
  * Implements hook_form_FORM_ID_alter().
  *
  * Allows the profile to alter the site configuration form.
@@ -20,7 +32,17 @@ function markaspot_form_install_configure_form_alter(&$form, $form_state) {
  * Allows the profile to alter the site configuration form.
  */
 function markaspot_install_tasks_alter(&$tasks, $install_state) {
+  $tasks['install_select_locale']['function'] = 'markaspot_locale_selection';
   $tasks['install_finished']['function'] = 'markaspot_install_finished';
+}
+
+/**
+ * Set default language to en
+ *
+ * @param $install_state
+ */
+function markaspot_locale_selection(&$install_state){
+  $install_state['parameters']['locale'] = 'en';
 }
 
 /**
