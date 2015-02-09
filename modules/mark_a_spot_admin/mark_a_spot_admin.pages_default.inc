@@ -248,7 +248,7 @@ function mark_a_spot_admin_default_page_manager_handlers() {
     $display->content['new-e7dce243-b73d-499c-b5ef-b988c5c69e8f'] = $pane;
     $display->panels['right_above'][2] = 'new-e7dce243-b73d-499c-b5ef-b988c5c69e8f';
     $pane = new stdClass();
-    $pane->pid = 'new-A-9';
+    $pane->pid = 'new-66eba5c1-a9b4-40b0-84c2-d52a8f02d23b';
     $pane->panel = 'right_above';
     $pane->type = 'entity_form_field';
     $pane->subtype = 'node:field_statement_comment';
@@ -269,9 +269,9 @@ function mark_a_spot_admin_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 3;
     $pane->locks = array();
-    $pane->uuid = 'A-9';
-    $display->content['new-A-9'] = $pane;
-    $display->panels['right_above'][3] = 'new-A-9';
+    $pane->uuid = '66eba5c1-a9b4-40b0-84c2-d52a8f02d23b';
+    $display->content['new-66eba5c1-a9b4-40b0-84c2-d52a8f02d23b'] = $pane;
+    $display->panels['right_above'][3] = 'new-66eba5c1-a9b4-40b0-84c2-d52a8f02d23b';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-63c1b65f-497a-4ed9-b4f5-ac056fafd003';
   $handler->conf['display'] = $display;

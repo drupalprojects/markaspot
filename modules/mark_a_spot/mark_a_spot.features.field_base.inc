@@ -143,29 +143,6 @@ function mark_a_spot_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_blah'
-  $field_bases['field_blah'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_blah',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'lat' => array(
-        0 => 'lat',
-      ),
-      'lng' => array(
-        0 => 'lng',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'geolocation',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'geolocation_latlng',
-  );
-
   // Exported field_base: 'field_category'
   $field_bases['field_category'] = array(
     'active' => 1,

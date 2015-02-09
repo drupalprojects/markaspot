@@ -945,38 +945,6 @@ function mark_a_spot_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-category-field_blah'
-  $field_instances['taxonomy_term-category-field_blah'] = array(
-    'bundle' => 'category',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'geolocation',
-        'settings' => array(
-          'field_formatter_class' => '',
-        ),
-        'type' => 'geolocation_text',
-        'weight' => 8,
-      ),
-    ),
-    'entity_type' => 'taxonomy_term',
-    'field_name' => 'field_blah',
-    'label' => 'blah',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'geolocation',
-      'settings' => array(),
-      'type' => 'geolocation_text',
-      'weight' => 33,
-    ),
-  );
-
   // Exported field_instance: 'taxonomy_term-category-field_category_hex'
   $field_instances['taxonomy_term-category-field_category_hex'] = array(
     'bundle' => 'category',
