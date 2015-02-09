@@ -468,8 +468,95 @@ function markaspot_update_7208() {
 function markaspot_update_7209() {
   markaspot_change_form_widget('taxonomy_term', 'category', 'field_category_icon', 'options_select');
   markaspot_change_form_widget('taxonomy_term', 'status', 'field_status_icon', 'options_select');
+
+  markaspot_update_color_field('field_category_hex');
+  markaspot_update_color_field('field_status_hex');
+
   markaspot_set_allowed_value_list('field_category_icon');
   markaspot_set_allowed_value_list('field_status_icon');
+}
+
+
+/**
+ * Updates field_status_icon and field_category_icon for use of Icon API.
+ *
+ */
+function markaspot_update_7210() {
+  module_enable(array('icon', 'markaspot_icon_field'));
+
+  if (module_exists('icon') && module_exists('markaspot_icon_field')) {
+
+    db_add_field('field_data_field_category_icon', 'field_category_icon_bundle', array(
+      'type' => 'varchar',
+      'length' => 64,
+      'not null' => TRUE,
+      'default' => '',
+    ));
+
+    db_add_field('field_revision_field_category_icon', 'field_category_icon_bundle', array(
+      'type' => 'varchar',
+      'length' => 64,
+      'not null' => TRUE,
+      'default' => '',
+    ));
+
+    db_add_field('field_data_field_status_icon', 'field_status_icon_bundle', array(
+      'type' => 'varchar',
+      'length' => 64,
+      'not null' => TRUE,
+      'default' => '',
+    ));
+
+    db_add_field('field_revision_field_status_icon', 'field_status_icon_bundle', array(
+      'type' => 'varchar',
+      'length' => 64,
+      'not null' => TRUE,
+      'default' => '',
+    ));
+
+    db_change_field('field_data_field_status_icon', 'field_status_icon_value', 'field_status_icon_icon',
+      array('type' => 'varchar', 'length' => 64));
+    db_change_field('field_revision_field_status_icon', 'field_status_icon_value', 'field_status_icon_icon',
+      array('type' => 'varchar', 'length' => 64));
+
+    db_change_field('field_data_field_category_icon', 'field_category_icon_value', 'field_category_icon_icon',
+      array('type' => 'varchar', 'length' => 64));
+    db_change_field('field_revision_field_category_icon', 'field_category_icon_value', 'field_category_icon_icon',
+      array('type' => 'varchar', 'length' => 64));
+
+    $num_updated = db_update('field_config')
+      ->fields(array(
+        'module' => 'markaspot_icon_field',
+        'type' => 'markaspot_icon_field',
+      ))
+      ->condition('field_name', 'field_status_icon', '=')
+      ->execute();
+
+    $num_updated = db_update('field_config')
+      ->fields(array(
+        'module' => 'markaspot_icon_field',
+        'type' => 'markaspot_icon_field',
+      ))
+      ->condition('field_name', 'field_category_icon', '=')
+      ->execute();
+
+    markaspot_change_form_widget('taxonomy_term', 'category', 'field_category_icon', 'markaspot_icon_field');
+    markaspot_change_form_widget('taxonomy_term', 'status', 'field_status_icon', 'markaspot_icon_field');
+
+
+    $num_updated = db_update('field_data_field_category_icon')
+      ->fields(array(
+        'field_category_icon_bundle' => 'markaspot-font',
+      ))
+      ->condition('field_category_icon_bundle', '', '=')
+      ->execute();
+    $num_updated = db_update('field_data_field_status_icon')
+      ->fields(array(
+        'field_status_icon_bundle' => 'markaspot-font',
+      ))
+      ->condition('field_status_icon_bundle', '', '=')
+      ->execute();
+  }
 }
 
 
@@ -477,7 +564,7 @@ function markaspot_update_7209() {
  * Revert Mark-a-Spot feature for use of Search API as backend.
  *
  */
-function markaspot_update_7210(){
+function markaspot_update_7211(){
   module_enable(array('search_api', 'search_api_db', 'search_api_views'));
 
   if (!module_exists('search_api') || !module_exists('search_api_db') || !module_exists('search_api_views')) {
@@ -592,6 +679,8 @@ function markaspot_set_allowed_value_list($field_name) {
   field_update_field($field);
 }
 
+
+
 /**
  * Change form widget for a field.
  *
@@ -616,6 +705,9 @@ function markaspot_change_form_widget($entity_type, $bundle, $field_name, $widge
 
   // Update field instance
   field_update_instance($instance);
+}
+
+function markaspot_update_color_field($field_name) {
   $field = array(
     'field_name' => $field_name,
     'settings' => array('default_colors' => '#FF0000, #8B0000, #FFA500, #008000, #006400, #0000FF, #00008B, #800080, #871F78, #5F9EA0, #D3D3D3, #808080, #000000, #F5F5DC, #FFFFFF'),
