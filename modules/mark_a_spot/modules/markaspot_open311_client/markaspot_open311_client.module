@@ -132,7 +132,7 @@ function markaspot_open311_client_content() {
             <div class="input-group">
               <label class="control-label" for="address_string">' . t('Address') . '</label>
               <span class="input-group-addon"><i class="icon-location"></i></span>
-              <input id="address_string" name="address_string" class="form-control" type="text" disabled="disabled">
+              <input id="address_string" name="address_string" class="form-control" type="text">
             </div>
             <div id="map_small" style="width:100%; height: 100px"></div>
             <div class="description"><p>' . t('Drag map to adjust location or tab locate button for GPS') . '</p></div>
