@@ -10,7 +10,7 @@
  * Perform actions to set up the site for this profile.
  */
 function markaspot_install() {
-
+  ini_set('xdebug.max_nesting_level', 700);
   ini_set('max_execution_time', '300');
 
   // Add text formats.

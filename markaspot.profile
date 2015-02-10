@@ -8,7 +8,6 @@
  * Implements hook_install_tasks()
  */
 function markaspot_install_tasks(&$install_state) {
-  ini_set('xdebug.max_nesting_level', 200);
   $tasks = array();
 
   // Add our custom CSS file for the installation process
