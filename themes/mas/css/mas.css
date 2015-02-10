@@ -367,8 +367,8 @@ div.marker-status {
 span.marker-status,
 span.marker-category {
   display: inline-block;
-  font-size: 85%;
-  /* margin: 0 1px 0 0; */
+  font-size: 80%;
+  margin: 0 1px 0 0;
   width: 49%;
 }
 
@@ -1106,7 +1106,14 @@ div.list a h3 {
     display: none;
   }
 
+  div#markers-list-view {
+    margin: 0 0 0 0;
+  }
 
+  div#markers-list-view .col-md-8{
+    padding-right: 15px;
+    margin: 0 40px 0 20px;
+  }
 
   .list,
   .add {
@@ -1160,7 +1167,16 @@ div.list a h3 {
   #edit-field-geo-und-0-address {
     diplay:none;
   }
-
+  span.marker-status,
+  span.marker-category {
+    display: inline-block;
+    font-size: 66%;
+    margin: 0 1px 0 0;
+    width: 100%;
+  }
+  #markers-list-view .report.focus {
+    margin-left: 0px;
+  }
   .geolocation-help {
     top: 110px;
     width: 200px;
@@ -1170,6 +1186,16 @@ div.list a h3 {
   .main-container {
     min-height: 380px;
     margin: 60px 0 0 30px
+  }
+  /* report design */
+
+  div#markers-list-view {
+    margin: 0 0 0 0;
+  }
+
+  div#markers-list-view .col-md-8{
+    padding-right: 15px;
+    margin: 0 40px 0 0;
   }
 
   /* Change up some type stuff */

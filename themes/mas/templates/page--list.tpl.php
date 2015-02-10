@@ -60,7 +60,7 @@
     <?php endif; ?>
 
     <?php if (empty($page['sidebar_second'])): ?>
-      <section class="col-md-12">
+      <section class="">
     <?php else:; ?>
       <section class="col-md-7">
     <?php endif; ?>

@@ -485,19 +485,8 @@ function mark_a_spot_field_default_field_instances() {
       ),
       'report_list' => array(
         'label' => 'hidden',
-        'module' => 'geolocation_osm',
-        'settings' => array(
-          'field_formatter_class' => 'pull-left',
-          'leafletImagePath' => 'profiles/markaspot/libraries/leaflet/images/',
-          'map_dimensions' => '90x90',
-          'map_imageformat' => 'png',
-          'map_key' => '',
-          'map_zoomlevel' => 15,
-          'mapbox' => 0,
-          'marker_icon' => '',
-          'tile_server_static' => 'http://staticmap.openstreetmap.de/staticmap.php',
-        ),
-        'type' => 'geolocation_osm_static',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'search_result' => array(
@@ -1204,12 +1193,12 @@ function mark_a_spot_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'icon_field',
+        'module' => 'markaspot_icon_field',
         'settings' => array(
           'field_formatter_class' => '',
           'link_to_content' => FALSE,
         ),
-        'type' => 'icon_field_default',
+        'type' => 'markaspot_icon_field_default',
         'weight' => 7,
       ),
     ),
@@ -1223,9 +1212,9 @@ function mark_a_spot_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'module' => 'icon_field',
+      'module' => 'markaspot_icon_field',
       'settings' => array(),
-      'type' => 'icon_field',
+      'type' => 'markaspot_icon_field',
       'weight' => 32,
     ),
   );
@@ -1289,7 +1278,6 @@ function mark_a_spot_field_default_field_instances() {
   t('This field applies to the tweet311 module. A Twitter-hashtag that citizens may use, applying to a certain service/service code/category');
   t('This field can be used for attaching official documents');
   t('Use this field in case you want to enunciate something more freely');
-  t('blah');
 
   return $field_instances;
 }
