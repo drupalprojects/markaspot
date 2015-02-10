@@ -74,7 +74,7 @@ function markaspot_default_content_block_view($delta = '') {
     case 'watch_reports':
       $block['subject'] = t('Track Reports');
       $block['content'] = '<div class="list"><a href="list" class="col-md-5 col-md-offset-2 btn btn-primary btn-default">
-        <h3><i class="icon-eye-open"></i> ' . t('Track Issues') . '</h3>' . '</a></div>';
+        <h3><i class="icon-eye"></i> ' . t('Track Issues') . '</h3>' . '</a></div>';
       break;
   }
   return $block;
