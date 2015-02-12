@@ -4,6 +4,7 @@ core = 7.x
 ; Modules
 projects[ctools][subdir] = "contrib"
 projects[icon][subdir] = "contrib"
+projects[icon][version] = 1.x-dev
 projects[features][subdir] = "contrib"
 projects[entity][subdir] = "contrib"
 projects[geolocation][subdir] = "contrib"

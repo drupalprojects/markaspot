@@ -290,7 +290,7 @@ function markaspot_install_tasks(&$install_state) {
     'run' => INSTALL_TASK_RUN_IF_REACHED,
     'function' => 'markaspot_flush_cashes',
   );
-
+  /*
   $tasks['markaspot_enable_icon_api'] = array(
     'display_name' => st('Enable Icon API'),
     'display' => TRUE,
@@ -298,6 +298,7 @@ function markaspot_install_tasks(&$install_state) {
     'run' => INSTALL_TASK_RUN_IF_REACHED,
     'function' => 'markaspot_enable_icon_api',
   );
+  */
 
   $tasks['markaspot_install_content'] = array(
     'display_name' => st('Create some content'),
