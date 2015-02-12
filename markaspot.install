@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Enables modules and site configuration for a standard site installation.
+ * Enables modules and site configuration for a Mark-a-Spot installation.
  */
 
 /**
@@ -10,7 +10,11 @@
  * Perform actions to set up the site for this profile.
  */
 function markaspot_install() {
-  ini_set('xdebug.max_nesting_level', 700);
+  // Increase maximum function nesting level to prevent install errors.
+  $max_nesting_level = ini_get('xdebug.max_nesting_level');
+  if ($max_nesting_level > 0 && $max_nesting_level <= '200') {
+    ini_set('xdebug.max_nesting_level', 200);
+  }
   ini_set('max_execution_time', '300');
 
   // Add text formats.
@@ -271,6 +275,128 @@ function markaspot_install() {
   module_enable($module_list);
 
   variable_set('jquery_update_jquery_version', '1.7');
+}
+
+/**
+ * Implements hook_install_tasks()
+ */
+function markaspot_install_tasks(&$install_state) {
+
+  $tasks = array();
+
+  $tasks['markaspot_enable_icon_api'] = array(
+    'display_name' => st('Enable Icon API'),
+    'display' => TRUE,
+    'type' => 'batch',
+    'run' => INSTALL_TASK_RUN_IF_REACHED,
+    'function' => 'markaspot_enable_icon_api',
+  );
+
+  $tasks['markaspot_install_content'] = array(
+    'display_name' => st('Create some content'),
+    'display' => TRUE,
+    'type' => 'batch',
+    'run' => INSTALL_TASK_RUN_IF_REACHED,
+    // 'function' => 'markaspot_install_content',
+    'finish' => 'markaspot_install_content_finished'
+  );
+
+
+
+  // Add our custom CSS file for the installation process
+  drupal_add_css(drupal_get_path('profile', 'markaspot') . '/markaspot.css');
+
+  return $tasks;
+}
+
+/**
+ * Create default Content.
+ *
+ * @param string $install_state
+ *   An array of information about the current installation state.
+ *
+ * @return string
+ *   Message on Complete
+ */
+function markaspot_install_content() {
+  global $install_state;
+  // print dd($install_state);
+
+  // ini_set("auto_detect_line_endings", TRUE);
+
+  $operations = array();
+  // Saving taonomies for category:
+  $operations[] = array('_markaspot_create_categories', array(t('Create categories.')));
+  // Saving taxonomies for status:
+  $operations[] = array('_markaspot_create_status', array(t('Create status.')));
+  // Creating example node:
+  $operations[] = array('_markaspot_create_reports', array(t('Create example reports')));
+  // Activating blocks:
+  $operations[] = array('_markaspot_build_blocks',  array(t('Create Blocks')));
+  // Deleting dummy entries:
+  $operations[] = array('_markaspot_delete_dummies', array(t('Create dummy content')));
+  // Create slider image files:
+  $operations[] = array('_markaspot_create_pages', array(t('Create example pages')));
+  print dd($operations, "operations");
+
+  $batch = array(
+    'title' => t('Importing content'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'markaspot') . '/markaspot.install_callbacks.inc',
+  );
+
+
+  return $batch;
+}
+
+
+function markaspot_enable_icon_api(){
+  global $install_state;
+
+  $operations[] = array('_markaspot_enable_module', array('icon', array('Icon API')));
+
+  $batch = array(
+    'title' => t('Enabling Icon API'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'markaspot') . '/markaspot.install_callbacks.inc',
+  );
+
+  return $batch;
+
+}
+
+
+function markaspot_install_finished(){
+  drupal_set_title(st('Mark-a-Spot installation complete'));
+  $messages = drupal_set_message();
+
+  $output  = '<p>' . st('Congratulations, you installed Mark-a-Spot @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</p>';
+  $output .= '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
+
+  // Flush all caches to ensure that any full bootstraps during the installer
+  // do not leave stale cached data, and that any content types or other items
+  // registered by the install profile are registered correctly.
+  drupal_flush_all_caches();
+
+  // Remember the profile which was used:
+  variable_set('install_profile', drupal_get_profile());
+
+  // Clean Urls:
+  variable_set('clean_url', 1);
+  variable_set('chosen_minimum_single', 3);
+
+  // Install profiles are always loaded last:
+  db_update('system')
+    ->fields(array('weight' => 1000))
+    ->condition('type', 'module')
+    ->condition('name', drupal_get_profile())
+    ->execute();
+
+  // Cache a fully-built schema:
+  drupal_get_schema(NULL, TRUE);
+
+  return $output;
+
 }
 
 
