@@ -56,6 +56,28 @@
           } else {
             Drupal.markaspot.parse(1, "All", "All", true);
           }
+
+          // Add a report button
+          L.easyButton('fa fa-navicon', 'bottomright',
+            function () {
+              var m = $(".leaflet-bottom .leaflet-control a i");
+              if (m.hasClass('fa-navicon')) {
+                m
+                  .removeClass('fa-navicon')
+                  .addClass('fa-times');
+              } else {
+                m
+                  .removeClass('fa-times')
+                  .addClass('fa-navicon');
+              }
+
+              $('#block-markaspot-logic-taxonomy-category, #block-markaspot-logic-taxonomy-status').fadeToggle('fast');
+            },
+            Drupal.t('Report at map center'),
+            Drupal.Markaspot.maps[0]
+          );
+
+
           break;
         case "list":
           Drupal.markaspot.parse(2, "All", "All", false);

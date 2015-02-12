@@ -777,15 +777,17 @@ function markaspot_logic_contents($which_block) {
   switch ($which_block) {
     case 'taxonomy_category':
       $list_category = NULL;
-      $list_category .= '<div class="navbar-btn btn-group dropdown"><button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">' . t('Service Name') . ' <span class="caret"></span></button>';
+
+      $list_category .= '<div class="category"><h3>' . t('Service Name') . ' </h3>';
+      $list_category .= '<ul class="group-list">';
+      $list_class = ' list-group-item';
 
       $alter['html'] = TRUE;
       $alter['max_length'] = 125;
       $alter['word_boundary'] = TRUE;
       $alter['ellipsis'] = TRUE;
-      $list_category .= '<ul class="dropdown-menu">';
 
-      $list_category .= '<li class="marker-category-wrapper-all">' . l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-category'))) . '</li>';
+      $list_category .= '<li class="marker-category-wrapper-all' . $list_class .' first">' . l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-category'))) . '</li>';
       $taxonomies = taxonomy_get_tree(1, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
 
@@ -795,7 +797,7 @@ function markaspot_logic_contents($which_block) {
           '#icon'   => $term->field_category_icon[LANGUAGE_NONE][0]['icon'],
         );
 
-        $list_category .= '<li class="marker-category-wrapper">' .  l(drupal_render($icon_category) . ' ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
+        $list_category .= '<li class="marker-category-wrapper '. $list_class .'">' .  l(drupal_render($icon_category) . ' ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
             'attributes' => array(
               'class' => 'map-menue marker-category col-' . ltrim($term->field_category_hex[LANGUAGE_NONE][0]['rgb'],'#'),
               'id' => 'tax-' . $term->tid,
@@ -810,15 +812,17 @@ function markaspot_logic_contents($which_block) {
 
     case 'taxonomy_status':
       $list_status = NULL;
-      $list_status .= '<div class="navbar-btn btn-group dropdown"><button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">' . t('Request Status') . ' <span class="caret"></span></button>';
+
+      $list_status .= '<div class="category"><h3>' . t('Status') . ' </h3>';
+      $list_status .= '<ul class="group-list">';
+      $list_class = ' list-group-item';
 
       $alter['html'] = TRUE;
       $alter['max_length'] = 25;
       $alter['word_boundary'] = TRUE;
       $alter['ellipsis'] = TRUE;
 
-      $list_status .= '<ul class="dropdown-menu">';
-      $list_status .= '<li class="marker-status-wrapper-all">' . l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-status'))) . '</li>';
+      $list_status .= '<li class="marker-status-wrapper-all '. $list_class .'">' . l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-status'))) . '</li>';
 
       $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
@@ -829,7 +833,7 @@ function markaspot_logic_contents($which_block) {
           '#icon'   => $term->field_status_icon[LANGUAGE_NONE][0]['icon'],
         );
 
-        $list_status .= '<li class="marker-status-wrapper">' .  l(drupal_render($icon_status) . ' ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
+        $list_status .= '<li class="marker-status-wrapper ' . $list_class  .'">' .  l(drupal_render($icon_status) . ' ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
             'attributes' => array(
               'class' => 'map-menue marker-status col-' . ltrim($term->field_status_hex[LANGUAGE_NONE][0]['rgb'],'#'),
               'id' => 'tax-' . $term->tid,
