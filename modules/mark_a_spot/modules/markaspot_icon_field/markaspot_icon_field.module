@@ -118,6 +118,9 @@ function markaspot_icon_field_field_formatter_view($entity_type, $entity, $field
       case 'fontello':
         $class_prefix = 'icon-';
         break;
+      case 'bootstrap':
+        $class_prefix = 'glyphicon';
+        break;
       default:
         $class_prefix = 'icon-';
     }
@@ -201,6 +204,9 @@ function markaspot_icon_field_switch_prefix($bundle) {
       break;
     case 'fontello':
       $class_prefix = 'icon-';
+      break;
+    case 'bootstrap':
+      $class_prefix = 'glyphicon ';
       break;
     default:
       $class_prefix = 'icon-';
