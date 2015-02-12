@@ -415,6 +415,8 @@ function markaspot_install_finished(){
 
   // Cache a fully-built schema:
   drupal_get_schema(NULL, TRUE);
+  // Set icon view path
+  variable_set('icon_api_view_path_alias', 'icons');
 
   return $output;
 
