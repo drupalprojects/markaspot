@@ -402,6 +402,22 @@ function _markaspot_delete_dummies($operation, &$context) {
  *
  */
 function _markaspot_enable_module($module, $module_name, &$context) {
+  // Increase maximum function nesting level to prevent install errors.
+  $max_nesting_level = ini_get('xdebug.max_nesting_level');
+  if ($max_nesting_level > 0 && $max_nesting_level <= '200') {
+    ini_set('xdebug.max_nesting_level', 200);
+  }
+  ini_set('max_execution_time', '300');
   module_enable(array($module), FALSE);
   $context['message'] = st('Installed %module module.', array('%module' => $module_name));
+}
+
+/**
+ * BatchAPI callback. Flash all cashes.
+ *
+ */
+function _markaspot_flush_cashes(&$context) {
+  // Clear the caches in case the data has been updated.
+  drupal_flush_all_caches();;
+  $context['message'] = st('Flushed cashes.');
 }

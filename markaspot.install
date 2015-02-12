@@ -283,6 +283,13 @@ function markaspot_install() {
 function markaspot_install_tasks(&$install_state) {
 
   $tasks = array();
+  $tasks['markaspot_flush_cashes'] = array(
+    'display_name' => st('Flush drupal caches'),
+    'display' => TRUE,
+    'type' => 'batch',
+    'run' => INSTALL_TASK_RUN_IF_REACHED,
+    'function' => 'markaspot_flush_cashes',
+  );
 
   $tasks['markaspot_enable_icon_api'] = array(
     'display_name' => st('Enable Icon API'),
@@ -297,8 +304,7 @@ function markaspot_install_tasks(&$install_state) {
     'display' => TRUE,
     'type' => 'batch',
     'run' => INSTALL_TASK_RUN_IF_REACHED,
-    // 'function' => 'markaspot_install_content',
-    'finish' => 'markaspot_install_content_finished'
+    'function' => 'markaspot_install_content',
   );
 
 
@@ -346,6 +352,22 @@ function markaspot_install_content() {
 
 
   return $batch;
+}
+
+
+function markaspot_flush_cashes(){
+  global $install_state;
+
+  $operations[] = array('_markaspot_flush_cashes', array());
+
+  $batch = array(
+    'title' => t('Flush drupal cashes'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'markaspot') . '/markaspot.install_callbacks.inc',
+  );
+
+  return $batch;
+
 }
 
 
