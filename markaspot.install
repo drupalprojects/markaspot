@@ -337,7 +337,6 @@ function markaspot_install_content() {
   $operations[] = array('_markaspot_delete_dummies', array(t('Create dummy content')));
   // Create slider image files:
   $operations[] = array('_markaspot_create_pages', array(t('Create example pages')));
-  print dd($operations, "operations");
 
   $batch = array(
     'title' => t('Importing content'),
