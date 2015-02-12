@@ -236,22 +236,22 @@ div#geolocation-help-7-0 {
   display: none;
 }
 
-.page-node-edit.node-type-report .panel-pane {
+.ember.page-node .panel-pane {
   background: #fff;
   padding: 10px 20px;
   min-height: 130px}
 
-.page-node-edit.node-type-report .fieldset-wrapper {
+.ember.node-type-report .fieldset-wrapper {
   border: 1px solid #eaeaea;
   padding: 5px;
 }
 
-.page-node-edit.node-type-report .panel-2col-bricks .panel-col-last {
+.ember.node-type-report .panel-2col-bricks .panel-col-last {
   float: left;
   width: 60%;
 }
 
-.page-node-edit.node-type-report .panel-2col-bricks .panel-col-first {
+.ember.node-type-report .panel-2col-bricks .panel-col-first {
   float: left;
   width: 39%;
 }
@@ -287,11 +287,11 @@ div#geolocation-help-7-0 {
   clear: both;
 }
 
-body.page-node-edit.node-type-report {
+body.ember.page-node {
   background: #dddddd !important;
 }
 
-.page-node-edit.node-type-report .panel-2col-bricks .panel-col-last .inside {
+.ember .panel-2col-bricks .panel-col-last .inside {
   margin: -14px 0 .5em .5em;
 }
 
