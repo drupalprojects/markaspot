@@ -3,6 +3,7 @@ description = Install with commonly used features pre-configured.
 exclusive = TRUE
 
 core = 7.x
+dependencies[] = icon
 dependencies[] = block
 dependencies[] = entity
 dependencies[] = rest_server
@@ -15,7 +16,6 @@ dependencies[] = ctools
 dependencies[] = comment
 dependencies[] = contextual
 dependencies[] = image
-; dependencies[] = icon
 dependencies[] = list
 dependencies[] = menu
 dependencies[] = number
