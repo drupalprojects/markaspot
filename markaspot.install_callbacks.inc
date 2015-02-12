@@ -100,9 +100,6 @@ function _markaspot_create_status($operation, &$context) {
 function _markaspot_create_categories($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
 
-  print dd($operation, "operation");
-  print dd($context, "context");
-
   // Get the vocabulary ID.
   $vid = db_query("SELECT vid FROM {taxonomy_vocabulary} WHERE machine_name = 'category'")->fetchField();
 
