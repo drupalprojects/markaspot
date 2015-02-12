@@ -343,7 +343,7 @@ function mark_a_spot_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'markaspot_logic_mapbox_map_id';
-  $strongarm->value = 'markaspot.i0ljgo58';
+  $strongarm->value = '';
   $export['markaspot_logic_mapbox_map_id'] = $strongarm;
 
   $strongarm = new stdClass();

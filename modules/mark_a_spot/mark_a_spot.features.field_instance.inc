@@ -436,7 +436,7 @@ function mark_a_spot_field_default_field_instances() {
     'default_value' => array(
       0 => array(
         'address' => array(
-          'field' => '',
+          'field' => 'Fritz-Wündisch-Straße 52, 50321 Brühl',
         ),
         'lat' => '50.81834062114927',
         'lng' => '6.8978047370910645',
@@ -455,7 +455,8 @@ function mark_a_spot_field_default_field_instances() {
           'map_scrollwheel' => 1,
           'map_zoomlevel' => 16,
           'marker_icon' => 'profiles/markaspot/libraries/leaflet/images/marker-icon.png',
-          'tile_server_dynamic' => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+          'tile_server_attribution' => '<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+          'tile_server_dynamic' => 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
         ),
         'type' => 'geolocation_osm_dynamic',
         'weight' => 1,
@@ -550,7 +551,8 @@ function mark_a_spot_field_default_field_instances() {
         'marker_draggable' => 1,
         'nominatimEmail' => 'holger@markaspot.org',
         'scrollwheel' => 0,
-        'tile_server_dynamic' => 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+        'tile_server_attribution' => '<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+        'tile_server_dynamic' => 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
       ),
       'type' => 'geolocation_osm',
       'weight' => 15,
