@@ -81,7 +81,9 @@
 
       // Add marker to markerLayer.
       addMarkerLayer.addLayer(marker);
-      Drupal.Markaspot.maps[0].addLayer(addMarkerLayer);
+      var map = Drupal.Markaspot.maps[0];
+      map.closePopup();
+      map.addLayer(addMarkerLayer);
 
       // Call client for interaction with open311 api
       marker.on('click', function (e) {
@@ -246,7 +248,8 @@
       return zoom;
     },
     showForm: function (marker) {
-      Drupal.markaspotOpen311Client.map.setView(marker.getLatLng(), 16);
+      var map = Drupal.markaspotOpen311Client.map;
+      map.setView(marker.getLatLng(), 16);
       var settings = Drupal.settings.markaspotOpen311Client;
       Drupal.markaspotOpen311Client.codeLatLng(marker.getLatLng(), 0, 'marker');
 
