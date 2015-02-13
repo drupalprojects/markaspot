@@ -58,15 +58,17 @@
           }
 
           // Add a report button
-          L.easyButton('fa fa-navicon', 'bottomright',
+          L.easyButton('fa fa-navicon', 'topright',
             function () {
-              var m = $(".leaflet-bottom .leaflet-control a i");
+              var m = $(".leaflet-control a i.fa-navicon");
+              var s = $(".leaflet-control a i.fa-times");
+
               if (m.hasClass('fa-navicon')) {
                 m
                   .removeClass('fa-navicon')
                   .addClass('fa-times');
-              } else {
-                m
+              } else if (s.hasClass('fa-times')) {
+                s
                   .removeClass('fa-times')
                   .addClass('fa-navicon');
               }
