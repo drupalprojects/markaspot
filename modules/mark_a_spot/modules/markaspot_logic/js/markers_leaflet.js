@@ -226,13 +226,15 @@
         }, {
           "color": "darkblue", "hex": "#00008B"
         }, {
-          "color": "purple", "hex": "#800080"
+          "color": "purple", "hex": "#A020F0"
         }, {
           "color": "darkpurple", "hex": "#871F78"
         }, {
           "color": "cadetblue", "hex": "#5F9EA0"
         }, {
-          "color": "lightgray", "hex": "#D3D3D3", "iconColor": "black"
+          "color": "lightblue", "hex": "#ADD8E6", "iconColor": "#000000"
+        }, {
+          "color": "lightgray", "hex": "#D3D3D3", "iconColor": "#000000"
         }, {
           "color": "gray", "hex": "#808080"
         }, {
@@ -240,7 +242,7 @@
         }, {
           "color": "beige", "hex": "#F5F5DC", "iconColor": "darkred"
         }, {
-          "color": "white", "hex": "#FFFFFF", "iconColor": "black"
+          "color": "white", "hex": "#FFFFFF", "iconColor": "#000000"
         }];
         if (getToggle == 1) {
           colorswitch = item.category_hex;

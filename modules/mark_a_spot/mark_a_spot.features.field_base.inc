@@ -200,7 +200,7 @@ function mark_a_spot_field_default_field_bases() {
     'locked' => 0,
     'module' => 'color_field',
     'settings' => array(
-      'default_colors' => '#FF0000, #8B0000, #FFA500, #008000, #006400, #0000FF, #00008B, #800080, #871F78, #5F9EA0, #D3D3D3, #808080, #000000, #F5F5DC, #FFFFFF',
+      'default_colors' => '#FF0000, #8B0000, #FFA500, #008000, #006400, #ADD8E6, #0000FF, #00008B, #A020F0, #871F78, #5F9EA0, #D3D3D3, #808080, #000000, #F5F5DC, #FFFFFF',
     ),
     'translatable' => 0,
     'type' => 'color_field_rgb',
@@ -602,7 +602,7 @@ function mark_a_spot_field_default_field_bases() {
     'locked' => 0,
     'module' => 'color_field',
     'settings' => array(
-      'default_colors' => '#FF0000, #8B0000, #FFA500, #008000, #006400, #0000FF, #00008B, #800080, #871F78, #5F9EA0, #D3D3D3, #808080, #000000, #F5F5DC, #FFFFFF',
+      'default_colors' => '#FF0000, #8B0000, #FFA500, #008000, #006400, #ADD8E6, #0000FF, #00008B, #A020F0, #871F78, #5F9EA0, #D3D3D3, #808080, #000000, #F5F5DC, #FFFFFF',
     ),
     'translatable' => 0,
     'type' => 'color_field_rgb',
