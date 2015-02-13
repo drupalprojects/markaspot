@@ -9,7 +9,7 @@
 </header> <!-- /#header -->
 <div id="map"></div>
 <div class="navbar-wrapper">
-  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <?php if ($logo): ?>

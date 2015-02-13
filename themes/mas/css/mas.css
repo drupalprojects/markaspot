@@ -398,23 +398,6 @@ ul.group-list {
   top: 125px;
 }
 
-.page-list .navbar-wrapper,
-.page-map .navbar-wrapper {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 1;
-}
-
-.navbar-fixed .navbar-wrapper{
-  top:39px
-}
-
-.navbar-tray-open .navbar-wrapper {
-  top:79px
-}
-
 .navbar-btn.btn-group.dropdown {
   margin-left: 10px;
 }
@@ -725,16 +708,7 @@ div.view.view-recent-edits ul,
   padding: 0;
 }
 
-.navbar-fixed-top,
-.navbar-fixed-bottom,
-.navbar-static-top {
-  margin-left: 0;
-  margin-right: 0;
-}
 
-.navbar-inverse {
-  max-height: 51px;
-}
 
 .navbar-collapse {
   max-height: none;
@@ -936,9 +910,13 @@ div#geolocation-map-7-0 {
   height: 400px!important;
 }
 
+/* Layer the bar just above the trays and above contextual link triggers. */
+#navbar-administration.navbar-oriented .navbar-bar {
+  z-index: 1001
+}
 
-.admin-menu #map_wrapper_splash {
-  top: 163px;
+div#navbar-item--2-tray {
+  border-right: 1px solid #ddd;
 }
 
 .list {
@@ -1024,6 +1002,11 @@ div.list a h3 {
     margin: 5px;
   }
 
+
+  ul.links.list-inline {
+    margin: 20px 0;
+  }
+
   .report img.pull-left.thumbnail {
     display: none;
   }
@@ -1101,23 +1084,6 @@ div.list a h3 {
     display: none;
   }
 
-
-  /* Flip around the padding for proper display in narrow viewports */
-  .navbar-wrapper .container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .navbar-wrapper .navbar {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-
-  #map_wrapper_splash {
-    /* top: 0; */
-  }
-
   .not-front .navbar-btn.pull-left,
   .front .logo.navbar-btn.pull-left {
     display: block;
@@ -1135,13 +1101,7 @@ div.list a h3 {
     margin: 0;
   }
 
-  .navbar-tray-open.navbar-vertical .navbar-wrapper {
-    top: 39px;
-  }
 
-  /* .welcome-text.well {
-       padding: 2em 4em 2em 4em;
-   }*/
   .col-md-4.col-md-offset-1.thumbnail {
     display: none;
   }
@@ -1271,14 +1231,7 @@ div.list a h3 {
     margin: 5px auto;
   }
 
-  .navbar-wrapper {
-    margin-top: 0;
-  }
 
-  .navbar-fixed-top,
-  .navbar-fixed-bottom {
-    position: fixed;
-  }
 
   input#edit-field-geo-und-0-address-field {
     font-size: 10px;
