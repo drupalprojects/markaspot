@@ -424,21 +424,19 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['search_api_views_fulltext']['group'] = 1;
   $handler->display->display_options['filters']['search_api_views_fulltext']['exposed'] = TRUE;
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator_id'] = 'search_api_views_fulltext_op';
-  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['label'] = 'Fulltext search';
+  $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['label'] = 'Search Issue #';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['operator'] = 'search_api_views_fulltext_op';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['identifier'] = 'query';
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
-    3 => 0,
     5 => 0,
     4 => 0,
+    3 => 0,
   );
+  $handler->display->display_options['filters']['search_api_views_fulltext']['mode'] = 'filter';
   $handler->display->display_options['filters']['search_api_views_fulltext']['min_length'] = '2';
   $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
-    'body:value' => 'body:value',
-    'field_address' => 'field_address',
-    'title' => 'title',
     'uuid' => 'uuid',
   );
   $handler->display->display_options['path'] = 'report-list';
@@ -617,16 +615,12 @@ function mark_a_spot_views_default_views() {
   $handler->display->display_options['filters']['search_api_views_fulltext']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
-    3 => 0,
     5 => 0,
     4 => 0,
+    3 => 0,
   );
   $handler->display->display_options['filters']['search_api_views_fulltext']['min_length'] = '2';
   $handler->display->display_options['filters']['search_api_views_fulltext']['fields'] = array(
-    'body:value' => 'body:value',
-    'field_address' => 'field_address',
-    'field_statement_comment' => 'field_statement_comment',
-    'title' => 'title',
     'uuid' => 'uuid',
   );
   $handler->display->display_options['path'] = 'reports/geojson';
@@ -812,7 +806,7 @@ function mark_a_spot_views_default_views() {
     t('<span class="submitted meta-info"> [created] </span>'),
     t('<div class="cat-stat-wrapper"><span class="label marker-category col-[field_category_hex] span6"><i class="icon-li icon-[field_category_icon]"></i> [field_category]</span> <span class="label marker-status col-[field_status_hex] span6"><i class="icon-li icon-[field_status_icon]"></i> [field_status]</span></div>'),
     t('Weiterlesen'),
-    t('Fulltext search'),
+    t('Search Issue #'),
     t('GeoJSON List'),
     t('Title'),
     t('created'),
@@ -824,6 +818,7 @@ function mark_a_spot_views_default_views() {
     t('status_hex'),
     t('status_icon'),
     t('category_icon'),
+    t('Fulltext search'),
     t('GeoJSON Map'),
   );
   $export['markers'] = $view;
