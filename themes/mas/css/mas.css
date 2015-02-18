@@ -42,8 +42,8 @@ div#markers-list-view {
 
 
 #markers-list-view .report {
-  min-height: 180px;
   padding: 10px;
+  min-height: 200px;
   margin: 0 0 40px 0;
   -webkit-border-right-top-radius: 4px;
   -webkit-border-right-bottom-radius: 4px;
@@ -54,6 +54,7 @@ div#markers-list-view {
 
 #markers-list-view .report.focus {
   margin-left: 50px;
+  min-height: 250px;
   -webkit-transition: all 0.7s ease;
   transition: all 0.7s ease;
 }
