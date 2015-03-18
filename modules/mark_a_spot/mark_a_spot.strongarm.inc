@@ -251,6 +251,48 @@ function mark_a_spot_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'less_autoprefixer';
+  $strongarm->value = FALSE;
+  $export['less_autoprefixer'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'less_devel';
+  $strongarm->value = 0;
+  $export['less_devel'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'less_dir';
+  $strongarm->value = '4drRcI5qsPDAgbSoF8Il_4XcO9RBBUnMtfPqwDYUq0M';
+  $export['less_dir'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'less_engine';
+  $strongarm->value = 'less.php';
+  $export['less_engine'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'less_source_maps';
+  $strongarm->value = 0;
+  $export['less_source_maps'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'less_watch';
+  $strongarm->value = 0;
+  $export['less_watch'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'markaspot_locate_icon_color';
   $strongarm->value = 'white';
   $export['markaspot_locate_icon_color'] = $strongarm;
