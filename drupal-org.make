@@ -170,6 +170,16 @@ libraries[modernizr][download][url] = "https://github.com/Modernizr/Modernizr/ar
 libraries[ckeditor][download][type] = get
 libraries[ckeditor][download][url] = http://download.cksource.com/CKEditor%20for%20Drupal/edit/ckeditor_4.3.2_edit.zip
 
+; taken from twbs_less project
+libraries[less.js][directory_name] = less.js
+libraries[less.js][download][type] = file
+libraries[less.js][download][url] = https://github.com/less/less.js/archive/v1.7.5.zip
+libraries[less.js][type] = library
+libraries[less.php][directory_name] = less.php
+libraries[less.php][download][type] = file
+libraries[less.php][download][url] = https://github.com/oyejorge/less.php/archive/v1.7.0.2.zip
+libraries[less.php][type] = libraries
+
 ; Themes
 projects[bootstrap][type] = "theme"
 projects[ember][type] = "theme"
