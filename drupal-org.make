@@ -65,7 +65,6 @@ projects[search_api][subdir] = contrib
 projects[search_api_db][subdir] = contrib
 
 projects[less][subdir] = contrib
-projects[less][subdir] = contrib
 
 libraries[chosen][type] = libraries
 libraries[chosen][download][type] = get
