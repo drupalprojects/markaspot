@@ -30,7 +30,6 @@ projects[fontawesome][subdir] = "contrib"
 projects[views_bulk_operations][subdir] = "contrib"
 
 projects[views_geojson][subdir] = "contrib"
-projects[views_geojson][version] = 1.x-dev
 
 
 projects[twitter][subdir] = "contrib"
