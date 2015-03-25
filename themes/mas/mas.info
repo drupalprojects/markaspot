@@ -23,8 +23,7 @@ regions[page_bottom]    = 'Page bottom'
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
-stylesheets[all][] = css/mas-style.css
-stylesheets[all][] = css/mas.css
+stylesheets[all][] = less/mas-style.less
 
 
 ; For information on choosing the desired method, please read the Drupal

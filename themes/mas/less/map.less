@@ -1,0 +1,156 @@
+// Map filter
+
+
+.page-map .col-FFA500 {
+  color: @orange;
+}
+
+.page-map .col-FF0000 {
+  color: @red
+}
+.page-map .col-008000 {
+  color: #008000
+}
+
+.page-map .col-F5F5DC {
+  color: #F5F5DC
+}
+.page-map .col-006400 {
+  color: @green;
+}
+.page-map .col-8B0000 {
+  color: #8B0000
+}
+
+.page-map .col-5F9EA0 {
+  color: @cadetblue
+}
+/*
+
+
+@beige: #f5e178;
+@orange: #FFA500;
+@red:  #FF0000;
+@lightred: #FFA293;
+@darkred: darkred;
+@green: #006400;
+@lightblue: lightblue;
+@blue: #0000FF;
+@darkblue: #00008B;
+@purple: #A020F0;
+@darkpurple: #871F78;
+@pink: pink;
+@cadetblue: #5F9EA0;
+@grey: grey;
+@white: #FFFFFF;
+@black: #000000;
+@lightgrey: lightgrey;
+*/
+
+
+section#block-markaspot-logic-taxonomy-status {
+  position: absolute;
+  left: 50px;
+  bottom: 30px;
+  display: none;
+}
+
+section#block-markaspot-logic-taxonomy-category {
+  position: absolute;
+  left: 50px;
+  bottom: 250px;
+  display: none;
+}
+
+ul.group-list {
+  padding: 0;
+}
+
+#block-markaspot-logic-taxonomy-category,
+#block-markaspot-logic-taxonomy-status {
+  float:left;
+}
+
+#block-markaspot-logic-taxonomy-category:hover,
+#block-markaspot-logic-taxonomy-status:hover {
+  opacity: 1;
+  border: none;
+  box-shadow: none;
+}
+
+.page-map .btn.btn-primary {
+  width: 160px;
+}
+
+.page-map .dropdown-menu > li > a {
+  display: block;
+}
+
+
+#block-markaspot-logic-taxonomy-category h2,
+#block-markaspot-logic-taxonomy-status h2 {
+  display: none;
+}
+
+#block-markaspot-logic-markaspot-map {
+  display: none;
+}
+
+
+
+.page-map li.list-group-item  a{
+  padding: 5px 10px
+}
+
+.marker-category-wrapper-all,
+.marker-status-wrapper-all,
+.marker-category-wrapper,
+.marker-status-wrapper {
+  background: rgba(225,225,225, 0.8);
+  border: 1px solid #fff;
+
+  @media screen and (max-width: @screen-lg-min) {
+    width: 400px;
+    font-size: 13px;
+    padding: 4px
+  }
+  @media screen and (max-width: @screen-md-min) {
+    width: 300px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: @screen-sm-min) {
+    width: 250px;
+    font-size: 10px;
+  }
+  @media screen and (max-width: @screen-xs-min) {
+    width: 200px;
+    padding: 2px;
+    font-size: 10px;
+  }
+}
+
+
+#map .leaflet-top {
+  top: 65px;
+}
+
+.navbar-fixed #map .leaflet-top {
+  top: 85px;
+}
+
+.navbar-tray-open #map .leaflet-top {
+  top: 125px;
+}
+
+.navbar-btn.btn-group.dropdown {
+  margin-left: 10px;
+}
+
+.front .leaflet-control-container {
+  display: none;
+}
+
+
+.popover{
+  max-width:300px;
+}

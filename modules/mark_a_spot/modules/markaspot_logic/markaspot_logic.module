@@ -160,7 +160,7 @@ function markaspot_logic_page_build(&$page) {
   else {
     drupal_add_js(array(
       'mas' => array(
-        'osm_custom_tile_url' => variable_get('markaspot_logic_osm_custom_tile_url'),
+        'osm_custom_tile_url' => check_url(variable_get('markaspot_logic_osm_custom_tile_url')),
         'osm_custom_attribution' => variable_get('markaspot_logic_osm_custom_attribution'),
       ),
     ), 'setting');
@@ -223,19 +223,9 @@ function markaspot_logic_page_build(&$page) {
         '!IE' => FALSE,
       ),
     ));
-
-
-
     drupal_add_js(drupal_get_path('module', 'markaspot_logic') . '/js/markaspot_logic.js');
     drupal_add_css(drupal_get_path('module', 'markaspot_logic') . '/css/markaspot_logic.css');
-
   };
-
-  drupal_add_css(drupal_get_path('module', 'custom') . '/css/custom.css', array(
-    'group' => CSS_DEFAULT,
-    'every_page' => TRUE,
-  ));
-  drupal_add_css(drupal_get_path('module', 'markaspot_logic') . '/css/mas-style.css');
 }
 
 

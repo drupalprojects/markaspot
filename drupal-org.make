@@ -64,6 +64,9 @@ projects[ckeditor][subdir] = contrib
 projects[search_api][subdir] = contrib
 projects[search_api_db][subdir] = contrib
 
+projects[less][subdir] = contrib
+projects[less][subdir] = contrib
+
 libraries[chosen][type] = libraries
 libraries[chosen][download][type] = get
 libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/1.0.0/chosen_v1.0.0.zip"
@@ -153,7 +156,7 @@ libraries[proxy][download][branch] = osm-nominatim
 libraries[proxy][directory_name] = proxy
 
 libraries[bootstrap][download][type] = "get"
-libraries[bootstrap][download][url] = "https://github.com/twbs/bootstrap/archive/v3.3.2.zip"
+libraries[bootstrap][download][url] = "https://github.com/twbs/bootstrap/archive/v3.3.4.zip"
 libraries[bootstrap][directory_name] = "bootstrap"
 libraries[bootstrap][destination] = "themes/mas"
 libraries[bootstrap][overwrite] = TRUE
