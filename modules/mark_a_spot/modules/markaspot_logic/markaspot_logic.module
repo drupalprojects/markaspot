@@ -533,6 +533,25 @@ function markaspot_logic_admin_settings() {
       '#default_value' => variable_get('markaspot_logic_archive_days', markaspot_logic_defaults('markaspot_logic_archive_days')),
       '#title' => t('Days'),
     );
+    $form['archive']['markaspot_logic_archive_show'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Disable archive filtering in map view?'),
+      '#description' => t('Check this box if you want to display all reports including the archived or closed reports.'),
+      '#default_value' => variable_get('markaspot_logic_archive_show', markaspot_logic_defaults('markaspot_logic_archive_show')),
+    );
+
+    $form['archive']['markaspot_logic_archive_tids'] = array(
+      '#type' => 'select',
+      '#multiple' => TRUE,
+      '#states' => array('visible' => array(
+        ':input[name="markaspot_logic_archive_show"]' => array('checked' => FALSE),
+        ),
+      ),
+      '#options' => markaspot_logic_get_taxonomy_term_options('status'),
+      '#default_value' => variable_get('markaspot_logic_archive_tids', markaspot_logic_defaults('markaspot_logic_archive_tids')),
+      '#title' => t('Please choose the status for archived reports'),
+    );
+
   }
 
   if (module_exists('markaspot_static_geojson')) {
@@ -595,7 +614,6 @@ function markaspot_logic_admin_settings() {
       '#options' => array(t('Hash'), t('Service Code')),
     );
   }
-
   return system_settings_form($form);
 }
 
@@ -652,6 +670,12 @@ function markaspot_logic_defaults($id) {
 
     case 'markaspot_logic_archive_days':
       return '30';
+
+    case 'markaspot_logic_archive_tids':
+      return array(8);
+
+    case 'markaspot_logic_archive_show':
+      return 0;
 
     case 'markaspot_locate_marker_color':
       return 'blue';
@@ -826,31 +850,39 @@ function markaspot_logic_contents($which_block) {
       $list_status .= '<li class="marker-status-wrapper-all '. $list_class .'">' . l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-status'))) . '</li>';
 
       $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+      // Hide Archive status terms from menu
+      $status_archives = array_values(variable_get('markaspot_logic_archive_tids', markaspot_logic_defaults('markaspot_logic_archive_tids')));
+
       foreach ($taxonomies as $term) {
+        // Check for the archived term-tid.
+        $dismiss_term = FALSE;
 
-        $icon_status = array(
-          '#theme'  => 'icon',
-          '#bundle' => $term->field_status_icon[LANGUAGE_NONE][0]['bundle'],
-          '#icon'   => $term->field_status_icon[LANGUAGE_NONE][0]['icon'],
-        );
+        if (variable_get('markaspot_logic_archive_show') == 0) {
+          if(in_array($term->tid, $status_archives)){
+            $dismiss_term = TRUE;
+          }
+        }
+        if ($dismiss_term != TRUE){
+          $icon_status = array(
+            '#theme'  => 'icon',
+            '#bundle' => $term->field_status_icon[LANGUAGE_NONE][0]['bundle'],
+            '#icon'   => $term->field_status_icon[LANGUAGE_NONE][0]['icon'],
+          );
 
-        $list_status .= '<li class="marker-status-wrapper ' . $list_class  .'">' .  l(drupal_render($icon_status) . ' ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
-            'attributes' => array(
-              'class' => 'map-menue marker-status col-' . ltrim($term->field_status_hex[LANGUAGE_NONE][0]['rgb'],'#'),
-              'id' => 'tax-' . $term->tid,
-            ),
-            'html' => TRUE,
-          )) . '</li>';
+          $list_status .= '<li class="marker-status-wrapper ' . $list_class  .'">' .  l(drupal_render($icon_status) . ' ' . views_trim_text($alter, check_plain($term->name)), 'taxonomy/term/' . $term->tid, array(
+                'attributes' => array(
+                  'class' => 'map-menue marker-status col-' . ltrim($term->field_status_hex[LANGUAGE_NONE][0]['rgb'],'#'),
+                  'id' => 'tax-' . $term->tid,
+                ),
+                'html' => TRUE,
+              )
+            ) . '</li>';
+         }
       }
       $list_status .= '</ul>';
       $list_status .= '</div>';
 
       return $list_status;
-
-    case 'markaspot_map':
-      $list_map = NULL;
-      $list_map = '<ul id="markersidebar"></ul>';
-      return $list_map;
 
     default:
       return FALSE;
@@ -898,4 +930,32 @@ function markaspot_logic_get_taxonomy_term_options($machine_name){
   }
 
   return $options;
+}
+
+/**
+ * Implements hook_custom_theme().
+ */
+function markaspot_logic_custom_theme() {
+  if (arg(0) == 'admin' && arg(1) == 'appearance' && arg(2) == 'colorizer') {
+
+    $theme = 'mas';
+    variable_set('admin_theme', 'mas');
+
+    // Check if theme exists and is active.
+    $themes = list_themes();
+    if (isset($themes[$theme]) && $themes[$theme]->status) {
+      return $theme;
+    }
+  } else {
+    variable_set('admin_theme', 'ember');
+  }
+  return 'mas';
+
+}
+
+function markaspot_logic_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'markaspot_logic') . '/includes'
+  );
 }
