@@ -11,7 +11,11 @@ regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
+regions[front_welcome_text]  = 'Front Page Welcome Text'
+regions[front_welcome_buttons]  = 'Front Page Welcome Buttons'
+regions[front_image]    = 'Front Page Image'
 regions[content]        = 'Content'
+regions[map]            = 'Map'
 regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
@@ -57,7 +61,6 @@ settings[bootstrap_cdn] = ''
 ; custom mas scripts
 
 scripts[] = 'js/mas.js'
-
 
 ; Global
 ; --------------

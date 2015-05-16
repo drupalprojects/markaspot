@@ -1,5 +1,19 @@
-// Map filter
 
+.page-map div#map,
+.page-list div#map {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body.page-node div#map {
+  height: 250px;
+}
+
+
+// Map filter
 
 .page-map .col-FFA500 {
   color: @orange;
@@ -51,19 +65,15 @@
 section#block-markaspot-logic-taxonomy-status {
   position: absolute;
   left: 50px;
-  bottom: 30px;
+  top:  120px;
   display: none;
 }
 
 section#block-markaspot-logic-taxonomy-category {
   position: absolute;
   left: 50px;
-  bottom: 250px;
+  top: 340px;
   display: none;
-}
-
-ul.group-list {
-  padding: 0;
 }
 
 #block-markaspot-logic-taxonomy-category,
@@ -74,8 +84,6 @@ ul.group-list {
 #block-markaspot-logic-taxonomy-category:hover,
 #block-markaspot-logic-taxonomy-status:hover {
   opacity: 1;
-  border: none;
-  box-shadow: none;
 }
 
 .page-map .btn.btn-primary {
@@ -96,36 +104,40 @@ ul.group-list {
   display: none;
 }
 
-
-
-.page-map li.list-group-item  a{
-  padding: 5px 10px
+.marker-category-wrapper-all a,
+.marker-status-wrapper-all a,
+.marker-category-wrapper a,
+.marker-status-wrapper a{
+  display: block;
 }
+
 
 .marker-category-wrapper-all,
 .marker-status-wrapper-all,
 .marker-category-wrapper,
 .marker-status-wrapper {
-  background: rgba(225,225,225, 0.8);
+  background: rgba(225,225,225, 0.2);
   border: 1px solid #fff;
 
-  @media screen and (max-width: @screen-lg-min) {
-    width: 400px;
-    font-size: 13px;
-    padding: 4px
-  }
-  @media screen and (max-width: @screen-md-min) {
+  @media screen and (min-width: @screen-lg-min) {
     width: 300px;
     font-size: 14px;
+    padding: 10px;
+  }
+  @media screen and (max-width: @screen-lg-min) {
+    width: 250px;
+    font-size: 13px;
+    padding: 7px;
   }
   @media screen and (max-width: @screen-sm-min) {
-    width: 250px;
+    width: 200px;
     font-size: 10px;
+    padding: 5px;
   }
   @media screen and (max-width: @screen-xs-min) {
     width: 200px;
-    padding: 2px;
     font-size: 10px;
+    padding: 5px;
   }
 }
 
@@ -142,10 +154,6 @@ ul.group-list {
   top: 125px;
 }
 
-.navbar-btn.btn-group.dropdown {
-  margin-left: 10px;
-}
-
 .front .leaflet-control-container {
   display: none;
 }
@@ -153,4 +161,129 @@ ul.group-list {
 
 .popover{
   max-width:300px;
+}
+
+section#block-markaspot-logic-taxonomy-status,
+section#block-markaspot-logic-taxonomy-category,
+{
+  z-index:1;
+  background: rgba(225,225,225, 0.8);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.status,
+.category {
+  margin: 10px;
+}
+
+.status h3,
+.category h3 {
+  margin: 0 0 0 5px;
+  font-size: 100%;
+  font-weight: 100;
+}
+
+
+
+.status h3:after,
+.category h3:after {
+  content: '';
+  width: 100%;
+  height: 30px;
+  padding: 0;
+  position: absolute;
+  z-index:999;
+  left: 0;
+  top:30px;
+  opacity:0.9;
+  background: -webkit-linear-gradient(180deg, rgba(225,225,225, 0.8), transparent);
+  background: -o-linear-gradient(180deg, rgba(225,225,225, 0.8), transparent);
+  background: -moz-linear-gradient(180deg, rgba(225,225,225, 0.8), transparent);
+  background: linear-gradient(180deg, rgba(225,225,225, 0.8), transparent);
+}
+
+
+
+ul.group-list {
+  overflow: auto;
+  margin: 10px 2px;
+  padding: 0;
+  @media screen and (min-width: @screen-lg-min) {
+    height: 160px;
+
+  }
+  @media screen and (max-width: @screen-lg-min) {
+    height: 160px;
+
+  }
+  @media screen and (max-width: @screen-sm-min) {
+    height: 100px;
+
+  }
+  @media screen and (max-width: @screen-xs-min) {
+    height: 90px;
+  }
+}
+ul.group-list:after {
+  content: '';
+  width: 100%;
+  height: 40px;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  background: -webkit-linear-gradient(0deg, rgba(225,225,225, 0.8), transparent);
+  background: -o-linear-gradient(0deg, rgba(225,225,225, 0.8), transparent);
+  background: -moz-linear-gradient(0deg, rgba(225,225,225, 0.8), transparent);
+  background: linear-gradient(0deg, rgba(225,225,225, 0.8), transparent);
+}
+
+ul.group-list:after {
+  @media screen and (min-width: @screen-lg-min) {
+    height: 80px;
+    top: 120px;
+  }
+  @media screen and (max-width: @screen-lg-min) {
+    height: 80px;
+    top: 120px;
+  }
+  @media screen and (max-width: @screen-sm-min) {
+    height: 50px;
+    top: 100px;
+  }
+  @media screen and (max-width: @screen-xs-min) {
+    height: 40px;
+    top: 90px;
+
+  }
+}
+
+
+
+ul.group-list li:hover {
+  background-color: #ccc;
+}
+
+ul.group-list li a:hover {
+  text-decoration: none;
+  margin: 0 0 0 10px;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+ul.group-list li a:not(:hover) {
+  text-decoration: none;
+  margin: 0;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+
+.leaflet-bar {
+  box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+  border-radius: 4px;
 }
