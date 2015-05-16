@@ -63,25 +63,19 @@
       <div class="col-md-7">
         <div class="welcome-text well">
           <?php
-            // If you don't want bootstrap carousel to welcome visitors
-            // you can use this block:
-            $block = module_invoke('markaspot_default_content', 'block_view', 'welcome');
-            print render($block['content']);
+            print render($page['front_welcome_text']);
           ?>
         </div>
         <div class="welcome">
           <?php
-            $block = module_invoke('markaspot_default_content', 'block_view', 'add_reports');
-            print render($block['content']);
-          ?>
-          <?php
-            $block = module_invoke('markaspot_default_content', 'block_view', 'watch_reports');
-            print render($block['content']);
+            print render($page['front_welcome_buttons']);
           ?>
         </div>
       </div>
-      <div class="col-md-4 col-md-offset-1 thumbnail">
-        <img class="img-responsive" src="profiles/markaspot/themes/mas/images/flickr_by_realname_garbage-tonal-decay.jpg" alt="" width="720" height="480">
+      <div class="col-md-4 col-md-offset-1">
+        <?php
+           print render($page['front_image']);
+        ?>
       </div>
     </div>
   </div>
@@ -117,7 +111,7 @@
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
 
-      <div class="well media gallery">
+      <div class="well clearfix gallery">
         <h3>
           <?php print t('Reports with Media'); ?>
         </h3>

@@ -339,17 +339,21 @@ function _markaspot_create_pages($operation, &$context) {
  */
 function _markaspot_build_blocks($operation, &$context) {
   _markaspot_activate_block('views', 'report_log-report_log', 'content', 'mas', 'node/*', '1', '5');
-  _markaspot_activate_block('markaspot_logic', 'taxonomy_category', 'footer', 'mas', 'map', '1', '0');
-  _markaspot_activate_block('markaspot_logic', 'taxonomy_status', 'footer', 'mas', 'map', '1', '0');
+  _markaspot_activate_block('markaspot_logic', 'taxonomy_category', 'map', 'mas', 'map', '1', '0');
+  _markaspot_activate_block('markaspot_logic', 'taxonomy_status', 'map', 'mas', 'map', '1', '0');
   _markaspot_activate_block('markaspot_logic', 'markaspot_map', 'sidebar_second', 'mas', 'map', '1', '0');
   _markaspot_activate_block('system', 'navigation', 'sidebar_second', 'mas', '<front>' . "\n" . 'node/7' . "\n" . 'node/8', '1', '0');
   _markaspot_activate_block('menu', 'menu-secondary-navigation', 'footer', 'mas', 'admin' . "\n" . 'admin/*', '0', '0');
   _markaspot_activate_block('user', 'login', 'sidebar_second', 'mas', '<front>' . "\n" . 'node/7' . "\n" . 'node/8', '1', '0');
-  _markaspot_activate_block('markaspot_default_content', 'welcome', 'content', 'mas', '<front>', '1', '0');
-  _markaspot_activate_block('markaspot_default_content', 'search_id', 'sidebar_second', 'mas', '<front>' . "\n" . 'node/7' . "\n" . 'node/8', '1', '0');
   _markaspot_activate_block('markaspot_stats', 'markaspot_stats', 'sidebar_second', 'mas', '<front>' . "\n" . 'node/7' . "\n" . 'node/8', '1', '0');
   _markaspot_activate_block('comment', 'recent', 'sidebar_second', 'mas', '<front>', '1', '0');
   _markaspot_activate_block('user', 'new', 'sidebar_second', 'mas', '<front>', '1', '0');
+  _markaspot_activate_block('imageblock', '1', 'front_image', 'mas', '<front>', '1', '0');
+  _markaspot_activate_block('markaspot_default_content', 'add_reports', 'front_welcome_buttons', 'mas', '<front>', '1', '0');
+  _markaspot_activate_block('markaspot_default_content', 'watch_reports', 'front_welcome_buttons', 'mas', '<front>', '1', '0');
+  _markaspot_activate_block('markaspot_default_content', 'welcome', 'front_welcome_text', 'mas', '<front>', '1', '0');
+  _markaspot_activate_block('markaspot_default_content', 'search_id', 'sidebar_second', 'mas', '<front>' . "\n" . 'node/7' . "\n" . 'node/8', '1', '0');
+
   $context['message'] = t('@operation', array('@operation' => $operation));
 
 }
@@ -378,6 +382,47 @@ function _markaspot_activate_block($module, $block, $region, $theme, $pages, $vi
       )
     );
     $query->execute();
+  }
+  if($module == 'imageblock') {
+
+    $data  = array(
+      'visibility' => 1,
+      'pages' => 'front',
+      'info' => 'Image for front page',
+      'module' => 'imageblock',
+      'body' => array(
+        'value' => '<p>Image for front page</p>',
+        'format' => 'filtered_html'
+       )
+     );
+
+    module_enable(array('imageblock'));
+
+    if (module_exists('imageblock')) {
+      module_load_include('inc', 'imageblock', 'imageblock.admin');
+
+      $form_state['values'] = $data;
+
+      imageblock_add_block_form_submit($form, $form_state);
+
+
+      $image_name = 'flickr_by_mikebaird_abandoned_car_4585329947';
+      $filename = 'image_' . $image_name . '.jpg';
+
+      $image = file_get_contents('profiles/markaspot/themes/mas/images/' . $image_name . '.jpg');
+      $file = file_save_data($image, 'public://' . $filename, FILE_EXISTS_RENAME);
+
+      db_update('imageblock')
+        ->fields(array(
+          'body'   => $data['body']['value'],
+          'info'   => $data['info'],
+          'format' => $data['body']['format'],
+          'fid'    => $file->fid,
+          'data'   => serialize($data),
+        ))
+        ->condition('bid', 1)
+        ->execute();
+    }
   }
 }
 /**
