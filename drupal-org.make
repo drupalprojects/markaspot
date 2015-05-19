@@ -28,7 +28,8 @@ projects[references_dialog][subdir] = "contrib"
 projects[color_field][subdir] = "contrib"
 projects[fontawesome][subdir] = "contrib"
 projects[views_bulk_operations][subdir] = "contrib"
-
+projects[colorizer][subdir] = "contrib"
+projects[imageblock][subdir] = "contrib"
 projects[views_geojson][subdir] = "contrib"
 
 
