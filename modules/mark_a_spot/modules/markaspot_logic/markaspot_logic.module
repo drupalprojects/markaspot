@@ -839,7 +839,9 @@ function markaspot_logic_contents($which_block) {
       $alter['ellipsis'] = TRUE;
 
       $list_category .= '<li class="marker-category-wrapper-all' . $list_class .' first">' . l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-category'))) . '</li>';
-      $taxonomies = taxonomy_get_tree(1, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+
+      $vid = taxonomy_vocabulary_machine_name_load('category')->vid;
+      $taxonomies = taxonomy_get_tree($vid, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       foreach ($taxonomies as $term) {
 
         $icon_category = array(
@@ -875,7 +877,8 @@ function markaspot_logic_contents($which_block) {
 
       $list_status .= '<li class="marker-status-wrapper-all '. $list_class .'">' . l(t('All'), '', array('attributes' => array('class' => 'map-menue-all marker-status'))) . '</li>';
 
-      $taxonomies = taxonomy_get_tree(2, $parent = 0, $max_depth = 1, $load_entities = TRUE);
+      $vid = taxonomy_vocabulary_machine_name_load('status')->vid;
+      $taxonomies = taxonomy_get_tree($vid, $parent = 0, $max_depth = 1, $load_entities = TRUE);
       // Hide Archive status terms from menu
       $status_archives = array_values(variable_get('markaspot_logic_archive_tids', markaspot_logic_defaults('markaspot_logic_archive_tids')));
 
