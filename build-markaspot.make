@@ -7,7 +7,7 @@ core = 7.x
 projects[drupal][type] = core
 projects[drupal][version] = 7.38
 projects[drupal][download][type] = get
-projects[drupal][download][url] = http://ftp.drupal.org/files/projects/drupal-7.37.tar.gz
+projects[drupal][download][url] = http://ftp.drupal.org/files/projects/drupal-7.38.tar.gz
 
 ; Mark-a-Spot Profile
 projects[markaspot][type] = profile
