@@ -166,43 +166,46 @@ function markaspot_log_node_update($node) {
   $data = new stdClass();
   global $user;
 
-  if (in_array('Citizen', $user->roles)  && $node->type == 'report') {
-
-    if ($node->nid) {
-      $data = array(
-        'message' => t('The report has been edited by Citizen'),
-        'level'  => 'warning',
-        'css_class'   => 'edit',
-      );
+  // Fixed: Notice and added node type condition for all code
+  if ($node->type == 'report') {
+    if (in_array('Citizen', $user->roles)) {
+  
+      if ($node->nid) {
+        $data = array(
+          'message' => t('The report has been edited by Citizen'),
+          'level'  => 'warning',
+          'css_class'   => 'edit',
+        );
+      }
     }
-  }
-
-  if (in_array('administrator', $user->roles) ||
-      in_array('Management', $user->roles) || in_array('City Admin', $user->roles)) {
-
-    // Get report status for coloring log label.
-    $tids = array_values(variable_get('markaspot_logic_open311_status_closed'));
-    $level = (in_array($node->field_status[LANGUAGE_NONE][0]['tid'], $tids)) ? 'success' : 'warning';
-
-    if ($node->nid) {
-      $data = array(
-        'message' => t('The report has been edited by City Administration'),
-        'level'  => $level,
-        'css_class'   => 'check',
-      );
+  
+    if (in_array('administrator', $user->roles) ||
+        in_array('Management', $user->roles) || in_array('City Admin', $user->roles)) {
+  
+      // Get report status for coloring log label.
+      $tids = array_values(variable_get('markaspot_logic_open311_status_closed'));
+      $level = (in_array($node->field_status[LANGUAGE_NONE][0]['tid'], $tids)) ? 'success' : 'warning';
+  
+      if ($node->nid) {
+        $data = array(
+          'message' => t('The report has been edited by City Administration'),
+          'level'  => $level,
+          'css_class'   => 'check',
+        );
+      }
     }
-  }
-  $data = (object) $data;
-
-  unset($data->nid);
-
-  $data->uid = $user->uid;
-  $data->nid = $node->nid;
-
-  $data->created = time();
-  $data->modified = time();
-  if(isset($data->message)){
-    markaspot_log_write_log($data);
+    $data = (object) $data;
+  
+    unset($data->nid);
+  
+    $data->uid = $user->uid;
+    $data->nid = $node->nid;
+  
+    $data->created = time();
+    $data->modified = time();
+    if(isset($data->message)){
+      markaspot_log_write_log($data);
+    }
   }
 }
 
