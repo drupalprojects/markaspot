@@ -41,7 +41,7 @@ function markaspot_uuid_generate_uuid($entity) {
  *  Implements hook_entity_presave().
  */
 function markaspot_uuid_entity_presave($entity, $type) {
-  $info = entity_get_info('node');
+  $info = entity_get_info($type);
   if (isset($info['uuid']) && $info['uuid'] == TRUE && !empty($info['entity keys']['uuid'])) {
     $uuid_key = $info['entity keys']['uuid'];
     if (empty($entity->{$uuid_key})) {
@@ -132,7 +132,7 @@ function _markaspot_uuid_sync_table($table, $id_field, $uuid_field) {
   // Fetch all exiting entity ids.
   $result = db_select($table, 't')
     ->fields('t', array($id_field))
-    // ->condition(db_or()->condition($uuid_field, '')->isNull($uuid_field))
+    ->condition(db_or()->condition($uuid_field, '')->isNull($uuid_field))
     ->execute();
 
 
