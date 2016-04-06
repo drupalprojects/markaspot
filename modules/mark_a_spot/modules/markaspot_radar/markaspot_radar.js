@@ -8,8 +8,12 @@
   Drupal.behaviors.markaspotRadar = {
 
     attach: function (context, settings) {
-      Drupal.geolocation.settings = Drupal.geolocation.settings || {};
       Drupal.geolocation = Drupal.geolocation || {};
+      Drupal.geolocation.settings = Drupal.geolocation.settings || {};
+      
+      if (typeof Drupal.settings.geolocation == 'undefined') {
+        return;
+      }
 
       $.each(Drupal.settings.geolocation.defaults, function (i, mapDefaults) {
         var map = Drupal.geolocation.maps[i];
