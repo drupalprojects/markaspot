@@ -275,10 +275,11 @@
         });
 
         Drupal.markaspot.markerClickFn(latlon, html, item.uuid);
-
         size = markerLayer.getLayers().length;
-        Drupal.Markaspot.maps[0].addLayer(markerLayer);
       });
+      
+      Drupal.Markaspot.maps[0].addLayer(markerLayer);
+
       if (size >= 1) {
         Drupal.Markaspot.maps[0].fitBounds(markerLayer.getBounds());
       }
